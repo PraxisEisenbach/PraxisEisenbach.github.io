@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Meine erste Webseite</title>
+    <!-- Tailwind CSS wird für einfaches Styling geladen -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Festlegen der Inter-Schriftart für die gesamte Seite */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello World!</h1>
-    <p>Willkommen auf meiner ersten einfachen Webseite.</p>
+<body class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+    <!-- Hauptcontainer für den Inhalt, zentriert und mit abgerundeten Ecken -->
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
+        <!-- Überschrift mit "Hello World!" -->
+        <h1 class="text-4xl font-bold text-blue-600 mb-4">Hello World!</h1>
+        <!-- Begrüßungstext -->
+        <p class="text-gray-700 text-lg">Willkommen auf deiner ersten einfachen Webseite.</p>
+    </div>
 </body>
 </html>
