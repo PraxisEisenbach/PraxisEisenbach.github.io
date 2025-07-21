@@ -1,25 +1,56 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine erste Webseite</title>
-    <!-- Tailwind CSS wird für einfaches Styling geladen -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Festlegen der Inter-Schriftart für die gesamte Seite */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
+<title>Willkommen</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  header {
+    background-color: #628069; /* Grün */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: white;
+  }
+  .header-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  .header-image {
+    flex: 1;
+    text-align: left;
+  }
+  .header-image img {
+    max-width: 200px; /* Sie können die Größe nach Bedarf anpassen */
+    height: auto;
+    display: block;
+  }
+  .header-text-container {
+    flex: 1;
+    text-align: right;
+    background-color: #e3a88c; /* Terracotta */
+    padding: 20px;
+    margin-left: 20px; /* Abstand zwischen Bild und Textfeld */
+    color: black; /* Textfarbe für das Textfeld anpassen, falls nötig */
+  }
+</style>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-    <!-- Hauptcontainer für den Inhalt, zentriert und mit abgerundeten Ecken -->
-    <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
-        <!-- Überschrift mit "Hello World!" -->
-        <h1 class="text-4xl font-bold text-blue-600 mb-4">Hello World!</h1>
-        <!-- Begrüßungstext -->
-        <p class="text-gray-700 text-lg">Willkommen auf deiner ersten einfachen Webseite.</p>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="header-image">
+      <img src="Willkommen Portrait.jpg" alt="Portrait">
     </div>
+    <div class="header-text-container">
+      <h2>Willkommen auf unserer Website!</h2>
+      <p>Dies ist ein Beispieltext für das Textfeld in der Kopfzeile.</p>
+    </div>
+  </div>
+</header>
+
 </body>
 </html>
