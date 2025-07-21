@@ -13,28 +13,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        /* --- NEUER CODE FÜR DEN HOVER-EFFEKT --- */
-        .nav-link {
-            position: relative; /* Basis für die Animation */
-            padding-bottom: 4px; /* Etwas Platz für den Unterstrich */
-        }
-
-        .nav-link::after {
-            content: ''; /* Notwendig für Pseudoelemente */
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0; /* Am Anfang ist der Strich unsichtbar */
-            height: 2px; /* Dicke des Strichs */
-            background-color: white; /* Farbe des Strichs */
-            transition: width 0.3s ease-out; /* Die Animation selbst */
-        }
-
-        .nav-link:hover::after {
-            width: 100%; /* Bei hover wird der Strich auf volle Breite animiert */
-        }
-        /* --- ENDE DES NEUEN CODES --- */
     </style>
 </head>
 <body class="bg-gray-100">
@@ -45,12 +23,12 @@
                 <p class="text-xl mt-1 rounded-md">Psychologische Psychotherapeutin</p>
             </div>
             <nav>
-                <ul class="flex space-x-4 items-center">
-                    <li><a href="#" class="nav-link text-white transition-opacity hover:opacity-80">Willkommen</a></li>
-                    <li><a href="#" class="nav-link text-white transition-opacity hover:opacity-80">Psychotherapie für Sie</a></li>
-                    <li><a href="#" class="nav-link text-white transition-opacity hover:opacity-80">Über mich</a></li>
-                    <li><a href="#" class="nav-link text-white transition-opacity hover:opacity-80">FAQ</a></li>
-                    <li><a href="#" class="bg-[#9F4636] px-3 py-2 text-white rounded-md hover:opacity-90 shadow-lg">Kontakt</a></li>
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="#" class="text-lg text-white transition-colors duration-300 hover:text-gray-200">Willkommen</a></li>
+                    <li><a href="#" class="text-lg text-white transition-colors duration-300 hover:text-gray-200">Psychotherapie für Sie</a></li>
+                    <li><a href="#" class="text-lg text-white transition-colors duration-300 hover:text-gray-200">Über mich</a></li>
+                    <li><a href="#" class="text-lg text-white transition-colors duration-300 hover:text-gray-200">FAQ</a></li>
+                    <li><a href="#" class="bg-[#9F4636] px-4 py-2 text-white rounded-md hover:opacity-90 shadow-lg">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
