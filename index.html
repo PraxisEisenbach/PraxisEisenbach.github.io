@@ -1,56 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-<title>Willkommen</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  header {
-    background-color: #628069; /* Grün */
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    color: white;
-  }
-  .header-content {
-    display: flex;
-    width: 100%;
-    align-items: center;
-  }
-  .header-image {
-    flex: 1;
-    text-align: left;
-  }
-  .header-image img {
-    max-width: 200px; /* Sie können die Größe nach Bedarf anpassen */
-    height: auto;
-    display: block;
-  }
-  .header-text-container {
-    flex: 1;
-    text-align: right;
-    background-color: #e3a88c; /* Terracotta */
-    padding: 20px;
-    margin-left: 20px; /* Abstand zwischen Bild und Textfeld */
-    color: black; /* Textfarbe für das Textfeld anpassen, falls nötig */
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for better aesthetics */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-100">
+    <!-- Header Section -->
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Left side content: Name and Profession -->
+            <div class="flex flex-col">
+                <h1 class="text-3xl font-bold rounded-md">Lisa Eisenbach</h1>
+                <p class="text-lg mt-1 rounded-md">Psychologische Psychotherapeutin</p>
+            </div>
+            <!-- Navigation (can be expanded later) -->
+            <nav>
+                <ul class="flex space-x-4">
+                    <!-- Example navigation links -->
+                    <li><a href="#" class="hover:underline text-white rounded-md">Startseite</a></li>
+                    <li><a href="#" class="hover:underline text-white rounded-md">Leistungen</a></li>
+                    <li><a href="#" class="hover:underline text-white rounded-md">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-  <div class="header-content">
-    <div class="header-image">
-      <img src="Willkommen Portrait.jpg" alt="Portrait">
-    </div>
-    <div class="header-text-container">
-      <h2>Willkommen auf unserer Website!!!</h2>
-      <p>Dies ist ein Beispieltext für das Textfeld in der Kopfzeile.</p>
-    </div>
-  </div>
-</header>
+    <!-- Main Content Section -->
+    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-lg">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+            <!-- Image Section -->
+            <div class="md:w-1/3 flex justify-center">
+                <img src="Willkommen Portrait.jpg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-sm md:max-w-full h-auto object-cover">
+            </div>
+            <!-- Text Content Section -->
+            <div class="md:w-2/3">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Willkommen auf meiner Webseite</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Herzlich willkommen auf meiner Webseite! Mein Name ist Lisa Eisenbach, und ich bin Psychologische Psychotherapeutin.
+                    Ich freue mich, Sie hier begrüßen zu dürfen und Ihnen einen Einblick in meine Arbeit zu geben.
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    Auf den folgenden Seiten erfahren Sie mehr über meine Leistungen, meinen therapeutischen Ansatz und wie Sie mich für ein Erstgespräch kontaktieren können.
+                    Mein Ziel ist es, Ihnen in einem geschützten Rahmen Unterstützung und Begleitung anzubieten, um gemeinsam Wege aus schwierigen Lebenssituationen zu finden und Ihre psychische Gesundheit zu stärken.
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    Ich lade Sie ein, sich umzusehen und bei Fragen oder dem Wunsch nach einem persönlichen Gespräch Kontakt mit mir aufzunehmen.
+                </p>
+            </div>
+        </div>
+    </main>
 
+    <!-- Footer Section (Placeholder) -->
+    <footer class="bg-gray-800 text-white p-4 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 </body>
 </html>
