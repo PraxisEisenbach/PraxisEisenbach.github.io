@@ -1,0 +1,224 @@
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom font for better aesthetics */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom animation for check-up statements (retained from previous request) */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-checkup-item {
+            animation: fadeInSlideUp 0.8s ease-out forwards;
+            opacity: 0; /* Start invisible */
+        }
+
+        /* Styling for the details/summary (accordion) elements */
+        details {
+            margin-bottom: 1rem; /* Space between accordion items */
+            border: 1px solid #e5e7eb; /* Light border */
+            border-radius: 0.5rem; /* Rounded corners */
+            background-color: #f9fafb; /* Slightly different background for distinction */
+        }
+
+        summary {
+            padding: 1rem;
+            font-weight: 600; /* Semi-bold for the title */
+            cursor: pointer;
+            outline: none; /* Remove default outline on focus */
+            display: block; /* Ensures the whole area is clickable */
+            position: relative;
+            color: #374151; /* Darker text for summary */
+        }
+
+        summary::-webkit-details-marker {
+            display: none; /* Hide default marker */
+        }
+
+        summary::after {
+            content: '+'; /* Custom plus icon */
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        details[open] summary::after {
+            content: '-'; /* Custom minus icon when open */
+            transform: translateY(-50%) rotate(0deg); /* No rotation needed for minus */
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #e5e7eb; /* Separator when open */
+        }
+
+        .details-content {
+            padding: 1rem;
+            color: #4b5563; /* Slightly lighter text for content */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header Section -->
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Left side content: Name and Profession -->
+            <div class="flex flex-col">
+                <h1 class="text-3xl font-bold rounded-md">Lisa Eisenbach</h1>
+                <p class="text-lg mt-1 rounded-md">Psychologische Psychotherapeutin</p>
+            </div>
+            <!-- Navigation -->
+            <nav class="flex flex-col items-end">
+                <!-- Top row for icons -->
+                <div class="flex space-x-4 mb-2">
+                    <a href="tel:+49123456789" class="text-white hover:text-gray-200" aria-label="Telefonnummer"><i class="fas fa-phone text-xl"></i></a>
+                    <a href="mailto:info@lisaeisenbach.de" class="text-white hover:text-gray-200" aria-label="E-Mail-Adresse"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+                <!-- Bottom row for menu items -->
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:underline text-white rounded-md">Willkommen</a></li>
+                    <!-- Psychotherapie für Sie menu item with background color (shadow removed) -->
+                    <li><a href="#" class="bg-[#e3a88c] px-3 py-2 text-white rounded-md hover:opacity-90">Psychotherapie für Sie</a></li>
+                    <li><a href="#" class="hover:underline text-white rounded-md">Über mich</a></li>
+                    <li><a href="#" class="hover:underline text-white rounded-md">FAQ</a></li>
+                    <!-- Kontakt menu item with background color and shadow for 3D effect -->
+                    <li><a href="#" class="bg-[#9F4636] px-3 py-2 text-white rounded-md hover:opacity-90 shadow-lg">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section with a stronger shadow for a 3D effect -->
+    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-lg">
+        <p class="text-gray-700 leading-relaxed mb-4 font-bold text-xl">
+            Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            Machen Sie den Check-up!
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 text-gray-700 leading-relaxed mb-6">
+            <p class="animate-checkup-item" style="animation-delay: 0.1s;">Alles fühlt sich so schwer an.</p>
+            <p class="animate-checkup-item" style="animation-delay: 0.3s;">Ich komme einfach nicht mehr zur Ruhe.</p>
+            <p class="animate-checkup-item" style="animation-delay: 0.5s;">Es ist alles viel zu viel.</p>
+            <p class="animate-checkup-item" style="animation-delay: 0.7s;">So kann es doch nicht weitergehen.</p>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-4">
+            Sie können diesen Aussagen größtenteils zustimmen?
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Das ist ganz normal! Jeder Mensch erlebt im Laufe seines Lebens schwere Momente.
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mb-4 font-semibold">
+            Also dann doch keine Psychotherapie?
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.
+            Häufige psychische Erkrankungen sind z.B.:
+        </p>
+
+        <!-- Accordion for psychological conditions - now in a two-column grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <details>
+                <summary>Depressionen</summary>
+                <div class="details-content">
+                    <p>
+                        z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken; Rastlosigkeit
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Angststörungen</summary>
+                <div class="details-content">
+                    <p>
+                        z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, Sicherheitsverhalten, ständige Sorgen
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Essstörungen</summary>
+                <div class="details-content">
+                    <p>
+                        z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Schlafstörungen</summary>
+                <div class="details-content">
+                    <p>
+                        z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Schmerzen</summary>
+                <div class="details-content">
+                    <p>
+                        z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Persönlichkeitsstörungen</summary>
+                <div class="details-content">
+                    <p>
+                        Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen
+                    </p>
+                </div>
+            </details>
+        </div>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mb-4 font-semibold">
+            Also dann doch Psychotherapie?
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.
+        </p>
+
+        <button class="bg-[#9F4636] text-white px-6 py-3 rounded-md shadow-lg hover:opacity-90 transition duration-300 ease-in-out">
+            Termin vereinbaren
+        </button>
+    </main>
+
+    <!-- Footer Section (Placeholder) -->
+    <footer class="bg-gray-800 text-white p-4 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
