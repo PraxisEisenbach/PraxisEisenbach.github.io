@@ -99,10 +99,42 @@
         </div>
     </header>
 
-    <footer class="bg-gray-800 text-white p-4 mt-8 rounded-t-lg">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
-        </div>
-    </footer>
-</body>
-</html>
+    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-lg text-gray-700 leading-relaxed">
+
+        <details class="mb-4">
+            <summary class="text-xl font-bold">Wie lange dauert eine Sitzung?</summary>
+            <div class="details-content">
+                <p>
+                    Eine Therapiesitzung dauert <strong>50 Minuten</strong>. Sie erhalten von mir einen festen Termin, den ich Ihnen für Ihre Therapiedauer wöchentlich fest reserviere.
+                </p>
+            </div>
+        </details>
+
+        <details class="mb-4">
+            <summary class="text-xl font-bold">Und wie lange dauert die gesamte Therapie?</summary>
+            <div class="details-content">
+                <p>
+                    Sie sind individuell. Genauso Ihre Lebenssituation, genauso Ihr Thema. Und genauso Ihre Therapiedauer.
+                </p>
+                <p class="mt-4"><strong>Generell gilt:</strong></p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Erst vor kurzem aufgetretene Symptome und eine ganz klar begrenzte, oberflächlichere Betrachtungsweise &rarr; kurze Therapiedauer.</li>
+                    <li>Chronische Symptome und allumfassende, tiefgründigere Betrachtungsweise &rarr; längere Therapiedauer.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="mb-4">
+            <summary class="text-xl font-bold">Aber so ungefähr?</summary>
+            <div class="details-content">
+                <p>
+                    Zur groben Orientierung: Eine Kurzzeittherapie umfasst normalerweise etwa <strong>24 Sitzungen</strong>, eine Langzeittherapie <strong>45 bis 60 Sitzungen</strong>. Coaching dauert in der Regel zwischen <strong>1 und 10 Sitzungen</strong>.
+                </p>
+            </div>
+        </details>
+
+        <details class="mb-4">
+            <summary class="text-xl font-bold">Und was genau erwartet mich? Wie läuft das ab?</summary>
+            <div class="details-content">
+                <p><strong>Zeitlich gesprochen:</strong></p>
+                <ol class="list-decimal list-inside ml-4">
