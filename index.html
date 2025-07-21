@@ -9,9 +9,18 @@
         /* Custom font for better aesthetics */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
         body {
-            font-family: 'Montserrat', sans-serif; /* Geändert auf Montserrat */
+            font-family: 'Montserrat', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        /* Custom style for the mobile menu transition */
+        .mobile-menu {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+            max-height: 0;
+        }
+        .mobile-menu.open {
+            max-height: 500px; /* Adjust as needed for content height */
         }
     </style>
 </head>
@@ -22,7 +31,16 @@
                 <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
                 <p class="text-xl mt-1 rounded-md">Psychologische Psychotherapeutin</p>
             </div>
-            <nav>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
                     <li><a href="#" class="text-xl text-white transition-colors duration-300 hover:text-[#d1b280]">Willkommen</a></li>
                     <li><a href="#" class="text-xl text-white transition-colors duration-300 hover:text-[#d1b280]">Bin ich richtig hier?</a></li>
@@ -31,6 +49,16 @@
                     <li><a href="#" class="bg-[#9F4636] px-4 py-2 text-white rounded-md hover:opacity-90 shadow-lg">Kontakt</a></li>
                 </ul>
             </nav>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
+            <ul class="flex flex-col items-center space-y-4 pt-4">
+                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Willkommen</a></li>
+                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Bin ich richtig hier?</a></li>
+                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
+                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">FAQ</a></li>
+                <li><a href="#" class="bg-[#9F4636] px-4 py-2 text-white rounded-md hover:opacity-90 shadow-lg">Kontakt</a></li>
+            </ul>
         </div>
     </header>
 
@@ -61,5 +89,14 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
