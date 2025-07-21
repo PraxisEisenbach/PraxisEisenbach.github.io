@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -14,20 +15,20 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* Custom animation for check-up statements (retained from previous request) */
-        @keyframes fadeInSlideUp {
+        /* Reverted to custom animation: Fade in and slight scale up */
+        @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: scale(0.95); /* Start slightly smaller */
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1); /* End at original size */
             }
         }
 
         .animate-checkup-item {
-            animation: fadeInSlideUp 0.8s ease-out forwards;
+            animation: fadeInScale 0.8s ease-out forwards; /* Apply the fadeInScale animation */
             opacity: 0; /* Start invisible */
         }
 
@@ -112,21 +113,24 @@
         <p class="text-gray-700 leading-relaxed mb-4 font-bold text-xl">
             Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
         </p>
-        <p class="text-gray-700 leading-relaxed mb-4">
+        <p class="text-gray-700 leading-relaxed mb-4 pl-16">
             Machen Sie den Check-up!
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 text-gray-700 leading-relaxed mb-6">
-            <p class="animate-checkup-item" style="animation-delay: 0.1s;">Alles fühlt sich so schwer an.</p>
-            <p class="animate-checkup-item" style="animation-delay: 0.3s;">Ich komme einfach nicht mehr zur Ruhe.</p>
-            <p class="animate-checkup-item" style="animation-delay: 0.5s;">Es ist alles viel zu viel.</p>
-            <p class="animate-checkup-item" style="animation-delay: 0.7s;">So kann es doch nicht weitergehen.</p>
+        <!-- Box around the four check-up statements with background color and rounded corners -->
+        <div class="bg-[#9F4636] p-6 rounded-lg text-white mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 leading-relaxed">
+                <p class="animate-checkup-item" style="animation-delay: 0.1s;">Alles fühlt sich so schwer an.</p>
+                <p class="animate-checkup-item" style="animation-delay: 0.3s;">Ich komme einfach nicht mehr zur Ruhe.</p>
+                <p class="animate-checkup-item" style="animation-delay: 0.5s;">Es ist alles viel zu viel.</p>
+                <p class="animate-checkup-item" style="animation-delay: 0.7s;">So kann es doch nicht weitergehen.</p>
+            </div>
         </div>
 
-        <p class="text-gray-700 leading-relaxed mb-4">
+        <p class="text-gray-700 leading-relaxed mb-2">
             Sie können diesen Aussagen größtenteils zustimmen?
         </p>
         <p class="text-gray-700 leading-relaxed mb-4">
-            Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?
+            Sie sehnen sich nach <span class="font-bold">Unbeschwertheit, Orientierung und Perspektive</span>?
         </p>
 
         <p class="text-gray-700 leading-relaxed mb-6">
