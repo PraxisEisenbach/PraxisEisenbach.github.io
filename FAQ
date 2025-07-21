@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom font for better aesthetics */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Reverted to custom animation: Fade in and slight scale up */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95); /* Start slightly smaller */
+            }
+            to {
+                opacity: 1;
+                transform: scale(1); /* End at original size */
+            }
+        }
+
+        .animate-checkup-item {
+            animation: fadeInScale 0.8s ease-out forwards; /* Apply the fadeInScale animation */
+            opacity: 0; /* Start invisible */
+        }
+
+        /* Styling for the details/summary (accordion) elements */
+        details {
+            margin-bottom: 1rem; /* Space between accordion items */
+            border: 1px solid #e5e7eb; /* Light border */
+            border-radius: 0.5rem; /* Rounded corners */
+            background-color: #f9fafb; /* Slightly different background for distinction */
+        }
+
+        summary {
+            padding: 1rem;
+            font-weight: 600; /* Semi-bold for the title */
+            cursor: pointer;
+            outline: none; /* Remove default outline on focus */
+            display: block; /* Ensures the whole area is clickable */
+            position: relative;
+            color: #374151; /* Darker text for summary */
+        }
+
+        summary::-webkit-details-marker {
+            display: none; /* Hide default marker */
+        }
+
+        summary::after {
+            content: '+'; /* Custom plus icon */
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        details[open] summary::after {
+            content: '-'; /* Custom minus icon when open */
+            transform: translateY(-50%) rotate(0deg); /* No rotation needed for minus */
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #e5e7eb; /* Separator when open */
+        }
+
+        .details-content {
+            padding: 1rem;
+            color: #4b5563; /* Slightly lighter text for content */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex flex-col">
+                <h1 class="text-3xl font-bold rounded-md">Lisa Eisenbach</h1>
+                <p class="text-lg mt-1 rounded-md">Psychologische Psychotherapeutin</p>
+            </div>
+            <nav class="flex flex-col items-end">
+                <div class="flex space-x-4 mb-2">
+                    <a href="tel:+49123456789" class="text-white hover:text-gray-200" aria-label="Telefonnummer"><i class="fas fa-phone text-xl"></i></a>
+                    <a href="mailto:info@lisaeisenbach.de" class="text-white hover:text-gray-200" aria-label="E-Mail-Adresse"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:underline text-white rounded-md">Willkommen</a></li>
+                    <li><a href="#" class="px-3 py-2 text-white rounded-md hover:opacity-90">Psychotherapie für Sie</a></li>
+                    <li><a href="#" class="hover:underline text-white rounded-md">Über mich</a></li>
+                    <li><a href="#" class="bg-[#9F4636] px-3 py-2 text-white rounded-md hover:opacity-90">FAQ</a></li>
+                    <li><a href="#" class="bg-[#9F4636] px-3 py-2 text-white rounded-md hover:opacity-90 shadow-lg">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <footer class="bg-gray-800 text-white p-4 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
