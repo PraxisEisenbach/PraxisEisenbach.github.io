@@ -48,6 +48,17 @@
         .accordion-content.open {
             /* max-height wird dynamisch per JS gesetzt */
         }
+
+        /* Styles für verzögertes Erscheinen */
+        .fade-in-item {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -148,34 +159,39 @@
         <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
                 <ul class="space-y-2">
-                    <li class="flex items-center">
+                    <li class="flex items-center fade-in-item">
                         <i class="far fa-check-square mr-3 text-xl"></i>
                         <span>Alles fühlt sich so schwer an.</span>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-center fade-in-item">
                         <i class="far fa-check-square mr-3 text-xl"></i>
                         <span>Es ist alles viel zu viel.</span>
                     </li>
                 </ul>
                 <ul class="space-y-2">
-                    <li class="flex items-center">
+                    <li class="flex items-center fade-in-item">
                         <i class="far fa-check-square mr-3 text-xl"></i>
                         <span>Ich komme einfach nicht mehr zur Ruhe.</span>
                     </li>
-                    <li class="flex items-center">
+                    <li class="flex items-center fade-in-item">
                         <i class="far fa-check-square mr-3 text-xl"></i>
                         <span>So kann es doch nicht weitergehen.</span>
                     </li>
                 </ul>
             </div>
 
-            <p class="text-gray-800 leading-relaxed text-lg mb-6">
+            <p class="text-gray-800 leading-relaxed text-lg">
                 Sie können diesen Aussagen größtenteils zustimmen?
+            </p>
+            <p class="text-gray-800 leading-relaxed text-lg mb-6">
                 Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?
             </p>
 
-            <p class="text-gray-800 leading-relaxed text-lg mb-0">
+            <p class="text-gray-800 leading-relaxed text-lg">
                 Das ist ganz normal! Jeder Mensch erlebt im Laufe seines Lebens schwere Momente.
+            </p>
+            <p class="text-gray-800 leading-relaxed text-lg mb-0">
+                Also dann doch keine Psychotherapie?
             </p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow mb-8">
@@ -245,17 +261,18 @@
 
         const checkupButton = document.getElementById('checkup-button');
         const checkupContent = document.getElementById('checkup-content');
+        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
 
         // Initialen Zustand setzen: Inhalt ist standardmäßig ausgeblendet
         checkupContent.style.maxHeight = '0';
-        checkupContent.style.paddingTop = '0'; /* Padding oben entfernen */
-        checkupContent.style.paddingBottom = '0'; /* Padding unten entfernen */
-        checkupContent.style.marginTop = '0'; /* Margin oben entfernen */
-        checkupContent.style.marginBottom = '0'; /* Margin unten entfernen */
+        checkupContent.style.paddingTop = '0';
+        checkupContent.style.paddingBottom = '0';
+        checkupContent.style.marginTop = '0';
+        checkupContent.style.marginBottom = '0';
 
 
         checkupButton.addEventListener('click', (event) => {
-            event.preventDefault(); // Verhindert, dass der Link zur Seite scrollt
+            event.preventDefault();
             if (checkupContent.classList.contains('open')) {
                 // Wenn offen, schließen
                 checkupContent.style.maxHeight = '0';
@@ -264,14 +281,25 @@
                 checkupContent.style.marginTop = '0';
                 checkupContent.style.marginBottom = '0';
                 checkupContent.classList.remove('open');
+                // Beim Schließen alle Fade-in-Klassen entfernen
+                fadeInItems.forEach(item => {
+                    item.classList.remove('visible');
+                });
             } else {
                 // Wenn geschlossen, öffnen
                 checkupContent.style.maxHeight = checkupContent.scrollHeight + 'px';
-                checkupContent.style.paddingTop = '2rem'; // Setze Padding wieder auf p-8 Wert
-                checkupContent.style.paddingBottom = '2rem'; // Setze Padding wieder auf p-8 Wert
-                checkupContent.style.marginTop = '2.5rem'; // Setze Margin wieder auf mb-10 Wert
-                checkupContent.style.marginBottom = '2.5rem'; // Setze Margin wieder auf mb-10 Wert
+                checkupContent.style.paddingTop = '2rem';
+                checkupContent.style.paddingBottom = '2rem';
+                checkupContent.style.marginTop = '2.5rem';
+                checkupContent.style.marginBottom = '2.5rem';
                 checkupContent.classList.add('open');
+
+                // Verzögertes Erscheinen der Elemente
+                fadeInItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, 200 * index); // Verzögerung von 200ms pro Element
+                });
             }
         });
     </script>
