@@ -48,25 +48,6 @@
         .accordion-content.open {
             /* max-height wird dynamisch per JS gesetzt */
         }
-
-        /* Styles für den dynamischen Text-Slider */
-        .text-slider-container {
-            height: 4em; /* Genügend Platz für zwei Zeilen Text */
-            overflow: hidden;
-            position: relative;
-        }
-        .text-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            text-align: center;
-        }
-        .text-slide.active {
-            opacity: 1;
-        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -158,16 +139,6 @@
             Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
         </p>
 
-        <div class="text-slider-container text-gray-800 text-lg leading-relaxed mb-6">
-            <div class="text-slide active">
-                <p class="mb-2">Alles fühlt sich so schwer an.</p>
-                <p>Es ist alles viel zu viel.</p>
-            </div>
-            <div class="text-slide">
-                <p class="mb-2">Ich komme einfach nicht mehr zur Ruhe.</p>
-                <p>So kann es doch nicht weitergehen.</p>
-            </div>
-        </div>
         <div class="flex justify-center mb-10">
             <a href="#" id="checkup-button" class="inline-block bg-[#628069] text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-[#7a9d80] shadow-md transition-colors duration-300">
                 Machen Sie den Check-up!
@@ -175,6 +146,17 @@
         </div>
 
         <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
+                <div>
+                    <p class="mb-2">Alles fühlt sich so schwer an.</p>
+                    <p>Es ist alles viel zu viel.</p>
+                </div>
+                <div>
+                    <p class="mb-2">Ich komme einfach nicht mehr zur Ruhe.</p>
+                    <p>So kann es doch nicht weitergehen.</p>
+                </div>
+            </div>
+
             <ul class="text-gray-800 leading-relaxed text-lg mb-6 space-y-2">
                 <li class="flex items-center">
                     <i class="far fa-check-square mr-3 text-xl"></i>
@@ -258,16 +240,18 @@
         const checkupButton = document.getElementById('checkup-button');
         const checkupContent = document.getElementById('checkup-content');
 
+        // Initialen Zustand setzen: Inhalt ist standardmäßig ausgeblendet
         checkupContent.style.maxHeight = '0';
-        checkupContent.style.paddingTop = '0';
-        checkupContent.style.paddingBottom = '0';
-        checkupContent.style.marginTop = '0';
-        checkupContent.style.marginBottom = '0';
+        checkupContent.style.paddingTop = '0'; /* Padding oben entfernen */
+        checkupContent.style.paddingBottom = '0'; /* Padding unten entfernen */
+        checkupContent.style.marginTop = '0'; /* Margin oben entfernen */
+        checkupContent.style.marginBottom = '0'; /* Margin unten entfernen */
 
 
         checkupButton.addEventListener('click', (event) => {
-            event.preventDefault();
+            event.preventDefault(); // Verhindert, dass der Link zur Seite scrollt
             if (checkupContent.classList.contains('open')) {
+                // Wenn offen, schließen
                 checkupContent.style.maxHeight = '0';
                 checkupContent.style.paddingTop = '0';
                 checkupContent.style.paddingBottom = '0';
@@ -275,27 +259,17 @@
                 checkupContent.style.marginBottom = '0';
                 checkupContent.classList.remove('open');
             } else {
+                // Wenn geschlossen, öffnen
                 checkupContent.style.maxHeight = checkupContent.scrollHeight + 'px';
-                checkupContent.style.paddingTop = '2rem';
-                checkupContent.style.paddingBottom = '2rem';
-                checkupContent.style.marginTop = '2.5rem';
-                checkupContent.style.marginBottom = '2.5rem';
+                checkupContent.style.paddingTop = '2rem'; // Setze Padding wieder auf p-8 Wert
+                checkupContent.style.paddingBottom = '2rem'; // Setze Padding wieder auf p-8 Wert
+                checkupContent.style.marginTop = '2.5rem'; // Setze Margin wieder auf mb-10 Wert
+                checkupContent.style.marginBottom = '2.5rem'; // Setze Margin wieder auf mb-10 Wert
                 checkupContent.classList.add('open');
             }
         });
 
-        // JavaScript für den dynamischen Text-Slider
-        const textSlides = document.querySelectorAll('.text-slide');
-        let currentSlide = 0;
-
-        function showNextSlide() {
-            textSlides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % textSlides.length;
-            textSlides[currentSlide].classList.add('active');
-        }
-
-        // Startet den Slider alle 4 Sekunden (Anpassbar)
-        setInterval(showNextSlide, 4000);
+        // Der JavaScript-Code für den dynamischen Text-Slider wurde entfernt.
     </script>
 </body>
 </html>
