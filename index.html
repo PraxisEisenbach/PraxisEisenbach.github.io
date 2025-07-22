@@ -27,13 +27,38 @@
         /* Zusätzliche Optimierung für kleinere Bildschirme */
         @media (max-width: 767px) {
             .mobile-order-first {
-                order: -1; /* Setzt das Bild über den Text auf Mobilgeräten */
+                order: -1; /* Setzt das Bild über den Text über den Text auf Mobilgeräten */
             }
             .mobile-mt-4 {
                 margin-top: 1rem; /* Fügt Abstand über dem Button auf Mobilgeräten hinzu */
             }
-            /* Die mobile-text-center Klasse ist für den Button nun nicht mehr nötig,
-               da er im Flex-Container immer zentriert wird. */
+        }
+
+        /* Styles für das Akkordeon */
+        .accordion-header {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .accordion-header:hover {
+            color: #9F4636; /* Hover-Farbe für den Header */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.open {
+            max-height: 500px; /* Genug Platz für den Inhalt, anpassen falls nötig */
+        }
+        .accordion-header .arrow {
+            transition: transform 0.3s ease;
+        }
+        .accordion-header.open .arrow {
+            transform: rotate(90deg); /* Pfeil dreht sich beim Öffnen */
         }
     </style>
 </head>
@@ -108,118 +133,3 @@
                         </li>
                     </ul>
                 </div>
-                <div class="mt-10 flex justify-center mobile-mt-4">
-                    <a href="#" class="inline-block bg-[#D24136] text-white px-10 py-5 rounded-lg text-2xl font-bold hover:bg-[#a8342c] shadow-lg transition-colors duration-300">
-                        Freie Therapieplätze ab Oktober 2025
-                    </a>
-                </div>
-                </div>
-        </div>
-    </main>
-
-    ---
-
-    <section class="container mx-auto p-8 mt-10 bg-[#E2C499] rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Finden Sie Hilfe</h2>
-
-        <p class="text-gray-800 leading-relaxed text-lg mb-6 text-center">
-            Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
-        </p>
-
-        <div class="flex justify-center mb-10">
-            <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-[#b05240] shadow-md transition-colors duration-300">
-                Machen Sie den Check-up!
-            </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-10">
-            <div>
-                <p class="mb-2">Alles fühlt sich so schwer an.</p>
-                <p>Es ist alles viel zu viel.</p>
-            </div>
-            <div>
-                <p class="mb-2">Ich komme einfach nicht mehr zur Ruhe.</p>
-                <p>So kann es doch nicht weitergehen.</p>
-            </div>
-        </div>
-
-        <p class="text-gray-800 leading-relaxed text-lg mb-6">
-            Sie können diesen Aussagen größtenteils zustimmen?
-            Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?
-        </p>
-
-        <p class="text-gray-800 leading-relaxed text-lg mb-8">
-            Das ist ganz normal! Jeder Mensch erlebt im Laufe seines Lebens schwere Momente.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Also dann doch keine Psychotherapie?</h3>
-        <p class="text-gray-800 leading-relaxed text-lg mb-6">
-            Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.
-        </p>
-
-        <h4 class="text-xl font-semibold text-gray-800 mb-4">Häufige psychische Erkrankungen sind z.B.:</h4>
-        <ul class="list-disc list-inside text-gray-800 text-lg leading-relaxed space-y-4 mb-10 pl-4">
-            <li>
-                <strong class="text-gray-900">Depressionen/Burnout:</strong>
-                <p class="ml-6 text-base">z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken; Rastlosigkeit</p>
-            </li>
-            <li>
-                <strong class="text-gray-900">Angststörungen:</strong>
-                <p class="ml-6 text-base">z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, Sicherheitsverhalten, ständige Sorgen</p>
-            </li>
-            <li>
-                <strong class="text-gray-900">Essstörungen:</strong>
-                <p class="ml-6 text-base">z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln</p>
-            </li>
-            <li>
-                <strong class="text-gray-900">Schlafstörungen:</strong>
-                <p class="ml-6 text-base">z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen</p>
-            </li>
-            <li>
-                <strong class="text-gray-900">Schmerzen:</strong>
-                <p class="ml-6 text-base">z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären</p>
-            </li>
-            <li>
-                <strong class="text-gray-900">Persönlichkeitsstörungen:</strong>
-                <p class="ml-6 text-base">Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen</p>
-            </li>
-        </ul>
-
-        <p class="text-gray-800 leading-relaxed text-lg mb-8">
-            Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann doch Psychotherapie?</h3>
-        <p class="text-gray-800 leading-relaxed text-lg mb-10 text-center">
-            Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.
-        </p>
-
-        <div class="flex justify-center">
-            <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-[#b05240] shadow-md transition-colors duration-300">
-                Termin vereinbaren
-            </a>
-        </div>
-    </section>
-    ---
-
-    <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
-            <div class="mt-3 text-sm">
-                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
-                <span class="text-gray-500">|</span>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
-    </script>
-</body>
-</html>
