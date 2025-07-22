@@ -6,11 +6,11 @@
     <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Custom font for better aesthetics */
         body {
-            font-family: 'Raleway', sans-serif; /* Raleway als Hauptschriftart */
+            font-family: 'Montserrat', sans-serif; /* Montserrat als Hauptschriftart */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -32,9 +32,8 @@
             .mobile-mt-4 {
                 margin-top: 1rem; /* Fügt Abstand über dem Button auf Mobilgeräten hinzu */
             }
-            .mobile-text-center { /* Für Zentrierung des Buttons auf Mobilgeräten */
-                text-align: center;
-            }
+            /* Die mobile-text-center Klasse ist für den Button nun nicht mehr nötig,
+               da er im Flex-Container immer zentriert wird. */
         }
     </style>
 </head>
@@ -109,7 +108,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="mt-10 flex justify-end mobile-text-center mobile-mt-4">
+                <div class="mt-10 flex justify-center mobile-mt-4">
                     <a href="#" class="inline-block bg-[#D24136] text-white px-10 py-5 rounded-lg text-2xl font-bold hover:bg-[#a8342c] shadow-lg transition-colors duration-300">
                         Freie Therapieplätze ab Oktober 2025
                     </a>
