@@ -147,26 +147,32 @@
 
         <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
-                <div>
-                    <p class="mb-2">Alles fühlt sich so schwer an.</p>
-                    <p>Es ist alles viel zu viel.</p>
-                </div>
-                <div>
-                    <p class="mb-2">Ich komme einfach nicht mehr zur Ruhe.</p>
-                    <p>So kann es doch nicht weitergehen.</p>
-                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="far fa-check-square mr-3 text-xl"></i>
+                        <span>Alles fühlt sich so schwer an.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="far fa-check-square mr-3 text-xl"></i>
+                        <span>Es ist alles viel zu viel.</span>
+                    </li>
+                </ul>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="far fa-check-square mr-3 text-xl"></i>
+                        <span>Ich komme einfach nicht mehr zur Ruhe.</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="far fa-check-square mr-3 text-xl"></i>
+                        <span>So kann es doch nicht weitergehen.</span>
+                    </li>
+                </ul>
             </div>
 
-            <ul class="text-gray-800 leading-relaxed text-lg mb-6 space-y-2">
-                <li class="flex items-center">
-                    <i class="far fa-check-square mr-3 text-xl"></i>
-                    <span>Sie können diesen Aussagen größtenteils zustimmen?</span>
-                </li>
-                <li class="flex items-center">
-                    <i class="far fa-check-square mr-3 text-xl"></i>
-                    <span>Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?</span>
-                </li>
-            </ul>
+            <p class="text-gray-800 leading-relaxed text-lg mb-6">
+                Sie können diesen Aussagen größtenteils zustimmen?
+                Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?
+            </p>
 
             <p class="text-gray-800 leading-relaxed text-lg mb-0">
                 Das ist ganz normal! Jeder Mensch erlebt im Laufe seines Lebens schwere Momente.
@@ -268,8 +274,6 @@
                 checkupContent.classList.add('open');
             }
         });
-
-        // Der JavaScript-Code für den dynamischen Text-Slider wurde entfernt.
     </script>
 </body>
 </html>
