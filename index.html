@@ -46,13 +46,13 @@
         }
 
         /* --- Custom CSS for Sections and Headings --- */
-        /* Dies ist die ursprüngliche Definition für "Finden Sie Hilfe" */
-        .section-title {
-            text-align: center;
-            color: #0056b3; /* Ursprüngliche Farbe von "Finden Sie Hilfe" */
-            font-size: 2.5em; /* Ursprüngliche Größe von "Finden Sie Hilfe" */
-            font-weight: 700; /* Optional: Wenn "Finden Sie Hilfe" ursprünglich fett war */
+        /* Einheitliche Hauptüberschriften */
+        .main-section-heading {
+            color: #000000; /* Schwarz */
+            font-size: 2em; /* Kleinere, einheitliche Schriftgröße (ca. 32px) */
+            font-weight: 700; /* Fett */
             margin-bottom: 40px; /* Einheitlicher Abstand nach der Überschrift */
+            text-align: center; /* Standardmäßig zentriert, kann bei Bedarf durch weitere Klassen überschrieben werden */
         }
         
         .psychotherapy-intro-text {
@@ -169,8 +169,8 @@
                 margin-bottom: 10px;
                 padding-bottom: 10px;
             }
-            .section-title { /* Anpassung für mobile Überschrift */
-                font-size: 1.8em; /* Kleinere Schriftgröße auf mobilen Geräten */
+            .main-section-heading { /* Anpassung für mobile Überschrift */
+                font-size: 1.8em; /* Noch kleiner auf mobilen Geräten */
                 margin-bottom: 30px;
             }
         }
@@ -216,7 +216,7 @@
                 <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-sm h-auto object-cover">
             </div>
             <div class="md:w-2/3">
-                <h2 class="section-title text-left !m-0 !mb-6 !text-gray-800 !font-semibold !text-2xl">Herzlich willkommen!</h2>
+                <h2 class="main-section-heading text-left">Herzlich willkommen!</h2>
                 <p class="text-gray-700 leading-relaxed mb-6">
                     Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
                 </p>
@@ -242,7 +242,7 @@
     </main>
 
     <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
-        <h2 class="section-title">Finden Sie Hilfe</h2>
+        <h2 class="main-section-heading">Finden Sie Hilfe</h2>
         <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
             Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
         </p>
@@ -273,8 +273,8 @@
     </section>
 
     <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
-        <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn sich aus schwierige Phasen anhaltendende, belastende psychischen Symptomen entwickeln.</p>
-        <h2 class="section-title">Häufige psychische Erkrankungen sind z.B.</h2>
+        <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
+        <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
 
         <div class="grid-container">
             <div class="grid-item depression-burnout">
