@@ -228,7 +228,7 @@
             display: flex;
             justify-content: center; /* Center the images horizontally */
             align-items: center; /* Center the images vertically */
-            gap: 1rem; /* Space between images */
+            gap: 0.5rem; /* Reduced space between images */
             margin-bottom: 2rem; /* Space below the strip */
             overflow: hidden; /* Hide overflow for the hover effect */
             position: relative; /* Needed for positioning child elements for hover */
@@ -237,17 +237,29 @@
 
         .image-strip .image-wrapper {
             flex-shrink: 0; /* Prevent images from shrinking */
-            width: 30%; /* Adjust width for each image, roughly 1/3 */
-            max-width: 250px; /* Max width for larger screens */
-            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+            width: 28%; /* Adjust width for each image, slightly less than 1/3 */
+            max-width: 200px; /* Max width for side images */
+            transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease; /* Smooth transition for hover effect and size change */
+            z-index: 1; /* Default z-index */
         }
 
-        .image-strip:hover .image-wrapper:nth-child(1) { /* Haende2.jpeg */
-            transform: translateX(-10px); /* Move left image slightly left */
+        .image-strip .image-wrapper.middle-image {
+            width: 38%; /* Make middle image significantly wider */
+            max-width: 300px; /* Adjust max-width for the middle image */
+            z-index: 2; /* Ensure middle image is on top */
         }
 
-        .image-strip:hover .image-wrapper:nth-child(3) { /* Fuesse.jpeg */
-            transform: translateX(10px); /* Move right image slightly right */
+        .image-strip:hover .image-wrapper:nth-child(1) { /* Haende2.jpeg (left) */
+            transform: translateX(-15px); /* Move left image slightly left */
+        }
+
+        .image-strip:hover .image-wrapper:nth-child(3) { /* Fuesse.jpeg (right) */
+            transform: translateX(15px); /* Move right image slightly right */
+        }
+        
+        /* The middle image does not shift horizontally on hover */
+        .image-strip:hover .image-wrapper.middle-image {
+             transform: translateY(-5px); /* Optional: slight lift for middle image on hover */
         }
 
         .image-strip img {
@@ -257,12 +269,6 @@
             border-radius: 0.5rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             object-fit: contain; /* Ensure images are not cropped */
-        }
-
-        /* Specific sizing for the middle image if needed, for instance, a bit larger */
-        .image-strip .image-wrapper.middle-image {
-            width: 40%; /* Make middle image slightly wider */
-            max-width: 350px; /* Adjust max-width */
         }
 
         /* Responsive adjustments for the image strip */
@@ -275,8 +281,6 @@
             .image-strip .image-wrapper.middle-image {
                 width: 80%; /* Make images wider on mobile */
                 max-width: 400px; /* Limit max-width on mobile */
-            }
-            .image-strip:hover .image-wrapper {
                 transform: none !important; /* Disable horizontal shift on mobile */
             }
         }
@@ -559,7 +563,7 @@
 
         <div class="accordion-item mb-4">
             <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-therapie-verstehen">
-                Mein Therapierverständnis
+                Was ich unter Therapie verstehe
                 <i class="fas fa-chevron-right icon"></i>
             </button>
             <div id="content-therapie-verstehen" class="accordion-content">
@@ -700,6 +704,150 @@
                     </ul>
                     <p class="mt-6 text-center">
                         Sie wollens genau wissen? Schauen Sie im Abschnitt „Über mich“ vorbei.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-angst-komisch-wirken">
+                Ich habe Angst, komisch zu wirken.
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-angst-komisch-wirken" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>
+                        Die ersten Male in einer Psychotherapie sind für fast alle Patienten/Patientinnen ungewohnt. Sie müssen sich an eine neue Situation gewöhnen und die Art und Weise, wie Psychotherapeuten/Psychotherapeutinnen arbeiten. Das ist ganz normal und es braucht seine Zeit, bis sich ein Vertrauensverhältnis aufgebaut hat.
+                    </p>
+                    <p class="mt-4">
+                        Ich bin es gewohnt, dass Menschen zunächst unsicher sind und auch, dass sie erst mal nicht wissen, was sie sagen sollen. Es ist mein Job, Sie dabei zu unterstützen, sich wohlzufühlen und mit Ihnen in Kontakt zu kommen. Sie müssen keine Angst haben, etwas „falsches“ zu sagen oder „komisch“ zu wirken. Ich bin da, um Ihnen zuzuhören, Sie zu verstehen und Ihnen zu helfen, nicht um Sie zu beurteilen.
+                    </p>
+                    <p class="mt-4">
+                        Und wenn es doch mal hakt oder Ihnen etwas unangenehm ist, sprechen Sie es einfach an. Wir können das gemeinsam besprechen.
+                    </p>
+                    <p class="mt-6 text-center">
+                        Bereit für den ersten Schritt?
+                    </p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-lg font-bold shadow-md hover:bg-[#b05240] transition-colors">
+                            Kennenlerntermin vereinbaren
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-kassenleistung">
+                Ist Therapie eine Kassenleistung?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-kassenleistung" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>
+                        Als approbierte psychologische Psychotherapeutin mit Arztregistereintrag kann ich mit allen **privaten Krankenkassen** und der **Beihilfe** abrechnen.
+                    </p>
+                    <p class="mt-4 font-semibold">Gesetzliche Krankenkassen:</p>
+                    <p>
+                        Leider gibt es in Deutschland eine Unterversorgung mit Kassensitzen, sodass nicht genügend Therapieplätze für alle, die eine psychotherapeutische Behandlung benötigen, zur Verfügung stehen. Das führt zu langen Wartezeiten für einen kassenärztlichen Psychotherapieplatz.
+                    </p>
+                    <p class="mt-4">
+                        Ich biete Ihnen die Möglichkeit, die Kosten als **Selbstzahler** zu übernehmen, um Ihnen zeitnah einen Therapieplatz anbieten zu können. Das hat mehrere Vorteile:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 mt-4">
+                        <li>**Zeitnaher Therapiebeginn:** Keine langen Wartezeiten auf einen Therapieplatz.</li>
+                        <li>**Keine Bürokratie:** Keine langwierigen Antragsverfahren bei der Krankenkasse.</li>
+                        <li>**Diskretion:** Die Behandlung wird nicht bei Ihrer Krankenkasse aktenkundig. Dies kann bei zukünftigen Anträgen für Versicherungen (z.B. Berufsunfähigkeit) oder bei einem Wechsel in eine private Krankenversicherung von Vorteil sein.</li>
+                        <li>**Flexibilität:** Die Therapie kann individuell an Ihre Bedürfnisse angepasst werden, ohne Vorgaben der Krankenkasse bezüglich der Anzahl der Sitzungen oder der Therapiemethode.</li>
+                    </ul>
+                    <p class="mt-4">
+                        Die Kosten richten sich nach der Gebührenordnung für Psychotherapeuten (GOP) und betragen 110,00 Euro pro Sitzung (50 Minuten).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-kosten-erstattung">
+                Werden die Kosten erstattet?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-kosten-erstattung" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p class="font-semibold">Private Krankenkassen und Beihilfe:</p>
+                    <p>
+                        In der Regel werden die Kosten für eine psychotherapeutische Behandlung von Ihrer privaten Krankenversicherung oder der Beihilfe erstattet. Die genauen Bedingungen hängen von Ihrem individuellen Vertrag ab. Bitte klären Sie vor dem Erstgespräch, ob und in welchem Umfang Ihre Krankenversicherung die Kosten für psychotherapeutische Behandlungen übernimmt. Hierfür können Sie folgende Fragen an Ihre Versicherung richten:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 mt-4">
+                        <li>Welche Unterlagen werden für die Beantragung der Psychotherapie benötigt?</li>
+                        <li>Wie viele Sitzungen werden pro Jahr erstattet?</li>
+                        <li>Gibt es eine Obergrenze für das Honorar pro Sitzung (orientiert an der GOP)?</li>
+                    </ul>
+                    <p class="mt-4 font-semibold">Gesetzliche Krankenkassen:</p>
+                    <p>
+                        Da ich eine Privatpraxis führe und keinen Kassensitz habe, können die Kosten für eine Behandlung in meiner Praxis in der Regel nicht von gesetzlichen Krankenkassen übernommen werden. In Ausnahmefällen, bei nachweislich langer Wartezeit auf einen kassenärztlichen Therapieplatz, können Sie jedoch einen Antrag auf Kostenerstattung im Rahmen des **Erstattungsverfahrens** (früher "Ausnahmepraxis") stellen. Die Erfolgsaussichten hierfür sind jedoch nicht garantiert und erfordern einen erhöhten bürokratischen Aufwand Ihrerseits. Ich empfehle Ihnen in diesem Fall, sich direkt bei Ihrer Krankenkasse über die genauen Bedingungen und den Antragsprozess zu informieren.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-online-therapie">
+                Bieten Sie auch Online-Therapie an?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-online-therapie" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>
+                        Ja, ich biete auch psychotherapeutische Sitzungen per Video an. Dies ermöglicht Ihnen maximale Flexibilität und Komfort, besonders wenn Sie weit entfernt wohnen oder aus anderen Gründen nicht persönlich in die Praxis kommen können.
+                    </p>
+                    <p class="mt-4">
+                        Die Online-Therapie findet über eine sichere, verschlüsselte Videoplattform statt und entspricht allen Datenschutzrichtlinien.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-paar-familie">
+                Kann ich als Paar oder Familie zu Ihnen kommen?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-paar-familie" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>
+                        Mein Therapieangebot richtet sich an **Einzelpersonen**. Paar- oder Familientherapie biete ich nicht an.
+                    </p>
+                    <p class="mt-4">
+                        Sollten Sie jedoch als Einzelperson aufgrund von Schwierigkeiten in Ihrer Partnerschaft oder Familie eine Psychotherapie in Erwägung ziehen, können wir dies selbstverständlich im Rahmen einer Einzeltherapie gemeinsam bearbeiten.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-unterschiede">
+                Was ist der Unterschied zwischen Psychiater, Psychologe und Psychotherapeut?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-unterschiede" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>
+                            **Psychiater:** Ein Psychiater hat Medizin studiert und ist Arzt. Er ist auf die Diagnose und Behandlung von psychischen Erkrankungen spezialisiert, insbesondere auf die medikamentöse Behandlung. Er kann Medikamente verschreiben.
+                        </li>
+                        <li>
+                            **Psychologe:** Ein Psychologe hat Psychologie studiert. Er beschäftigt sich mit dem menschlichen Erleben und Verhalten. Er darf psychologische Diagnosen stellen und Beratungen durchführen, aber keine Psychotherapie im Sinne der Heilbehandlung und keine Medikamente verschreiben.
+                        </li>
+                        <li>
+                            **Psychologischer Psychotherapeut:** Ein psychologischer Psychotherapeut hat Psychologie studiert und darauf eine mehrjährige, postgraduale Ausbildung in Psychotherapie absolviert. Er ist auf die psychotherapeutische Behandlung von psychischen Erkrankungen spezialisiert und darf diese eigenverantwortlich durchführen. Er kann keine Medikamente verschreiben.
+                        </li>
+                        <li>
+                            **Ärztlicher Psychotherapeut:** Ein ärztlicher Psychotherapeut hat Medizin studiert und darauf eine psychotherapeutische Ausbildung absolviert. Er darf sowohl Psychotherapie durchführen als auch Medikamente verschreiben.
+                        </li>
+                    </ul>
+                    <p class="mt-4">
+                        Ich bin eine **Psychologische Psychotherapeutin** mit dem Schwerpunkt Verhaltenstherapie.
                     </p>
                 </div>
             </div>
