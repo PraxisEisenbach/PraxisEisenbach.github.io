@@ -10,7 +10,6 @@
     <style>
         :root {
             --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
-            --dark-blue-heading: #0056b3; /* Für die einheitliche Überschriftenfarbe */
             --dark-gray-text: #333;
         }
         body {
@@ -47,14 +46,15 @@
         }
 
         /* --- Custom CSS for Sections and Headings --- */
+        /* Dies ist die ursprüngliche Definition für "Finden Sie Hilfe" */
         .section-title {
             text-align: center;
-            font-size: 2.5em; /* Wie "Finden Sie Hilfe" */
-            font-weight: 700; /* Fett wie "Finden Sie Hilfe" */
-            color: var(--dark-blue-heading); /* Dunkelblau wie "Finden Sie Hilfe" */
-            margin-bottom: 40px; /* Einheitlicher Abstand */
+            color: #0056b3; /* Ursprüngliche Farbe von "Finden Sie Hilfe" */
+            font-size: 2.5em; /* Ursprüngliche Größe von "Finden Sie Hilfe" */
+            font-weight: 700; /* Optional: Wenn "Finden Sie Hilfe" ursprünglich fett war */
+            margin-bottom: 40px; /* Einheitlicher Abstand nach der Überschrift */
         }
-
+        
         .psychotherapy-intro-text {
             text-align: center;
             margin-bottom: 30px;
@@ -62,11 +62,11 @@
             color: var(--dark-gray-text);
         }
         
-        .section-light-brown { /* Neue Klasse für den hellbraunen Hintergrund */
+        .section-light-brown {
             background-color: var(--light-brownish-yellow);
         }
 
-        /* --- Grid and Hover Effect CSS (unchanged from last iteration) --- */
+        /* --- Grid and Hover Effect CSS --- */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -170,7 +170,7 @@
                 padding-bottom: 10px;
             }
             .section-title { /* Anpassung für mobile Überschrift */
-                font-size: 1.8em;
+                font-size: 1.8em; /* Kleinere Schriftgröße auf mobilen Geräten */
                 margin-bottom: 30px;
             }
         }
@@ -216,7 +216,7 @@
                 <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-sm h-auto object-cover">
             </div>
             <div class="md:w-2/3">
-                <h2 class="section-title text-left !mb-6 !text-gray-800 !font-semibold !text-2xl">Herzlich willkommen!</h2>
+                <h2 class="section-title text-left !m-0 !mb-6 !text-gray-800 !font-semibold !text-2xl">Herzlich willkommen!</h2>
                 <p class="text-gray-700 leading-relaxed mb-6">
                     Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
                 </p>
@@ -299,7 +299,7 @@
 
             <div class="grid-item schmerzen">
                 <h3>Schmerzen</h3>
-                <p>z.b. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären.</p>
+                <p>z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären.</p>
             </div>
 
             <div class="grid-item persoenlichkeitsstoerungen">
@@ -358,7 +358,7 @@
                 checkupContent.classList.remove('open');
                 fadeInItems.forEach(item => item.classList.remove('visible'));
             } else {
-                checkupContent.style.maxHeight = checkupContent.scrollHeight + 'px'; // Set to scrollHeight to open smoothly
+                checkupContent.style.maxHeight = checkupContent.scrollHeight + 'px';
                 checkupContent.style.paddingTop = '2rem';
                 checkupContent.style.paddingBottom = '2rem';
                 checkupContent.style.marginTop = '2.5rem';
