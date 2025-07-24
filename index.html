@@ -333,7 +333,7 @@
 
             <div class="grid-item essstoerungen">
                 <h3>Essstörungen</h3>
-                <p>z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln.</p>
+                <p>z.b. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.b. Erbrechen oder Abführmitteln.</p>
             </div>
 
             <div class="grid-item schlafstoerungen">
@@ -364,7 +364,7 @@
         </div>
     </section>
 
-    <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
+    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
         <h2 class="main-section-heading">Über mich</h2>
 
         <div class="accordion-item mb-4">
@@ -535,7 +535,7 @@
                 checkupContent.classList.remove('open');
                 fadeInItems.forEach(item => item.classList.remove('visible'));
             } else {
-                checkupContent.style.maxHeight = checkupContent.scrollHeight + 'px';
+                content.style.maxHeight = content.scrollHeight + 'px'; // Ensure this calculates correctly on first open
                 checkupContent.style.paddingTop = '2rem';
                 checkupContent.style.paddingBottom = '2rem';
                 checkupContent.style.marginTop = '2.5rem';
@@ -578,7 +578,8 @@
                     icon.style.transform = 'rotate(0deg)';
                 } else {
                     // Set max-height based on scrollHeight for smooth transition
-                    content.style.maxHeight = content.scrollHeight + 'px'; 
+                    // Add a small buffer to max-height to ensure all content fits, especially with padding
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; 
                     content.style.paddingTop = '1rem'; /* Set padding for open state */
                     content.style.paddingBottom = '1rem'; /* Set padding for open state */
                     button.classList.add('active');
@@ -593,7 +594,7 @@
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
                 content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
-                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
             });
         });
     </script>
