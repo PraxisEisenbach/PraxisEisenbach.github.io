@@ -163,7 +163,7 @@
     
         <div class="bg-white p-6 rounded-lg shadow mb-8">
             <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Häufige psychische Erkrankungen sind z.B.</h3>
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -211,7 +211,10 @@
             flex-direction: column;
             justify-content: flex-end; /* Inhalt am unteren Rand ausrichten */
             position: relative; /* Für Überlagerungen */
-            overflow: hidden; /* Bild soll nicht über den Rand ragen */
+            overflow: hidden; /* WICHTIG: Bild soll nicht über den Rand ragen, wenn es zoomt, und Text wird abgeschnitten, wenn er ausgeblendet ist */
+            
+            /* Dynamische Effekte für das Element selbst */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease; /* Sanfter Übergang */
         }
 
         .grid-item::before {
@@ -223,22 +226,52 @@
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.4); /* Dunkler Überlagerung für bessere Lesbarkeit */
             z-index: 1; /* Über dem Bild, aber unter dem Text */
-        }
 
-        .grid-item h3, .grid-item p {
-            position: relative; /* Über die Überlagerung legen */
-            z-index: 2;
+            /* Dynamischer Effekt für die Überlagerung */
+            transition: background-color 0.3s ease; /* Übergang für die Überlagerungsfarbe */
         }
 
         .grid-item h3 {
+            position: relative; /* Über die Überlagerung legen */
+            z-index: 2;
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 1.8em;
         }
 
+        /* Styling für den Erklär-Text (standardmäßig ausgeblendet) */
         .grid-item p {
+            position: relative; /* Über die Überlagerung legen */
+            z-index: 2;
             font-size: 1.1em;
             line-height: 1.5;
+            opacity: 0; /* Standardmäßig unsichtbar */
+            max-height: 0; /* Nimmt keinen Platz ein */
+            overflow: hidden; /* Verhindert sichtbaren Überlauf beim Ausblenden */
+            transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease; /* Sanfter Übergang für alle Ein-/Ausblenden */
+            margin-top: 0; /* Entfernt oberen Margin, wenn ausgeblendet */
+            margin-bottom: 0; /* Entfernt unteren Margin, wenn ausgeblendet */
+            padding-bottom: 0; /* Entfernt Padding, wenn ausgeblendet */
+        }
+
+        /* HOVER-EFFEKTE für .grid-item */
+        .grid-item:hover {
+            transform: translateY(-5px); /* Hebt das Element leicht an */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Verstärkt den Schatten */
+            cursor: pointer; /* Zeigt an, dass das Element interaktiv ist */
+            background-size: 105%; /* Zoomt das Hintergrundbild heran */
+        }
+
+        .grid-item:hover::before {
+            background-color: rgba(0, 0, 0, 0.55); /* Macht die Überlagerung beim Hover dunkler */
+        }
+
+        /* Erklär-Text beim Hover einblenden */
+        .grid-item:hover p {
+            opacity: 1; /* Beim Hover sichtbar */
+            max-height: 150px; /* Genügend Höhe für den Text (anpassen, falls längere Texte) */
+            margin-bottom: 10px; /* Abstand zum Rand, wenn sichtbar */
+            padding-bottom: 10px; /* Innerer Abstand, wenn sichtbar */
         }
 
         /* Spezifische Hintergrundbilder für jeden Abschnitt */
@@ -275,10 +308,21 @@
             .grid-item {
                 min-height: 180px;
             }
+            /* Auf Mobilgeräten den Text immer anzeigen, da es keinen Hover-Effekt gibt */
+            .grid-item p {
+                opacity: 1; 
+                max-height: 150px; 
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <p class="centered-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
+
+    <h2>Häufige psychische Erkrankungen</h2>
 
     <div class="grid-container">
         <div class="grid-item depression-burnout">
@@ -311,6 +355,9 @@
             <p>Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen.</p>
         </div>
     </div>
+
+</body>
+</html>
 
 </body
         <p class="text-gray-800 text-lg leading-relaxed mb-8">
