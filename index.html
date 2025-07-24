@@ -227,7 +227,7 @@
         .about-me-grid-photos {
             display: grid;
             grid-template-columns: 1fr 1fr; /* Two columns */
-            grid-template-rows: auto auto; /* Two rows */
+            grid-template-rows: repeat(2, minmax(150px, 1fr)); /* Two rows, minimum 150px, flexible */
             gap: 1rem; /* Space between photos */
             margin-bottom: 2rem; /* Space below the grid */
             align-items: center; /* Vertically align items in the grid */
@@ -236,21 +236,24 @@
         .about-me-grid-photos .main-photo {
             grid-column: 1 / 2; /* Span the first column */
             grid-row: 1 / 3; /* Span both rows */
+            display: flex; /* Use flexbox to center the image */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            min-height: 300px; /* Ensure main photo container has enough height */
         }
 
-        .about-me-grid-photos .vertical-photo-top {
-            grid-column: 2 / 3; /* Second column */
-            grid-row: 1 / 2; /* First row */
-        }
-
+        .about-me-grid-photos .vertical-photo-top,
         .about-me-grid-photos .vertical-photo-bottom {
             grid-column: 2 / 3; /* Second column */
-            grid-row: 2 / 3; /* Second row */
+            display: flex; /* Use flexbox to center the image */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            min-height: 150px; /* Give a minimum height to make them more visible */
         }
 
         .about-me-grid-photos img {
             width: 100%;
-            height: auto; /* Ensure height adjusts to maintain aspect ratio */
+            height: 100%; /* Make image fill the flex container */
             object-fit: contain; /* Contain the image within its area without cropping */
             border-radius: 0.5rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -267,6 +270,10 @@
             .about-me-grid-photos .vertical-photo-bottom {
                 grid-column: auto;
                 grid-row: auto;
+                min-height: auto; /* Remove fixed min-height on mobile */
+            }
+            .about-me-grid-photos img {
+                height: auto; /* Adjust height dynamically on mobile */
             }
         }
     </style>
@@ -548,7 +555,7 @@
 
         <div class="accordion-item mb-4">
             <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-therapie-verstehen">
-                Mein Therapieverständnis
+                Was ich unter Therapie verstehe
                 <i class="fas fa-chevron-right icon"></i>
             </button>
             <div id="content-therapie-verstehen" class="accordion-content">
