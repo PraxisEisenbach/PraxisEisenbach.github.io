@@ -1,240 +1,244 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .mobile-menu {
-            transition: max-height 0.3s ease-out;
-            overflow: hidden;
-            max-height: 0;
-        }
-        .mobile-menu.open {
-            max-height: 500px;
-        }
-        @media (max-width: 767px) {
-            .mobile-order-first { order: -1; }
-            .mobile-mt-4 { margin-top: 1rem; }
-        }
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
-            padding: 0 2rem; /* Initial padding, wird bei 'open' überschrieben */
-            margin: 0; /* Initial margin, wird bei 'open' überschrieben */
-        }
-        .accordion-content.open {
-            max-height: 1000px; /* Eine ausreichend große Höhe */
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-        }
-        .fade-in-item {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-        .fade-in-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .mobile-menu {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+            max-height: 0;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        @media (max-width: 767px) {
+            .mobile-order-first { order: -1; }
+            .mobile-mt-4 { margin-top: 1rem; }
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+        }
+        .accordion-content.open { }
+        .fade-in-item {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
-        <div class="container mx-auto flex items-center justify-between">
-            <div class="flex flex-col">
-                <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
-                <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-            </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-6 items-center">
-                    <li><a href="#" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
-                    <li><a href="#" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
-                    <li><a href="#" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
-                    <li><a href="#" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
-            <ul class="flex flex-col items-center space-y-4 pt-4">
-                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
-                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
-                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
-                <li><a href="#" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
-            </ul>
-        </div>
-    </header>
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex flex-col">
+                <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
+                <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="#" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
+                    <li><a href="#" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
+                    <li><a href="#" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
+                    <li><a href="#" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
+            <ul class="flex flex-col items-center space-y-4 pt-4">
+                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
+                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
+                <li><a href="#" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
+                <li><a href="#" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
+            </ul>
+        </div>
+    </header>
 
-    <main class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
-        <div class="flex flex-col md:flex-row gap-10">
-            <div class="md:w-1/3 flex justify-center mobile-order-first">
-                <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-sm h-auto object-cover">
-            </div>
-            <div class="md:w-2/3">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Herzlich willkommen!</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
-                </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    Finden Sie hier alle wichtigen Details, um zu entscheiden, ob eine gemeinsame Psychotherapie der richtige Weg für Sie ist.
-                </p>
-                <div class="bg-[#e3a88c] p-8 rounded-lg shadow-md mt-10">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Mein Angebot in Kürze</h3>
-                    <ul class="text-gray-700 space-y-3">
-                        <li class="flex items-center"><i class="fas fa-handshake mr-3 text-lg"></i>moderne, wissenschaftlich fundierte Verhaltenstherapie auf Augenhöhe</li>
-                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-lg"></i>Praxis im Herzen von München Schwabing</li>
-                        <li class="flex items-center"><i class="fas fa-euro-sign mr-3 text-lg"></i>Kostenübernahme durch Private Krankenversicherungen oder auf Selbstzahlerbasis</li>
-                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-lg"></i>Terminvereinbarung per E-Mail</li>
-                    </ul>
-                </div>
-                <div class="mt-10 flex justify-center mobile-mt-4">
-                    <a href="#" class="inline-block bg-[#D24136] text-white px-10 py-5 rounded-lg text-2xl font-bold shadow-lg hover:bg-[#a8342c] transition-colors">
-                        Freie Therapieplätze ab Oktober 2025
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
+    <main class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
+        <div class="flex flex-col md:flex-row gap-10">
+            <div class="md:w-1/3 flex justify-center mobile-order-first">
+                <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-sm h-auto object-cover">
+            </div>
+            <div class="md:w-2/3">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Herzlich willkommen!</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Finden Sie hier alle wichtigen Details, um zu entscheiden, ob eine gemeinsame Psychotherapie der richtige Weg für Sie ist.
+                </p>
+                <div class="bg-[#e3a88c] p-8 rounded-lg shadow-md mt-10">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Mein Angebot in Kürze:</h3>
+                    <ul class="text-gray-700 space-y-3">
+                        <li class="flex items-center"><i class="fas fa-handshake mr-3 text-lg"></i>moderne, wissenschaftlich fundierte Verhaltenstherapie auf Augenhöhe</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-lg"></i>Praxis im Herzen von München Schwabing</li>
+                        <li class="flex items-center"><i class="fas fa-euro-sign mr-3 text-lg"></i>Kostenübernahme durch Private Krankenversicherungen oder auf Selbstzahlerbasis</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-lg"></i>Termin über Mail vereinbaren</li>
+                    </ul>
+                </div>
+                <div class="mt-10 flex justify-center mobile-mt-4">
+                    <a href="#" class="inline-block bg-[#D24136] text-white px-10 py-5 rounded-lg text-2xl font-bold shadow-lg hover:bg-[#a8342c] transition-colors">
+                        Freie Therapieplätze ab Oktober 2025
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg" style="background-color: var(--light-brownish-yellow);">
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Finden Sie Hilfe</h2>
-        <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
-            Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
-        </p>
-        <div class="flex justify-center mb-10">
-            <a href="#" id="checkup-button" class="inline-block bg-[#628069] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#7a9d80] transition-colors">
-                Machen Sie den Check-up!
-            </a>
-        </div>
-        <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Alles fühlt sich so schwer an.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Es ist alles viel zu viel.</span></li>
-                </ul>
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich komme einfach nicht mehr zur Ruhe.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>So kann es doch nicht weitergehen.</span></li>
-                </ul>
-            </div>
-            <p class="text-gray-800 text-lg leading-relaxed">Sie können diesen Aussagen größtenteils zustimmen?</p>
-            <p class="text-gray-800 text-lg leading-relaxed mb-6">Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?</p>
-            <p class="text-gray-800 text-lg leading-relaxed">Dann lohnt sich ein genauerer Blick. Ich unterstütze Sie gerne dabei.</p>
-            <div class="flex justify-center mt-6 mb-10"> <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors">
-                    Termin vereinbaren
-                </a>
-            </div>
-        </div>
-        <p class="text-gray-800 text-lg leading-relaxed mb-8">
-            Psychotherapie hilft, wenn aus schweren Momenten heraus
-            psychische Symptome entstehen.
+    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg" style="background-color: var(--light-brownish-yellow);">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Finden Sie Hilfe</h2>
+        <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
+            Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
         </p>
-        <div class="bg-white p-6 rounded-lg shadow mb-8">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Häufige psychische Erkrankungen sind z.B.</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Depressionen / Burnout</h4>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken; Rastlosigkeit
-                    </p>
-                </div>
-                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Angststörungen</h4>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, Sicherheitsverhalten, ständige Sorgen
-                    </p>
-                </div>
-                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Essstörungen</h4>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln
-                    </p>
-                </div>
-                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Schlafstörungen</h4>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen
-                    </p>
-                </div>
-                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Schmerzen</h4>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären
-                    </p>
-                </div>
-                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Persönlichkeitsstörungen</h4>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen
-                    </p>
-                </div>
-            </div>
-        </div>
-        <p class="text-gray-800 text-lg leading-relaxed mb-8">
-            Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
-        </p>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann Psychotherapie?</h3>
-        <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
-        <div class="flex justify-center">
-            <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors">
-                Termin vereinbaren
-            </a>
-        </div>
-    </section>
+        <div class="flex justify-center mb-10">
+            <a href="#" id="checkup-button" class="inline-block bg-[#628069] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#7a9d80] transition-colors">
+                Machen Sie den Check-up!
+            </a>
+        </div>
+        <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
+                <ul class="space-y-2">
+                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Alles fühlt sich so schwer an.</span></li>
+                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Es ist alles viel zu viel.</span></li>
+                </ul>
+                <ul class="space-y-2">
+                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich komme einfach nicht mehr zur Ruhe.</span></li>
+                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>So kann es doch nicht weitergehen.</span></li>
+                </ul>
+            </div>
+            <p class="text-gray-800 text-lg leading-relaxed">Sie können diesen Aussagen größtenteils zustimmen?</p>
+            <p class="text-gray-800 text-lg leading-relaxed mb-6">Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?</p>
+            <p class="text-gray-800 text-lg leading-relaxed">Dann lohnt sich ein genauerer Blick. Ich unterstütze Sie gerne dabei.</p>
+            <div class="flex justify-center mt-6 mb-10"> <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors">
+                    Termin vereinbaren
+                </a>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow mb-8">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Häufige psychische Erkrankungen sind z.B.</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Depressionen / Burnout</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken; Rastlosigkeit
+                    </p>
+                </div>
+                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Angststörungen</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, Sicherheitsverhalten, ständige Sorgen
+                    </p>
+                </div>
+                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Essstörungen</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln
+                    </p>
+                </div>
+                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Schlafstörungen</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen
+                    </p>
+                </div>
+                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Schmerzen</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären
+                    </p>
+                </div>
+                <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Persönlichkeitsstörungen</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p class="text-gray-800 text-lg leading-relaxed mb-8">
+            Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
+        </p>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann doch Psychotherapie?</h3>
+        <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
+        <div class="flex justify-center">
+            <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors">
+                Termin vereinbaren
+            </a>
+        </div>
+    </section>
 
-    <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
-            <div class="mt-3 text-sm">
-                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
-                <span class="text-gray-500">|</span>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
+            <div class="mt-3 text-sm">
+                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
+                <span class="text-gray-500">|</span>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 
-        const checkupButton = document.getElementById('checkup-button');
-        const checkupContent = document.getElementById('checkup-content');
-        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
+        const checkupButton = document.getElementById('checkup-button');
+        const checkupContent = document.getElementById('checkup-content');
+        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
+        checkupContent.style.maxHeight = '0';
+        checkupContent.style.paddingTop = '0';
+        checkupContent.style.paddingBottom = '0';
+        checkupContent.style.marginTop = '0';
+        checkupContent.style.marginBottom = '0';
 
-        checkupButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            checkupContent.classList.toggle('open');
-
-            if (checkupContent.classList.contains('open')) {
-                fadeInItems.forEach((item, index) => {
-                    setTimeout(() => item.classList.add('visible'), 200 * index);
-                });
-            } else {
-                fadeInItems.forEach(item => item.classList.remove('visible'));
-            }
-        });
-    </script>
+        checkupButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (checkupContent.classList.contains('open')) {
+                checkupContent.style.maxHeight = '0';
+                checkupContent.style.paddingTop = '0';
+                checkupContent.style.paddingBottom = '0';
+                checkupContent.style.marginTop = '0';
+                checkupContent.style.marginBottom = '0';
+                checkupContent.classList.remove('open');
+                fadeInItems.forEach(item => item.classList.remove('visible'));
+            } else {
+                checkupContent.style.maxHeight = checkupContent.scrollHeight + 'px';
+                checkupContent.style.paddingTop = '2rem';
+                checkupContent.style.paddingBottom = '2rem';
+                checkupContent.style.marginTop = '2.5rem';
+                checkupContent.style.marginBottom = '2.5rem';
+                checkupContent.classList.add('open');
+                fadeInItems.forEach((item, index) => {
+                    setTimeout(() => item.classList.add('visible'), 200 * index);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
