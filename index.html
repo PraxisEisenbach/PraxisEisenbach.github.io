@@ -163,6 +163,163 @@
     
         <div class="bg-white p-6 rounded-lg shadow mb-8">
             <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Häufige psychische Erkrankungen sind z.B.</h3>
+        <!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychische Gesundheit: Häufige Erkrankungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .centered-text {
+            text-align: center;
+            margin-bottom: 30px; /* Etwas Abstand nach dem zentrierten Text */
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsives Grid */
+            gap: 30px; /* Abstand zwischen den Grid-Elementen */
+            max-width: 1200px;
+            margin: 0 auto; /* Zentriert den Grid-Container */
+        }
+
+        .grid-item {
+            padding: 25px;
+            border-radius: 8px; /* Abgerundete Ecken */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+            color: white; /* Textfarbe für bessere Lesbarkeit auf dunklem Hintergrund */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Schatten für den Text */
+            background-size: cover; /* Bild füllt den gesamten Bereich aus */
+            background-position: center; /* Bild im Zentrum des Elements positionieren */
+            background-repeat: no-repeat; /* Bild nicht wiederholen */
+            min-height: 200px; /* Mindesthöhe für die Grid-Elemente */
+            display: flex; /* Flexbox für vertikale Zentrierung des Inhalts */
+            flex-direction: column;
+            justify-content: flex-end; /* Inhalt am unteren Rand ausrichten */
+            position: relative; /* Für Überlagerungen */
+            overflow: hidden; /* Bild soll nicht über den Rand ragen */
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Dunkler Überlagerung für bessere Lesbarkeit */
+            z-index: 1; /* Über dem Bild, aber unter dem Text */
+        }
+
+        .grid-item h3, .grid-item p {
+            position: relative; /* Über die Überlagerung legen */
+            z-index: 2;
+        }
+
+        .grid-item h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .grid-item p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        /* Spezifische Hintergrundbilder für jeden Abschnitt */
+        .depression-burnout {
+            background-image: url('Depression.jpg');
+        }
+
+        .angststoerungen {
+            background-image: url('Angststoerungen.jpg');
+        }
+
+        .essstoerungen {
+            background-image: url('Essstoerung.jpg');
+        }
+
+        .schlafstoerungen {
+            background-image: url('Schlafstoerung.jpg');
+        }
+
+        .schmerzen {
+            background-image: url('Schmerzen.jpg');
+        }
+
+        .persoenlichkeitsstoerungen {
+            background-image: url('Persoenlichkeitsstoerung.jpg');
+        }
+
+        /* Media Queries für kleinere Bildschirme */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Eine Spalte auf kleinen Bildschirmen */
+                padding: 0 15px;
+            }
+            .grid-item {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <p class="centered-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
+
+    <h2>Häufige psychische Erkrankungen</h2>
+
+    <div class="grid-container">
+        <div class="grid-item depression-burnout">
+            <h3>Depression & Burnout</h3>
+            <p>Erschöpfung, Antriebslosigkeit und Niedergeschlagenheit können Anzeichen sein.</p>
+        </div>
+
+        <div class="grid-item angststoerungen">
+            <h3>Angststörungen</h3>
+            <p>Wenn Ängste den Alltag beherrschen und einschränken.</p>
+        </div>
+
+        <div class="grid-item essstoerungen">
+            <h3>Essstörungen</h3>
+            <p>Ein gestörtes Verhältnis zum Essen und zum eigenen Körper.</p>
+        </div>
+
+        <div class="grid-item schlafstoerungen">
+            <h3>Schlafstörungen</h3>
+            <p>Anhaltende Probleme beim Ein- oder Durchschlafen.</p>
+        </div>
+
+        <div class="grid-item schmerzen">
+            <h3>Schmerzen</h3>
+            <p>Chronische Schmerzen, die das Leben stark beeinflussen.</p>
+        </div>
+
+        <div class="grid-item persoenlichkeitsstoerungen">
+            <h3>Persönlichkeitsstörungen</h3>
+            <p>Feste Verhaltensmuster, die zu Problemen führen.</p>
+        </div>
+    </div>
+
+</body>
+</html>
+            
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-[#fef9f6] p-4 rounded-lg shadow-md">
                     <h4 class="text-lg font-semibold text-gray-900 mb-2">Depressionen / Burnout</h4>
