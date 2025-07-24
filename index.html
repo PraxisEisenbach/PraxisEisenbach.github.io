@@ -10,6 +10,8 @@
     <style>
         :root {
             --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
+            --dark-blue-heading: #0056b3; /* Für die einheitliche Überschriftenfarbe */
+            --dark-gray-text: #333;
         }
         body {
             font-family: 'Montserrat', sans-serif;
@@ -44,49 +46,52 @@
             transform: translateY(0);
         }
 
-        /* --- Custom CSS for Grid and Hover Effect --- */
-        .page-section-heading { /* Angepasst, um die Überschrift des Grids zu stylen */
+        /* --- Custom CSS for Sections and Headings --- */
+        .section-title {
             text-align: center;
-            color: #0056b3; /* Dunkelblau für Überschriften */
-            margin-bottom: 40px;
-            font-size: 2.5em; /* Etwas größer für Hauptüberschrift */
-            font-weight: 700; /* Fett */
+            font-size: 2.5em; /* Wie "Finden Sie Hilfe" */
+            font-weight: 700; /* Fett wie "Finden Sie Hilfe" */
+            color: var(--dark-blue-heading); /* Dunkelblau wie "Finden Sie Hilfe" */
+            margin-bottom: 40px; /* Einheitlicher Abstand */
         }
 
-        .psychotherapy-intro-text { /* Neuer Stil für den Intro-Text über dem Grid */
+        .psychotherapy-intro-text {
             text-align: center;
             margin-bottom: 30px;
             font-size: 1.1em;
-            color: #333;
+            color: var(--dark-gray-text);
+        }
+        
+        .section-light-brown { /* Neue Klasse für den hellbraunen Hintergrund */
+            background-color: var(--light-brownish-yellow);
         }
 
+        /* --- Grid and Hover Effect CSS (unchanged from last iteration) --- */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsives Grid */
-            gap: 30px; /* Abstand zwischen den Grid-Elementen */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             max-width: 1200px;
-            margin: 0 auto; /* Zentriert den Grid-Container */
-            padding: 20px; /* Innenabstand für den Container */
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .grid-item {
             padding: 25px;
-            border-radius: 8px; /* Abgerundete Ecken */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
-            color: white; /* Textfarbe für bessere Lesbarkeit auf dunklem Hintergrund */
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Schatten für den Text */
-            background-size: cover; /* Bild füllt den gesamten Bereich aus */
-            background-position: center; /* Bild im Zentrum des Elements positionieren */
-            background-repeat: no-repeat; /* Bild nicht wiederholen */
-            min-height: 200px; /* Mindesthöhe für die Grid-Elemente */
-            display: flex; /* Flexbox für vertikale Zentrierung des Inhalts */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 200px;
+            display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Inhalt am unteren Rand ausrichten */
-            position: relative; /* Für Überlagerungen */
-            overflow: hidden; /* WICHTIG: Bild soll nicht über den Rand ragen, wenn es zoomt, und Text wird abgeschnitten, wenn er ausgeblendet ist */
-            
-            /* Dynamische Effekte für das Element selbst */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease; /* Sanfter Übergang */
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
         }
 
         .grid-item::before {
@@ -96,99 +101,77 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Dunkler Überlagerung für bessere Lesbarkeit */
-            z-index: 1; /* Über dem Bild, aber unter dem Text */
-
-            /* Dynamischer Effekt für die Überlagerung */
-            transition: background-color 0.3s ease; /* Übergang für die Überlagerungsfarbe */
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            transition: background-color 0.3s ease;
         }
 
         .grid-item h3 {
-            position: relative; /* Über die Überlagerung legen */
+            position: relative;
             z-index: 2;
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 1.8em;
         }
 
-        /* Styling für den Erklär-Text (standardmäßig ausgeblendet) */
         .grid-item p {
-            position: relative; /* Über die Überlagerung legen */
+            position: relative;
             z-index: 2;
             font-size: 1.1em;
             line-height: 1.5;
-            opacity: 0; /* Standardmäßig unsichtbar */
-            max-height: 0; /* Nimmt keinen Platz ein */
-            overflow: hidden; /* Verhindert sichtbaren Überlauf beim Ausblenden */
-            transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease; /* Sanfter Übergang für alle Ein-/Ausblenden */
-            margin-top: 0; /* Entfernt oberen Margin, wenn ausgeblendet */
-            margin-bottom: 0; /* Entfernt unteren Margin, wenn ausgeblendet */
-            padding-bottom: 0; /* Entfernt Padding, wenn ausgeblendet */
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        /* HOVER-EFFEKTE für .grid-item */
         .grid-item:hover {
-            transform: translateY(-5px); /* Hebt das Element leicht an */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Verstärkt den Schatten */
-            cursor: pointer; /* Zeigt an, dass das Element interaktiv ist */
-            background-size: 105%; /* Zoomt das Hintergrundbild heran */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            background-size: 105%;
         }
 
         .grid-item:hover::before {
-            background-color: rgba(0, 0, 0, 0.55); /* Macht die Überlagerung beim Hover dunkler */
+            background-color: rgba(0, 0, 0, 0.55);
         }
 
-        /* Erklär-Text beim Hover einblenden */
         .grid-item:hover p {
-            opacity: 1; /* Beim Hover sichtbar */
-            max-height: 150px; /* Genügend Höhe für den Text (anpassen, falls längere Texte) */
-            margin-bottom: 10px; /* Abstand zum Rand, wenn sichtbar */
-            padding-bottom: 10px; /* Innerer Abstand, wenn sichtbar */
+            opacity: 1;
+            max-height: 150px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
         }
 
-        /* Spezifische Hintergrundbilder für jeden Abschnitt */
-        .depression-burnout {
-            background-image: url('Depression.jpg');
-        }
+        /* Specific background images for each section */
+        .depression-burnout { background-image: url('Depression.jpg'); }
+        .angststoerungen { background-image: url('Angststoerungen.jpg'); }
+        .essstoerungen { background-image: url('Essstoerung.jpg'); }
+        .schlafstoerungen { background-image: url('Schlafstoerung.jpg'); }
+        .schmerzen { background-image: url('Schmerzen.jpg'); }
+        .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-        .angststoerungen {
-            background-image: url('Angststoerungen.jpg');
-        }
-
-        .essstoerungen {
-            background-image: url('Essstoerung.jpg');
-        }
-
-        .schlafstoerungen {
-            background-image: url('Schlafstoerung.jpg');
-        }
-
-        .schmerzen {
-            background-image: url('Schmerzen.jpg');
-        }
-
-        .persoenlichkeitsstoerungen {
-            background-image: url('Persoenlichkeitsstoerung.jpg');
-        }
-
-        /* Media Queries für kleinere Bildschirme */
+        /* Media Queries for smaller screens */
         @media (max-width: 768px) {
             .grid-container {
-                grid-template-columns: 1fr; /* Eine Spalte auf kleinen Bildschirmen */
+                grid-template-columns: 1fr;
                 padding: 0 15px;
             }
             .grid-item {
                 min-height: 180px;
             }
-            /* Auf Mobilgeräten den Text immer anzeigen, da es keinen Hover-Effekt gibt */
             .grid-item p {
                 opacity: 1; 
                 max-height: 150px; 
                 margin-bottom: 10px;
                 padding-bottom: 10px;
             }
-            .page-section-heading { /* Anpassung für mobile Überschrift */
+            .section-title { /* Anpassung für mobile Überschrift */
                 font-size: 1.8em;
+                margin-bottom: 30px;
             }
         }
     </style>
@@ -233,7 +216,7 @@
                 <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-sm h-auto object-cover">
             </div>
             <div class="md:w-2/3">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Herzlich willkommen!</h2>
+                <h2 class="section-title text-left !mb-6 !text-gray-800 !font-semibold !text-2xl">Herzlich willkommen!</h2>
                 <p class="text-gray-700 leading-relaxed mb-6">
                     Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
                 </p>
@@ -258,8 +241,8 @@
         </div>
     </main>
 
-    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg" style="background-color: var(--light-brownish-yellow);">
-        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Finden Sie Hilfe</h2>
+    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
+        <h2 class="section-title">Finden Sie Hilfe</h2>
         <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
             Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
         </p>
@@ -289,9 +272,9 @@
         </div>
     </section>
 
-    <section class="container mx-auto p-8 mt-10">
+    <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
         <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
-        <h2 class="page-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
+        <h2 class="section-title">Häufige psychische Erkrankungen sind z.B.</h2>
 
         <div class="grid-container">
             <div class="grid-item depression-burnout">
@@ -316,7 +299,7 @@
 
             <div class="grid-item schmerzen">
                 <h3>Schmerzen</h3>
-                <p>z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären.</p>
+                <p>z.b. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären.</p>
             </div>
 
             <div class="grid-item persoenlichkeitsstoerungen">
