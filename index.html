@@ -380,7 +380,7 @@
                 <div class="accordion-content-inner text-gray-700 leading-relaxed">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div class="flex items-start">
-                            <i class="fas fa-person-digging text-3xl text-[#628069] mr-4 mt-1"></i>
+                            <i class="fas fa-seedling text-3xl text-[#628069] mr-4 mt-1"></i>
                             <div>
                                 <h4 class="font-semibold text-xl text-gray-800 mb-1">Individuell</h4>
                                 <p>
@@ -415,14 +415,17 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start md:col-span-1">
                             <i class="fas fa-compass text-3xl text-[#628069] mr-4 mt-1"></i>
                             <div>
                                 <h4 class="font-semibold text-xl text-gray-800 mb-1">Erlebnisorientiert</h4>
-                                <p>
+                                <p id="erlebnisorientiert-text">
                                     Mein Motto: Fühlen ist wirksamer als Denken. Wenn wir es schaffen, Emotionen und damit ganzheitliches Erleben zu aktivieren, bringt das den Heilungsprozess weit voran. Daher setze ich auf moderne Weiterentwicklungen der Verhaltenstherapie, die Akzeptanz- und Commitment-Therapie (ACT) und die Emotionsfokussierte Therapie (EFT).
                                 </p>
                             </div>
+                        </div>
+                        <div class="flex justify-center items-start md:col-span-1">
+                            <img src="Haende.jpg" alt="Zwei haltende Hände" class="rounded-lg shadow-md w-full max-w-xs object-cover" style="align-self: flex-start; height: auto;">
                         </div>
                     </div>
                     <p class="mt-6 text-center">
@@ -783,6 +786,31 @@
                 content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
             });
         });
+
+        // Set the height of the image to match the "Erlebnisorientiert" text div
+        // This needs to be done after the content is rendered and potentially after accordion opens
+        function setHaendeImageHeight() {
+            const erlebnisorientiertText = document.getElementById('erlebnisorientiert-text');
+            const haendeImage = document.querySelector('.accordion-content-inner img[src="Haende.jpg"]');
+
+            if (erlebnisorientiertText && haendeImage) {
+                // Use offsetHeight which includes padding, border, and scrollbar
+                haendeImage.style.height = erlebnisorientiertText.offsetHeight + 'px';
+            }
+        }
+
+        // Call on initial load and when the accordion opens/resizes
+        window.addEventListener('load', setHaendeImageHeight);
+        window.addEventListener('resize', setHaendeImageHeight);
+
+        // Also call when the accordion for "Mein Stil" opens
+        const meinStilButton = document.querySelector('button[aria-controls="content-mein-stil"]');
+        if (meinStilButton) {
+            meinStilButton.addEventListener('click', () => {
+                // Use a small timeout to allow accordion animation to complete
+                setTimeout(setHaendeImageHeight, 550); 
+            });
+        }
     </script>
 </body>
 </html>
