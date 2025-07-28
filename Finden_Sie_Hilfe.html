@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Allgemeine Variablen und Basis-Styles --- */
         :root {
             --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
             --dark-gray-text: #333;
@@ -18,31 +17,24 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        /* --- Mobile Navigation --- */
         .mobile-menu {
             transition: max-height 0.3s ease-out;
             overflow: hidden;
             max-height: 0;
         }
         .mobile-menu.open {
-            max-height: 500px; /* Genug Höhe, um alle Menüpunkte anzuzeigen */
+            max-height: 500px;
         }
-        /* mobile-order-first ist nicht mehr nötig, da die Struktur angepasst wurde */
-        /* mobile-mt-4 ist nicht mehr nötig, da die Struktur angepasst wurde */
-
-        /* --- Akkordeon für Check-up und Ihre Fragen --- */
+        @media (max-width: 767px) {
+            .mobile-order-first { order: -1; }
+            .mobile-mt-4 { margin-top: 1rem; }
+        }
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
         }
-        .accordion-content.open { 
-            /* Max-height wird dynamisch per JS gesetzt, um flüssige Animation zu gewährleisten */
-            /* Padding und Margin werden ebenfalls per JS gesetzt */
-        }
-
-        /* Fade-in Animation für Check-up Listenpunkte */
+        .accordion-content.open { }
         .fade-in-item {
             opacity: 0;
             transform: translateY(10px);
@@ -53,19 +45,20 @@
             transform: translateY(0);
         }
 
-        /* --- Custom CSS für Abschnitte und Überschriften --- */
+        /* --- Custom CSS for Sections and Headings --- */
+        /* Einheitliche Hauptüberschriften */
         .main-section-heading {
-            color: #000000;
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
+            color: #000000; /* Schwarz */
+            font-size: 2em; /* Kleinere, einheitliche Schriftgröße (ca. 32px) */
+            font-weight: 700; /* Fett */
+            margin-bottom: 40px; /* Einheitlicher Abstand nach der Überschrift */
+            text-align: center; /* Standardmäßig zentriert, kann bei Bedarf durch weitere Klassen überschrieben werden */
         }
         
         .psychotherapy-intro-text {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 1.3em; 
+            font-size: 1.1em;
             color: var(--dark-gray-text);
         }
         
@@ -77,23 +70,23 @@
             background-color: white;
         }
 
-        /* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
+        /* Accordion Titel Styling */
         .accordion-title-button {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 1.25rem 1.5rem;
-            background-color: #f0f0f0;
-            border-bottom: 1px solid #e0e0e0;
-            font-size: 1.5em;
+            padding: 1.25rem 1.5rem; /* P-5 Tailwind equivalent */
+            background-color: #f0f0f0; /* Light gray background */
+            border-bottom: 1px solid #e0e0e0; /* Light border for separation */
+            font-size: 1.5em; /* Larger font size for the title */
             font-weight: 600;
             color: var(--dark-gray-text);
             cursor: pointer;
             text-align: left;
             transition: background-color 0.3s ease;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
+            border-radius: 0.5rem; /* Rounded corners */
+            margin-bottom: 1rem; /* Space between accordions */
         }
 
         .accordion-title-button:hover {
@@ -105,19 +98,19 @@
         }
 
         .accordion-title-button.active .icon {
-            transform: rotate(90deg);
+            transform: rotate(90deg); /* Rotate icon when active */
         }
 
-        /* Akkordeon Content Styling */
+        /* Accordion Content Styling */
         .accordion-content-inner {
             background-color: white;
-            padding: 1rem 1.5rem;
-            margin-bottom: 1rem;
+            padding: 1rem 1.5rem; /* Tailwind equivalent p-4 px-6 */
+            margin-bottom: 1rem; /* Space after content */
             border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
         }
 
-        /* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
+        /* --- Grid and Hover Effect CSS --- */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -136,7 +129,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            min-height: 200px; /* Standard-Mindesthöhe für größere Bildschirme */
+            min-height: 200px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -145,7 +138,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
         }
 
-        /* Dunkler Overlay für Lesbarkeit des Textes auf Hintergrundbild */
         .grid-item::before {
             content: '';
             position: absolute;
@@ -153,29 +145,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Leichter Schwarz-Overlay */
+            background-color: rgba(0, 0, 0, 0.4);
             z-index: 1;
             transition: background-color 0.3s ease;
         }
 
-        .grid-item h3 { 
+        .grid-item h3 {
             position: relative;
             z-index: 2;
             margin-top: 0;
-            font-size: 1.5em;
-            line-height: 1.2;
-            /* Für die Ausrichtung des Icons im H3 */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%; /* Wichtig, damit justify-content funktioniert */
-        }
-        
-        /* Stil für das Icon in den Grid-Items */
-        .grid-item .toggle-icon {
-            font-size: 0.8em; /* Kleinere Größe für das Icon */
-            transition: transform 0.3s ease; /* Sanfte Rotation */
-            margin-left: 10px; /* Abstand zum Text im H3 */
+            margin-bottom: 10px;
+            font-size: 1.8em;
         }
 
         .grid-item p {
@@ -183,8 +163,8 @@
             z-index: 2;
             font-size: 1.1em;
             line-height: 1.5;
-            opacity: 0; /* Text auf Desktop zunächst ausgeblendet */
-            max-height: 0; /* Und Höhe auf 0 gesetzt */
+            opacity: 0;
+            max-height: 0;
             overflow: hidden;
             transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
             margin-top: 0;
@@ -192,26 +172,25 @@
             padding-bottom: 0;
         }
 
-        /* Hover-Effekte für größere Bildschirme */
         .grid-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            cursor: pointer; /* Gesamtes Item ist klickbar auf Desktop */
-            background-size: 105%; /* Leichter Zoom des Hintergrundbildes */
+            cursor: pointer;
+            background-size: 105%;
         }
 
         .grid-item:hover::before {
-            background-color: rgba(0, 0, 0, 0.55); /* Overlay wird dunkler beim Hover */
+            background-color: rgba(0, 0, 0, 0.55);
         }
 
         .grid-item:hover p {
-            opacity: 1; /* Text wird sichtbar */
-            max-height: 150px; /* Genug Höhe für den Text, anpassen falls Texte länger sind */
+            opacity: 1;
+            max-height: 150px;
             margin-bottom: 10px;
             padding-bottom: 10px;
         }
 
-        /* Spezifische Hintergrundbilder für jede Karte */
+        /* Specific background images for each section */
         .depression-burnout { background-image: url('Depression.jpg'); }
         .angststoerungen { background-image: url('Angststoerungen.jpg'); }
         .essstoerungen { background-image: url('Essstoerung.jpg'); }
@@ -219,104 +198,30 @@
         .schmerzen { background-image: url('Schmerzen.jpg'); }
         .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-        /* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
+        /* Media Queries for smaller screens */
         @media (max-width: 768px) {
-            /* Anpassung für den Header in mobiler Ansicht */
-            .mobile-header-top-row {
-                display: flex;
-                justify-content: space-between; /* Abstand zwischen Logo und Burger-Menü */
-                align-items: center;
-                width: 100%;
-                margin-bottom: 1rem; /* Abstand zum "Erstgespräch" Button */
-            }
-            .mobile-header-logo-container {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
             .grid-container {
-                grid-template-columns: 1fr; /* Eine Spalte auf Mobilgeräten */
+                grid-template-columns: 1fr;
                 padding: 0 15px;
             }
             .grid-item {
-                min-height: 120px; /* Kleinere Mindesthöhe für die Karte im zugeklappten Zustand */
-                padding: 20px; /* Angepasstes Padding für mobile Ansicht */
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                transform: none; /* Hover-Effekte für Mobilgeräte deaktivieren */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-                background-size: cover; 
+                min-height: 180px;
             }
-            /* Overlay für Mobilgeräte immer etwas dunkler für bessere Lesbarkeit */
-            .grid-item::before {
-                background-color: rgba(0, 0, 0, 0.5); 
+            /* WICHTIG: DIESE REGEL ERSETZT DIE VORHERIGE FÜR GRID-ITEM P AUF MOBILEN GERÄTEN */
+            .grid-item p { /* Standardmäßig versteckt auf Mobilgeräten */
+                opacity: 0;
+                max-height: 0;
+                margin-bottom: 0;
+                padding-bottom: 0;
             }
-            .grid-item:hover::before { /* Hover Effekt auf Mobil deaktivieren */
-                background-color: rgba(0, 0, 0, 0.5); 
-            }
-
-            /* Nur die Überschrift ist zunächst sichtbar */
-            .grid-item h3 {
-                margin-bottom: 0; /* Keine Marge unter der Überschrift im geschlossenen Zustand */
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                cursor: pointer; /* H3 und somit der Pfeil ist der klickbare Bereich */
-            }
-
-            /* Icon-Rotation, wenn die Karte aktiv ist */
-            .grid-item.active .toggle-icon {
-                transform: rotate(90deg); /* Dreht den Pfeil nach rechts */
-            }
-            
-                /* Neue Regel: Text ist standardmäßig ausgeblendet auf Mobilgeräten */
-    .grid-item p {
-        opacity: 0;
-        max-height: 0;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
-    }
-
-    /* Wenn ein Grid-Item auf Mobilgeräten geklickt wird (d.h. die Klasse 'active' hat), zeige den Text */
-    .grid-item.active p {
-        opacity: 1;
-        max-height: 150px; /* Oder eine größere Höhe, wenn der Text länger ist, z.B. 300px oder 'fit-content' */
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-    }
-
-    /* Damit der Hover-Effekt auf Mobilgeräten nicht mit dem Klick-Effekt in Konflikt gerät */
-    /* Der Hover-Effekt für die Transformation und Schatten sollte aber weiterhin angewendet werden */
-    .grid-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        background-size: 105%;
-    }
-    .grid-item:hover::before {
-        background-color: rgba(0, 0, 0, 0.55);
-    }
-}
-
-            /* Zustand, wenn die Karte aktiv (geöffnet) ist */
-            .grid-item.active {
-                min-height: auto; /* Höhe passt sich dem Inhalt an, wenn geöffnet */
-                padding-bottom: 20px; /* Angepasstes Padding für den geöffneten Zustand */
-                transform: none; 
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Leichter erhöhter Schatten beim Öffnen */
-            }
-            .grid-item.active p {
+            .grid-item.active p { /* Aktiviert durch Klick auf Mobilgeräten */
                 opacity: 1;
-                max-height: 300px; /* Genug Höhe für den längsten Text (anpassen bei Bedarf) */
-                margin-bottom: 10px; /* Wieder Marge am Ende des Textes */
+                max-height: 150px; /* Oder eine größere Höhe, wenn der Text länger ist */
+                margin-bottom: 10px;
+                padding-bottom: 10px;
             }
-            
             .main-section-heading { /* Anpassung für mobile Überschrift */
-                font-size: 1.8em;
+                font-size: 1.8em; /* Noch kleiner auf mobilen Geräten */
                 margin-bottom: 30px;
             }
             .accordion-title-button {
@@ -325,183 +230,135 @@
             }
         }
 
-        /* --- Image Strip für "Über mich" (nicht in dieser HTML-Datei verwendet, aber im CSS beibehalten) --- */
+        /* --- Image Strip for "About Me" --- */
         .image-strip {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            overflow: hidden;
-            position: relative;
-            padding: 1rem;
+            justify-content: center; /* Center the images horizontally */
+            align-items: center; /* Center the images vertically */
+            gap: 0.5rem; /* Reduced space between images */
+            margin-bottom: 2rem; /* Space below the strip */
+            overflow: hidden; /* Hide overflow for the hover effect */
+            position: relative; /* Needed for positioning child elements for hover */
+            padding: 1rem; /* Add some padding around the images */
         }
 
         .image-strip .image-wrapper {
-            flex-shrink: 0;
-            width: 25%;
-            max-width: 180px;
-            transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease;
-            z-index: 1;
+            flex-shrink: 0; /* Prevent images from shrinking */
+            width: 25%; /* Adjust width for each image, slightly less than 1/3 */
+            max-width: 180px; /* Max width for side images */
+            transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease; /* Smooth transition for hover effect and size change */
+            z-index: 1; /* Default z-index */
         }
 
         .image-strip .image-wrapper.middle-image {
-            width: 50%;
-            max-width: 450px;
-            z-index: 2;
+            width: 50%; /* Make middle image significantly wider (approx 1.5x original 38% -> 57%) */
+            max-width: 450px; /* Adjust max-width for the middle image (approx 1.5x original 300px -> 450px) */
+            z-index: 2; /* Ensure middle image is on top */
         }
 
-        .image-strip:hover .image-wrapper:nth-child(1) {
-            transform: translateX(-20px);
+        .image-strip:hover .image-wrapper:nth-child(1) { /* Haende2.jpeg (left) */
+            transform: translateX(-20px); /* Move left image slightly left */
         }
 
-        .image-strip:hover .image-wrapper:nth-child(3) {
-            transform: translateX(20px);
+        .image-strip:hover .image-wrapper:nth-child(3) { /* Fuesse.jpeg (right) */
+            transform: translateX(20px); /* Move right image slightly right */
         }
         
+        /* The middle image does not shift horizontally on hover */
         .image-strip:hover .image-wrapper.middle-image {
-             transform: translateY(-5px);
+             transform: translateY(-5px); /* Optional: slight lift for middle image on hover */
         }
 
         .image-strip img {
             width: 100%;
             height: auto;
-            display: block;
+            display: block; /* Remove extra space below image */
             border-radius: 0.5rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            object-fit: contain;
+            object-fit: contain; /* Ensure images are not cropped */
         }
 
         /* Responsive adjustments for the image strip */
         @media (max-width: 768px) {
             .image-strip {
-                flex-direction: column;
-                gap: 1.5rem;
+                flex-direction: column; /* Stack images vertically on small screens */
+                gap: 1.5rem; /* More space when stacked */
             }
             .image-strip .image-wrapper,
             .image-strip .image-wrapper.middle-image {
-                width: 80%;
-                max-width: 400px;
-                transform: none !important;
+                width: 80%; /* Make images wider on mobile */
+                max-width: 400px; /* Limit max-width on mobile */
+                transform: none !important; /* Disable horizontal shift on mobile */
             }
         }
     </style>
 </head>
 <body class="bg-gray-100">
- <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
-    <div class="container mx-auto flex items-center justify-between">
-        <div class="flex flex-col">
-            <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
-                <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
-                <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
-            </a>
-            </div>
-        <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <nav class="hidden md:block">
-            <ul class="flex space-x-6 items-center">
-                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
-                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
-                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
-                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
-        <ul class="flex flex-col items-center space-y-4 pt-4">
-            <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
-            <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
-            <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
-            <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
-        </ul>
-    </div>
-</header>
-
-    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
-        <h2 class="main-section-heading">Finden Sie Hilfe</h2>
-        <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
-            Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
-        </p>
-        <div class="flex justify-center mb-10">
-            <a href="#" id="checkup-button" class="inline-block bg-[#628069] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#7a9d80] transition-colors">
-                Machen Sie den Check-up!
-            </a>
-        </div>
-        <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Alles fühlt sich so schwer an.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Es ist alles viel zu viel.</span></li>
-                </ul>
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich komme einfach nicht mehr zur Ruhe.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>So kann es doch nicht weitergehen.</span></li>
-                </ul>
-            </div>
-            <p class="text-gray-800 text-lg leading-relaxed">Sie können diesen Aussagen größtenteils zustimmen?</p>
-            <p class="text-gray-800 text-lg leading-relaxed mb-6">Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?</p>
-            <p class="text-gray-800 text-lg leading-relaxed">Dann lohnt sich ein genauerer Blick. Ich unterstütze Sie gerne dabei.</p>
-            <div class="flex justify-center mt-6 mb-10"> 
-                <a href="Kontakt.html" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors"> 
-                    Termin vereinbaren
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex flex-col">
+                <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
+                    <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
+                    <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
                 </a>
             </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
+                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
+                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
+                    <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
+            <ul class="flex flex-col items-center space-y-4 pt-4">
+                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
+                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
+                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
+                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
+            </ul>
+        </div>
+    </header>
 
-    <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
-        <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
-        <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
-
-        <div class="grid-container">
-            <div class="grid-item depression-burnout">
-                <h3>Depression & Burnout <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken, Rastlosigkeit.</p>
+    <main class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
+        <div class="flex flex-col md:flex-row gap-10">
+            <div class="md:w-1/3 flex justify-center mobile-order-first">
+                <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-sm h-auto object-cover">
             </div>
-
-            <div class="grid-item angststoerungen">
-                <h3>Angststörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, ständige Sorgen.</p>
-            </div>
-
-            <div class="grid-item essstoerungen">
-                <h3>Essstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.b. Angst vor Gewichtsgewinn, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln.</p>
-            </div>
-
-            <div class="grid-item schlafstoerungen">
-                <h3>Schlafstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen.</p>
-            </div>
-
-            <div class="grid-item schmerzen">
-                <h3>Schmerzen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss.</p>
-            </div>
-
-            <div class="grid-item persoenlichkeitsstoerungen">
-                <h3>Persönlichkeits&shy;störungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen.</p>
+            <div class="md:w-2/3">
+                <h2 class="main-section-heading text-left">Herzlich willkommen!</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Finden Sie hier alle wichtigen Details, um zu entscheiden, ob eine gemeinsame Psychotherapie der richtige Weg für Sie ist.
+                </p>
+                <div class="bg-[#e3a88c] p-8 rounded-lg shadow-md mt-10">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Mein Angebot in Kürze</h3>
+                    <ul class="text-gray-700 space-y-3">
+                        <li class="flex items-center"><i class="fas fa-handshake mr-3 text-lg"></i>moderne, wissenschaftlich fundierte Verhaltenstherapie auf Augenhöhe</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3 text-lg"></i>Praxis im Herzen von München Schwabing</li>
+                        <li class="flex items-center"><i class="fas fa-euro-sign mr-3 text-lg"></i>Kostenübernahme durch Private Krankenversicherungen oder auf Selbstzahlerbasis</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-lg"></i>Terminvereinbarung per E-Mail</li>
+                    </ul>
+                </div>
+                <div class="mt-10 flex justify-center mobile-mt-4">
+                    <a href="#" class="inline-block bg-[#D24136] text-white px-10 py-5 rounded-lg text-2xl font-bold shadow-lg hover:bg-[#a8342c] transition-colors">
+                        Freie Therapieplätze ab Oktober 2025
+                    </a>
+                </div>
             </div>
         </div>
-
-        <p class="text-gray-800 text-lg leading-relaxed mb-8 text-center mt-10">
-            Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
-        </p>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann Psychotherapie?</h3>
-        <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
-        <div class="flex justify-center">
-            <a href="Kontakt.html" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors"> 
-                Termin vereinbaren
-            </a>
-        </div>
-    </section>
+    </main>
 
     <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
         <div class="container mx-auto text-center">
@@ -515,127 +372,127 @@
     </footer>
 
     <script>
-        // --- Mobile Navigation Toggle ---
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 
-const checkupButton = document.getElementById('checkup-button');
-const checkupContent = document.getElementById('checkup-content');
-const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
-
-// Initial state for checkupContent (hidden)
-if (checkupContent) { // Check if element exists before manipulating
-    checkupContent.style.maxHeight = '0';
-    checkupContent.style.paddingTop = '0';
-    checkupContent.style.paddingBottom = '0';
-    checkupContent.style.marginTop = '0';
-    checkupContent.style.marginBottom = '0';
-}
-
-if (checkupButton) { // Check if element exists before adding listener
-    checkupButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        if (checkupContent.classList.contains('open')) {
+        const checkupButton = document.getElementById('checkup-button');
+        const checkupContent = document.getElementById('checkup-content');
+        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
+        
+        // Initial state for checkupContent (hidden)
+        // Überprüfen, ob das Element existiert, bevor es manipuliert wird
+        if (checkupContent) {
             checkupContent.style.maxHeight = '0';
             checkupContent.style.paddingTop = '0';
             checkupContent.style.paddingBottom = '0';
             checkupContent.style.marginTop = '0';
             checkupContent.style.marginBottom = '0';
-            checkupContent.classList.remove('open');
-            fadeInItems.forEach(item => item.classList.remove('visible'));
-        } else {
-            // To ensure scrollHeight is calculated correctly, temporarily remove max-height before setting it
-            checkupContent.style.maxHeight = 'none';
-            checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; // Add a buffer
-            checkupContent.style.paddingTop = '2rem';
-            checkupContent.style.paddingBottom = '2rem';
-            checkupContent.style.marginTop = '2.5rem';
-            checkupContent.style.marginBottom = '2.5rem';
-            checkupContent.classList.add('open');
-            fadeInItems.forEach((item, index) => {
-                setTimeout(() => item.classList.add('visible'), 200 * index);
+        }
+
+        // Überprüfen, ob das Element existiert, bevor ein Listener hinzugefügt wird
+        if (checkupButton) {
+            checkupButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                if (checkupContent.classList.contains('open')) {
+                    checkupContent.style.maxHeight = '0';
+                    checkupContent.style.paddingTop = '0';
+                    checkupContent.style.paddingBottom = '0';
+                    checkupContent.style.marginTop = '0';
+                    checkupContent.style.marginBottom = '0';
+                    checkupContent.classList.remove('open');
+                    fadeInItems.forEach(item => item.classList.remove('visible'));
+                } else {
+                    // Um sicherzustellen, dass scrollHeight korrekt berechnet wird, vorübergehend max-height entfernen
+                    checkupContent.style.maxHeight = 'none';
+                    checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; // Puffer hinzufügen
+                    checkupContent.style.paddingTop = '2rem';
+                    checkupContent.style.paddingBottom = '2rem';
+                    checkupContent.style.marginTop = '2.5rem';
+                    checkupContent.style.marginBottom = '2.5rem';
+                    checkupContent.classList.add('open');
+                    fadeInItems.forEach((item, index) => {
+                        setTimeout(() => item.classList.add('visible'), 200 * index);
+                    });
+                }
             });
         }
-    });
-}
 
-// Accordion functionality for "Über mich" and "Ihre Fragen" sections
-document.querySelectorAll('.accordion-title-button').forEach(button => {
-    button.addEventListener('click', () => {
-        const content = document.getElementById(button.getAttribute('aria-controls'));
-        const icon = button.querySelector('.icon');
+        // Accordion functionality for "Über mich" and "Ihre Fragen" sections
+        document.querySelectorAll('.accordion-title-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = document.getElementById(button.getAttribute('aria-controls'));
+                const icon = button.querySelector('.icon');
 
-        // Close all other open accordions
-        document.querySelectorAll('.accordion-content.open').forEach(openContent => {
-            if (openContent !== content) {
-                openContent.style.maxHeight = '0';
-                openContent.style.paddingTop = '0';
-                openContent.style.paddingBottom = '0';
-                // Find the button associated with this content
-                const prevButton = openContent.previousElementSibling;
-                if (prevButton && prevButton.classList.contains('accordion-title-button')) {
-                    prevButton.classList.remove('active');
-                    prevButton.querySelector('.icon').style.transform = 'rotate(0deg)';
+                // Close all other open accordions
+                document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                    if (openContent !== content) {
+                        openContent.style.maxHeight = '0';
+                        openContent.style.paddingTop = '0';
+                        openContent.style.paddingBottom = '0';
+                        // Find the button associated with this content
+                        const prevButton = openContent.previousElementSibling;
+                        if (prevButton && prevButton.classList.contains('accordion-title-button')) {
+                            prevButton.classList.remove('active');
+                            prevButton.querySelector('.icon').style.transform = 'rotate(0deg)';
+                        }
+                        openContent.classList.remove('open');
+                    }
+                });
+
+                // Toggle current accordion
+                if (content.classList.contains('open')) {
+                    content.style.maxHeight = '0';
+                    content.style.paddingTop = '0';
+                    content.style.paddingBottom = '0';
+                    button.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Set max-height based on scrollHeight for smooth transition
+                    // Add a small buffer to max-height to ensure all content fits, especially with padding
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+                    content.style.paddingTop = '1rem'; /* Set padding for open state */
+                    content.style.paddingBottom = '1rem'; /* Set padding for open state */
+                    button.classList.add('active');
+                    icon.style.transform = 'rotate(90deg)';
                 }
-                openContent.classList.remove('open');
-            }
+                content.classList.toggle('open');
+            });
         });
 
-        // Toggle current accordion
-        if (content.classList.contains('open')) {
-            content.style.maxHeight = '0';
-            content.style.paddingTop = '0';
-            content.style.paddingBottom = '0';
-            button.classList.remove('active');
-            icon.style.transform = 'rotate(0deg)';
-        } else {
-            // Set max-height based on scrollHeight for smooth transition
-            // Add a small buffer to max-height to ensure all content fits, especially with padding
-            content.style.maxHeight = (content.scrollHeight + 50) + 'px';
-            content.style.paddingTop = '1rem'; /* Set padding for open state */
-            content.style.paddingBottom = '1rem'; /* Set padding for open state */
-            button.classList.add('active');
-            icon.style.transform = 'rotate(90deg)';
-        }
-        content.classList.toggle('open');
-    });
-});
-
-// This ensures the max-height is correctly calculated for content that changes after initial load
-// Or if the window is resized while an accordion is open.
-window.addEventListener('resize', () => {
-    document.querySelectorAll('.accordion-content.open').forEach(content => {
-        content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
-        content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
-    });
-    // For grid items on resize, ensure consistent state if they were open on mobile
-    document.querySelectorAll('.grid-item.active').forEach(gridItem => {
-        if (window.innerWidth > 768) { // If resized to desktop, reset active state
-            gridItem.classList.remove('active');
-        }
-    });
-});
-
-// NEUER JS-Code für das Einklappen der Grid-Elemente auf Mobilgeräten
-document.querySelectorAll('.grid-item').forEach(gridItem => {
-    gridItem.addEventListener('click', () => {
-        // Diese Logik nur auf Mobilgeräten (bis 768px Breite) anwenden
-        if (window.innerWidth <= 768) {
-            // Umschalten der 'active' Klasse auf dem angeklickten Grid-Element
-            gridItem.classList.toggle('active');
-
-            // Optional: Schließe andere offene Grid-Elemente, wenn ein neues geöffnet wird.
-            // Dies ähnelt dem Verhalten der Akkordeons weiter oben.
-            document.querySelectorAll('.grid-item.active').forEach(openGridItem => {
-                if (openGridItem !== gridItem) {
-                    openGridItem.classList.remove('active');
+        // This ensures the max-height is correctly calculated for content that changes after initial load
+        // Or if the window is resized while an accordion is open.
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.accordion-content.open').forEach(content => {
+                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
+            });
+            // For grid items on resize, ensure consistent state if they were open on mobile
+            document.querySelectorAll('.grid-item.active').forEach(gridItem => {
+                if (window.innerWidth > 768) { // If resized to desktop, reset active state
+                    gridItem.classList.remove('active');
                 }
             });
-        }
-    });
-});
+        });
 
+        // NEUER JS-Code für das Einklappen der Grid-Elemente auf Mobilgeräten
+        document.querySelectorAll('.grid-item').forEach(gridItem => {
+            gridItem.addEventListener('click', () => {
+                // Diese Logik nur auf Mobilgeräten (bis 768px Breite) anwenden
+                if (window.innerWidth <= 768) {
+                    // Umschalten der 'active' Klasse auf dem angeklickten Grid-Element
+                    gridItem.classList.toggle('active');
+
+                    // Optional: Schließe andere offene Grid-Elemente, wenn ein neues geöffnet wird.
+                    // Dies ähnelt dem Verhalten der Akkordeons weiter oben.
+                    document.querySelectorAll('.grid-item.active').forEach(openGridItem => {
+                        if (openGridItem !== gridItem) {
+                            openGridItem.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
