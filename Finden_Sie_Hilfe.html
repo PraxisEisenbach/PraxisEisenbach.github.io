@@ -171,7 +171,6 @@
             justify-content: space-between;
             align-items: center;
             width: 100%; /* Wichtig, damit justify-content funktioniert */
-            /* cursor: pointer; wird im @media-Block für h3 hinzugefügt */
         }
         
         /* Stil für das Icon in den Grid-Items */
@@ -199,7 +198,7 @@
         .grid-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
+            cursor: pointer; /* Gesamtes Item ist klickbar auf Desktop */
             background-size: 105%; /* Leichter Zoom des Hintergrundbildes */
         }
 
@@ -234,7 +233,6 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                /* cursor: pointer; wurde von .grid-item auf .grid-item h3 verschoben */
                 transform: none; /* Hover-Effekte für Mobilgeräte deaktivieren */
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
                 background-size: cover; 
@@ -254,7 +252,7 @@
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
-                cursor: pointer; /* Jetzt ist H3 der klickbare Bereich */
+                cursor: pointer; /* H3 und somit der Pfeil ist der klickbare Bereich */
             }
 
             /* Icon-Rotation, wenn die Karte aktiv ist */
@@ -585,15 +583,18 @@
             gridItems.forEach(item => {
                 const heading = item.querySelector('h3'); // Das h3-Element innerhalb des Grid-Items holen
 
-                // Vorhandene Event Listener entfernen, um Mehrfach-Bindungen bei resize zu vermeiden
-                if (heading && heading._toggleHandler) { // Prüfen, ob Handler existiert
-                    heading.removeEventListener('click', heading._toggleHandler); 
+                // Entferne bestehende Event-Listener, um Duplikate zu vermeiden (wichtig bei "resize")
+                // Überprüfe, ob der _toggleHandler bereits definiert ist, bevor du ihn entfernst
+                if (heading && heading._toggleHandler) {
+                    heading.removeEventListener('click', heading._toggleHandler);
+                    delete heading._toggleHandler; // Entferne die gespeicherte Referenz
                 }
                 
                 // Nur auf mobilen Geräten (gemäß CSS-Breakpoint) aktivieren
                 if (window.innerWidth <= 768) {
                     if (heading) { // Sicherstellen, dass h3 existiert
-                        heading._toggleHandler = () => { // Handler am h3 speichern
+                        // Speichere den Handler, damit er später entfernt werden kann
+                        heading._toggleHandler = () => { 
                             // Alle anderen offenen Grid-Elemente schließen
                             gridItems.forEach(otherItem => {
                                 if (otherItem !== item && otherItem.classList.contains('active')) {
