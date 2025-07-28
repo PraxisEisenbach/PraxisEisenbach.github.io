@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* --- Allgemeine Variablen und Basis-Styles --- */
         :root {
             --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
             --dark-gray-text: #333;
@@ -17,24 +18,33 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
+        /* --- Mobile Navigation --- */
         .mobile-menu {
             transition: max-height 0.3s ease-out;
             overflow: hidden;
             max-height: 0;
         }
         .mobile-menu.open {
-            max-height: 500px;
+            max-height: 500px; /* Genug Höhe, um alle Menüpunkte anzuzeigen */
         }
         @media (max-width: 767px) {
             .mobile-order-first { order: -1; }
             .mobile-mt-4 { margin-top: 1rem; }
         }
+
+        /* --- Akkordeon für Check-up und Ihre Fragen --- */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
         }
-        .accordion-content.open { }
+        .accordion-content.open { 
+            /* Max-height wird dynamisch per JS gesetzt, um flüssige Animation zu gewährleisten */
+            /* Padding und Margin werden ebenfalls per JS gesetzt */
+        }
+
+        /* Fade-in Animation für Check-up Listenpunkte */
         .fade-in-item {
             opacity: 0;
             transform: translateY(10px);
@@ -45,14 +55,13 @@
             transform: translateY(0);
         }
 
-        /* --- Custom CSS for Sections and Headings --- */
-        /* Einheitliche Hauptüberschriften */
+        /* --- Custom CSS für Abschnitte und Überschriften --- */
         .main-section-heading {
-            color: #000000; /* Schwarz */
-            font-size: 2em; /* Kleinere, einheitliche Schriftgröße (ca. 32px) */
-            font-weight: 700; /* Fett */
-            margin-bottom: 40px; /* Einheitlicher Abstand nach der Überschrift */
-            text-align: center; /* Standardmäßig zentriert, kann bei Bedarf durch weitere Klassen überschrieben werden */
+            color: #000000;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
         }
         
         .psychotherapy-intro-text {
@@ -70,23 +79,23 @@
             background-color: white;
         }
 
-        /* Accordion Titel Styling */
+        /* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
         .accordion-title-button {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 1.25rem 1.5rem; /* P-5 Tailwind equivalent */
-            background-color: #f0f0f0; /* Light gray background */
-            border-bottom: 1px solid #e0e0e0; /* Light border for separation */
-            font-size: 1.5em; /* Larger font size for the title */
+            padding: 1.25rem 1.5rem;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.5em;
             font-weight: 600;
             color: var(--dark-gray-text);
             cursor: pointer;
             text-align: left;
             transition: background-color 0.3s ease;
-            border-radius: 0.5rem; /* Rounded corners */
-            margin-bottom: 1rem; /* Space between accordions */
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .accordion-title-button:hover {
@@ -98,19 +107,19 @@
         }
 
         .accordion-title-button.active .icon {
-            transform: rotate(90deg); /* Rotate icon when active */
+            transform: rotate(90deg);
         }
 
-        /* Accordion Content Styling */
+        /* Akkordeon Content Styling */
         .accordion-content-inner {
             background-color: white;
-            padding: 1rem 1.5rem; /* Tailwind equivalent p-4 px-6 */
-            margin-bottom: 1rem; /* Space after content */
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
             border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        /* --- Grid and Hover Effect CSS --- */
+        /* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -138,6 +147,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
         }
 
+        /* Dunkler Overlay für Lesbarkeit des Textes auf Hintergrundbild */
         .grid-item::before {
             content: '';
             position: absolute;
@@ -145,7 +155,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.4); /* Leichter Schwarz-Overlay */
             z-index: 1;
             transition: background-color 0.3s ease;
         }
@@ -154,9 +164,9 @@
             position: relative;
             z-index: 2;
             margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.5em; /* Einheitliche, kleinere Schriftgröße für alle Grid-Überschriften */
-            line-height: 1.2; /* Anpassung des Zeilenabstands für bessere Lesbarkeit */
+            margin-bottom: 10px; /* Abstand zu P im Hover-Zustand */
+            font-size: 1.5em;
+            line-height: 1.2;
         }
         
         .grid-item p {
@@ -164,8 +174,8 @@
             z-index: 2;
             font-size: 1.1em;
             line-height: 1.5;
-            opacity: 0;
-            max-height: 0;
+            opacity: 0; /* Text auf Desktop zunächst ausgeblendet */
+            max-height: 0; /* Und Höhe auf 0 gesetzt */
             overflow: hidden;
             transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
             margin-top: 0;
@@ -173,25 +183,26 @@
             padding-bottom: 0;
         }
 
+        /* Hover-Effekte für größere Bildschirme */
         .grid-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            background-size: 105%;
+            background-size: 105%; /* Leichter Zoom des Hintergrundbildes */
         }
 
         .grid-item:hover::before {
-            background-color: rgba(0, 0, 0, 0.55);
+            background-color: rgba(0, 0, 0, 0.55); /* Overlay wird dunkler beim Hover */
         }
 
         .grid-item:hover p {
-            opacity: 1;
-            max-height: 150px;
+            opacity: 1; /* Text wird sichtbar */
+            max-height: 150px; /* Genug Höhe für den Text, anpassen falls Texte länger sind */
             margin-bottom: 10px;
             padding-bottom: 10px;
         }
 
-        /* Specific background images for each section */
+        /* Spezifische Hintergrundbilder für jede Karte */
         .depression-burnout { background-image: url('Depression.jpg'); }
         .angststoerungen { background-image: url('Angststoerungen.jpg'); }
         .essstoerungen { background-image: url('Essstoerung.jpg'); }
@@ -199,24 +210,64 @@
         .schmerzen { background-image: url('Schmerzen.jpg'); }
         .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-        /* Media Queries for smaller screens */
+        /* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
         @media (max-width: 768px) {
             .grid-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Eine Spalte auf Mobilgeräten */
                 padding: 0 15px;
             }
             .grid-item {
-                min-height: auto; /* Mindesthöhe in der mobilen Ansicht entfernen, damit sich die Höhe an den Inhalt anpasst */
-                padding-bottom: 30px; /* Zusätzlicher vertikaler Abstand für eine bessere Optik */
+                min-height: 120px; /* Kleinere Mindesthöhe für die Karte im zugeklappten Zustand */
+                padding: 20px; /* Angepasstes Padding für mobile Ansicht */
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                cursor: pointer; /* Zeigt an, dass die Karte anklickbar ist */
+                /* Hover-Effekte für Mobilgeräte deaktivieren (durch Klick-Funktionalität ersetzt) */
+                transform: none; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Standard-Schatten beibehalten */
+                background-size: cover; /* Kein Zoom auf Mobilgeräten */
             }
+            /* Overlay für Mobilgeräte immer etwas dunkler für bessere Lesbarkeit */
+            .grid-item::before {
+                background-color: rgba(0, 0, 0, 0.5); 
+            }
+            .grid-item:hover::before { /* Hover Effekt auf Mobil deaktivieren */
+                background-color: rgba(0, 0, 0, 0.5); 
+            }
+
+
+            /* Nur die Überschrift ist zunächst sichtbar */
+            .grid-item h3 {
+                margin-bottom: 0; /* Keine Marge unter der Überschrift im geschlossenen Zustand */
+            }
+
             .grid-item p {
-                opacity: 1; 
-                max-height: none; /* Text im Grid nicht abgeschnitten */
-                margin-bottom: 10px;
-                padding-bottom: 10px;
+                opacity: 0; 
+                max-height: 0; /* Text standardmäßig ausgeblendet */
+                margin-top: 10px; /* Abstand zur Überschrift, wenn eingeblendet */
+                margin-bottom: 0;
+                padding-bottom: 0;
+                overflow: hidden; /* Verhindert, dass Text überläuft, während er ausgeblendet ist */
+                transition: opacity 0.5s ease-out, max-height 0.5s ease-out; /* Übergang für Ein-/Ausblenden */
             }
+
+            /* Zustand, wenn die Karte aktiv (geöffnet) ist */
+            .grid-item.active {
+                min-height: auto; /* Höhe passt sich dem Inhalt an, wenn geöffnet */
+                padding-bottom: 20px; /* Angepasstes Padding für den geöffneten Zustand */
+                /* Keine Transformation beim Klick */
+                transform: none; 
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Leichter erhöhter Schatten beim Öffnen */
+            }
+            .grid-item.active p {
+                opacity: 1;
+                max-height: 300px; /* Genug Höhe für den längsten Text (anpassen bei Bedarf) */
+                margin-bottom: 10px; /* Wieder Marge am Ende des Textes */
+            }
+            
             .main-section-heading { /* Anpassung für mobile Überschrift */
-                font-size: 1.8em; /* Noch kleiner auf mobilen Geräten */
+                font-size: 1.8em;
                 margin-bottom: 30px;
             }
             .accordion-title-button {
@@ -225,65 +276,64 @@
             }
         }
 
-        /* --- Image Strip for "About Me" --- */
+        /* --- Image Strip für "Über mich" (nicht in dieser HTML-Datei verwendet, aber im CSS beibehalten) --- */
         .image-strip {
             display: flex;
-            justify-content: center; /* Center the images horizontally */
-            align-items: center; /* Center the images vertically */
-            gap: 0.5rem; /* Reduced space between images */
-            margin-bottom: 2rem; /* Space below the strip */
-            overflow: hidden; /* Hide overflow for the hover effect */
-            position: relative; /* Needed for positioning child elements for hover */
-            padding: 1rem; /* Add some padding around the images */
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            position: relative;
+            padding: 1rem;
         }
 
         .image-strip .image-wrapper {
-            flex-shrink: 0; /* Prevent images from shrinking */
-            width: 25%; /* Adjust width for each image, slightly less than 1/3 */
-            max-width: 180px; /* Max width for side images */
-            transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease; /* Smooth transition for hover effect and size change */
-            z-index: 1; /* Default z-index */
+            flex-shrink: 0;
+            width: 25%;
+            max-width: 180px;
+            transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease;
+            z-index: 1;
         }
 
         .image-strip .image-wrapper.middle-image {
-            width: 50%; /* Make middle image significantly wider (approx 1.5x original 38% -> 57%) */
-            max-width: 450px; /* Adjust max-width for the middle image (approx 1.5x original 300px -> 450px) */
-            z-index: 2; /* Ensure middle image is on top */
+            width: 50%;
+            max-width: 450px;
+            z-index: 2;
         }
 
-        .image-strip:hover .image-wrapper:nth-child(1) { /* Haende2.jpeg (left) */
-            transform: translateX(-20px); /* Move left image slightly left */
+        .image-strip:hover .image-wrapper:nth-child(1) {
+            transform: translateX(-20px);
         }
 
-        .image-strip:hover .image-wrapper:nth-child(3) { /* Fuesse.jpeg (right) */
-            transform: translateX(20px); /* Move right image slightly right */
+        .image-strip:hover .image-wrapper:nth-child(3) {
+            transform: translateX(20px);
         }
         
-        /* The middle image does not shift horizontally on hover */
         .image-strip:hover .image-wrapper.middle-image {
-             transform: translateY(-5px); /* Optional: slight lift for middle image on hover */
+             transform: translateY(-5px);
         }
 
         .image-strip img {
             width: 100%;
             height: auto;
-            display: block; /* Remove extra space below image */
+            display: block;
             border-radius: 0.5rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            object-fit: contain; /* Ensure images are not cropped */
+            object-fit: contain;
         }
 
         /* Responsive adjustments for the image strip */
         @media (max-width: 768px) {
             .image-strip {
-                flex-direction: column; /* Stack images vertically on small screens */
-                gap: 1.5rem; /* More space when stacked */
+                flex-direction: column;
+                gap: 1.5rem;
             }
             .image-strip .image-wrapper,
             .image-strip .image-wrapper.middle-image {
-                width: 80%; /* Make images wider on mobile */
-                max-width: 400px; /* Limit max-width on mobile */
-                transform: none !important; /* Disable horizontal shift on mobile */
+                width: 80%;
+                max-width: 400px;
+                transform: none !important;
             }
         }
     </style>
@@ -414,15 +464,17 @@
     </footer>
 
     <script>
+        // --- Mobile Navigation Toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 
+        // --- Check-up Akkordeon Funktionalität ---
         const checkupButton = document.getElementById('checkup-button');
         const checkupContent = document.getElementById('checkup-content');
         const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
         
-        // Initial state for checkupContent (hidden)
+        // Initialer Zustand des Check-up Inhalts (versteckt)
         checkupContent.style.maxHeight = '0';
         checkupContent.style.paddingTop = '0';
         checkupContent.style.paddingBottom = '0';
@@ -430,43 +482,47 @@
         checkupContent.style.marginBottom = '0';
 
         checkupButton.addEventListener('click', (event) => {
-            event.preventDefault();
+            event.preventDefault(); // Verhindert das Standardverhalten des Links
             if (checkupContent.classList.contains('open')) {
+                // Inhalt schließen
                 checkupContent.style.maxHeight = '0';
                 checkupContent.style.paddingTop = '0';
                 checkupContent.style.paddingBottom = '0';
                 checkupContent.style.marginTop = '0';
                 checkupContent.style.marginBottom = '0';
                 checkupContent.classList.remove('open');
-                fadeInItems.forEach(item => item.classList.remove('visible'));
+                fadeInItems.forEach(item => item.classList.remove('visible')); // Fade-Out für Listenelemente
             } else {
-                // To ensure scrollHeight is calculated correctly, temporarily remove max-height before setting it
+                // Inhalt öffnen
+                // Temporäres Entfernen von max-height, um scrollHeight korrekt zu berechnen
                 checkupContent.style.maxHeight = 'none'; 
-                checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; // Add a buffer
+                // Setzen der max-height auf den berechneten Wert plus Puffer für sanfte Animation
+                checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; 
                 checkupContent.style.paddingTop = '2rem';
                 checkupContent.style.paddingBottom = '2rem';
                 checkupContent.style.marginTop = '2.5rem';
                 checkupContent.style.marginBottom = '2.5rem';
                 checkupContent.classList.add('open');
+                // Verzögertes Einblenden der Listenelemente
                 fadeInItems.forEach((item, index) => {
                     setTimeout(() => item.classList.add('visible'), 200 * index);
                 });
             }
         });
 
-        // Accordion functionality for "Über mich" and "Ihre Fragen" sections
+        // --- Allgemeine Akkordeon-Funktionalität (für "Ihre Fragen" falls vorhanden) ---
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
 
-                // Close all other open accordions
+                // Alle anderen offenen Akkordeons schließen
                 document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                     if (openContent !== content) {
                         openContent.style.maxHeight = '0';
                         openContent.style.paddingTop = '0';
                         openContent.style.paddingBottom = '0';
-                        // Find the button associated with this content
+                        // Button zum zugehörigen Content finden und deaktivieren
                         const prevButton = openContent.previousElementSibling;
                         if (prevButton && prevButton.classList.contains('accordion-title-button')) {
                             prevButton.classList.remove('active');
@@ -476,7 +532,7 @@
                     }
                 });
 
-                // Toggle current accordion
+                // Aktuelles Akkordeon umschalten
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = '0';
                     content.style.paddingTop = '0';
@@ -484,11 +540,10 @@
                     button.classList.remove('active');
                     icon.style.transform = 'rotate(0deg)';
                 } else {
-                    // Set max-height based on scrollHeight for smooth transition
-                    // Add a small buffer to max-height to ensure all content fits, especially with padding
-                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; 
-                    content.style.paddingTop = '1rem'; /* Set padding for open state */
-                    content.style.paddingBottom = '1rem'; /* Set padding for open state */
+                    // Max-height basierend auf scrollHeight für sanften Übergang setzen
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Puffer hinzufügen
+                    content.style.paddingTop = '1rem'; 
+                    content.style.paddingBottom = '1rem'; 
                     button.classList.add('active');
                     icon.style.transform = 'rotate(90deg)';
                 }
@@ -496,13 +551,50 @@
             });
         });
 
-        // This ensures the max-height is correctly calculated for content that changes after initial load
-        // Or if the window is resized while an accordion is open.
+        // Anpassung der Akkordeon-Höhe bei Fenstergrößenänderung (z.B. Handy drehen)
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
+                content.style.maxHeight = 'none'; // Temporär zurücksetzen
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Neu berechnen
             });
+        });
+
+        // --- NEUES JAVASCRIPT FÜR GRID-ITEM-TOGGLE AUF MOBILEN GERÄTEN ---
+        function setupGridItemToggle() {
+            const gridItems = document.querySelectorAll('.grid-item');
+
+            gridItems.forEach(item => {
+                // Vorhandene Event Listener entfernen, um Mehrfach-Bindungen bei resize zu vermeiden
+                if (item._toggleHandler) { // Prüfen, ob Handler existiert
+                    item.removeEventListener('click', item._toggleHandler); 
+                }
+                
+                // Nur auf mobilen Geräten (gemäß CSS-Breakpoint) aktivieren
+                if (window.innerWidth <= 768) {
+                    // Den Handler speichern, damit er später wieder entfernt werden kann
+                    item._toggleHandler = () => {
+                        // Alle anderen offenen Grid-Elemente schließen
+                        gridItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('active')) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        // Klasse 'active' auf dem geklickten Element umschalten
+                        item.classList.toggle('active');
+                    };
+                    item.addEventListener('click', item._toggleHandler);
+                }
+            });
+        }
+
+        // Setup der Grid-Item-Toggle-Funktion beim Laden der Seite
+        document.addEventListener('DOMContentLoaded', setupGridItemToggle);
+        
+        // Setup der Grid-Item-Toggle-Funktion bei Größenänderung des Fensters (mit Debounce)
+        let resizeTimeoutGrid; // Eigener Timeout-Variablenname
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeoutGrid);
+            resizeTimeoutGrid = setTimeout(setupGridItemToggle, 250); // Kleiner Timeout zur Performance-Verbesserung
         });
 
     </script>
