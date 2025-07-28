@@ -28,10 +28,8 @@
         .mobile-menu.open {
             max-height: 500px; /* Genug Höhe, um alle Menüpunkte anzuzeigen */
         }
-        @media (max-width: 767px) {
-            .mobile-order-first { order: -1; }
-            .mobile-mt-4 { margin-top: 1rem; }
-        }
+        /* mobile-order-first ist nicht mehr nötig, da die Struktur angepasst wurde */
+        /* mobile-mt-4 ist nicht mehr nötig, da die Struktur angepasst wurde */
 
         /* --- Akkordeon für Check-up und Ihre Fragen --- */
         .accordion-content {
@@ -223,6 +221,20 @@
 
         /* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
         @media (max-width: 768px) {
+            /* Anpassung für den Header in mobiler Ansicht */
+            .mobile-header-top-row {
+                display: flex;
+                justify-content: space-between; /* Abstand zwischen Logo und Burger-Menü */
+                align-items: center;
+                width: 100%;
+                margin-bottom: 1rem; /* Abstand zum "Erstgespräch" Button */
+            }
+            .mobile-header-logo-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .grid-container {
                 grid-template-columns: 1fr; /* Eine Spalte auf Mobilgeräten */
                 padding: 0 15px;
@@ -358,13 +370,14 @@
 <body class="bg-gray-100">
     <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
         <div class="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between">
-            <div class="flex flex-col items-start w-full md:w-auto">
-                <h1 class="text-2xl md:text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
-                <p class="text-sm md:text-xl mt-1 rounded-md leading-tight whitespace-nowrap">Psychologische Psychotherapeutin</p>
-            </div>
             
-            <div class="flex justify-end items-center w-full md:hidden mt-4"> 
-                <div class="block mr-4"> 
+            <div class="flex justify-between items-center w-full md:hidden mobile-header-top-row">
+                <div class="flex flex-col items-start mobile-header-logo-container">
+                    <h1 class="text-2xl font-bold rounded-md">Lisa Eisenbach</h1>
+                    <p class="text-sm mt-1 rounded-md leading-tight whitespace-nowrap">Psychologische Psychotherapeutin</p>
+                </div>
+                
+                <div class="block"> 
                     <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Menü öffnen">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -372,7 +385,10 @@
                         </svg>
                     </button>
                 </div>
-                <a href="Kontakt.html" class="bg-[#9F4636] px-3 py-2 text-sm text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors whitespace-nowrap min-w-max">
+            </div>
+
+            <div class="flex justify-center w-full md:hidden mt-4"> 
+                <a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-base text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors whitespace-nowrap min-w-max">
                     Erstgespräch vereinbaren
                 </a>
             </div>
