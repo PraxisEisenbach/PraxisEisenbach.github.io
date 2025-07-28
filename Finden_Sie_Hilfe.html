@@ -164,11 +164,22 @@
             position: relative;
             z-index: 2;
             margin-top: 0;
-            margin-bottom: 10px; /* Abstand zu P im Hover-Zustand */
             font-size: 1.5em;
             line-height: 1.2;
+            /* Für die Ausrichtung des Icons im H3 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; /* Wichtig, damit justify-content funktioniert */
         }
         
+        /* Stil für das Icon in den Grid-Items */
+        .grid-item .toggle-icon {
+            font-size: 0.8em; /* Kleinere Größe für das Icon */
+            transition: transform 0.3s ease; /* Sanfte Rotation */
+            margin-left: 10px; /* Abstand zum Text im H3 */
+        }
+
         .grid-item p {
             position: relative;
             z-index: 2;
@@ -236,12 +247,21 @@
                 background-color: rgba(0, 0, 0, 0.5); 
             }
 
-
             /* Nur die Überschrift ist zunächst sichtbar */
             .grid-item h3 {
                 margin-bottom: 0; /* Keine Marge unter der Überschrift im geschlossenen Zustand */
+                /* Sicherstellen, dass Flexbox-Eigenschaften für H3 auch hier angewendet werden */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
             }
 
+            /* Icon-Rotation, wenn die Karte aktiv ist */
+            .grid-item.active .toggle-icon {
+                transform: rotate(90deg); /* Dreht den Pfeil nach rechts */
+            }
+            
             .grid-item p {
                 opacity: 0; 
                 max-height: 0; /* Text standardmäßig ausgeblendet */
@@ -410,32 +430,32 @@
 
         <div class="grid-container">
             <div class="grid-item depression-burnout">
-                <h3>Depression & Burnout</h3>
+                <h3>Depression & Burnout <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
                 <p>z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken, Rastlosigkeit.</p>
             </div>
 
             <div class="grid-item angststoerungen">
-                <h3>Angststörungen</h3>
+                <h3>Angststörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
                 <p>z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, ständige Sorgen.</p>
             </div>
 
             <div class="grid-item essstoerungen">
-                <h3>Essstörungen</h3>
+                <h3>Essstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
                 <p>z.b. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln.</p>
             </div>
 
             <div class="grid-item schlafstoerungen">
-                <h3>Schlafstörungen</h3>
+                <h3>Schlafstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
                 <p>z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen.</p>
             </div>
 
             <div class="grid-item schmerzen">
-                <h3>Schmerzen</h3>
+                <h3>Schmerzen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
                 <p>z.B. chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss.</p>
             </div>
 
             <div class="grid-item persoenlichkeitsstoerungen">
-                <h3>Persönlichkeits&shy;störungen</h3>
+                <h3>Persönlichkeits&shy;störungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
                 <p>Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen.</p>
             </div>
         </div>
