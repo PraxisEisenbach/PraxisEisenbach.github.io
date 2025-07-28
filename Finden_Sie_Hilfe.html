@@ -516,143 +516,125 @@
 
     <script>
         // --- Mobile Navigation Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 
-        // --- Check-up Akkordeon Funktionalität ---
-        const checkupButton = document.getElementById('checkup-button');
-        const checkupContent = document.getElementById('checkup-content');
-        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
-        
-        // Initialer Zustand des Check-up Inhalts (versteckt)
-        checkupContent.style.maxHeight = '0';
-        checkupContent.style.paddingTop = '0';
-        checkupContent.style.paddingBottom = '0';
-        checkupContent.style.marginTop = '0';
-        checkupContent.style.marginBottom = '0';
+const checkupButton = document.getElementById('checkup-button');
+const checkupContent = document.getElementById('checkup-content');
+const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
 
-        checkupButton.addEventListener('click', (event) => {
-            event.preventDefault(); // Verhindert das Standardverhalten des Links
-            if (checkupContent.classList.contains('open')) {
-                // Inhalt schließen
-                checkupContent.style.maxHeight = '0';
-                checkupContent.style.paddingTop = '0';
-                checkupContent.style.paddingBottom = '0';
-                checkupContent.style.marginTop = '0';
-                checkupContent.style.marginBottom = '0';
-                checkupContent.classList.remove('open');
-                fadeInItems.forEach(item => item.classList.remove('visible')); // Fade-Out für Listenelemente
-            } else {
-                // Inhalt öffnen
-                // Temporäres Entfernen von max-height, um scrollHeight korrekt zu berechnen
-                checkupContent.style.maxHeight = 'none'; 
-                // Setzen der max-height auf den berechneten Wert plus Puffer für sanfte Animation
-                checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; 
-                checkupContent.style.paddingTop = '2rem';
-                checkupContent.style.paddingBottom = '2rem';
-                checkupContent.style.marginTop = '2.5rem';
-                checkupContent.style.marginBottom = '2.5rem';
-                checkupContent.classList.add('open');
-                // Verzögertes Einblenden der Listenelemente
-                fadeInItems.forEach((item, index) => {
-                    setTimeout(() => item.classList.add('visible'), 200 * index);
-                });
+// Initial state for checkupContent (hidden)
+if (checkupContent) { // Check if element exists before manipulating
+    checkupContent.style.maxHeight = '0';
+    checkupContent.style.paddingTop = '0';
+    checkupContent.style.paddingBottom = '0';
+    checkupContent.style.marginTop = '0';
+    checkupContent.style.marginBottom = '0';
+}
+
+if (checkupButton) { // Check if element exists before adding listener
+    checkupButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (checkupContent.classList.contains('open')) {
+            checkupContent.style.maxHeight = '0';
+            checkupContent.style.paddingTop = '0';
+            checkupContent.style.paddingBottom = '0';
+            checkupContent.style.marginTop = '0';
+            checkupContent.style.marginBottom = '0';
+            checkupContent.classList.remove('open');
+            fadeInItems.forEach(item => item.classList.remove('visible'));
+        } else {
+            // To ensure scrollHeight is calculated correctly, temporarily remove max-height before setting it
+            checkupContent.style.maxHeight = 'none';
+            checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; // Add a buffer
+            checkupContent.style.paddingTop = '2rem';
+            checkupContent.style.paddingBottom = '2rem';
+            checkupContent.style.marginTop = '2.5rem';
+            checkupContent.style.marginBottom = '2.5rem';
+            checkupContent.classList.add('open');
+            fadeInItems.forEach((item, index) => {
+                setTimeout(() => item.classList.add('visible'), 200 * index);
+            });
+        }
+    });
+}
+
+// Accordion functionality for "Über mich" and "Ihre Fragen" sections
+document.querySelectorAll('.accordion-title-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = document.getElementById(button.getAttribute('aria-controls'));
+        const icon = button.querySelector('.icon');
+
+        // Close all other open accordions
+        document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+            if (openContent !== content) {
+                openContent.style.maxHeight = '0';
+                openContent.style.paddingTop = '0';
+                openContent.style.paddingBottom = '0';
+                // Find the button associated with this content
+                const prevButton = openContent.previousElementSibling;
+                if (prevButton && prevButton.classList.contains('accordion-title-button')) {
+                    prevButton.classList.remove('active');
+                    prevButton.querySelector('.icon').style.transform = 'rotate(0deg)';
+                }
+                openContent.classList.remove('open');
             }
         });
 
-        // --- Allgemeine Akkordeon-Funktionalität (für "Ihre Fragen" falls vorhanden) ---
-        document.querySelectorAll('.accordion-title-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = document.getElementById(button.getAttribute('aria-controls'));
-                const icon = button.querySelector('.icon');
+        // Toggle current accordion
+        if (content.classList.contains('open')) {
+            content.style.maxHeight = '0';
+            content.style.paddingTop = '0';
+            content.style.paddingBottom = '0';
+            button.classList.remove('active');
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            // Set max-height based on scrollHeight for smooth transition
+            // Add a small buffer to max-height to ensure all content fits, especially with padding
+            content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+            content.style.paddingTop = '1rem'; /* Set padding for open state */
+            content.style.paddingBottom = '1rem'; /* Set padding for open state */
+            button.classList.add('active');
+            icon.style.transform = 'rotate(90deg)';
+        }
+        content.classList.toggle('open');
+    });
+});
 
-                // Alle anderen offenen Akkordeons schließen
-                document.querySelectorAll('.accordion-content.open').forEach(openContent => {
-                    if (openContent !== content) {
-                        openContent.style.maxHeight = '0';
-                        openContent.style.paddingTop = '0';
-                        openContent.style.paddingBottom = '0';
-                        // Button zum zugehörigen Content finden und deaktivieren
-                        const prevButton = openContent.previousElementSibling;
-                        if (prevButton && prevButton.classList.contains('accordion-title-button')) {
-                            prevButton.classList.remove('active');
-                            prevButton.querySelector('.icon').style.transform = 'rotate(0deg)';
-                        }
-                        openContent.classList.remove('open');
-                    }
-                });
+// This ensures the max-height is correctly calculated for content that changes after initial load
+// Or if the window is resized while an accordion is open.
+window.addEventListener('resize', () => {
+    document.querySelectorAll('.accordion-content.open').forEach(content => {
+        content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
+        content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
+    });
+    // For grid items on resize, ensure consistent state if they were open on mobile
+    document.querySelectorAll('.grid-item.active').forEach(gridItem => {
+        if (window.innerWidth > 768) { // If resized to desktop, reset active state
+            gridItem.classList.remove('active');
+        }
+    });
+});
 
-                // Aktuelles Akkordeon umschalten
-                if (content.classList.contains('open')) {
-                    content.style.maxHeight = '0';
-                    content.style.paddingTop = '0';
-                    content.style.paddingBottom = '0';
-                    button.classList.remove('active');
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    // Max-height basierend auf scrollHeight für sanften Übergang setzen
-                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Puffer hinzufügen
-                    content.style.paddingTop = '1rem'; 
-                    content.style.paddingBottom = '1rem'; 
-                    button.classList.add('active');
-                    icon.style.transform = 'rotate(90deg)';
-                }
-                content.classList.toggle('open');
-            });
-        });
+// NEUER JS-Code für das Einklappen der Grid-Elemente auf Mobilgeräten
+document.querySelectorAll('.grid-item').forEach(gridItem => {
+    gridItem.addEventListener('click', () => {
+        // Diese Logik nur auf Mobilgeräten (bis 768px Breite) anwenden
+        if (window.innerWidth <= 768) {
+            // Umschalten der 'active' Klasse auf dem angeklickten Grid-Element
+            gridItem.classList.toggle('active');
 
-        // Anpassung der Akkordeon-Höhe bei Fenstergrößenänderung (z.B. Handy drehen)
-        window.addEventListener('resize', () => {
-            document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none'; // Temporär zurücksetzen
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Neu berechnen
-            });
-        });
-
-        // --- NEUES JAVASCRIPT FÜR GRID-ITEM-TOGGLE AUF MOBILEN GERÄTEN ---
-        function setupGridItemToggle() {
-            const gridItems = document.querySelectorAll('.grid-item');
-
-            gridItems.forEach(item => {
-                const heading = item.querySelector('h3'); // Das h3-Element innerhalb des Grid-Items holen
-
-                // Entferne bestehende Event-Listener, um Duplikate zu vermeiden (wichtig bei "resize")
-                // Überprüfe, ob der _toggleHandler bereits definiert ist, bevor du ihn entfernst
-                if (heading && heading._toggleHandler) {
-                    heading.removeEventListener('click', heading._toggleHandler);
-                    delete heading._toggleHandler; // Entferne die gespeicherte Referenz
-                }
-                
-                // Nur auf mobilen Geräten (gemäß CSS-Breakpoint) aktivieren
-                if (window.innerWidth <= 768) {
-                    if (heading) { // Sicherstellen, dass h3 existiert
-                        // Speichere den Handler, damit er später entfernt werden kann
-                        heading._toggleHandler = () => { 
-                            // Alle anderen offenen Grid-Elemente schließen
-                            gridItems.forEach(otherItem => {
-                                if (otherItem !== item && otherItem.classList.contains('active')) {
-                                    otherItem.classList.remove('active');
-                                }
-                            });
-                            // Klasse 'active' auf dem geklickten Element umschalten
-                            item.classList.toggle('active');
-                        };
-                        heading.addEventListener('click', heading._toggleHandler); // Listener an h3 binden
-                    }
+            // Optional: Schließe andere offene Grid-Elemente, wenn ein neues geöffnet wird.
+            // Dies ähnelt dem Verhalten der Akkordeons weiter oben.
+            document.querySelectorAll('.grid-item.active').forEach(openGridItem => {
+                if (openGridItem !== gridItem) {
+                    openGridItem.classList.remove('active');
                 }
             });
         }
-
-        // Setup der Grid-Item-Toggle-Funktion beim Laden der Seite
-        document.addEventListener('DOMContentLoaded', setupGridItemToggle);
-        
-        // Setup der Grid-Item-Toggle-Funktion bei Größenänderung des Fensters (mit Debounce)
-        let resizeTimeoutGrid; 
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeoutGrid);
-            resizeTimeoutGrid = setTimeout(setupGridItemToggle, 250); 
-        });
+    });
+});
 
     </script>
 </body>
