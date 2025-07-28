@@ -171,6 +171,7 @@
             justify-content: space-between;
             align-items: center;
             width: 100%; /* Wichtig, damit justify-content funktioniert */
+            /* cursor: pointer; wird im @media-Block für h3 hinzugefügt */
         }
         
         /* Stil für das Icon in den Grid-Items */
@@ -233,11 +234,10 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                cursor: pointer; /* Zeigt an, dass die Karte anklickbar ist */
-                /* Hover-Effekte für Mobilgeräte deaktivieren (durch Klick-Funktionalität ersetzt) */
-                transform: none; 
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Standard-Schatten beibehalten */
-                background-size: cover; /* Kein Zoom auf Mobilgeräten */
+                /* cursor: pointer; wurde von .grid-item auf .grid-item h3 verschoben */
+                transform: none; /* Hover-Effekte für Mobilgeräte deaktivieren */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+                background-size: cover; 
             }
             /* Overlay für Mobilgeräte immer etwas dunkler für bessere Lesbarkeit */
             .grid-item::before {
@@ -250,11 +250,11 @@
             /* Nur die Überschrift ist zunächst sichtbar */
             .grid-item h3 {
                 margin-bottom: 0; /* Keine Marge unter der Überschrift im geschlossenen Zustand */
-                /* Sicherstellen, dass Flexbox-Eigenschaften für H3 auch hier angewendet werden */
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
+                cursor: pointer; /* Jetzt ist H3 der klickbare Bereich */
             }
 
             /* Icon-Rotation, wenn die Karte aktiv ist */
@@ -276,7 +276,6 @@
             .grid-item.active {
                 min-height: auto; /* Höhe passt sich dem Inhalt an, wenn geöffnet */
                 padding-bottom: 20px; /* Angepasstes Padding für den geöffneten Zustand */
-                /* Keine Transformation beim Klick */
                 transform: none; 
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Leichter erhöhter Schatten beim Öffnen */
             }
@@ -441,7 +440,7 @@
 
             <div class="grid-item essstoerungen">
                 <h3>Essstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.b. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln.</p>
+                <p>z.b. Angst vor Gewichtsgewinn, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln.</p>
             </div>
 
             <div class="grid-item schlafstoerungen">
@@ -584,25 +583,28 @@
             const gridItems = document.querySelectorAll('.grid-item');
 
             gridItems.forEach(item => {
+                const heading = item.querySelector('h3'); // Das h3-Element innerhalb des Grid-Items holen
+
                 // Vorhandene Event Listener entfernen, um Mehrfach-Bindungen bei resize zu vermeiden
-                if (item._toggleHandler) { // Prüfen, ob Handler existiert
-                    item.removeEventListener('click', item._toggleHandler); 
+                if (heading && heading._toggleHandler) { // Prüfen, ob Handler existiert
+                    heading.removeEventListener('click', heading._toggleHandler); 
                 }
                 
                 // Nur auf mobilen Geräten (gemäß CSS-Breakpoint) aktivieren
                 if (window.innerWidth <= 768) {
-                    // Den Handler speichern, damit er später wieder entfernt werden kann
-                    item._toggleHandler = () => {
-                        // Alle anderen offenen Grid-Elemente schließen
-                        gridItems.forEach(otherItem => {
-                            if (otherItem !== item && otherItem.classList.contains('active')) {
-                                otherItem.classList.remove('active');
-                            }
-                        });
-                        // Klasse 'active' auf dem geklickten Element umschalten
-                        item.classList.toggle('active');
-                    };
-                    item.addEventListener('click', item._toggleHandler);
+                    if (heading) { // Sicherstellen, dass h3 existiert
+                        heading._toggleHandler = () => { // Handler am h3 speichern
+                            // Alle anderen offenen Grid-Elemente schließen
+                            gridItems.forEach(otherItem => {
+                                if (otherItem !== item && otherItem.classList.contains('active')) {
+                                    otherItem.classList.remove('active');
+                                }
+                            });
+                            // Klasse 'active' auf dem geklickten Element umschalten
+                            item.classList.toggle('active');
+                        };
+                        heading.addEventListener('click', heading._toggleHandler); // Listener an h3 binden
+                    }
                 }
             });
         }
@@ -611,10 +613,10 @@
         document.addEventListener('DOMContentLoaded', setupGridItemToggle);
         
         // Setup der Grid-Item-Toggle-Funktion bei Größenänderung des Fensters (mit Debounce)
-        let resizeTimeoutGrid; // Eigener Timeout-Variablenname
+        let resizeTimeoutGrid; 
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeoutGrid);
-            resizeTimeoutGrid = setTimeout(setupGridItemToggle, 250); // Kleiner Timeout zur Performance-Verbesserung
+            resizeTimeoutGrid = setTimeout(setupGridItemToggle, 250); 
         });
 
     </script>
