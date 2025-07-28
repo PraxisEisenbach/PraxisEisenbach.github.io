@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Allgemeine Variablen und Basis-Styles --- */
         :root {
             --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
             --dark-gray-text: #333;
@@ -18,31 +17,29 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        /* --- Mobile Navigation --- */
         .mobile-menu {
             transition: max-height 0.3s ease-out;
             overflow: hidden;
             max-height: 0;
         }
         .mobile-menu.open {
-            max-height: 500px; /* Genug Höhe, um alle Menüpunkte anzuzeigen */
+            max-height: 500px;
         }
-        /* mobile-order-first ist nicht mehr nötig, da die Struktur angepasst wurde */
-        /* mobile-mt-4 ist nicht mehr nötig, da die Struktur angepasst wurde */
-
-        /* --- Akkordeon für Check-up und Ihre Fragen --- */
+        @media (max-width: 767px) {
+            .mobile-order-first { order: -1; }
+            .mobile-mt-4 { margin-top: 1rem; }
+        }
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
         }
-        .accordion-content.open { 
-            /* Max-height wird dynamisch per JS gesetzt, um flüssige Animation zu gewährleisten */
-            /* Padding und Margin werden ebenfalls per JS gesetzt */
+        /* FIX: Added max-height and padding for the open state */
+        .accordion-content.open {
+            max-height: 1000px; /* A sufficiently large value to contain content */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
-
-        /* Fade-in Animation für Check-up Listenpunkte */
         .fade-in-item {
             opacity: 0;
             transform: translateY(10px);
@@ -53,19 +50,20 @@
             transform: translateY(0);
         }
 
-        /* --- Custom CSS für Abschnitte und Überschriften --- */
+        /* --- Custom CSS for Sections and Headings --- */
+        /* Einheitliche Hauptüberschriften */
         .main-section-heading {
-            color: #000000;
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
+            color: #000000; /* Schwarz */
+            font-size: 2em; /* Kleinere, einheitliche Schriftgröße (ca. 32px) */
+            font-weight: 700; /* Fett */
+            margin-bottom: 40px; /* Einheitlicher Abstand nach der Überschrift */
+            text-align: center; /* Standardmäßig zentriert, kann bei Bedarf durch weitere Klassen überschrieben werden */
         }
         
         .psychotherapy-intro-text {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 1.3em; 
+            font-size: 1.1em;
             color: var(--dark-gray-text);
         }
         
@@ -77,23 +75,23 @@
             background-color: white;
         }
 
-        /* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
+        /* Accordion Titel Styling */
         .accordion-title-button {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 1.25rem 1.5rem;
-            background-color: #f0f0f0;
-            border-bottom: 1px solid #e0e0e0;
-            font-size: 1.5em;
+            padding: 1.25rem 1.5rem; /* P-5 Tailwind equivalent */
+            background-color: #f0f0f0; /* Light gray background */
+            border-bottom: 1px solid #e0e0e0; /* Light border for separation */
+            font-size: 1.5em; /* Larger font size for the title */
             font-weight: 600;
             color: var(--dark-gray-text);
             cursor: pointer;
             text-align: left;
             transition: background-color 0.3s ease;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
+            border-radius: 0.5rem; /* Rounded corners */
+            margin-bottom: 1rem; /* Space between accordions */
         }
 
         .accordion-title-button:hover {
@@ -105,19 +103,19 @@
         }
 
         .accordion-title-button.active .icon {
-            transform: rotate(90deg);
+            transform: rotate(90deg); /* Rotate icon when active */
         }
 
-        /* Akkordeon Content Styling */
+        /* Accordion Content Styling */
         .accordion-content-inner {
             background-color: white;
-            padding: 1rem 1.5rem;
-            margin-bottom: 1rem;
+            padding: 1rem 1.5rem; /* Tailwind equivalent p-4 px-6 */
+            margin-bottom: 1rem; /* Space after content */
             border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
         }
 
-        /* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
+        /* --- Grid and Hover Effect CSS --- */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -136,7 +134,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            min-height: 200px; /* Standard-Mindesthöhe für größere Bildschirme */
+            min-height: 200px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -145,7 +143,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
         }
 
-        /* Dunkler Overlay für Lesbarkeit des Textes auf Hintergrundbild */
         .grid-item::before {
             content: '';
             position: absolute;
@@ -153,29 +150,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Leichter Schwarz-Overlay */
+            background-color: rgba(0, 0, 0, 0.4);
             z-index: 1;
             transition: background-color 0.3s ease;
         }
 
-        .grid-item h3 { 
+        .grid-item h3 {
             position: relative;
             z-index: 2;
             margin-top: 0;
-            font-size: 1.5em;
-            line-height: 1.2;
-            /* Für die Ausrichtung des Icons im H3 */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%; /* Wichtig, damit justify-content funktioniert */
-        }
-        
-        /* Stil für das Icon in den Grid-Items */
-        .grid-item .toggle-icon {
-            font-size: 0.8em; /* Kleinere Größe für das Icon */
-            transition: transform 0.3s ease; /* Sanfte Rotation */
-            margin-left: 10px; /* Abstand zum Text im H3 */
+            margin-bottom: 10px;
+            font-size: 1.8em;
         }
 
         .grid-item p {
@@ -183,8 +168,8 @@
             z-index: 2;
             font-size: 1.1em;
             line-height: 1.5;
-            opacity: 0; /* Text auf Desktop zunächst ausgeblendet */
-            max-height: 0; /* Und Höhe auf 0 gesetzt */
+            opacity: 0;
+            max-height: 0;
             overflow: hidden;
             transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
             margin-top: 0;
@@ -192,26 +177,25 @@
             padding-bottom: 0;
         }
 
-        /* Hover-Effekte für größere Bildschirme */
         .grid-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            cursor: pointer; /* Gesamtes Item ist klickbar auf Desktop */
-            background-size: 105%; /* Leichter Zoom des Hintergrundbildes */
+            cursor: pointer;
+            background-size: 105%;
         }
 
         .grid-item:hover::before {
-            background-color: rgba(0, 0, 0, 0.55); /* Overlay wird dunkler beim Hover */
+            background-color: rgba(0, 0, 0, 0.55);
         }
 
         .grid-item:hover p {
-            opacity: 1; /* Text wird sichtbar */
-            max-height: 150px; /* Genug Höhe für den Text, anpassen falls Texte länger sind */
+            opacity: 1;
+            max-height: 150px;
             margin-bottom: 10px;
             padding-bottom: 10px;
         }
 
-        /* Spezifische Hintergrundbilder für jede Karte */
+        /* Specific background images for each section */
         .depression-burnout { background-image: url('Depression.jpg'); }
         .angststoerungen { background-image: url('Angststoerungen.jpg'); }
         .essstoerungen { background-image: url('Essstoerung.jpg'); }
@@ -219,84 +203,23 @@
         .schmerzen { background-image: url('Schmerzen.jpg'); }
         .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-        /* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
+        /* Media Queries for smaller screens */
         @media (max-width: 768px) {
-            /* Anpassung für den Header in mobiler Ansicht */
-            .mobile-header-top-row {
-                display: flex;
-                justify-content: space-between; /* Abstand zwischen Logo und Burger-Menü */
-                align-items: center;
-                width: 100%;
-                margin-bottom: 1rem; /* Abstand zum "Erstgespräch" Button */
-            }
-            .mobile-header-logo-container {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
             .grid-container {
-                grid-template-columns: 1fr; /* Eine Spalte auf Mobilgeräten */
+                grid-template-columns: 1fr;
                 padding: 0 15px;
             }
             .grid-item {
-                min-height: 120px; /* Kleinere Mindesthöhe für die Karte im zugeklappten Zustand */
-                padding: 20px; /* Angepasstes Padding für mobile Ansicht */
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                transform: none; /* Hover-Effekte für Mobilgeräte deaktivieren */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-                background-size: cover; 
+                min-height: 180px;
             }
-            /* Overlay für Mobilgeräte immer etwas dunkler für bessere Lesbarkeit */
-            .grid-item::before {
-                background-color: rgba(0, 0, 0, 0.5); 
-            }
-            .grid-item:hover::before { /* Hover Effekt auf Mobil deaktivieren */
-                background-color: rgba(0, 0, 0, 0.5); 
-            }
-
-            /* Nur die Überschrift ist zunächst sichtbar */
-            .grid-item h3 {
-                margin-bottom: 0; /* Keine Marge unter der Überschrift im geschlossenen Zustand */
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                cursor: pointer; /* H3 und somit der Pfeil ist der klickbare Bereich */
-            }
-
-            /* Icon-Rotation, wenn die Karte aktiv ist */
-            .grid-item.active .toggle-icon {
-                transform: rotate(90deg); /* Dreht den Pfeil nach rechts */
-            }
-            
             .grid-item p {
-                opacity: 0; 
-                max-height: 0; /* Text standardmäßig ausgeblendet */
-                margin-top: 10px; /* Abstand zur Überschrift, wenn eingeblendet */
-                margin-bottom: 0;
-                padding-bottom: 0;
-                overflow: hidden; /* Verhindert, dass Text überläuft, während er ausgeblendet ist */
-                transition: opacity 0.5s ease-out, max-height 0.5s ease-out; /* Übergang für Ein-/Ausblenden */
+                opacity: 1; 
+                max-height: 150px; 
+                margin-bottom: 10px;
+                padding-bottom: 10px;
             }
-
-            /* Zustand, wenn die Karte aktiv (geöffnet) ist */
-            .grid-item.active {
-                min-height: auto; /* Höhe passt sich dem Inhalt an, wenn geöffnet */
-                padding-bottom: 20px; /* Angepasstes Padding für den geöffneten Zustand */
-                transform: none; 
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Leichter erhöhter Schatten beim Öffnen */
-            }
-            .grid-item.active p {
-                opacity: 1;
-                max-height: 300px; /* Genug Höhe für den längsten Text (anpassen bei Bedarf) */
-                margin-bottom: 10px; /* Wieder Marge am Ende des Textes */
-            }
-            
             .main-section-heading { /* Anpassung für mobile Überschrift */
-                font-size: 1.8em;
+                font-size: 1.8em; /* Noch kleiner auf mobilen Geräten */
                 margin-bottom: 30px;
             }
             .accordion-title-button {
@@ -305,94 +228,84 @@
             }
         }
 
-        /* --- Image Strip für "Über mich" (nicht in dieser HTML-Datei verwendet, aber im CSS beibehalten) --- */
+        /* --- Image Strip for "About Me" --- */
         .image-strip {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            overflow: hidden;
-            position: relative;
-            padding: 1rem;
+            justify-content: center; /* Center the images horizontally */
+            align-items: center; /* Center the images vertically */
+            gap: 0.5rem; /* Reduced space between images */
+            margin-bottom: 2rem; /* Space below the strip */
+            overflow: hidden; /* Hide overflow for the hover effect */
+            position: relative; /* Needed for positioning child elements for hover */
+            padding: 1rem; /* Add some padding around the images */
         }
 
         .image-strip .image-wrapper {
-            flex-shrink: 0;
-            width: 25%;
-            max-width: 180px;
-            transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease;
-            z-index: 1;
+            flex-shrink: 0; /* Prevent images from shrinking */
+            width: 25%; /* Adjust width for each image, slightly less than 1/3 */
+            max-width: 180px; /* Max width for side images */
+            transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease; /* Smooth transition for hover effect and size change */
+            z-index: 1; /* Default z-index */
         }
 
         .image-strip .image-wrapper.middle-image {
-            width: 50%;
-            max-width: 450px;
-            z-index: 2;
+            width: 50%; /* Make middle image significantly wider (approx 1.5x original 38% -> 57%) */
+            max-width: 450px; /* Adjust max-width for the middle image (approx 1.5x original 300px -> 450px) */
+            z-index: 2; /* Ensure middle image is on top */
         }
 
-        .image-strip:hover .image-wrapper:nth-child(1) {
-            transform: translateX(-20px);
+        .image-strip:hover .image-wrapper:nth-child(1) { /* Haende2.jpeg (left) */
+            transform: translateX(-20px); /* Move left image slightly left */
         }
 
-        .image-strip:hover .image-wrapper:nth-child(3) {
-            transform: translateX(20px);
+        .image-strip:hover .image-wrapper:nth-child(3) { /* Fuesse.jpeg (right) */
+            transform: translateX(20px); /* Move right image slightly right */
         }
         
+        /* The middle image does not shift horizontally on hover */
         .image-strip:hover .image-wrapper.middle-image {
-             transform: translateY(-5px);
+             transform: translateY(-5px); /* Optional: slight lift for middle image on hover */
         }
 
         .image-strip img {
             width: 100%;
             height: auto;
-            display: block;
+            display: block; /* Remove extra space below image */
             border-radius: 0.5rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            object-fit: contain;
+            object-fit: contain; /* Ensure images are not cropped */
         }
 
         /* Responsive adjustments for the image strip */
         @media (max-width: 768px) {
             .image-strip {
-                flex-direction: column;
-                gap: 1.5rem;
+                flex-direction: column; /* Stack images vertically on small screens */
+                gap: 1.5rem; /* More space when stacked */
             }
             .image-strip .image-wrapper,
             .image-strip .image-wrapper.middle-image {
-                width: 80%;
-                max-width: 400px;
-                transform: none !important;
+                width: 80%; /* Make images wider on mobile */
+                max-width: 400px; /* Limit max-width on mobile */
+                transform: none !important; /* Disable horizontal shift on mobile */
             }
         }
     </style>
 </head>
 <body class="bg-gray-100">
     <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
-        <div class="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between">
-            
-            <div class="flex justify-between items-center w-full md:hidden mobile-header-top-row">
-                <div class="flex flex-col items-start mobile-header-logo-container">
-                    <h1 class="text-2xl font-bold rounded-md">Lisa Eisenbach</h1>
-                    <p class="text-sm mt-1 rounded-md leading-tight whitespace-nowrap">Psychologische Psychotherapeutin</p>
-                </div>
-                
-                <div class="block"> 
-                    <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Menü öffnen">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex flex-col">
+                <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
+                <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
+                    </svg>
+                </button>
             </div>
-
-            <div class="flex justify-center w-full md:hidden mt-4"> 
-                <a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-base text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors whitespace-nowrap min-w-max">
-                    Erstgespräch vereinbaren
-                </a>
-            </div>
-
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
                     <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
@@ -402,93 +315,158 @@
                 </ul>
             </nav>
         </div>
-        
         <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
             <ul class="flex flex-col items-center space-y-4 pt-4">
                 <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
                 <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
                 <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
+                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
             </ul>
         </div>
     </header>
 
-    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
-        <h2 class="main-section-heading">Finden Sie Hilfe</h2>
-        <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
-            Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
-        </p>
-        <div class="flex justify-center mb-10">
-            <a href="#" id="checkup-button" class="inline-block bg-[#628069] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#7a9d80] transition-colors">
-                Machen Sie den Check-up!
-            </a>
-        </div>
-        <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Alles fühlt sich so schwer an.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Es ist alles viel zu viel.</span></li>
-                </ul>
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich komme einfach nicht mehr zur Ruhe.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>So kann es doch nicht weitergehen.</span></li>
-                </ul>
-            </div>
-            <p class="text-gray-800 text-lg leading-relaxed">Sie können diesen Aussagen größtenteils zustimmen?</p>
-            <p class="text-gray-800 text-lg leading-relaxed mb-6">Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?</p>
-            <p class="text-gray-800 text-lg leading-relaxed">Dann lohnt sich ein genauerer Blick. Ich unterstütze Sie gerne dabei.</p>
-            <div class="flex justify-center mt-6 mb-10"> 
-                <a href="Kontakt.html" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors"> 
-                    Termin vereinbaren
-                </a>
-            </div>
-        </div>
-    </section>
+    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-white">
+        <h2 class="main-section-heading">Ihre Fragen</h2>
 
-    <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
-        <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
-        <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
-
-        <div class="grid-container">
-            <div class="grid-item depression-burnout">
-                <h3>Depression & Burnout <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken, Rastlosigkeit.</p>
-            </div>
-
-            <div class="grid-item angststoerungen">
-                <h3>Angststörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, ständige Sorgen.</p>
-            </div>
-
-            <div class="grid-item essstoerungen">
-                <h3>Essstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.b. Angst vor Gewichtsgewinn, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln.</p>
-            </div>
-
-            <div class="grid-item schlafstoerungen">
-                <h3>Schlafstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen.</p>
-            </div>
-
-            <div class="grid-item schmerzen">
-                <h3>Schmerzen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss.</p>
-            </div>
-
-            <div class="grid-item persoenlichkeitsstoerungen">
-                <h3>Persönlichkeits&shy;störungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen.</p>
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-dauer-sitzung">
+                Wie lange dauert eine Sitzung?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-dauer-sitzung" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>Eine Therapiesitzung dauert 50 Minuten. Sie erhalten von mir einen festen Termin, den ich Ihnen für Ihre Therapiedauer wöchentlich fest reserviere.</p>
+                </div>
             </div>
         </div>
 
-        <p class="text-gray-800 text-lg leading-relaxed mb-8 text-center mt-10">
-            Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
-        </p>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann Psychotherapie?</h3>
-        <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
-        <div class="flex justify-center">
-            <a href="Kontakt.html" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors"> 
-                Termin vereinbaren
-            </a>
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-dauer-therapie">
+                Und wie lange dauert die gesamte Therapie?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-dauer-therapie" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>Sie sind individuell. Genauso Ihre Lebenssituation, genauso Ihr Thema. Und genauso Ihre Therapiedauer.</p>
+                    <p class="mt-4">Generell gilt: </p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Erst vor kurzem aufgetretene Symptome und eine ganz klar begrenzte, oberflächlichere Betrachtungsweise &rarr; kurze Therapiedauer.</li>
+                        <li>Chronische Symptome und allumfassende, tiefgründigere Betrachtungsweise &rarr; längere Therapiedauer.</li>
+                    </ul>
+                    <p class="mt-4">Aber so ungefähr?</p>
+                    <p>Zur groben Orientierung: Eine Kurzzeittherapie umfasst normalweise etwa 24 Sitzungen, eine Langzeittherapie 45 bis 60 Sitzungen. Coaching dauert in der Regel zwischen 1 und 10 Sitzungen.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-ablauf-erwartung">
+                Und was genau erwartet mich? Wie läuft das ab?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-ablauf-erwartung" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>Zeitlich gesprochen:</p>
+                    <ol class="list-decimal pl-5 space-y-2 mt-4">
+                        <li>
+                            <strong>Kontaktaufnahme per Mail</strong><br>
+                            Schreiben Sie mir Ihren Namen und Ihr Anliegen. Ich prüfe meine Kapazitäten und biete Ihnen einen Kennenlerntermin an.
+                        </li>
+                        <li>
+                            <strong>Erstgespräch</strong><br>
+                            Bei Im ersten Gespräch geht es um das gegenseitige Kennenlernen. Sie lernen meine Arbeitsweise kennen und ich mache mir ein Bild über Ihre Thematik. Am Ende der Sitzung erhalten Sie von mir eine erste Einschätzung sowie Informationen zu möglichen Wegen.
+                        </li>
+                        <li>
+                            <strong>Diagnostik</strong><br>
+                            Mit Hilfe diagnostischer Fragebogen können wir die Schwere der Problematik und deren Facetten sowie weitere Hintergründe sichtbar machen. Hierdurch gelingt eine passgenaue und individuelle Ausrichtung späterer Therapie.
+                            Um körperliche Zusammenhären abzuklären, benötige ich einen so genannten „Konsiliarbericht“ Ihres Hausarzts/Ihres Psychiaters.
+                        </li>
+                        <li>
+                            <strong>Bis zu fünf Probesitzungen</strong><br>
+                            In den ersten fünf Stunden – diese werden probatorische Sitzungen genannt – entwickeln wir gemeinsam einen guten Überblick über relevante Aspekte Ihrer Lebensgeschichte, die Entwicklung der Problematik und Ihre Ziele. Hieraus leitet sich die weitere Therapieplanung ab. 
+                        </li>
+                        <li>
+                            <strong>Therapiesitzungen</strong><br>
+                            In dieser Phase arbeiten wir gemeinsam an Ihren jeweiligen Zielen. Tagesaktuelles als auch „das große Ganze“ kommen zum Zug. Genaueres siehe „Über mich“.
+                        </li>
+                        <li>
+                            <strong>Therapieabschluss</strong><br>
+                            Im Therapieverlauf sprechen wir immer wieder über die noch offenen Sitzungen und unser Vorankommen/noch offene Punkte. Wenn wir zur Ansicht kommen, dass die Therapie sich dem Ende neigt und Sie Expert/in Ihrer Thematik geworden sind, vereinbaren wir ein Therapieende und bereiten dies vor. Für einen begrenzten Zeitraum kann ggf. auf einen zwei- oder vier-wöchentlichen Rhythmus gewechselt werden. 
+                        </li>
+                    </ol>
+                    <p class="mt-4">Und inhaltlich?</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-4">
+                        <li>Die Grundidee ist, dass wir gemeinsam 
+                            <ul class="list-circle pl-5 mt-2">
+                                <li><strong>Betrachten</strong>
+                                    <ul class="list-square pl-5 mt-2">
+                                        <li>Verstehen/eingestehen, was IST. Hinschauen ist im Alltag und alleine sehr schwer. Gemeinsam nutzen wir den Rahmen einer dezidierten Therapiesitzung zum Innehalten und Hervorholen.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Sortieren</strong>
+                                    <ul class="list-square pl-5 mt-2">
+                                        <li>Welche Aspekte dürfen bleiben, welche sollen gehen? Wie sieht ein erfülltes Leben für mich aus? Was sind meine Werte, meine Ziele?</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Ausprobieren.</strong>
+                                    <ul class="list-square pl-5 mt-2">
+                                        <li>Wenn nix passiert, passiert nix. Therapie findet zwischen den Sitzungen statt. Wir besprechen vor und nach, was in Ihrem Alltag passiert und leiten ab, welche Experimente ggf. passend wären. Wenn Sie Neues testen und neue Erfahrungen machen, kann Veränderung passieren.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-center">Sie wollens genau wissen? Schauen Sie im Abschnitt „Über mich“ vorbei.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-kosten-sitzung-original">
+                Wie viel kostet eine Psychotherapiesitzung?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-kosten-sitzung-original" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>Für 50 Minuten Psychotherapeutisches Einzelgespräch stelle ich Ihnen ca. 167 Euro in Rechnung. Ich halte mich damit an die Gebührenordnung für Psychotherapeuten GOP und die Abrechnungsempfehlungen der Bundespsychotherapeutenkammer BPtK vom 01.07.2024.</p>
+                    <p class="mt-4">Die Rechnungsstellung erfolgt monatlich.</p>
+                    <p class="mt-4">Im Allgemeinen werden die Kosten für eine Psychotherapie von den privaten Krankenversicherungen und den Beihilfestellen erstattet. Die Höhe der Kostenerstattung hängt von Ihrem Vertrag ab, den Sie mit der Versicherung abgeschlossen haben.</p>
+                    <p class="mt-4">Bitte informieren Sie sich deshalb im Voraus, in welchem Umfang Ihre Versicherung die Kosten für eine psychotherapeutische Behandlung übernimmt. ​</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-wer-erfaehrt-original">
+                Wer erfährt von meiner Therapie?
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-wer-erfaehrt-original" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>Sie und ich. Ich unterliege der ärztlich-psychotherapeutischen Schweigepflicht und halte mich streng daran, dass Ihre Themen im Therapieraum bleiben. Wenn Sie als Selbstzahler/in in Therapie sind ist das auch schon alles.</p>
+                    <p class="mt-4">Bei Abrechnung über die Krankenkasse fülle ich meist ein von der Krankenkasse angefordertes Formular mit z.B. der Behandlungsdiagnose aus. Unter Umständen kann zusätzlich ein anonymisierter Bericht an einen psychotherapeutischen Gutachter nötig sein, um eine Langzeittherapie bewilligt zu bekommen. In jedem Fall sprechen wir alle Einzelheiten und Zwischenschritte gemeinsam ab. Es passiert nur, was Sie möchten.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item mb-4">
+            <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-angst-wirken-original">
+                Ich habe Angst, komisch zu wirken.
+                <i class="fas fa-chevron-right icon"></i>
+            </button>
+            <div id="content-angst-wirken-original" class="accordion-content">
+                <div class="accordion-content-inner text-gray-700 leading-relaxed">
+                    <p>Keine Sorge. Sie sind einer/eine von Vielen. 42,6% der Deutschen leiden im Laufe ihres Lebens an einer psychischen Erkrankung (Quelle: Report Psychotherapie 2020 der DPtV). Also 4 von 10 Leuten!</p>
+                    <p class="mt-4">Es wird glücklicherweise immer häufiger, dass Menschen von Psychotherapie profitieren können, Akzeptanz und Offenheit zunehmen.</p>
+                    <p class="mt-4">Bei einem gebrochenen Bein gehen Sie zum Arzt/zur Ärztin. Bei psychischem Leiden gehen Sie zum Psychotherapeuten/zur Psychotherapeutin.</p>
+                    <p class="mt-4">Sie haben alles Recht dazu, gesund zu werden. Nutzen Sie die Unterstützung, die Ihnen zusteht!</p>
+                    <div class="flex justify-center mt-6">
+                        <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-lg font-bold shadow-md hover:bg-[#b05240] transition-colors">
+                            Termin vereinbaren
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -504,65 +482,26 @@
     </footer>
 
     <script>
-        // --- Mobile Navigation Toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+        if (mobileMenuButton && mobileMenu) { // Added null check for safety
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+        }
 
-        // --- Check-up Akkordeon Funktionalität ---
-        const checkupButton = document.getElementById('checkup-button');
-        const checkupContent = document.getElementById('checkup-content');
-        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
-        
-        // Initialer Zustand des Check-up Inhalts (versteckt)
-        checkupContent.style.maxHeight = '0';
-        checkupContent.style.paddingTop = '0';
-        checkupContent.style.paddingBottom = '0';
-        checkupContent.style.marginTop = '0';
-        checkupContent.style.marginBottom = '0';
+        // Removed checkupButton related code as it doesn't appear in the HTML
 
-        checkupButton.addEventListener('click', (event) => {
-            event.preventDefault(); // Verhindert das Standardverhalten des Links
-            if (checkupContent.classList.contains('open')) {
-                // Inhalt schließen
-                checkupContent.style.maxHeight = '0';
-                checkupContent.style.paddingTop = '0';
-                checkupContent.style.paddingBottom = '0';
-                checkupContent.style.marginTop = '0';
-                checkupContent.style.marginBottom = '0';
-                checkupContent.classList.remove('open');
-                fadeInItems.forEach(item => item.classList.remove('visible')); // Fade-Out für Listenelemente
-            } else {
-                // Inhalt öffnen
-                // Temporäres Entfernen von max-height, um scrollHeight korrekt zu berechnen
-                checkupContent.style.maxHeight = 'none'; 
-                // Setzen der max-height auf den berechneten Wert plus Puffer für sanfte Animation
-                checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; 
-                checkupContent.style.paddingTop = '2rem';
-                checkupContent.style.paddingBottom = '2rem';
-                checkupContent.style.marginTop = '2.5rem';
-                checkupContent.style.marginBottom = '2.5rem';
-                checkupContent.classList.add('open');
-                // Verzögertes Einblenden der Listenelemente
-                fadeInItems.forEach((item, index) => {
-                    setTimeout(() => item.classList.add('visible'), 200 * index);
-                });
-            }
-        });
-
-        // --- Allgemeine Akkordeon-Funktionalität (für "Ihre Fragen" falls vorhanden) ---
+        // Accordion functionality for "Über mich" and "Ihre Fragen" sections
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
 
-                // Alle anderen offenen Akkordeons schließen
+                // Close all other open accordions
                 document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                     if (openContent !== content) {
                         openContent.style.maxHeight = '0';
                         openContent.style.paddingTop = '0';
                         openContent.style.paddingBottom = '0';
-                        // Button zum zugehörigen Content finden und deaktivieren
                         const prevButton = openContent.previousElementSibling;
                         if (prevButton && prevButton.classList.contains('accordion-title-button')) {
                             prevButton.classList.remove('active');
@@ -572,7 +511,7 @@
                     }
                 });
 
-                // Aktuelles Akkordeon umschalten
+                // Toggle current accordion
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = '0';
                     content.style.paddingTop = '0';
@@ -580,10 +519,12 @@
                     button.classList.remove('active');
                     icon.style.transform = 'rotate(0deg)';
                 } else {
-                    // Max-height basierend auf scrollHeight für sanften Übergang setzen
-                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Puffer hinzufügen
+                    // Simply add the 'open' class; CSS handles max-height and padding for the 'open' state
+                    // The 'max-height' set here with scrollHeight is less critical now, as CSS handles the expanded state
+                    // However, keeping it might help with initial calculation for dynamic content or very long content
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Ensure it can expand beyond its initial state
                     content.style.paddingTop = '1rem'; 
-                    content.style.paddingBottom = '1rem'; 
+                    content.style.paddingBottom = '1rem';
                     button.classList.add('active');
                     icon.style.transform = 'rotate(90deg)';
                 }
@@ -591,56 +532,13 @@
             });
         });
 
-        // Anpassung der Akkordeon-Höhe bei Fenstergrößenänderung (z.B. Handy drehen)
+        // This ensures the max-height is correctly calculated for content that changes after initial load
+        // Or if the window is resized while an accordion is open.
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none'; // Temporär zurücksetzen
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Neu berechnen
+                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
             });
-        });
-
-        // --- NEUES JAVASCRIPT FÜR GRID-ITEM-TOGGLE AUF MOBILEN GERÄTEN ---
-        function setupGridItemToggle() {
-            const gridItems = document.querySelectorAll('.grid-item');
-
-            gridItems.forEach(item => {
-                const heading = item.querySelector('h3'); // Das h3-Element innerhalb des Grid-Items holen
-
-                // Entferne bestehende Event-Listener, um Duplikate zu vermeiden (wichtig bei "resize")
-                // Überprüfe, ob der _toggleHandler bereits definiert ist, bevor du ihn entfernst
-                if (heading && heading._toggleHandler) {
-                    heading.removeEventListener('click', heading._toggleHandler);
-                    delete heading._toggleHandler; // Entferne die gespeicherte Referenz
-                }
-                
-                // Nur auf mobilen Geräten (gemäß CSS-Breakpoint) aktivieren
-                if (window.innerWidth <= 768) {
-                    if (heading) { // Sicherstellen, dass h3 existiert
-                        // Speichere den Handler, damit er später entfernt werden kann
-                        heading._toggleHandler = () => { 
-                            // Alle anderen offenen Grid-Elemente schließen
-                            gridItems.forEach(otherItem => {
-                                if (otherItem !== item && otherItem.classList.contains('active')) {
-                                    otherItem.classList.remove('active');
-                                }
-                            });
-                            // Klasse 'active' auf dem geklickten Element umschalten
-                            item.classList.toggle('active');
-                        };
-                        heading.addEventListener('click', heading._toggleHandler); // Listener an h3 binden
-                    }
-                }
-            });
-        }
-
-        // Setup der Grid-Item-Toggle-Funktion beim Laden der Seite
-        document.addEventListener('DOMContentLoaded', setupGridItemToggle);
-        
-        // Setup der Grid-Item-Toggle-Funktion bei Größenänderung des Fensters (mit Debounce)
-        let resizeTimeoutGrid; 
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeoutGrid);
-            resizeTimeoutGrid = setTimeout(setupGridItemToggle, 250); 
         });
 
     </script>
