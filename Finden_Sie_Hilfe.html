@@ -150,7 +150,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* ZWEITE ÄNDERUNG: Alle Überschriften im Grid auf die gleiche Schriftgröße anpassen */
         .grid-item h3 { 
             position: relative;
             z-index: 2;
@@ -211,7 +210,7 @@
             }
             .grid-item p {
                 opacity: 1; 
-                max-height: 150px; 
+                max-height: none; /* Text im Grid nicht abgeschnitten */
                 margin-bottom: 10px;
                 padding-bottom: 10px;
             }
@@ -381,11 +380,10 @@
 
             <div class="grid-item schmerzen">
                 <h3>Schmerzen</h3>
-                <p>z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus, bei denen die somatischen Ursachen die Schwere/Dauer nicht vollständig erklären.</p>
-            </div>
+                <p>z.B. chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss.</p> </div>
 
             <div class="grid-item persoenlichkeitsstoerungen">
-                <h3>Persönlichkeitsstörungen</h3>
+                <h3>Persönlichkeits&shy;störungen</h3>
                 <p>Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen.</p>
             </div>
         </div>
