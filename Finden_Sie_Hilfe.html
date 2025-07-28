@@ -58,7 +58,7 @@
         .psychotherapy-intro-text {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 1.1em;
+            font-size: 1.3em; /* <-- ERSTE ÄNDERUNG: Schriftgröße vergrößert */
             color: var(--dark-gray-text);
         }
         
@@ -156,6 +156,12 @@
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 1.8em;
+        }
+        
+        /* <-- ZWEITE ÄNDERUNG: Anpassung der Überschrift für Persönlichkeitsstörungen */
+        .grid-item.persoenlichkeitsstoerungen h3 {
+            font-size: 1.5em; /* Kleiner, um in eine Zeile zu passen */
+            line-height: 1.2; /* Anpassung des Zeilenabstands */
         }
 
         .grid-item p {
@@ -297,10 +303,10 @@
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16"></path>
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                        </div>
+            </div>
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
                     <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
@@ -321,7 +327,6 @@
     </header>
 
     <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
-        <!-- 'Finden Sie Hilfe' -->
         <h2 class="main-section-heading">Finden Sie Hilfe</h2>
         <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
             Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
@@ -345,17 +350,15 @@
             <p class="text-gray-800 text-lg leading-relaxed">Sie können diesen Aussagen größtenteils zustimmen?</p>
             <p class="text-gray-800 text-lg leading-relaxed mb-6">Sie sehnen sich nach Unbeschwertheit, Orientierung und Perspektive?</p>
             <p class="text-gray-800 text-lg leading-relaxed">Dann lohnt sich ein genauerer Blick. Ich unterstütze Sie gerne dabei.</p>
-            <div class="flex justify-center mt-6 mb-10"> <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors">
-                    Termin vereinbaren
+            <div class="flex justify-center mt-6 mb-10"> 
+                <a href="Kontakt.html" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors"> Termin vereinbaren
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Abschnitt für psychische Erkrankungen mit Grid und Hover-Effekt -->
     <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
         <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
-        <!-- 'Häufige psychische Erkrankungen sind z.B.' -->
         <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
 
         <div class="grid-container">
@@ -396,8 +399,7 @@
         <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann Psychotherapie?</h3>
         <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
         <div class="flex justify-center">
-            <a href="#" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors">
-                Termin vereinbaren
+            <a href="Kontakt.html" class="inline-block bg-[#9F4636] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[#b05240] transition-colors"> Termin vereinbaren
             </a>
         </div>
     </section>
