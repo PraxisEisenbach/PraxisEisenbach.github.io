@@ -129,7 +129,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            min-height: 200px;
+            min-height: 200px; /* Standard-Mindesthöhe für größere Bildschirme */
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -206,7 +206,8 @@
                 padding: 0 15px;
             }
             .grid-item {
-                min-height: 180px;
+                min-height: auto; /* Mindesthöhe in der mobilen Ansicht entfernen, damit sich die Höhe an den Inhalt anpasst */
+                padding-bottom: 30px; /* Zusätzlicher vertikaler Abstand für eine bessere Optik */
             }
             .grid-item p {
                 opacity: 1; 
@@ -380,7 +381,8 @@
 
             <div class="grid-item schmerzen">
                 <h3>Schmerzen</h3>
-                <p>z.B. chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss.</p> </div>
+                <p>z.B. chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss.</p>
+            </div>
 
             <div class="grid-item persoenlichkeitsstoerungen">
                 <h3>Persönlichkeits&shy;störungen</h3>
