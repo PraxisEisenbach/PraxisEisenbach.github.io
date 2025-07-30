@@ -59,28 +59,31 @@
         <h2 class="main-section-heading mb-8">Kontakt</h2>
 
         <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="md:w-full text-left relative">
-                <img src="Stuhl.jpeg" alt="Sessel in Praxis" class="w-1/3 md:w-1/4 h-auto rounded-lg shadow-md float-right ml-6 mb-6">
-                
+            <div class="md:w-1/3"> 
+                <img src="Stuhl.jpeg" alt="Sessel in Praxis" class="w-full h-auto rounded-lg shadow-md mb-6 md:mb-0">
+            </div>
+
+            <div class="md:w-2/3 text-left">
                 <p class="text-lg mb-4">Vereinbaren Sie hier schnell und unkompliziert Ihr Erstgespräch:</p>
 
-                <p class="text-xl font-semibold mb-2 flex items-center">
-                    <i class="fas fa-user mr-2 text-[--primary-red]"></i> Lisa Eisenbach
-                </p>
+                <div class="space-y-4">
+                    <p class="text-xl font-semibold flex items-center">
+                        <i class="fas fa-user mr-2 text-[--primary-red] w-6 flex-shrink-0"></i> <span>Lisa Eisenbach</span>
+                    </p>
 
-                <p class="text-xl mb-2 flex items-center">
-                    <i class="fas fa-phone-alt mr-2 text-[--primary-red]"></i>
-                    <a href="tel:+491636660733" class="text-[--primary-red] hover:underline">0163 / 6660 733</a>
-                </p>
+                    <p class="text-xl flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-[--primary-red] w-6 flex-shrink-0"></i>
+                        <a href="tel:+491636660733" class="text-[--primary-red] hover:underline">0163 / 6660 733</a>
+                    </p>
 
-                <p class="text-xl mb-6 flex items-center">
-                    <i class="fas fa-envelope mr-2 text-[--primary-red]"></i>
-                    <a href="mailto:Mail@Psychotherapie-Eisenbach.de"
+                    <p class="text-xl flex items-center">
+                        <i class="fas fa-envelope mr-2 text-[--primary-red] w-6 flex-shrink-0"></i>
+                        <a href="mailto:Mail@Psychotherapie-Eisenbach.de"
                                 class="text-[--primary-red] hover:underline">Mail@Psychotherapie-Eisenbach.de</a>
-                </p>
+                    </p>
+                </div>
 
-                <p class="text-lg">Ich freue mich darauf, Sie kennenzulernen!</p>
-                <div class="clearfix"></div> 
+                <p class="text-lg mt-6">Ich freue mich darauf, Sie kennenzulernen!</p>
             </div>
         </div>
 
@@ -120,8 +123,6 @@
             });
         }
 
-        // JavaScript for accordion functionalities (if any on this page, otherwise can be removed)
-        // If these elements/classes don't exist on this page, the code will just not execute, which is fine.
         const accordionButtons = document.querySelectorAll('.accordion-title-button');
         accordionButtons.forEach(button => {
             button.addEventListener('click', () => {
