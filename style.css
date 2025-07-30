@@ -1,35 +1,47 @@
+/* Globale Variablen (Farben) */
 :root {
     --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
     --dark-gray-text: #333;
 }
+
+/* Allgemeine Body-Formatierung */
 body {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+/* Mobiles Menü (Hamburger-Menü) */
 .mobile-menu {
     transition: max-height 0.3s ease-out;
     overflow: hidden;
-    max-height: 0;
+    max-height: 0; /* Standardmäßig geschlossen */
 }
+
 .mobile-menu.open {
-    max-height: 500px;
+    max-height: 500px; /* Muss hoch genug sein, um den Inhalt anzuzeigen */
 }
+
+/* Media Queries für mobile Ansicht (falls Tailwind nicht alle Fälle abdeckt) */
 @media (max-width: 767px) {
     .mobile-order-first { order: -1; }
     .mobile-mt-4 { margin-top: 1rem; }
 }
+
+/* Akkordeon-Effekt */
 .accordion-content {
-    max-height: 0;
+    max-height: 0; /* Standardmäßig geschlossen */
     overflow: hidden;
     transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
 }
-/* FIX: Added max-height and padding for the open state */
+
 .accordion-content.open {
-    max-height: 1000px; /* A sufficiently large value to contain content */
+    max-height: 1000px; /* Ein ausreichend großer Wert, um den gesamten Inhalt zu fassen */
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+/* Fade-In Effekt (falls noch verwendet) */
 .fade-in-item {
     opacity: 0;
     transform: translateY(10px);
@@ -40,8 +52,8 @@ body {
     transform: translateY(0);
 }
 
-/* --- Custom CSS for Sections and Headings --- */
-/* Einheitliche Hauptüberschriften */
+/* --- Eigene CSS-Regeln für Abschnitte und Überschriften --- */
+/* Einheitliche Hauptüberschriften (z.B. für "Ihre Fragen") */
 .main-section-heading {
     color: #000000; /* Schwarz */
     font-size: 2em; /* Kleinere, einheitliche Schriftgröße (ca. 32px) */
@@ -65,7 +77,7 @@ body {
     background-color: white;
 }
 
-/* Accordion Titel Styling */
+/* Akkordeon Titel Styling */
 .accordion-title-button {
     display: flex;
     justify-content: space-between;
@@ -93,10 +105,10 @@ body {
 }
 
 .accordion-title-button.active .icon {
-    transform: rotate(90deg); /* Rotate icon when active */
+    transform: rotate(90deg); /* Icon dreht sich, wenn aktiv */
 }
 
-/* Accordion Content Styling */
+/* Akkordeon Inhalt Styling */
 .accordion-content-inner {
     background-color: white;
     padding: 1rem 1.5rem; /* Tailwind equivalent p-4 px-6 */
@@ -105,7 +117,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
 }
 
-/* --- Grid and Hover Effect CSS --- */
+/* --- Grid und Hover-Effekt CSS --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -185,7 +197,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* Specific background images for each section */
+/* Spezifische Hintergrundbilder für jede Sektion (Grid Items) */
 .depression-burnout { background-image: url('Depression.jpg'); }
 .angststoerungen { background-image: url('Angststoerungen.jpg'); }
 .essstoerungen { background-image: url('Essstoerung.jpg'); }
@@ -193,7 +205,7 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-/* Media Queries for smaller screens */
+/* Media Queries für kleinere Bildschirme */
 @media (max-width: 768px) {
     .grid-container {
         grid-template-columns: 1fr;
@@ -219,87 +231,87 @@ body {
     .location-content {
         flex-direction: column;
     }
-    /* Adjustments for the image layout in the "Wo findet die Therapie statt?" section on mobile */
+    /* Anpassungen für das Bild-Layout im Bereich "Wo findet die Therapie statt?" auf Mobilgeräten */
     .location-images-wrapper {
-        flex-direction: column; /* Stack images vertically on small screens */
-        margin-top: 1rem; /* Space between text and images on mobile */
-        width: 100%; /* Full width on mobile */
-        align-items: center; /* Center images when stacked vertically */
+        flex-direction: column; /* Bilder vertikal stapeln auf kleinen Bildschirmen */
+        margin-top: 1rem; /* Abstand zwischen Text und Bildern auf Mobilgeräten */
+        width: 100%; /* Volle Breite auf Mobilgeräten */
+        align-items: center; /* Bilder zentrieren beim vertikalen Stapeln */
     }
     .location-image-container {
-        width: 100%; /* Take full width on mobile */
+        width: 100%; /* Volle Breite auf Mobilgeräten */
         display: flex;
-        justify-content: center; /* Center image within its container on mobile */
+        justify-content: center; /* Bild in seinem Container auf Mobilgeräten zentrieren */
     }
     .location-image.main-image {
-        width: 100%; /* Main image takes full width of its container on mobile */
-        max-width: 400px; /* Limit max-width on mobile */
+        width: 100%; /* Hauptbild nimmt volle Breite seines Containers auf Mobilgeräten */
+        max-width: 400px; /* Max-Breite auf Mobilgeräten begrenzen */
     }
     .location-image.deko-image {
-        width: 30%; /* Deko image is 30% of its container on mobile */
-        max-width: 120px; /* Limit max-width for deko image on mobile */
-        margin-top: 1rem; /* Space between the two images when stacked */
+        width: 30%; /* Deko-Bild ist 30% seines Containers auf Mobilgeräten */
+        max-width: 120px; /* Max-Breite für Deko-Bild auf Mobilgeräten begrenzen */
+        margin-top: 1rem; /* Abstand zwischen den beiden Bildern beim Stapeln */
     }
 }
 
-/* --- Image Strip for "About Me" --- */
+/* --- Bildleiste für "Über mich" --- */
 .image-strip {
     display: flex;
-    justify-content: center; /* Center the images horizontally */
-    align-items: center; /* Center the images vertically */
-    gap: 0.5rem; /* Reduced space between images */
-    margin-bottom: 2rem; /* Space below the strip */
-    overflow: hidden; /* Hide overflow for the hover effect */
-    position: relative; /* Needed for positioning child elements for hover */
-    padding: 1rem; /* Add some padding around the images */
+    justify-content: center; /* Bilder horizontal zentrieren */
+    align-items: center; /* Bilder vertikal zentrieren */
+    gap: 0.5rem; /* Reduzierter Abstand zwischen Bildern */
+    margin-bottom: 2rem; /* Abstand unter der Leiste */
+    overflow: hidden; /* Überlauf für den Hover-Effekt ausblenden */
+    position: relative; /* Notwendig für die Positionierung von Kindelementen für Hover */
+    padding: 1rem; /* Etwas Polsterung um die Bilder */
 }
 
 .image-strip .image-wrapper {
-    flex-shrink: 0; /* Prevent images from shrinking */
-    width: 25%; /* Adjust width for each image, slightly less than 1/3 */
-    max-width: 180px; /* Max width for side images */
-    transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease; /* Smooth transition for hover effect and size change */
-    z-index: 1; /* Default z-index */
+    flex-shrink: 0; /* Verhindert, dass Bilder schrumpfen */
+    width: 25%; /* Breite für jedes Bild anpassen, etwas weniger als 1/3 */
+    max-width: 180px; /* Max-Breite für Seitenbilder */
+    transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease; /* Sanfter Übergang für Hover-Effekt und Größenänderung */
+    z-index: 1; /* Standard-Z-Index */
 }
 
 .image-strip .image-wrapper.middle-image {
-    width: 50%; /* Make middle image significantly wider (approx 1.5x original 38% -> 57%) */
-    max-width: 450px; /* Adjust max-width for the middle image (approx 1.5x original 300px -> 450px) */
-    z-index: 2; /* Ensure middle image is on top */
+    width: 50%; /* Mittleres Bild deutlich breiter machen (ca. 1,5x ursprüngliche 38% -> 57%) */
+    max-width: 450px; /* Max-Breite für das mittlere Bild anpassen (ca. 1,5x ursprüngliche 300px -> 450px) */
+    z-index: 2; /* Sicherstellen, dass das mittlere Bild oben liegt */
 }
 
-.image-strip:hover .image-wrapper:nth-child(1) { /* Haende2.jpeg (left) */
-    transform: translateX(-20px); /* Move left image slightly left */
+.image-strip:hover .image-wrapper:nth-child(1) { /* Haende2.jpeg (links) */
+    transform: translateX(-20px); /* Linkes Bild leicht nach links verschieben */
 }
 
-.image-strip:hover .image-wrapper:nth-child(3) { /* Fuesse.jpeg (right) */
-    transform: translateX(20px); /* Move right image slightly right */
+.image-strip:hover .image-wrapper:nth-child(3) { /* Fuesse.jpeg (rechts) */
+    transform: translateX(20px); /* Rechtes Bild leicht nach rechts verschieben */
 }
 
-/* The middle image does not shift horizontally on hover */
+/* Das mittlere Bild verschiebt sich beim Hover nicht horizontal */
 .image-strip:hover .image-wrapper.middle-image {
-     transform: translateY(-5px); /* Optional: slight lift for middle image on hover */
+     transform: translateY(-5px); /* Optional: leichtes Anheben des mittleren Bildes beim Hover */
 }
 
 .image-strip img {
     width: 100%;
     height: auto;
-    display: block; /* Remove extra space below image */
+    display: block; /* Zusätzlichen Platz unter dem Bild entfernen */
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    object-fit: contain; /* Ensure images are not cropped */
+    object-fit: contain; /* Sicherstellen, dass Bilder nicht beschnitten werden */
 }
 
-/* Responsive adjustments for the image strip */
+/* Responsive Anpassungen für die Bildleiste */
 @media (max-width: 768px) {
     .image-strip {
-        flex-direction: column; /* Stack images vertically on small screens */
-        gap: 1.5rem; /* More space when stacked */
+        flex-direction: column; /* Bilder vertikal auf kleinen Bildschirmen stapeln */
+        gap: 1.5rem; /* Mehr Abstand beim Stapeln */
     }
     .image-strip .image-wrapper,
     .image-strip .image-wrapper.middle-image {
-        width: 80%; /* Make images wider on mobile */
-        max-width: 400px; /* Limit max-width on mobile */
-        transform: none !important; /* Disable horizontal shift on mobile */
+        width: 80%; /* Bilder auf Mobilgeräten breiter machen */
+        max-width: 400px; /* Max-Breite auf Mobilgeräten begrenzen */
+        transform: none !important; /* Horizontale Verschiebung auf Mobilgeräten deaktivieren */
     }
 }
