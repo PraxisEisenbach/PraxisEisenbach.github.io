@@ -10,8 +10,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100">
-    <div id="header-placeholder"></div>
 
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="flex flex-col">
+                <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
+                    <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
+                    <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
+                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
+                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
+                    <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
+            <ul class="flex flex-col items-center space-y-4 pt-4">
+                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
+                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
+                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
+                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
+            </ul>
+        </div>
+    </header>
     <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
         <h2 class="main-section-heading">Über mich</h2>
 
@@ -186,17 +219,31 @@
         </div>
     </section>
 
-    <div id="footer-placeholder"></div>
-
-    <script src="load-partials.js"></script>
+    <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
+            <div class="mt-3 text-sm">
+                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
+                <span class="text-gray-500">|</span>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
     <script>
-        // Accordion functionality for "Über mich" and "Ihre Fragen" sections
+        // Mobile-Menü Funktionalität
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+        }
+
+        // Akkordeon-Funktionalität für "Über mich" und "Ihre Fragen" Abschnitte
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
 
-                // Close all other open accordions
+                // Alle anderen offenen Akkordeons schließen
                 document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                     if (openContent !== content) {
                         openContent.style.maxHeight = '0';
@@ -211,7 +258,7 @@
                     }
                 });
 
-                // Toggle current accordion
+                // Aktuelles Akkordeon umschalten
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = '0';
                     content.style.paddingTop = '0';
@@ -219,7 +266,8 @@
                     button.classList.remove('active');
                     icon.style.transform = 'rotate(0deg)';
                 } else {
-                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Ensure it can expand beyond its initial state
+                    // Die 50px Puffer sind wichtig, damit der Inhalt nicht abgeschnitten wird und die Transition flüssig ist
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px';
                     content.style.paddingTop = '1rem';
                     content.style.paddingBottom = '1rem';
                     button.classList.add('active');
@@ -229,12 +277,12 @@
             });
         });
 
-        // This ensures the max-height is correctly calculated for content that changes after initial load
-        // Or if the window is resized while an accordion is open.
+        // Dies stellt sicher, dass die max-height korrekt berechnet wird, wenn sich der Inhalt nach dem Laden ändert
+        // Oder wenn die Fenstergröße geändert wird, während ein Akkordeon geöffnet ist.
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
+                content.style.maxHeight = 'none'; // Temporär zurücksetzen, um die volle scrollHeight zu erhalten
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Puffer hier auch hinzufügen
             });
         });
     </script>
