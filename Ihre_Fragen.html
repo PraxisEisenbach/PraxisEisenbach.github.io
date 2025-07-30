@@ -7,7 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body class="bg-gray-100">
     <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
@@ -74,7 +76,7 @@
                             <li>Erst vor kurzem aufgetretene Symptome und eine ganz klar begrenzte, oberflächlichere Betrachtungsweise &rarr; kurze Therapiedauer</li>
                             <li>Chronische Symptome und allumfassende, tiefgründigere Betrachtungsweise &rarr; längere Therapiedauer</li>
                         </ul>
-                        <p>Zur groben Orientierung: Eine Kurzzeittherapie umfasst normalerweise etwa 24 Sitzungen, eine Langzeittherapie 45 bis 60 Sitzungen.</p>
+                        <p>Zur groben Orientierung: Eine Kurzzeittherapie umfasst normalweise etwa 24 Sitzungen, eine Langzeittherapie 45 bis 60 Sitzungen.</p>
                     </div>
                 </div>
             </div>
@@ -113,52 +115,34 @@
                 </button>
                 <div id="content-ablauf-erwartung" class="accordion-content">
                     <div class="accordion-content-inner text-gray-700 leading-relaxed">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-number bg-[#628069] text-white font-bold">1.</div>
-                                <div class="timeline-content">
-                                    <strong>Kontaktaufnahme per Mail</strong><br>
-                                    Schreiben Sie mir Ihren Namen und Ihr Anliegen. Ich prüfe meine Kapazitäten und biete Ihnen einen Kennenlerntermin an.
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-number bg-[#628069] text-white font-bold">2.</div>
-                                <div class="timeline-content">
-                                    <strong>Erstgespräch</strong><br>
-                                    Im ersten Gespräch geht es um das gegenseitige Kennenlernen. Sie lernen meine Arbeitsweise kennen und ich mache mir ein Bild über Ihre Thematik. Am Ende der Sitzung erhalten Sie von mir eine erste Einschätzung sowie Informationen zu möglichen Wegen.
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-number bg-[#628069] text-white font-bold">3.</div>
-                                <div class="timeline-content">
-                                    <strong>Diagnostik</strong><br>
-                                    Mit Hilfe diagnostischer Fragebogen können wir die Schwere der Problematik und deren Facetten sowie weitere Hintergründe sichtbar machen. Hierdurch gelingt eine passgenaue und individuelle Ausrichtung späterer Therapie.
-                                    Um körperliche Zusammenhänge abzuklären, benötige ich einen sogenannten „Konsiliarbericht“ Ihres Hausarzts/Ihres Psychiaters.
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-number bg-[#628069] text-white font-bold">4.</div>
-                                <div class="timeline-content">
-                                    <strong>Bis zu fünf Probesitzungen</strong><br>
-                                    In den ersten fünf Stunden – diese werden probatorische Sitzungen genannt – entwickeln wir gemeinsam einen guten Überblick über relevante Aspekte Ihrer Lebensgeschichte, die Entwicklung der Problematik und Ihre Ziele. Hieraus leitet sich die weitere Therapieplanung ab. 
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-number bg-[#628069] text-white font-bold">5.</div>
-                                <div class="timeline-content">
-                                    <strong>Therapiesitzungen</strong><br>
-                                    In dieser Phase arbeiten wir gemeinsam an Ihren jeweiligen Zielen. Tagesaktuelles als auch „das große Ganze“ kommen zum Zug.<br>
-                                    Sie wollen es genau wissen? Schauen Sie im Abschnitt „Über mich“ bzw. "Mein Therapieverständnis" vorbei.
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-number bg-[#628069] text-white font-bold">6.</div>
-                                <div class="timeline-content">
-                                    <strong>Therapieabschluss</strong><br>
-                                    Im Therapieverlauf sprechen wir immer wieder über die noch offenen Sitzungen und unser Vorankommen/noch offene Punkte. Wenn wir zur Ansicht kommen, dass die Therapie sich dem Ende neigt und Sie Expert/in Ihrer Thematik geworden sind, vereinbaren wir ein Therapieende und bereiten dies vor. Für einen begrenzten Zeitraum kann ggf. auf einen zwei- oder vier-wöchentlichen Rhythmus gewechselt werden. 
-                                </div>
-                            </div>
-                        </div>
+                        <ol class="list-decimal pl-5 space-y-2 mt-4">
+                            <li>
+                                <strong>Kontaktaufnahme per Mail</strong><br>
+                                Schreiben Sie mir Ihren Namen und Ihr Anliegen. Ich prüfe meine Kapazitäten und biete Ihnen einen Kennenlerntermin an.
+                            </li>
+                            <li>
+                                <strong>Erstgespräch</strong><br>
+                                Im ersten Gespräch geht es um das gegenseitige Kennenlernen. Sie lernen meine Arbeitsweise kennen und ich mache mir ein Bild über Ihre Thematik. Am Ende der Sitzung erhalten Sie von mir eine erste Einschätzung sowie Informationen zu möglichen Wegen.
+                            </li>
+                            <li>
+                                <strong>Diagnostik</strong><br>
+                                Mit Hilfe diagnostischer Fragebogen können wir die Schwere der Problematik und deren Facetten sowie weitere Hintergründe sichtbar machen. Hierdurch gelingt eine passgenaue und individuelle Ausrichtung späterer Therapie.
+                                Um körperliche Zusammenhänge abzuklären, benötige ich einen sogenannten „Konsiliarbericht“ Ihres Hausarzts/Ihres Psychiaters.
+                            </li>
+                            <li>
+                                <strong>Bis zu fünf Probesitzungen</strong><br>
+                                In den ersten fünf Stunden – diese werden probatorische Sitzungen genannt – entwickeln wir gemeinsam einen guten Überblick über relevante Aspekte Ihrer Lebensgeschichte, die Entwicklung der Problematik und Ihre Ziele. Hieraus leitet sich die weitere Therapieplanung ab. 
+                            </li>
+                            <li>
+                                <strong>Therapiesitzungen</strong><br>
+                                In dieser Phase arbeiten wir gemeinsam an Ihren jeweiligen Zielen. Tagesaktuelles als auch „das große Ganze“ kommen zum Zug.<br>
+                                Sie wollen es genau wissen? Schauen Sie im Abschnitt „Über mich“ bzw. "Mein Therapieverständnis" vorbei.
+                            </li>
+                            <li>
+                                <strong>Therapieabschluss</strong><br>
+                                Im Therapieverlauf sprechen wir immer wieder über die noch offenen Sitzungen und unser Vorankommen/noch offene Punkte. Wenn wir zur Ansicht kommen, dass die Therapie sich dem Ende neigt und Sie Expert/in Ihrer Thematik geworden sind, vereinbaren wir ein Therapieende und bereiten dies vor. Für einen begrenzten Zeitraum kann ggf. auf einen zwei- oder vier-wöchentlichen Rhythmus gewechselt werden. 
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -227,15 +211,17 @@
     <script defer>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
+        if (mobileMenuButton && mobileMenu) { // Added null check for safety
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
         }
 
+        // Accordion functionality for "Über mich" and "Ihre Fragen" sections
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
 
+                // Close all other open accordions
                 document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                     if (openContent !== content) {
                         openContent.style.maxHeight = '0';
@@ -250,6 +236,7 @@
                     }
                 });
 
+                // Toggle current accordion
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = '0';
                     content.style.paddingTop = '0';
@@ -257,7 +244,9 @@
                     button.classList.remove('active');
                     icon.style.transform = 'rotate(0deg)';
                 } else {
+                    // Temporarily set maxHeight to 'none' to get the full scrollHeight without current max-height constraint
                     content.style.maxHeight = 'none';
+                    // Calculate scrollHeight, then set it back. Adding a buffer for padding/margin within the content.
                     content.style.maxHeight = (content.scrollHeight + 50) + 'px';
                     content.style.paddingTop = '1rem';
                     content.style.paddingBottom = '1rem';
@@ -268,10 +257,12 @@
             });
         });
 
+        // This ensures the max-height is correctly calculated for content that changes after initial load
+        // Or if the window is resized while an accordion is open.
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none';
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
             });
         });
     </script>
