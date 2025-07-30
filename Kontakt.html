@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100">
@@ -24,7 +23,7 @@
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
+                              d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -46,14 +45,27 @@
             </ul>
         </div>
     </header>
+
     <main class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-white text-gray-700">
         <h2 class="main-section-heading">Kontakt</h2>
 
-        <div class="mb-8 text-center">
+        <div class="mb-8 text-left">
             <p class="text-lg mb-4">Vereinbaren Sie hier schnell und unkompliziert Ihr Erstgespräch:</p>
-            <p class="text-xl font-semibold mb-2">Lisa Eisenbach</p>
-            <p class="text-xl mb-2">Telefon: <a href="tel:+4917641511666" class="text-[#9F4636] hover:underline">0176 / 41 511 666</a></p>
-            <p class="text-xl mb-4">E-Mail: <a href="mailto:Mail@Psychotherapie-Eisenbach.de" class="text-[#9F4636] hover:underline">Mail@Psychotherapie-Eisenbach.de</a></p>
+
+            <p class="text-xl font-semibold mb-2 flex items-center">
+                <i class="fas fa-user mr-2 text-[#9F4636]"></i> Lisa Eisenbach
+            </p>
+
+            <p class="text-xl mb-2 flex items-center">
+                <i class="fas fa-phone-alt mr-2 text-[#9F4636]"></i>
+                <a href="tel:+4917641511666" class="text-[#9F4636] hover:underline">0176 / 41 511 666</a>
+            </p>
+
+            <p class="text-xl mb-4 flex items-center">
+                <i class="fas fa-envelope mr-2 text-[#9F4636]"></i>
+                <a href="mailto:Mail@Psychotherapie-Eisenbach.de" class="text-[#9F4636] hover:underline">Mail@Psychotherapie-Eisenbach.de</a>
+            </p>
+
             <p class="text-lg">Ich freue mich darauf, Sie kennenzulernen!</p>
         </div>
 
@@ -81,17 +93,16 @@
             </div>
         </div>
     </footer>
+
     <script>
-        // Mobile-Menü Funktionalität
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
         }
 
-        // Die Akkordeon-Funktionalität ist für die Kontaktseite nicht direkt relevant,
-        // da keine Akkordeons auf dieser Seite definiert sind.
-        // Sie kann entfernt werden, wenn sie nur für andere Seiten gedacht ist.
+        // Akkordeon-Funktion (nicht relevant für diese Seite)
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
@@ -124,6 +135,7 @@
                     button.classList.add('active');
                     icon.style.transform = 'rotate(90deg)';
                 }
+
                 content.classList.toggle('open');
             });
         });
