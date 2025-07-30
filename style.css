@@ -111,6 +111,23 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+/* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
+/* Für die bündige Ausrichtung der Icons im "Mein Angebot in Kürze" Bereich */
+.bg-[#e3a88c] ul li .fas {
+    /* Wichtig: Tailwind's `w-6` setzt eine feste Breite, diese Regel hilft bei der vertikalen Ausrichtung */
+    vertical-align: middle; /* Passt die vertikale Ausrichtung des Icons an den Text an */
+    line-height: 1.5rem; /* Setzt eine Zeilenhöhe, die dem Text entspricht, um die Ausrichtung zu verbessern */
+    display: inline-block; /* Sicherstellen, dass es wie ein Block für width und line-height funktioniert */
+    text-align: center; /* Das Icon innerhalb seiner Breite zentrieren */
+}
+
+/* Für die Bilddarstellung auf der Startseite */
+.main-section-image-container {
+    /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
+    /* Wenn das Bild immer eine bestimmte Höhe haben soll, unabhängig vom Inhalt */
+    /* min-height: 400px; */ 
+}
+
 /* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
 .grid-container {
     display: grid;
