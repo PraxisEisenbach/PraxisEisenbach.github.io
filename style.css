@@ -43,6 +43,10 @@ body {
     transform: translateY(0);
 }
 
+.accordion-content ol {
+    font-weight: bold;
+}
+
 /* --- Custom CSS für Abschnitte und Überschriften --- */
 .main-section-heading {
     color: #000000;
