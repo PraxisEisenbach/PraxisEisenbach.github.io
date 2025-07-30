@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-gray-100">
 
     <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
@@ -23,16 +25,21 @@
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16"></path>
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
-                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
-                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
-                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
-                    <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
+                    <li><a href="Finden_Sie_Hilfe.html"
+                            class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
+                    <li><a href="Ueber_Mich.html"
+                            class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
+                    <li><a href="Ihre_Fragen.html"
+                            class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
+                    <li><a href="Kontakt.html"
+                            class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch
+                            vereinbaren</a></li>
                 </ul>
             </nav>
         </div>
@@ -41,35 +48,46 @@
                 <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
                 <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
                 <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
-                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
+                <li><a href="Kontakt.html"
+                        class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch
+                        vereinbaren</a></li>
             </ul>
         </div>
     </header>
 
     <main class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-white text-gray-700">
-        <h2 class="main-section-heading">Kontakt</h2>
+        <h2 class="main-section-heading mb-8">Kontakt</h2>
 
-        <div class="mb-8 text-left">
-            <p class="text-lg mb-4">Vereinbaren Sie hier schnell und unkompliziert Ihr Erstgespräch:</p>
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Linke Spalte: Bild -->
+            <div class="md:w-1/2">
+                <img src="Stuhl.jpeg" alt="Sessel in Praxis" class="w-full h-auto rounded-lg shadow-md">
+            </div>
 
-            <p class="text-xl font-semibold mb-2 flex items-center">
-                <i class="fas fa-user mr-2 text-[#9F4636]"></i> Lisa Eisenbach
-            </p>
+            <!-- Rechte Spalte: Kontakttext -->
+            <div class="md:w-1/2 text-left">
+                <p class="text-lg mb-4">Vereinbaren Sie hier schnell und unkompliziert Ihr Erstgespräch:</p>
 
-            <p class="text-xl mb-2 flex items-center">
-                <i class="fas fa-phone-alt mr-2 text-[#9F4636]"></i>
-                <a href="tel:+4917641511666" class="text-[#9F4636] hover:underline">0176 / 41 511 666</a>
-            </p>
+                <p class="text-xl font-semibold mb-2 flex items-center">
+                    <i class="fas fa-user mr-2 text-[#9F4636]"></i> Lisa Eisenbach
+                </p>
 
-            <p class="text-xl mb-4 flex items-center">
-                <i class="fas fa-envelope mr-2 text-[#9F4636]"></i>
-                <a href="mailto:Mail@Psychotherapie-Eisenbach.de" class="text-[#9F4636] hover:underline">Mail@Psychotherapie-Eisenbach.de</a>
-            </p>
+                <p class="text-xl mb-2 flex items-center">
+                    <i class="fas fa-phone-alt mr-2 text-[#9F4636]"></i>
+                    <a href="tel:+4917641511666" class="text-[#9F4636] hover:underline">0176 / 41 511 666</a>
+                </p>
 
-            <p class="text-lg">Ich freue mich darauf, Sie kennenzulernen!</p>
+                <p class="text-xl mb-4 flex items-center">
+                    <i class="fas fa-envelope mr-2 text-[#9F4636]"></i>
+                    <a href="mailto:Mail@Psychotherapie-Eisenbach.de"
+                        class="text-[#9F4636] hover:underline">Mail@Psychotherapie-Eisenbach.de</a>
+                </p>
+
+                <p class="text-lg">Ich freue mich darauf, Sie kennenzulernen!</p>
+            </div>
         </div>
 
-        <hr class="my-8 border-gray-300">
+        <hr class="my-12 border-gray-300">
 
         <div class="mt-8">
             <h3 class="text-2xl font-semibold mb-4 text-[#9F4636] text-center">Notfallkontakte</h3>
@@ -78,7 +96,8 @@
                 <li>Den Notruf (Tel. 112)</li>
                 <li>Den ärztlichen Bereitschaftsdienst (Tel. 116 117)</li>
                 <li>Den Krisendienst Psychiatrie (Tel. 0800 / 655 3000)</li>
-                <li>Die Psychiatrische Ambulanz Nussbaumstr. (Nussbaumstr. 7 in 80336 München, Tel. 089 / 4400 - 55511)</li>
+                <li>Die Psychiatrische Ambulanz Nussbaumstr. (Nussbaumstr. 7 in 80336 München, Tel. 089 / 4400 - 55511)
+                </li>
             </ul>
         </div>
     </main>
@@ -102,7 +121,6 @@
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
         }
 
-        // Akkordeon-Funktion (nicht relevant für diese Seite)
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
@@ -147,5 +165,7 @@
             });
         });
     </script>
+
 </body>
+
 </html>
