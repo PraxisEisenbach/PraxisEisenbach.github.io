@@ -13,44 +13,44 @@
 
 <body class="bg-gray-100">
 
-    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+    <header class="bg-[--primary-green] text-white p-4 shadow-md rounded-b-lg">
         <div class="container mx-auto flex items-center justify-between">
             <div class="flex flex-col">
-                <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
+                <a href="index.html" class="text-white hover:text-[--hover-yellow] transition-colors flex flex-col">
                     <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
                     <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
                 </a>
             </div>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
                     <li><a href="Finden_Sie_Hilfe.html"
-                            class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
+                                class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Finden Sie Hilfe</a></li>
                     <li><a href="Ueber_Mich.html"
-                            class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
+                                class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Über mich</a></li>
                     <li><a href="Ihre_Fragen.html"
-                            class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
+                                class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Ihre Fragen</a></li>
                     <li><a href="Kontakt.html"
-                            class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch
-                            vereinbaren</a></li>
+                                class="bg-[--primary-red] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[--hover-red] transition-colors">Erstgespräch
+                                vereinbaren</a></li>
                 </ul>
             </nav>
         </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[--primary-green] pb-4">
             <ul class="flex flex-col items-center space-y-4 pt-4">
-                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
-                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
-                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
+                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow]">Finden Sie Hilfe</a></li>
+                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[--hover-yellow]">Über mich</a></li>
+                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[--hover-yellow]">Ihre Fragen</a></li>
                 <li><a href="Kontakt.html"
-                        class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch
-                        vereinbaren</a></li>
+                                class="bg-[--primary-red] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[--hover-red]">Erstgespräch
+                                vereinbaren</a></li>
             </ul>
         </div>
     </header>
@@ -59,28 +59,26 @@
         <h2 class="main-section-heading mb-8">Kontakt</h2>
 
         <div class="flex flex-col md:flex-row gap-4 items-start">
-            <!-- Linke Spalte: Bild -->
             <div class="md:w-1/2">
                 <img src="Stuhl.jpeg" alt="Sessel in Praxis" class="w-1/2 h-auto rounded-lg shadow-md">
             </div>
 
-            <!-- Rechte Spalte: Kontakttext -->
             <div class="md:w-1/2 text-left">
                 <p class="text-lg mb-4">Vereinbaren Sie hier schnell und unkompliziert Ihr Erstgespräch:</p>
 
                 <p class="text-xl font-semibold mb-2 flex items-center">
-                    <i class="fas fa-user mr-2 text-[#9F4636]"></i> Lisa Eisenbach
+                    <i class="fas fa-user mr-2 text-[--primary-red]"></i> Lisa Eisenbach
                 </p>
 
                 <p class="text-xl mb-2 flex items-center">
-                    <i class="fas fa-phone-alt mr-2 text-[#9F4636]"></i>
-                    <a href="tel:+4917641511666" class="text-[#9F4636] hover:underline">0176 / 41 511 666</a>
+                    <i class="fas fa-phone-alt mr-2 text-[--primary-red]"></i>
+                    <a href="tel:+4917641511666" class="text-[--primary-red] hover:underline">0176 / 41 511 666</a>
                 </p>
 
                 <p class="text-xl mb-6 flex items-center">
-                    <i class="fas fa-envelope mr-2 text-[#9F4636]"></i>
+                    <i class="fas fa-envelope mr-2 text-[--primary-red]"></i>
                     <a href="mailto:Mail@Psychotherapie-Eisenbach.de"
-                        class="text-[#9F4636] hover:underline">Mail@Psychotherapie-Eisenbach.de</a>
+                                class="text-[--primary-red] hover:underline">Mail@Psychotherapie-Eisenbach.de</a>
                 </p>
 
                 <p class="text-lg">Ich freue mich darauf, Sie kennenzulernen!</p>
@@ -90,7 +88,7 @@
         <hr class="my-12 border-gray-300">
 
         <div class="mt-8">
-            <h3 class="text-2xl font-semibold mb-4 text-[#9F4636] text-center">Notfallkontakte</h3>
+            <h3 class="text-2xl font-semibold mb-4 text-[--primary-red] text-center">Notfallkontakte</h3>
             <p class="mb-4 text-center">In akuten Krisen wenden Sie sich bitte an:</p>
             <ul class="list-disc pl-8 space-y-2 max-w-lg mx-auto">
                 <li>Den Notruf (Tel. 112)</li>
@@ -105,9 +103,9 @@
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
             <div class="mt-3 text-sm">
-                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
+                <a href="impressum.html" class="text-gray-400 hover:text-[--hover-yellow] mx-3">Impressum</a>
                 <span class="text-gray-500">|</span>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-[--hover-yellow] mx-3">Datenschutz</a>
             </div>
         </div>
     </footer>
@@ -117,10 +115,16 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenu.classList.toggle('open');
+                mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            });
         }
 
-        document.querySelectorAll('.accordion-title-button').forEach(button => {
+        // JavaScript for accordion functionalities (if any on this page, otherwise can be removed)
+        // If these elements/classes don't exist on this page, the code will just not execute, which is fine.
+        const accordionButtons = document.querySelectorAll('.accordion-title-button');
+        accordionButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
@@ -146,21 +150,24 @@
                     button.classList.remove('active');
                     icon.style.transform = 'rotate(0deg)';
                 } else {
-                    content.style.maxHeight = (content.scrollHeight + 50) + 'px';
-                    content.style.paddingTop = '1rem';
-                    content.style.paddingBottom = '1rem';
-                    button.classList.add('active');
-                    icon.style.transform = 'rotate(90deg)';
+                    requestAnimationFrame(() => {
+                        content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+                        content.style.paddingTop = '1rem';
+                        content.style.paddingBottom = '1rem';
+                        button.classList.add('active');
+                        icon.style.transform = 'rotate(90deg)';
+                    });
                 }
-
                 content.classList.toggle('open');
             });
         });
 
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none';
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+                requestAnimationFrame(() => {
+                    content.style.maxHeight = 'none';
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+                });
             });
         });
     </script>
