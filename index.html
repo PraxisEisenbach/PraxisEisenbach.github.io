@@ -48,8 +48,8 @@
 
     <main class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
         <div class="flex flex-col md:flex-row gap-10">
-            <div class="md:w-1/3 flex justify-center mobile-order-first overflow-hidden">
-                <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md w-full max-w-lg h-auto object-cover">
+            <div class="md:w-1/3 flex justify-center mobile-order-first overflow-hidden relative pb-[133.33%] md:pb-0 md:aspect-w-3 md:aspect-h-4">
+                <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md absolute inset-0 w-full h-full object-cover">
             </div>
             <div class="md:w-2/3">
                 <h2 class="main-section-heading text-left">Herzlich willkommen!</h2>
@@ -185,7 +185,7 @@
                     // Add a small buffer to max-height to ensure all content fits, especially with padding
                     content.style.maxHeight = (content.scrollHeight + 50) + 'px'; 
                     content.style.paddingTop = '1rem'; /* Set padding for open state */
-                    content.style.paddingBottom = '1rem'; /* Set padding for open state */
+                    content.style.paddingBottom = '1.5rem'; /* Set padding for open state */
                     button.classList.add('active');
                     icon.style.transform = 'rotate(90deg)';
                 }
