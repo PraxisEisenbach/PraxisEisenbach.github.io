@@ -42,9 +42,13 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+.accordion-content ol li {
+    font-weight: normal;
+}
 
-.accordion-content ol {
+.accordion-content ol li strong {
     font-weight: bold;
+}
 }
 
 /* --- Custom CSS für Abschnitte und Überschriften --- */
