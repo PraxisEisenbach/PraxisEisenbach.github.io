@@ -51,7 +51,7 @@
                 <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md absolute inset-0 w-full h-full object-cover">
             </div>
             <div class="md:w-2/3">
-                <h2 class="text-4xl font-bold text-center">Herzlich willkommen!</h2>
+                <h2 class="main-section-heading">Herzlich willkommen!</h2>
                 <p class="text-gray-700 leading-relaxed mb-6">
                     Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
                 </p>
@@ -87,7 +87,6 @@
             </div>
         </div>
     </main>
-    
     <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
@@ -98,18 +97,15 @@
             </div>
         </div>
     </footer>
-    
     <script>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenuButton && mobileMenu) { // Added null check for safety
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
         }
-    
         const checkupButton = document.getElementById('checkup-button');
         const checkupContent = document.getElementById('checkup-content');
         const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
-    
         // Initial state for checkupContent (hidden)
         // Beachte: Dieser Block ist relevant, wenn du ein Element mit der ID 'checkup-button'
         // und 'checkup-content' auf der Seite hast. In deiner aktuellen index.html ist das nicht der Fall.
@@ -122,7 +118,6 @@
             checkupContent.style.paddingBottom = '0';
             checkupContent.style.marginTop = '0';
             checkupContent.style.marginBottom = '0';
-    
             checkupButton.addEventListener('click', (event) => {
                 event.preventDefault();
                 if (checkupContent.classList.contains('open')) {
@@ -148,14 +143,11 @@
                 }
             });
         }
-    
-    
         // Accordion functionality for "Über mich" and "Ihre Fragen" sections
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
-    
                 // Close all other open accordions
                 document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                     if (openContent !== content) {
@@ -171,10 +163,33 @@
                         openContent.classList.remove('open');
                     }
                 });
-    
                 // Toggle current accordion
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = '0';
                     content.style.paddingTop = '0';
                     content.style.paddingBottom = '0';
-                    button
+                    button.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Set max-height based on scrollHeight for smooth transition
+                    // Add a small buffer to max-height to ensure all content fits, especially with padding
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px';
+                    content.style.paddingTop = '1rem'; /* Set padding for open state */
+                    content.style.paddingBottom = '1.5rem'; /* Set padding for open state */
+                    button.classList.add('active');
+                    icon.style.transform = 'rotate(90deg)';
+                }
+                content.classList.toggle('open');
+            });
+        });
+        // This ensures the max-height is correctly calculated for content that changes after initial load
+        // Or if the window is resized while an accordion is open.
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.accordion-content.open').forEach(content => {
+                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
+            });
+        });
+    </script>
+</body>
+</html>
