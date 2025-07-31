@@ -216,17 +216,15 @@
     <script defer>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) { // Added null check for safety
+        if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
         }
 
-        // Accordion functionality for "Über mich" and "Ihre Fragen" sections
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
 
-                // Close all other open accordions
                 document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                     if (openContent !== content) {
                         openContent.style.maxHeight = '0';
@@ -241,7 +239,6 @@
                     }
                 });
 
-                // Toggle current accordion
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = '0';
                     content.style.paddingTop = '0';
@@ -249,9 +246,7 @@
                     button.classList.remove('active');
                     icon.style.transform = 'rotate(0deg)';
                 } else {
-                    // Temporarily set maxHeight to 'none' to get the full scrollHeight without current max-height constraint
                     content.style.maxHeight = 'none';
-                    // Calculate scrollHeight, then set it back. Adding a buffer for padding/margin within the content.
                     content.style.maxHeight = (content.scrollHeight + 50) + 'px';
                     content.style.paddingTop = '1rem';
                     content.style.paddingBottom = '1rem';
@@ -262,12 +257,10 @@
             });
         });
 
-        // This ensures the max-height is correctly calculated for content that changes after initial load
-        // Or if the window is resized while an accordion is open.
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
+                content.style.maxHeight = 'none';
+                content.style.maxHeight = (content.scrollHeight + 50) + 'px';
             });
         });
     </script>
