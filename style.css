@@ -42,13 +42,9 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-.accordion-content ol li {
-    font-weight: normal;
-}
 
-.accordion-content ol li strong {
+.accordion-content ol {
     font-weight: bold;
-}
 }
 
 /* --- Custom CSS für Abschnitte und Überschriften --- */
@@ -58,14 +54,6 @@ body {
     font-weight: 700;
     margin-bottom: 40px;
     text-align: center;
-}
-
-.main-section-heading {
-    color: #000000 !important;
-    font-size: 2.25rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 40px !important;
-    text-align: center !important;
 }
 
 .psychotherapy-intro-text {
