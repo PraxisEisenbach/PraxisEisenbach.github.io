@@ -1,207 +1,380 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+/* --- Allgemeine Variablen und Basis-Styles (Format-Informationen) --- */
+:root {
+    --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white); /* Beachten Sie, dass dies eine moderne CSS-Funktion ist. Für breitere Kompatibilität in älteren Browsern müssten Sie hier einen statischen Hex-Wert festlegen, z.B. #EED2AE */
+    --dark-gray-text: #333;
+    --primary-green: #628069;
+    --primary-red: #9F4636;
+    --hover-yellow: #d1b280;
+    --hover-green: #7a9d80;
+    --hover-red: #b05240;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Mobile Navigation --- */
+.mobile-menu {
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    max-height: 0;
+}
+.mobile-menu.open {
+    max-height: 500px; /* Genug Höhe, um alle Menüpunkte anzuzeigen */
+}
+
+/* --- Akkordeon für Check-up und Ihre Fragen --- */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+    box-sizing: border-box; /* Sicherstellen, dass Padding in max-height enthalten ist */
+}
+
+/* Fade-in Animation für Check-up Listenpunkte */
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.fade-in-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.accordion-content ol {
+    font-weight: bold;
+}
+
+/* --- Custom CSS für Abschnitte und Überschriften --- */
+.main-section-heading {
+    color: #000000;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.psychotherapy-intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.3em;
+    color: var(--dark-gray-text);
+}
+
+.section-light-brown {
+    background-color: var(--light-brownish-yellow);
+}
+
+.section-white {
+    background-color: white;
+}
+
+/* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
+.accordion-title-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--dark-gray-text);
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.accordion-title-button:hover {
+    background-color: #e5e5e5;
+}
+
+.accordion-title-button .icon {
+    transition: transform 0.3s ease;
+}
+
+.accordion-title-button.active .icon {
+    transform: rotate(90deg);
+}
+
+/* Akkordeon Content Styling */
+.accordion-content-inner {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
+/* Für die bündige Ausrichtung der Icons im "Mein Angebot in Kürze" Bereich */
+.bg-[#e3a88c] ul li .fas {
+    /* Wichtig: Tailwind's `w-6` setzt eine feste Breite, diese Regel hilft bei der vertikalen Ausrichtung */
+    vertical-align: middle; /* Passt die vertikale Ausrichtung des Icons an den Text an */
+    line-height: 1.5rem; /* Setzt eine Zeilenhöhe, die dem Text entspricht, um die Ausrichtung zu verbessern */
+    display: inline-block; /* Sicherstellen, dass es wie ein Block für width und line-height funktioniert */
+    text-align: center; /* Das Icon innerhalb seiner Breite zentrieren */
+}
+
+/* Für die Bilddarstellung auf der Startseite */
+.main-section-image-container {
+    /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
+    /* Wenn das Bild immer eine bestimmte Höhe haben soll, unabhängig vom Inhalt */
+    /* min-height: 400px; */ 
+}
+
+/* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid-item {
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 200px; /* Standard-Mindesthöhe für größere Bildschirme */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
+}
+
+/* Dunkler Overlay für Lesbarkeit des Textes auf Hintergrundbild */
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Leichter Schwarz-Overlay */
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item h3 {
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+    font-size: 1.5em;
+    line-height: 1.2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Stil für das Icon in den Grid-Items */
+.grid-item .toggle-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+}
+
+.grid-item p {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1em;
+    line-height: 1.5;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    box-sizing: border-box; /* Sicherstellen, dass Padding in max-height enthalten ist */
+}
+
+/* Hover-Effekte für größere Bildschirme */
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background-size: 105%;
+}
+
+.grid-item:hover::before {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.grid-item:hover p {
+    opacity: 1;
+    max-height: 150px; /* Anpassen, falls nötig */
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+/* Spezifische Hintergrundbilder für jede Karte */
+.depression-burnout { background-image: url('Depression.jpg'); }
+.angststoerungen { background-image: url('Angststoerungen.jpg'); }
+.essstoerungen { background-image: url('Essstoerung.jpg'); }
+.schlafstoerungen { background-image: url('Schlafstoerung.jpg'); }
+.schmerzen { background-image: url('Schmerzen.jpg'); }
+.persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
+
+/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
+@media (max-width: 768px) {
+    .mobile-header-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .mobile-header-logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    .grid-item {
+        min-height: 120px;
+        padding: 20px;
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+    }
+    .grid-item::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .grid-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .grid-item h3 {
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .grid-item.active .toggle-icon {
+        transform: rotate(90deg);
+    }
     
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body class="bg-gray-100">
-   <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
-    <div class="container mx-auto flex items-center justify-between">
-        <div class="flex flex-col">
-            <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
-                <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
-                <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
-            </a>
-            </div>
-        <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <nav class="hidden md:block">
-            <ul class="flex space-x-6 items-center">
-                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
-                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
-                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
-                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
-        <ul class="flex flex-col items-center space-y-4 pt-4">
-            <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
-            <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
-            <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
-            <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
-        </ul>
-    </div>
-</header>
+    .grid-item p {
+        opacity: 0;
+        max-height: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+    }
 
-    <main class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
-        <div class="flex flex-col md:flex-row gap-10">
-            <div class="md:w-1/3 flex justify-center mobile-order-first overflow-hidden relative pb-[133.33%] md:pb-0 md:aspect-w-3 md:aspect-h-4">
-                <img src="Willkommen Portrait.jpeg" alt="Portrait von Lisa Eisenbach" class="rounded-lg shadow-md absolute inset-0 w-full h-full object-cover">
-            </div>
-            <div class="md:w-2/3">
-                <h2 class="main-section-heading text-left">Herzlich willkommen!</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    Es erfordert Mut, sich auf die Suche nach Unterstützung zu begeben. Ich freue mich, dass Sie diesen Schritt gemacht haben.
-                </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    Finden Sie hier alle wichtigen Details, um zu entscheiden, ob eine gemeinsame Psychotherapie der richtige Weg für Sie ist.
-                </p>
-                <div class="bg-[#e3a88c] p-8 rounded-lg shadow-md mt-10">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Mein Angebot in Kürze</h3>
-                    <ul class="text-gray-700 space-y-3 list-none">
-                        <li class="flex items-start">
-                            <i class="fas fa-handshake mr-3 text-lg flex-shrink-0 w-6 text-center"></i>
-                            moderne, wissenschaftlich fundierte Verhaltenstherapie auf Augenhöhe
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mr-3 text-lg flex-shrink-0 w-6 text-center"></i>
-                            Praxis im Herzen von München Schwabing
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-euro-sign mr-3 text-lg flex-shrink-0 w-6 text-center"></i>
-                            Kostenübernahme durch Private Krankenversicherungen oder auf Selbstzahlerbasis
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mr-3 text-lg flex-shrink-0 w-6 text-center"></i>
-                            Terminvereinbarung per E-Mail
-                        </li>
-                    </ul>
-                </div>
-                <div class="mt-10 flex justify-center mobile-mt-4">
-                    <a href="Kontakt.html" class="inline-block bg-[#D24136] text-white px-10 py-5 rounded-lg text-2xl font-bold shadow-lg hover:bg-[#a8342c] transition-colors">
-                        Freie Therapieplätze ab Oktober 2025
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
+    .grid-item.active p {
+        opacity: 1;
+        max-height: 300px; /* Genug Höhe für den längsten Text (anpassen bei Bedarf) */
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
 
-    <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
-            <div class="mt-3 text-sm">
-                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
-                <span class="text-gray-500">|</span>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
-            </div>
-        </div>
-    </footer>
+    .grid-item:hover {
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+        cursor: pointer;
+    }
+    .grid-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .grid-item.active {
+        min-height: auto;
+        padding-bottom: 20px;
+        transform: none;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .main-section-heading {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .accordion-title-button {
+        font-size: 1.2em;
+        padding: 1rem 1.25rem;
+    }
+}
 
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) { // Added null check for safety
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-        }
+/* --- Image Strip für "Über mich" (nicht in diesem HTML verwendet, aber zur Konsistenz beibehalten) --- */
+.image-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+}
 
-        const checkupButton = document.getElementById('checkup-button');
-        const checkupContent = document.getElementById('checkup-content');
-        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
-        
-        // Initial state for checkupContent (hidden)
-        // Beachte: Dieser Block ist relevant, wenn du ein Element mit der ID 'checkup-button'
-        // und 'checkup-content' auf der Seite hast. In deiner aktuellen index.html ist das nicht der Fall.
-        // Wenn du den Button und den Inhalt auf anderen Seiten verwendest, lass diesen Teil.
-        // Falls dieser Abschnitt ausschließlich für eine andere Seite gedacht ist und auf index.html nicht benötigt wird,
-        // kann dieser Teil im Script für index.html auch entfallen, um den Code schlanker zu halten.
-        if (checkupContent && checkupButton) { // Added null check for safety
-            checkupContent.style.maxHeight = '0';
-            checkupContent.style.paddingTop = '0';
-            checkupContent.style.paddingBottom = '0';
-            checkupContent.style.marginTop = '0';
-            checkupContent.style.marginBottom = '0';
+.image-strip .image-wrapper {
+    flex-shrink: 0;
+    width: 25%;
+    max-width: 180px;
+    transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease;
+    z-index: 1;
+}
 
-            checkupButton.addEventListener('click', (event) => {
-                event.preventDefault();
-                if (checkupContent.classList.contains('open')) {
-                    checkupContent.style.maxHeight = '0';
-                    checkupContent.style.paddingTop = '0';
-                    checkupContent.style.paddingBottom = '0';
-                    checkupContent.style.marginTop = '0';
-                    checkupContent.style.marginBottom = '0';
-                    checkupContent.classList.remove('open');
-                    fadeInItems.forEach(item => item.classList.remove('visible'));
-                } else {
-                    // To ensure scrollHeight is calculated correctly, temporarily remove max-height before setting it
-                    checkupContent.style.maxHeight = 'none'; 
-                    checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; // Add a buffer
-                    checkupContent.style.paddingTop = '2rem';
-                    checkupContent.style.paddingBottom = '2rem';
-                    checkupContent.style.marginTop = '2.5rem';
-                    checkupContent.style.marginBottom = '2.5rem';
-                    checkupContent.classList.add('open');
-                    fadeInItems.forEach((item, index) => {
-                        setTimeout(() => item.classList.add('visible'), 200 * index);
-                    });
-                }
-            });
-        }
+.image-strip .image-wrapper.middle-image {
+    width: 50%;
+    max-width: 450px;
+    z-index: 2;
+}
 
+.image-strip:hover .image-wrapper:nth-child(1) {
+    transform: translateX(-20px);
+}
 
-        // Accordion functionality for "Über mich" and "Ihre Fragen" sections
-        document.querySelectorAll('.accordion-title-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = document.getElementById(button.getAttribute('aria-controls'));
-                const icon = button.querySelector('.icon');
+.image-strip:hover .image-wrapper:nth-child(3) {
+    transform: translateX(20px);
+}
+    
+.image-strip:hover .image-wrapper.middle-image {
+    transform: translateY(-5px);
+}
 
-                // Close all other open accordions
-                document.querySelectorAll('.accordion-content.open').forEach(openContent => {
-                    if (openContent !== content) {
-                        openContent.style.maxHeight = '0';
-                        openContent.style.paddingTop = '0';
-                        openContent.style.paddingBottom = '0';
-                        // Find the button associated with this content
-                        const prevButton = openContent.previousElementSibling;
-                        if (prevButton && prevButton.classList.contains('accordion-title-button')) {
-                            prevButton.classList.remove('active');
-                            prevButton.querySelector('.icon').style.transform = 'rotate(0deg)';
-                        }
-                        openContent.classList.remove('open');
-                    }
-                });
+.image-strip img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    object-fit: contain;
+}
 
-                // Toggle current accordion
-                if (content.classList.contains('open')) {
-                    content.style.maxHeight = '0';
-                    content.style.paddingTop = '0';
-                    content.style.paddingBottom = '0';
-                    button.classList.remove('active');
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    // Set max-height based on scrollHeight for smooth transition
-                    // Add a small buffer to max-height to ensure all content fits, especially with padding
-                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; 
-                    content.style.paddingTop = '1rem'; /* Set padding for open state */
-                    content.style.paddingBottom = '1.5rem'; /* Set padding for open state */
-                    button.classList.add('active');
-                    icon.style.transform = 'rotate(90deg)';
-                }
-                content.classList.toggle('open');
-            });
-        });
-
-        // This ensures the max-height is correctly calculated for content that changes after initial load
-        // Or if the window is resized while an accordion is open.
-        window.addEventListener('resize', () => {
-            document.querySelectorAll('.accordion-content.open').forEach(content => {
-                content.style.maxHeight = 'none'; // Temporarily unset to get full scrollHeight
-                content.style.maxHeight = (content.scrollHeight + 50) + 'px'; // Add buffer here too
-            });
-        });
-
-    </script>
-</body>
-</html>
+/* Responsive Anpassungen für den Bildstreifen */
+@media (max-width: 768px) {
+    .image-strip {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .image-strip .image-wrapper,
+    .image-strip .image-wrapper.middle-image {
+        width: 80%;
+        max-width: 400px;
+        transform: none !important;
+    }
+}
