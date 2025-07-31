@@ -1,4 +1,4 @@
-/* --- Allgemeine Variablen und Basis-Styles --- */
+/* --- Allgemeine Variablen und Basis-Styles (Format-Informationen) --- */
 :root {
     --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
     --dark-gray-text: #333;
@@ -21,65 +21,15 @@ body {
     max-height: 0;
 }
 .mobile-menu.open {
-    max-height: 500px;
+    max-height: 500px; /* Genug Höhe, um alle Menüpunkte anzuzeigen */
 }
 
-/* --- Akkordeon mit <details> und <summary> --- */
-/* Styling für den Akkordeon-Titel */
-details summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.25rem 1.5rem;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 1.5em;
-    font-weight: 600;
-    color: var(--dark-gray-text);
-    cursor: pointer;
-    text-align: left;
-    transition: background-color 0.3s ease;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-    list-style: none; /* Entfernt das standardmäßige native Dreieck */
-}
-
-/* Pseudo-Element für den Listenpunkt im Firefox entfernen */
-details summary::-webkit-details-marker {
-    display: none;
-}
-details summary::marker {
-    display: none;
-}
-
-details summary:hover {
-    background-color: #e5e5e5;
-}
-
-/* Animation des Icons beim Öffnen/Schließen */
-details summary .icon {
-    transition: transform 0.3s ease;
-    transform: rotate(0deg);
-}
-
-details[open] summary .icon {
-    transform: rotate(90deg);
-}
-
-/* Styling für den Akkordeon-Inhalt */
+/* --- Akkordeon für Check-up und Ihre Fragen --- */
 .accordion-content {
-    /* Padding direkt im Element definieren */
-    padding: 1rem 1.5rem;
-    margin-top: 1rem;
-}
-
-.accordion-content-inner {
-    background-color: white;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+    box-sizing: border-box; /* Sicherstellen, dass Padding in max-height enthalten ist */
 }
 
 /* Fade-in Animation für Check-up Listenpunkte */
@@ -95,6 +45,7 @@ details[open] summary .icon {
 .accordion-content ol li {
     font-weight: normal;
 }
+
 .accordion-content ol li strong {
     font-weight: bold;
 }
@@ -121,6 +72,46 @@ details[open] summary .icon {
 
 .section-white {
     background-color: white;
+}
+
+/* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
+.accordion-title-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--dark-gray-text);
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.accordion-title-button:hover {
+    background-color: #e5e5e5;
+}
+
+.accordion-title-button .icon {
+    transition: transform 0.3s ease;
+}
+
+.accordion-title-button.active .icon {
+    transform: rotate(90deg);
+}
+
+/* Akkordeon Content Styling */
+.accordion-content-inner {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
@@ -163,6 +154,7 @@ details[open] summary .icon {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
 }
 
+/* Dunkler Overlay für Lesbarkeit des Textes auf Hintergrundbild */
 .grid-item::before {
     content: '';
     position: absolute;
@@ -187,6 +179,7 @@ details[open] summary .icon {
     width: 100%;
 }
 
+/* Stil für das Icon in den Grid-Items */
 .grid-item .toggle-icon {
     font-size: 0.8em;
     transition: transform 0.3s ease;
@@ -323,7 +316,7 @@ details[open] summary .icon {
     }
 }
 
-/* --- Image Strip für "Über mich" --- */
+/* --- Image Strip für "Über mich" (nicht in diesem HTML verwendet, aber zur Konsistenz beibehalten) --- */
 .image-strip {
     display: flex;
     justify-content: center;
