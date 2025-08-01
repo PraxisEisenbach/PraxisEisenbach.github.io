@@ -218,7 +218,6 @@ body {
 
 /* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
 @media (max-width: 768px) {
-    /* Header-Layout: Flex-Container für eine vertikale Anordnung */
     header .container.mx-auto {
         display: flex;
         flex-direction: column;
@@ -226,46 +225,58 @@ body {
         padding: 1rem;
     }
 
-    /* Blendet den Desktop-Titel aus */
     header .container.mx-auto > div:first-child {
         display: none;
     }
 
-    /* Positioniert Logo und Burger-Menü in einer oberen Zeile */
     header .container.mx-auto > div:nth-child(2) {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin-bottom: 1rem; /* Abstand zum Button */
+        margin-bottom: 1rem;
+        position: relative; /* ⬅️ notwendig für ::before */
     }
 
-    /* Positioniert das Logo links und den Burger-Menü-Button rechts */
-    header .container.mx-auto > div:nth-child(2) > a {
-        margin-right: auto;
+    /* ⬅️ Logo über CSS einfügen */
+    header .container.mx-auto > div:nth-child(2)::before {
+        content: "";
+        display: block;
+        background-image: url('Logo.jpg'); /* ⬅️ Bildpfad anpassen */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        height: 40px;
+        width: 120px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
+
     header .container.mx-auto > div:nth-child(2) > button {
         margin-left: auto;
     }
 
-    /* Blendet die Desktop-Navigation aus und macht den Button-Container sichtbar */
     header .container.mx-auto > nav {
         display: block !important;
         width: 100%;
         text-align: center;
     }
 
-    /* Blendet alle Navigationspunkte außer dem Button aus */
     header .container.mx-auto > nav ul li:not(:last-child) {
         display: none;
     }
 
-    /* Entfernt den Button aus dem mobilen Burger-Menü */
     #mobile-menu li:last-child {
         display: none;
     }
 
-    /* Restliche mobile Anpassungen (unverändert) */
+    /* ⬅️ Kein Umbruch bei Buttontext */
+    header nav ul li:last-child a {
+        white-space: nowrap;
+    }
+
     .grid-container {
         grid-template-columns: 1fr;
         padding: 0 15px;
