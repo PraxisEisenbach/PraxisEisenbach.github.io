@@ -1,27 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   const headerContainer = document.querySelector("header .container.mx-auto");
 
-  if (!headerContainer) return;
+  if (headerContainer && window.innerWidth <= 768) {
+    // Logo-Link erzeugen
+    const logoLink = document.createElement("a");
+    logoLink.href = "index.html";
+    logoLink.style.position = "absolute";
+    logoLink.style.top = "0";
+    logoLink.style.left = "0";
+    logoLink.style.height = "240px";
+    logoLink.style.width = "360px";
+    logoLink.style.zIndex = "3";
+    logoLink.style.backgroundImage = "url('/Logo.jpg')";
+    logoLink.style.backgroundSize = "contain";
+    logoLink.style.backgroundRepeat = "no-repeat";
+    logoLink.style.backgroundPosition = "top left";
+    logoLink.style.display = "block";
 
-  if (window.innerWidth <= 768) {
-    // Logo-Link erzeugen und positionieren
-    let existingLogoLink = document.querySelector('header .container.mx-auto a.logo-mobile');
-    if (!existingLogoLink) {
-      const logoLink = document.createElement("a");
-      logoLink.href = "index.html";
-      logoLink.classList.add("logo-mobile");
-      logoLink.style.backgroundImage = "url('/Logo.jpg')";
-      headerContainer.querySelector("div:nth-child(2)").prepend(logoLink);
-    }
-
-    // Button "Erstgespräch vereinbaren" einfügen/verlinken
-    let button = document.getElementById("erstgespraech-button");
-    if (!button) {
-      button = document.createElement("a");
-      button.id = "erstgespraech-button";
-      button.href = "Kontakt.html";
-      button.textContent = "Erstgespräch vereinbaren";
-      headerContainer.appendChild(button);
-    }
+    headerContainer.appendChild(logoLink);
   }
 });
