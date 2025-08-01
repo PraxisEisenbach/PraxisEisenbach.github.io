@@ -200,58 +200,50 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
----
-
-### Media Query Block für mobile Ansichten
-
-Dieser Block ist die entscheidende Korrektur. Er nutzt selektive `!important`-Regeln, um die Tailwind-Klassen präzise zu überschreiben und die Elemente an der gewünschten Position zu platzieren.
-
-```css
+/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
 @media (max-width: 768px) {
     /* Header-Layout für mobile Ansichten */
-    /* Der Hauptcontainer wird zum Flex-Container für eine vertikale Anordnung */
     header .container.mx-auto {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         padding: 1rem !important;
     }
-
-    /* Versteckt den Desktop-Header */
     header .container.mx-auto > div:first-child {
         display: none !important;
     }
-
-    /* Zeigt den mobilen Header-Container an, der Logo und Burger-Button enthält */
     header .container.mx-auto > div:nth-child(2) {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
     }
-
-    /* Stellt sicher, dass das Logo und der Burger-Button sichtbar sind */
     header .container.mx-auto > div:nth-child(2) a,
     header .container.mx-auto > div:nth-child(2) button {
         display: block !important;
     }
-
-    /* Positioniert den "Erstgespräch vereinbaren" Button unter Logo und Menü */
     header .container.mx-auto > nav {
-        display: block !important; /* Zeigt die Desktop-Nav auf Mobile an */
+        display: block !important;
         width: 100% !important;
         text-align: center !important;
         margin-top: 1rem !important;
     }
-
-    /* Blendet alle Menüpunkte der Desktop-Nav aus, außer dem "Erstgespräch"-Button */
     header .container.mx-auto > nav ul li:not(:last-child) {
         display: none !important;
     }
-    
-    /* Der "Erstgespräch"-Button in der mobilen Menü-Dropdown wird ausgeblendet */
     #mobile-menu li:last-child {
         display: none !important;
+    }
+    /* Korrektur für die Bildstreifen: Stack-Layout nur auf mobilen Geräten */
+    .image-strip {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .image-strip .image-wrapper,
+    .image-strip .image-wrapper.middle-image {
+        width: 80%;
+        max-width: 400px;
+        transform: none !important;
     }
 
     /* Restliche mobile Anpassungen (unverändert) */
@@ -318,15 +310,5 @@ Dieser Block ist die entscheidende Korrektur. Er nutzt selektive `!important`-Re
     .accordion-title-button {
         font-size: 1.2em;
         padding: 1rem 1.25rem;
-    }
-    .image-strip {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .image-strip .image-wrapper,
-    .image-strip .image-wrapper.middle-image {
-        width: 80%;
-        max-width: 400px;
-        transform: none !important;
     }
 }
