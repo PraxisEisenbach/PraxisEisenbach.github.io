@@ -200,40 +200,59 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
+---
+
+### Media Query Block für mobile Ansichten
+
+Dieser Block ist die entscheidende Korrektur, die Ihre drei Probleme löst. Ich habe die Selektoren so präzise wie möglich gestaltet, um nur die Elemente zu beeinflussen, die in der mobilen Ansicht angepasst werden müssen.
+
+```css
 @media (max-width: 768px) {
-    /* Header-Layout für mobile Ansichten */
-    header .container.mx-auto {
+    /* 1. Korrektur des mobilen Headers und der Bildelemente */
+    /* Erzwingt das mobile Layout, indem das Desktop-Layout versteckt wird */
+    .hidden.md\:flex,
+    .hidden.md\:block {
+        display: none !important;
+    }
+
+    /* Zeigt die für mobile Ansicht gedachten Elemente an */
+    .md\:hidden {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        padding: 1rem !important;
+        width: 100% !important;
     }
-    header .container.mx-auto > div:first-child {
-        display: none !important;
-    }
+
+    /* 2. Positionierung der Header-Elemente */
+    /* Positioniert Logo und Burger-Menü in einer Zeile */
     header .container.mx-auto > div:nth-child(2) {
         display: flex !important;
         justify-content: space-between !important;
-        align-items: center !important;
         width: 100% !important;
+        align-items: center !important;
     }
-    header .container.mx-auto > div:nth-child(2) a,
-    header .container.mx-auto > div:nth-child(2) button {
+    
+    /* Stellt sicher, dass das Logo und der Burger-Button sichtbar sind */
+    header .container.mx-auto .md\:hidden img,
+    header .container.mx-auto .md\:hidden button {
         display: block !important;
     }
+    
+    /* Blendet den mobilen "Erstgespräch vereinbaren" Button aus dem Burger-Menü aus */
+    #mobile-menu li:last-child {
+        display: none !important;
+    }
+    
+    /* Fügt den separaten Button für die mobile Ansicht hinzu */
     header .container.mx-auto > nav {
         display: block !important;
-        width: 100% !important;
         text-align: center !important;
         margin-top: 1rem !important;
     }
     header .container.mx-auto > nav ul li:not(:last-child) {
         display: none !important;
     }
-    #mobile-menu li:last-child {
-        display: none !important;
-    }
+    
     /* Korrektur für die Bildstreifen: Stack-Layout nur auf mobilen Geräten */
     .image-strip {
         flex-direction: column;
