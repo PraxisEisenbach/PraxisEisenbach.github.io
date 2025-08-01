@@ -7,164 +7,143 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="bg-gray-100">
 
-    <header class="bg-[--primary-green] text-white p-4 shadow-md rounded-b-lg">
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
         <div class="container mx-auto flex items-center justify-between">
-            <div class="hidden md:flex flex-col">
-                <a href="index.html" class="text-white hover:text-[--hover-yellow] transition-colors flex flex-col">
+            <div class="flex flex-col">
+                <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
                     <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
                     <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
                 </a>
             </div>
-
-            <div class="md:hidden flex justify-between items-center w-full">
-                <a href="index.html">
-                    <img src="Logo.jpg" alt="Logo" class="h-10">
-                </a>
-                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
-            
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
-                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Finden Sie Hilfe</a></li>
-                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Über mich</a></li>
-                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Ihre Fragen</a></li>
-                    <li><a href="Kontakt.html" class="bg-[--primary-red] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[--hover-red] transition-colors">Erstgespräch vereinbaren</a></li>
+                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
+                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
+                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
+                    <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
                 </ul>
             </nav>
         </div>
-        
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-[--primary-green] pb-4">
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
             <ul class="flex flex-col items-center space-y-4 pt-4">
-                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow]">Finden Sie Hilfe</a></li>
-                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[--hover-yellow]">Über mich</a></li>
-                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[--hover-yellow]">Ihre Fragen</a></li>
-                <li><a href="Kontakt.html" class="bg-[--primary-red] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[--hover-red]">Erstgespräch vereinbaren</a></li>
+                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
+                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
+                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
+                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
             </ul>
         </div>
     </header>
-
-    <main class="container mx-auto p-8 mt-10 rounded-lg shadow-lg bg-white min-h-[50vh]">
+    <main class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown min-h-[50vh]">
         <h2 class="main-section-heading">Impressum</h2>
         
-        <div class="prose max-w-none text-gray-700">
-            <p>
-                <strong>Angaben gemäß § 5 TMG</strong><br><br>
-                <strong>Lisa Eisenbach, M.Sc. Psych.</strong><br>
-                Tel.: <a href="tel:+491636660733" class="text-[--primary-red] hover:underline">+49 163 6660 733</a><br>
-                E-Mail: <a href="mailto:Mail@Psychotherapie-Eisenbach.de" class="text-[--primary-red] hover:underline">Mail@Psychotherapie-Eisenbach.de</a><br>
-                LANR: 6311342<br><br>
+        <p class="text-black leading-relaxed">
+            <strong>Angaben gemäß § 5 TMG</strong><br><br>
+            <strong>Lisa Eisenbach, M.Sc. Psych.</strong><br>
+            Tel.: +49 163 6660 733<br>
+            E-Mail: Mail@Psychotherapie-Eisenbach.de<br>
+            LANR: 6311342<br><br>
 
-                Clemensstraße 75<br>
-                80796 München<br>
-                <a href="https://www.Psychotherapie-Eisenbach.de" class="text-[--primary-red] hover:underline">www.Psychotherapie-Eisenbach.de</a><br><br>
-            </p>
+            Clemensstraße 75<br>
+            80796 München<br>
+            www.Psychotherapie-Eisenbach.de<br><br>
+        </p>
 
-            <h3 class="font-bold mb-2">Gesetzliche Berufsbezeichnung:</h3>
-            <p>
-                Psychologische Psychotherapeutin für Verhaltenstherapie im Einzel- und Gruppensetting.<br>
-                Die Approbation wurde in der Bundesrepublik Deutschland durch die Regierung von Oberbayern in München im Jahr 2022 verliehen. Die Approbation berechtigt die Psychologische Psychotherapeutin zur Ausübung der heilkundlichen Psychotherapie im Sinne des Paragraphen 1 Abs. 3 Satz 1 des Psychotherapeutengesetzes.<br><br>
-            </p>
+        <h3 class="font-bold text-black mb-2">Gesetzliche Berufsbezeichnung:</h3>
+        <p class="text-black leading-relaxed">
+            Psychologische Psychotherapeutin für Verhaltenstherapie im Einzel- und Gruppensetting.<br>
+            Die Approbation wurde in der Bundesrepublik Deutschland durch die Regierung von Oberbayern in München im Jahr 2022 verliehen. Die Approbation berechtigt die Psychologische Psychotherapeutin zur Ausübung der heilkundlichen Psychotherapie im Sinne des Paragraphen 1 Abs. 3 Satz 1 des Psychotherapeutengesetzes.<br><br>
+        </p>
 
-            <h3 class="font-bold mb-2">Aufsichtsbehörden:</h3>
-            <p>
-                <strong>Zuständige Kammer:</strong><br>
-                Psychotherapeutenkammer Bayern (PTK Bayern)<br>
-                Birketweg 30<br>
-                80639 München<br>
-                <a href="https://www.ptk-bayern.de/" class="text-[--primary-red] hover:underline">https://www.ptk-bayern.de/</a><br><br>
+        <h3 class="font-bold text-black mb-2">Aufsichtsbehörden:</h3>
+        <p class="text-black leading-relaxed">
+            <strong>Zuständige Kammer:</strong><br>
+            Psychotherapeutenkammer Bayern (PTK Bayern)<br>
+            Birketweg 30<br>
+            80639 München<br>
+            https://www.ptk-bayern.de/<br><br>
 
-                <strong>Zuständige Aufsichtsbehörde für vertragspsychotherapeutische Abrechnung:</strong><br>
-                Kassenärztliche Vereinigung Bayerns (KVB)<br>
-                Elsenheimerstraße 39<br>
-                80687 München<br>
-                <a href="https://www.kvb.de/" class="text-[--primary-red] hover:underline">https://www.kvb.de/</a><br><br>
+            <strong>Zuständige Aufsichtsbehörde für vertragspsychotherapeutische Abrechnung:</strong><br>
+            Kassenärztliche Vereinigung Bayerns (KVB)<br>
+            Elsenheimerstraße 39<br>
+            80687 München<br>
+            https://www.kvb.de/<br><br>
 
-                Lisa Eisenbach ist Mitglied der PTK Bayern. Die Eintragung ins Arztregister erfolgte im Jahr 2022.<br><br>
-            </p>
+            Lisa Eisenbach ist Mitglied der PTK Bayern. Die Eintragung ins Arztregister erfolgte im Jahr 2022.<br><br>
+        </p>
 
-            <h3 class="font-bold mb-2">Berufsrechtliche Regelungen:</h3>
-            <ul class="list-disc list-inside mb-4">
-                <li>Berufsordnung für die Psychologischen Psychotherapeut*innen und für die Kinder- und Jugendlichenpsychotherapeut*innen Bayerns.</li>
-                <li>Bayerische Beihilfeverordnung (BayBhV)</li>
-                <li>Heilberufe-Kammergesetz (HKaG)</li>
-                <li>Psychotherapie-Richtlinie</li>
-                <li>Psychotherapie-Vereinbarung (Anlage 1 BMV-Ä)</li>
-                <li>Psychotherapeutengesetz (PsychThG) vom 5. November 2019, am 01. September 2020 in Kraft getreten</li>
-                <li>Approbationsordnung für Psychotherapeutinnen und Psychotherapeuten (PsychThApprO) vom 04. März 2020, am 01. September 2020 in Kraft getreten</li>
-                <li>Richtlinie Methoden vertragsärztliche Versorgung</li>
-            </ul>
+        <h3 class="font-bold text-black mb-2">Berufsrechtliche Regelungen:</h3>
+        <ul class="list-disc list-inside text-black leading-relaxed mb-4">
+            <li>Berufsordnung für die Psychologischen Psychotherapeut*innen und für die Kinder- und Jugendlichenpsychotherapeut*innen Bayerns.</li>
+            <li>Bayerische Beihilfeverordnung (BayBhV)</li>
+            <li>Heilberufe-Kammergesetz (HKaG)</li>
+            <li>Psychotherapie-Richtlinie</li>
+            <li>Psychotherapie-Vereinbarung (Anlage 1 BMV-Ä)</li>
+            <li>Psychotherapeutengesetz (PsychThG) vom 5. November 2019, am 01. September 2020 in Kraft getreten</li>
+            <li>Approbationsordnung für Psychotherapeutinnen und Psychotherapeuten (PsychThApprO) vom 04. März 2020, am 01. September 2020 in Kraft getreten</li>
+            <li>Richtlinie Methoden vertragsärztliche Versorgung</li>
+        </ul>
 
-            <h3 class="font-bold mb-2">Umsatzsteueridentifikationsnummer:</h3>
-            <p>
-                Eine Umsatzsteuer-Identifikation-Nr. entfällt, da psychotherapeutische Leistungen gemäß § 4 Nr. 14 UStG heilberuflich und somit steuerbefreit sind.
-            </p>
+        <h3 class="font-bold text-black mb-2">Umsatzsteueridentifikationsnummer:</h3>
+        <p class="text-black leading-relaxed">
+            Eine Umsatzsteuer-Identifikation-Nr. entfällt, da psychotherapeutische Leistungen gemäß § 4 Nr. 14 UStG heilberuflich und somit steuerbefreit sind.
+        </p>
 
-            <hr class="my-8 border-gray-300">
+        ---
 
-            <h2 class="main-section-heading">Haftungsausschluss</h2>
+        <h2 class="main-section-heading">Haftungsausschluss</h2>
 
-            <h3 class="font-bold mb-2">Haftung für Inhalte:</h3>
-            <p>
-                Sämtliche Angaben, Daten und Inhalte wurden nach bestem Wissen und Gewissen erstellt, ich kann jedoch keine Gewähr für deren Aktualität, Vollständigkeit und Richtigkeit übernehmen.<br>
-                Nach § 7 Abs.1 TMG bin ich als Diensteanbieterin für eigene Inhalte auf meinen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG besteht für mich als Diensteanbieterin keine Verpflichtung zur Überwachung übermittelter oder gespeicherter fremder Informationen oder zum Anstellen von Nachforschungen nach Umständen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.<br><br>
-            </p>
+        <h3 class="font-bold text-black mb-2">Disclaimer</h3>
+        <p class="text-black leading-relaxed">
+            <h3 class="font-bold text-black mb-2">Haftung für Inhalte:</h3>
+            Sämtliche Angaben, Daten und Inhalte wurden nach bestem Wissen und Gewissen erstellt, ich kann jedoch keine Gewähr für deren Aktualität, Vollständigkeit und Richtigkeit übernehmen.<br>
+            Nach § 7 Abs.1 TMG bin ich als Diensteanbieterin für eigene Inhalte auf meinen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG besteht für mich als Diensteanbieterin keine Verpflichtung zur Überwachung übermittelter oder gespeicherter fremder Informationen oder zum Anstellen von Nachforschungen nach Umständen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.<br><br>
 
-            <h3 class="font-bold mb-2">Haftung für Links:</h3>
-            <p>
-                Mein Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets die*der jeweilige Anbieter*in oder Betreiber*in der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.<br>
-                Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.<br><br>
-            </p>
+            <h3 class="font-bold text-black mb-2">Haftung für Links:</h3>
+            Mein Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets die*der jeweilige Anbieter*in oder Betreiber*in der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.<br>
+            Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.<br><br>
 
-            <h3 class="font-bold mb-2">Urheberrecht:</h3>
-            <p>
-                Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung der*des jeweiligen Autor*in bzw. Ersteller*in. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.<br>
-                Soweit die Inhalte auf dieser Seite nicht von der*vom Betreiber*in erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.<br><br>
-            </p>
+            <h3 class="font-bold text-black mb-2">Urheberrecht:</h3>
+            Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung der*des jeweiligen Autor*in bzw. Ersteller*in. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.<br>
+            Soweit die Inhalte auf dieser Seite nicht von der*vom Betreiber*in erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.<br><br>
 
-            <h3 class="font-bold mb-2">Bildnachweise:</h3>
-            <p>
-                Die Bilder, die auf dieser Website Verwendung finden, stammen von Violetta Scharr oder sind lizenzfreie Bilder von pexels.com. Eigene Fotos sind urheberrechtlich geschützt.<br><br>
-            </p>
+            <h3 class="font-bold text-black mb-2">Bildnachweise:</h3>
+            Die Bilder, die auf dieser Website Verwendung finden, stammen von Violetta Scharr oder sind lizenzfreie Bilder von pexels.com. Eigene Fotos sind urheberrechtlich geschützt.<br><br>
 
-            <p>
-                Quelle: eRecht24 (www.e-recht24.de)<br>
-                <a href="https://www.gesetze-im-internet.de/tmg/__5.html" class="text-[--primary-red] hover:underline">https://www.gesetze-im-internet.de/tmg/__5.html</a>
-            </p>
-        </div>
+            Quelle: eRecht24 (www.e-recht24.de)<br>
+            https://www.gesetze-im-internet.de/tmg/__5.html
+        </p>
     </main>
 
     <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
             <div class="mt-3 text-sm">
-                <a href="impressum.html" class="text-gray-400 hover:text-[--hover-yellow] mx-3">Impressum</a>
+                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
                 <span class="text-gray-500">|</span>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-[--hover-yellow] mx-3">Datenschutz</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
             </div>
         </div>
     </footer>
-    
-    <script defer>
+    <script>
+        // Mobile-Menü Funktionalität
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
         if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                const isExpanded = mobileMenu.classList.toggle('open');
-                mobileMenuButton.setAttribute('aria-expanded', isExpanded);
-            });
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
         }
     </script>
-
 </body>
 </html>
