@@ -222,7 +222,8 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1rem;
+        padding: 0.5rem 1rem; /* Reduziertes Padding für kompakteren Header */
+        position: relative;
     }
 
     header .container.mx-auto > div:first-child {
@@ -235,23 +236,24 @@ body {
         align-items: center;
         width: 100%;
         margin-bottom: 1rem;
-        position: relative; /* ⬅️ notwendig für ::before */
+        position: relative;
+        min-height: 60px;
     }
 
-    /* ⬅️ Logo über CSS einfügen */
     header .container.mx-auto > div:nth-child(2)::before {
         content: "";
         display: block;
-        background-image: url('Logo.jpg'); /* ⬅️ Bildpfad anpassen */
+        background-image: url('Logo.jpg'); /* Pfad ggf. anpassen */
         background-size: contain;
         background-repeat: no-repeat;
         background-position: left center;
-        height: 40px;
-        width: 120px;
+        height: 120px; /* 3x größer */
+        width: 180px;
         position: absolute;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        top: -40px; /* Ragt über den Header hinaus */
+        z-index: 10;
+        pointer-events: none;
     }
 
     header .container.mx-auto > div:nth-child(2) > button {
@@ -272,7 +274,6 @@ body {
         display: none;
     }
 
-    /* ⬅️ Kein Umbruch bei Buttontext */
     header nav ul li:last-child a {
         white-space: nowrap;
     }
