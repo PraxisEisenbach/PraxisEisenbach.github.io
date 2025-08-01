@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     logoLink.style.position = "absolute";
     logoLink.style.top = "0";
     logoLink.style.left = "0";
-    logoLink.style.height = "216px";
-    logoLink.style.width = "324px";
+    logoLink.style.height = "168px";
+    logoLink.style.width = "252px";
     logoLink.style.zIndex = "3";
     logoLink.style.backgroundImage = "url('/Logo.jpg')";
     logoLink.style.backgroundSize = "contain";
