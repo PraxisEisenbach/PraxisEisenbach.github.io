@@ -8,6 +8,7 @@
     --hover-green: #7a9d80;
     --hover-red: #b05240;
 }
+
 body {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -46,7 +47,6 @@ body {
 .accordion-content ol {
     font-weight: bold;
 }
-
 .accordion-content ol li {
     font-weight: normal;
 }
@@ -122,6 +122,7 @@ body {
     display: inline-block;
     text-align: center;
 }
+
 .main-section-image-container {
     /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
     /* min-height: 400px; */
@@ -136,6 +137,7 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+
 .grid-item {
     padding: 25px;
     border-radius: 8px;
