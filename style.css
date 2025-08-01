@@ -31,6 +31,8 @@ body {
     transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
     box-sizing: border-box;
 }
+
+/* Fade-in Animation für Check-up Listenpunkte */
 .fade-in-item {
     opacity: 0;
     transform: translateY(10px);
@@ -40,9 +42,11 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
 .accordion-content ol {
     font-weight: bold;
 }
+
 .accordion-content ol li {
     font-weight: normal;
 }
@@ -55,20 +59,23 @@ body {
     margin-bottom: 40px;
     text-align: center;
 }
+
 .psychotherapy-intro-text {
     text-align: center;
     margin-bottom: 30px;
     font-size: 1.3em;
     color: var(--dark-gray-text);
 }
+
 .section-light-brown {
     background-color: var(--light-brownish-yellow);
 }
+
 .section-white {
     background-color: white;
 }
 
-/* Akkordeon Titel Styling */
+/* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
 .accordion-title-button {
     display: flex;
     justify-content: space-between;
@@ -86,15 +93,20 @@ body {
     border-radius: 0.5rem;
     margin-bottom: 1rem;
 }
+
 .accordion-title-button:hover {
     background-color: #e5e5e5;
 }
+
 .accordion-title-button .icon {
     transition: transform 0.3s ease;
 }
+
 .accordion-title-button.active .icon {
     transform: rotate(90deg);
 }
+
+/* Akkordeon Content Styling */
 .accordion-content-inner {
     background-color: white;
     padding: 1rem 1.5rem;
@@ -103,7 +115,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* --- CSS für Grid-Layout --- */
+/* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
 .bg-[#e3a88c] ul li .fas {
     vertical-align: middle;
     line-height: 1.5rem;
@@ -114,6 +126,8 @@ body {
     /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
     /* min-height: 400px; */
 }
+
+/* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -202,14 +216,15 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-/* --- Mobile Anpassungen inkl. Logo-Integration --- */
+/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
 @media (max-width: 768px) {
+    /* Header-Layout: Flex-Container für eine vertikale Anordnung */
     header .container.mx-auto {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 1rem;
-        position: relative;
+        position: relative; /* Wichtig für absolutes Logo */
     }
 
     /* Blendet den Desktop-Titel aus */
@@ -217,42 +232,45 @@ body {
         display: none;
     }
 
-    /* Positioniert Logo-Container + Burger-Menü */
+    /* Positioniert Logo und Burger-Menü in einer oberen Zeile */
     header .container.mx-auto > div:nth-child(2) {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 1rem; /* Abstand zum Button */
     }
 
+    /* Positioniert das Logo links und den Burger-Menü-Button rechts */
     header .container.mx-auto > div:nth-child(2) > a {
         margin-right: auto;
     }
-
     header .container.mx-auto > div:nth-child(2) > button {
         margin-left: auto;
     }
 
+    /* Blendet die Desktop-Navigation aus und macht den Button-Container sichtbar */
     header .container.mx-auto > nav {
         display: block !important;
         width: 100%;
         text-align: center;
     }
 
+    /* Blendet alle Navigationspunkte außer dem Button aus */
     header .container.mx-auto > nav ul li:not(:last-child) {
         display: none;
     }
 
+    /* Entfernt den Button aus dem mobilen Burger-Menü */
     #mobile-menu li:last-child {
         display: none;
     }
 
+    /* Restliche mobile Anpassungen (unverändert) */
     .grid-container {
         grid-template-columns: 1fr;
         padding: 0 15px;
     }
-
     .grid-item {
         min-height: 120px;
         padding: 20px;
@@ -260,11 +278,12 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-size: cover;
     }
-
     .grid-item::before {
         background-color: rgba(0, 0, 0, 0.5);
     }
-
+    .grid-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
     .grid-item h3 {
         margin-bottom: 0;
         display: flex;
@@ -273,52 +292,53 @@ body {
         width: 100%;
         cursor: pointer;
     }
-
     .grid-item.active .toggle-icon {
         transform: rotate(90deg);
     }
-
     .grid-item p {
         opacity: 0;
         max-height: 0;
         margin-bottom: 0;
         padding-bottom: 0;
-        transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+        transition: opacity 0.4s ease, max-height 0.4s ease;
     }
-
     .grid-item.active p {
         opacity: 1;
-        max-height: 300px;
+        max-height: 200px;
         margin-bottom: 10px;
         padding-bottom: 10px;
     }
 
-    .grid-item.active {
-        min-height: auto;
-        padding-bottom: 20px;
-        transform: none;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Logo-Vergrößerung mobil (Höhe 240px, Breite 360px) */
+    header .container.mx-auto > div:nth-child(2) > a.logo-mobile {
+        height: 240px !important;
+        width: 360px !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: left top !important;
+        position: relative !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
     }
 
-    .main-section-heading {
-        font-size: 1.8em;
-        margin-bottom: 30px;
+    /* Button „Erstgespräch vereinbaren“: Breite anpassen, zentriert */
+    #erstgespraech-button {
+        display: inline-block;
+        background-color: var(--primary-green);
+        color: white;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        margin: 0 auto 20px auto;
+        cursor: pointer;
+        border: none;
+        font-size: 1em;
+        white-space: nowrap;
+        transition: background-color 0.3s ease;
     }
-
-    .accordion-title-button {
-        font-size: 1.2em;
-        padding: 1rem 1.25rem;
-    }
-
-    .image-strip {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .image-strip .image-wrapper,
-    .image-strip .image-wrapper.middle-image {
-        width: 80%;
-        max-width: 400px;
-        transform: none !important;
+    #erstgespraech-button:hover {
+        background-color: var(--hover-green);
     }
 }
