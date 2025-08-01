@@ -1,15 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Finde den Header-Container, in dem das Logo platziert werden soll
-  const headerContainer = document.querySelector("header .container.mx-auto");
+  const headerContainer = document.querySelector("header .container.mx-auto > div:nth-child(2)");
 
-  // Nur auf mobilen Geräten ausführen (max. 768px Breite)
   if (headerContainer && window.innerWidth <= 768) {
-    // Erstelle den Logo-Link
     const logoLink = document.createElement("a");
     logoLink.href = "index.html";
-    logoLink.classList.add("logo-mobile"); // Verwende CSS-Klasse statt Inline-Styling
-
-    // Füge das Logo als erstes Element im Header-Container ein
-    headerContainer.insertBefore(logoLink, headerContainer.firstChild);
+    logoLink.style.position = "absolute";
+    logoLink.style.top = "0";
+    logoLink.style.left = "0";
+    logoLink.style.height = "120px";
+    logoLink.style.width = "180px";
+    logoLink.style.zIndex = "3";
+    logoLink.style.backgroundImage = "url('Logo.jpg')";
+    logoLink.style.backgroundSize = "contain";
+    logoLink.style.backgroundRepeat = "no-repeat";
+    logoLink.style.backgroundPosition = "top left";
+    logoLink.style.display = "block";
+    headerContainer.appendChild(logoLink);
   }
 });
