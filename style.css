@@ -1,234 +1,343 @@
+/* --- Allgemeine Variablen und Basis-Styles --- */
 :root {
+    --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
+    --dark-gray-text: #333;
     --primary-green: #628069;
     --primary-red: #9F4636;
     --hover-yellow: #d1b280;
+    --hover-green: #7a9d80;
     --hover-red: #b05240;
-    --hover-green: #74967c;
-    --text-color: #374151;
 }
-
-/* Base Styles */
 body {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-    text-decoration: none;
-}
-
-/* Header */
+/* --- Mobile Navigation --- */
 .mobile-menu {
-    max-height: 0;
+    transition: max-height 0.3s ease-out;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
 }
-
 .mobile-menu.open {
-    max-height: 500px; /* Adjust as needed */
+    max-height: 500px;
 }
 
-/* Main sections */
-.main-section-heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-}
-
-.intro-text-block {
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: #4b5563;
-}
-
-.section-light-green {
-    background-color: #f0f4f2;
-}
-
-.section-light-brown {
-    background-color: #e5e5e5;
-}
-
-.intro-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.intro-image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.main-content-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Finden Sie Hilfe Specific Styles */
-.psychotherapy-intro-text {
-    font-size: 1.25rem;
-    font-style: italic;
-    color: #4b5563;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-/* Check-up Accordion */
+/* --- Akkordeon für Check-up und Ihre Fragen --- */
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out, margin 0.3s ease-in-out;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+    box-sizing: border-box;
 }
 
+/* Fade-in Animation für Check-up Listenpunkte */
 .fade-in-item {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-
 .fade-in-item.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Psychotherapy Grid Items */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 1.5rem;
+.accordion-content ol {
+    font-weight: bold;
 }
 
-@media (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.accordion-content ol li {
+    font-weight: normal;
 }
 
-.grid-item {
-    background-color: #f3f4f6;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+/* --- Custom CSS für Abschnitte und Überschriften --- */
+.main-section-heading {
+    color: #000000;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
-.grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+.psychotherapy-intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.3em;
+    color: var(--dark-gray-text);
 }
 
-.grid-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-color);
+.section-light-brown {
+    background-color: var(--light-brownish-yellow);
+}
+
+.section-white {
+    background-color: white;
+}
+
+/* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
+.accordion-title-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.toggle-icon {
-    font-size: 1.25rem;
-    transition: transform 0.3s ease-in-out;
-}
-
-.grid-content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    margin-top: 0.5rem;
-}
-
-@media (min-width: 768px) {
-    .grid-content {
-        max-height: none;
-        opacity: 1;
-    }
-}
-
-.grid-item.active .toggle-icon {
-    transform: rotate(90deg);
-}
-
-.grid-item.active .grid-content {
-    max-height: 200px; /* Adjust as needed */
-    opacity: 1;
-}
-
-/* About Me Page Specific Styles */
-.image-text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-@media (min-width: 768px) {
-    .image-text-container {
-        flex-direction: row;
-    }
-}
-
-.profile-image {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* FAQs Page Specific Styles */
-.faq-item {
-    border-bottom: 1px solid #d1d5db;
-}
-
-.faq-title-button {
     width: 100%;
-    text-align: left;
-    padding: 1.5rem 0;
-    font-size: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.5em;
     font-weight: 600;
-    color: var(--text-color);
-    background: none;
-    border: none;
+    color: var(--dark-gray-text);
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-.faq-title-button:focus {
-    outline: none;
-    color: var(--hover-yellow);
+.accordion-title-button:hover {
+    background-color: #e5e5e5;
 }
 
-.faq-icon {
+.accordion-title-button .icon {
     transition: transform 0.3s ease;
 }
 
-.faq-content {
+.accordion-title-button.active .icon {
+    transform: rotate(90deg);
+}
+
+/* Akkordeon Content Styling */
+.accordion-content-inner {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
+.bg-[#e3a88c] ul li .fas {
+    vertical-align: middle;
+    line-height: 1.5rem;
+    display: inline-block;
+    text-align: center;
+}
+.main-section-image-container {
+    /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
+    /* min-height: 400px; */
+}
+
+/* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.grid-item {
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
+}
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+.grid-item h3 {
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+    font-size: 1.5em;
+    line-height: 1.2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.grid-item .toggle-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+}
+.grid-item p {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1em;
+    line-height: 1.5;
+    opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-    padding-left: 1.5rem;
+    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
 }
-
-.faq-content.open {
-    max-height: 500px;
-    padding-bottom: 1.5rem;
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background-size: 105%;
 }
+.grid-item:hover::before {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+.grid-item:hover p {
+    opacity: 1;
+    max-height: 150px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.depression-burnout { background-image: url('Depression.jpg'); }
+.angststoerungen { background-image: url('Angststoerungen.jpg'); }
+.essstoerungen { background-image: url('Essstoerung.jpg'); }
+.schlafstoerungen { background-image: url('Schlafstoerung.jpg'); }
+.schmerzen { background-image: url('Schmerzen.jpg'); }
+.persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-.faq-content p {
-    margin-bottom: 0.5rem;
+/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
+@media (max-width: 768px) {
+    /* Header-Layout: Flex-Container für eine vertikale Anordnung */
+    header .container.mx-auto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    /* Blendet den Desktop-Titel aus */
+    header .container.mx-auto > div:first-child {
+        display: none;
+    }
+
+    /* Positioniert Logo und Burger-Menü in einer oberen Zeile */
+    header .container.mx-auto > div:nth-child(2) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1rem; /* Abstand zum Button */
+    }
+
+    /* Positioniert das Logo links und den Burger-Menü-Button rechts */
+    header .container.mx-auto > div:nth-child(2) > a {
+        margin-right: auto;
+    }
+    header .container.mx-auto > div:nth-child(2) > button {
+        margin-left: auto;
+    }
+
+    /* Blendet die Desktop-Navigation aus und macht den Button-Container sichtbar */
+    header .container.mx-auto > nav {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Blendet alle Navigationspunkte außer dem Button aus */
+    header .container.mx-auto > nav ul li:not(:last-child) {
+        display: none;
+    }
+
+    /* Entfernt den Button aus dem mobilen Burger-Menü */
+    #mobile-menu li:last-child {
+        display: none;
+    }
+
+    /* Restliche mobile Anpassungen (unverändert) */
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    .grid-item {
+        min-height: 120px;
+        padding: 20px;
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+    }
+    .grid-item::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .grid-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .grid-item h3 {
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+    }
+    .grid-item.active .toggle-icon {
+        transform: rotate(90deg);
+    }
+    .grid-item p {
+        opacity: 0;
+        max-height: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+    }
+    .grid-item.active p {
+        opacity: 1;
+        max-height: 300px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .grid-item:hover {
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+        cursor: pointer;
+    }
+    .grid-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .grid-item.active {
+        min-height: auto;
+        padding-bottom: 20px;
+        transform: none;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .main-section-heading {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .accordion-title-button {
+        font-size: 1.2em;
+        padding: 1rem 1.25rem;
+    }
+    .image-strip {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .image-strip .image-wrapper,
+    .image-strip .image-wrapper.middle-image {
+        width: 80%;
+        max-width: 400px;
+        transform: none !important;
+    }
 }
