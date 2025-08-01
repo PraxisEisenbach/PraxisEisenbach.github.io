@@ -7,173 +7,186 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-gray-100">
 
-    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+    <header class="bg-[--primary-green] text-white p-4 shadow-md rounded-b-lg">
         <div class="container mx-auto flex items-center justify-between">
-            <div class="flex flex-col">
-                <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
+            <div class="hidden md:flex flex-col">
+                <a href="index.html" class="text-white hover:text-[--hover-yellow] transition-colors flex flex-col">
                     <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
                     <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
                 </a>
             </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
+
+            <div class="md:hidden flex justify-between items-center w-full">
+                <a href="index.html">
+                    <img src="Logo.jpg" alt="Logo" class="h-10">
+                </a>
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
+            
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
-                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
-                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
-                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
-                    <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
+                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Finden Sie Hilfe</a></li>
+                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Über mich</a></li>
+                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Ihre Fragen</a></li>
+                    <li><a href="Kontakt.html" class="bg-[--primary-red] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[--hover-red] transition-colors">Erstgespräch vereinbaren</a></li>
                 </ul>
             </nav>
         </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-[--primary-green] pb-4">
             <ul class="flex flex-col items-center space-y-4 pt-4">
-                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
-                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
-                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
-                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
+                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow]">Finden Sie Hilfe</a></li>
+                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[--hover-yellow]">Über mich</a></li>
+                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[--hover-yellow]">Ihre Fragen</a></li>
+                <li><a href="Kontakt.html" class="bg-[--primary-red] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[--hover-red]">Erstgespräch vereinbaren</a></li>
             </ul>
         </div>
     </header>
-    <main class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown min-h-[50vh]">
+
+    <main class="container mx-auto p-8 mt-10 rounded-lg shadow-lg bg-white min-h-[50vh]">
         <h2 class="main-section-heading">Datenschutz</h2>
         
-        <p class="text-black leading-relaxed">
-            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten auf meiner Website passiert. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
-        </p>
-        <p class="text-black leading-relaxed">
-            Verantwortlich für die Datenerfassung der Website ist der Betreiber dieser Seite:
-        </p>
-        <p class="text-black leading-relaxed">
-            <strong>Lisa Eisenbach, M.Sc. Psych.</strong><br>
-            Clemensstraße 75<br>
-            80796 München<br>
-            E-Mail: Mail@Psychotherapie-Eisenbach.de<br>
-            Telefon: +49 163 6660 733
-        </p>
-        <p class="text-black leading-relaxed">
-            Ihre Daten werden zum einen dadurch erhoben, dass Sie mir Daten über sich direkt mitteilen, z.B. per E-Mail. Andere Daten werden automatisch beim Besuch der Website durch meine IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
-        </p>
-        <p class="text-black leading-relaxed">
-            Hierbei weise ich Sie darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
-        </p>
-        <p class="text-black leading-relaxed">
-            Ihre Daten werden einerseits erhoben, um das fehlerfreie Funktionieren der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
-        </p>
-        <p class="text-black leading-relaxed">
-            Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an mich wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Sie haben das Recht auf Einschränkung der Verarbeitung und das Recht auf Widerspruch gegen die Verarbeitung.
-        </p>
+        <div class="prose max-w-none text-gray-700">
+            <p>
+                Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten auf meiner Website passiert. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+            </p>
+            <p>
+                Verantwortlich für die Datenerfassung der Website ist der Betreiber dieser Seite:
+            </p>
+            <p>
+                <strong>Lisa Eisenbach, M.Sc. Psych.</strong><br>
+                Clemensstraße 75<br>
+                80796 München<br>
+                E-Mail: <a href="mailto:Mail@Psychotherapie-Eisenbach.de" class="text-[--primary-red] hover:underline">Mail@Psychotherapie-Eisenbach.de</a><br>
+                Telefon: <a href="tel:+491636660733" class="text-[--primary-red] hover:underline">+49 163 6660 733</a>
+            </p>
+            <p>
+                Ihre Daten werden zum einen dadurch erhoben, dass Sie mir Daten über sich direkt mitteilen, z.B. per E-Mail. Andere Daten werden automatisch beim Besuch der Website durch meine IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
+            </p>
+            <p>
+                Hierbei weise ich Sie darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
+            </p>
+            <p>
+                Ihre Daten werden einerseits erhoben, um das fehlerfreie Funktionieren der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
+            </p>
+            <p>
+                Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an mich wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Sie haben das Recht auf Einschränkung der Verarbeitung und das Recht auf Widerspruch gegen die Verarbeitung.
+            </p>
 
-        ---
+            <hr class="my-8 border-gray-300">
 
-        <h3 class="font-bold text-black mb-2">Datenverarbeitung auf dieser Website</h3>
+            <h3 class="font-bold text-black mb-2">Datenverarbeitung auf dieser Website</h3>
 
-        <h4 class="font-bold text-black mb-2">Kontaktaufnahme per E-Mail</h4>
-        <p class="text-black leading-relaxed">
-            Internetbasierte Datenübertragungen (z.B. via E-Mail) können grundsätzlich Sicherheitslücken aufweisen, sodass ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte nicht gewährleistet werden kann. Aus diesem Grund steht es jeder betroffenen Person frei, personenbezogene Daten auch auf alternativen Wegen, beispielsweise telefonisch, an mich zu übermitteln. Falls Sie eine E-Mail an mich senden, verwende ich diese Daten, um Ihr Anliegen zu beantworten.
-        </p>
-        <p class="text-black leading-relaxed">
-            Wenn Sie per E-Mail Kontakt zu mir aufnehmen, erfolgt die Verarbeitung Ihrer Daten, da ich von Ihrem freiwillig erteilten Einverständnis gemäß Artikel 6 Absatz 1 Satz 1 lit. a DSGVO ausgehe. Diese Einwilligung kann selbstverständlich jederzeit von Ihnen widerrufen werden. Durch den Widerruf wird die Rechtmäßigkeit, der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung der Daten nicht berührt. Bitte schreiben Sie keine vertraulichen Informationen in eine unverschlüsselte E-Mail, sondern nutzen Sie diese nur zur Kontaktaufnahme. Ich hafte nicht für den Missbrauch von E-Maildaten und E-Mailinhalten durch etwaige fremde Dritte.
-        </p>
+            <h4 class="font-bold text-black mb-2">Kontaktaufnahme per E-Mail</h4>
+            <p>
+                Internetbasierte Datenübertragungen (z.B. via E-Mail) können grundsätzlich Sicherheitslücken aufweisen, sodass ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte nicht gewährleistet werden kann. Aus diesem Grund steht es jeder betroffenen Person frei, personenbezogene Daten auch auf alternativen Wegen, beispielsweise telefonisch, an mich zu übermitteln. Falls Sie eine E-Mail an mich senden, verwende ich diese Daten, um Ihr Anliegen zu beantworten.
+            </p>
+            <p>
+                Wenn Sie per E-Mail Kontakt zu mir aufnehmen, erfolgt die Verarbeitung Ihrer Daten, da ich von Ihrem freiwillig erteilten Einverständnis gemäß Artikel 6 Absatz 1 Satz 1 lit. a DSGVO ausgehe. Diese Einwilligung kann selbstverständlich jederzeit von Ihnen widerrufen werden. Durch den Widerruf wird die Rechtmäßigkeit, der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung der Daten nicht berührt. Bitte schreiben Sie keine vertraulichen Informationen in eine unverschlüsselte E-Mail, sondern nutzen Sie diese nur zur Kontaktaufnahme. Ich hafte nicht für den Missbrauch von E-Maildaten und E-Mailinhalten durch etwaige fremde Dritte.
+            </p>
 
-        <h4 class="font-bold text-black mb-2">Cookies</h4>
-        <p class="text-black leading-relaxed">
-            Meine Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Sie dienen dazu, mein Angebot nutzerfreundlicher, effektiver und sicherer zu machen.
-        </p>
-        <p class="text-black leading-relaxed">
-            Die meisten der von mir verwendeten Cookies sind sogenannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Diese Cookies ermöglichen es mir, Ihren Browser beim nächsten Besuch wiederzuerkennen.
-        </p>
-        <p class="text-black leading-relaxed">
-            Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browsers aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.
-        </p>
-        <p class="text-black leading-relaxed">
-            Cookies, die zur Durchführung des elektronischen Kommunikationsvorgangs oder zur Bereitstellung bestimmter, von Ihnen erwünschter Funktionen (z.B. Warenkorbfunktion) erforderlich sind, werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert. Ich habe ein berechtigtes Interesse an der Speicherung von Cookies zur technisch fehlerfreien und optimierten Bereitstellung meiner Dienste. Soweit andere Cookies (z.B. Cookies zur Analyse Ihres Surfverhaltens) gespeichert werden, werden diese in dieser Datenschutzerklärung gesondert behandelt.
-        </p>
+            <h4 class="font-bold text-black mb-2">Cookies</h4>
+            <p>
+                Meine Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Sie dienen dazu, mein Angebot nutzerfreundlicher, effektiver und sicherer zu machen.
+            </p>
+            <p>
+                Die meisten der von mir verwendeten Cookies sind sogenannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Diese Cookies ermöglichen es mir, Ihren Browser beim nächsten Besuch wiederzuerkennen.
+            </p>
+            <p>
+                Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browsers aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.
+            </p>
+            <p>
+                Cookies, die zur Durchführung des elektronischen Kommunikationsvorgangs oder zur Bereitstellung bestimmter, von Ihnen erwünschter Funktionen (z.B. Warenkorbfunktion) erforderlich sind, werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert. Ich habe ein berechtigtes Interesse an der Speicherung von Cookies zur technisch fehlerfreien und optimierten Bereitstellung meiner Dienste. Soweit andere Cookies (z.B. Cookies zur Analyse Ihres Surfverhaltens) gespeichert werden, werden diese in dieser Datenschutzerklärung gesondert behandelt.
+            </p>
 
-        <h4 class="font-bold text-black mb-2">Server-Log-Dateien</h4>
-        <p class="text-black leading-relaxed">
-            Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an mich übermittelt. Dies sind:
-        </p>
-        <ul class="list-disc list-inside text-black leading-relaxed mb-4">
-            <li>Browsertyp und Browserversion</li>
-            <li>verwendetes Betriebssystem</li>
-            <li>Referrer URL</li>
-            <li>Hostname des zugreifenden Rechners</li>
-            <li>Uhrzeit der Serveranfrage</li>
-            <li>IP-Adresse</li>
-        </ul>
-        <p class="text-black leading-relaxed">
-            Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.<br>
-            Grundlage für die Datenverarbeitung ist Art. 6 Abs. 1 lit. b DSGVO, der die Verarbeitung von Daten zur Erfüllung eines Vertrags oder vorvertraglicher Maßnahmen gestattet.
-        </p>
+            <h4 class="font-bold text-black mb-2">Server-Log-Dateien</h4>
+            <p>
+                Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an mich übermittelt. Dies sind:
+            </p>
+            <ul class="list-disc list-inside">
+                <li>Browsertyp und Browserversion</li>
+                <li>verwendetes Betriebssystem</li>
+                <li>Referrer URL</li>
+                <li>Hostname des zugreifenden Rechners</li>
+                <li>Uhrzeit der Serveranfrage</li>
+                <li>IP-Adresse</li>
+            </ul>
+            <p>
+                Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.<br>
+                Grundlage für die Datenverarbeitung ist Art. 6 Abs. 1 lit. b DSGVO, der die Verarbeitung von Daten zur Erfüllung eines Vertrags oder vorvertraglicher Maßnahmen gestattet.
+            </p>
 
-        ---
+            <hr class="my-8 border-gray-300">
 
-        <h3 class="font-bold text-black mb-2">Ihre Rechte bezüglich Ihrer Daten</h3>
+            <h3 class="font-bold text-black mb-2">Ihre Rechte bezüglich Ihrer Daten</h3>
 
-        <p class="text-black leading-relaxed">
-            Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an mich wenden.
-        </p>
+            <p>
+                Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an mich wenden.
+            </p>
 
-        <h4 class="font-bold text-black mb-2">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h4>
-        <p class="text-black leading-relaxed">
-            Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an mich. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
-        </p>
+            <h4 class="font-bold text-black mb-2">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h4>
+            <p>
+                Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an mich. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
+            </p>
 
-        <h4 class="font-bold text-black mb-2">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h4>
-        <p class="text-black leading-relaxed">
-            Im Falle datenschutzrechtlicher Verstöße steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde in datenschutzrechtlichen Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem mein Unternehmen seinen Sitz hat (Bayern).
-        </p>
-        <p class="text-black leading-relaxed">
-            Die Adresse der zuständigen Aufsichtsbehörde ist:<br>
-            Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br>
-            Promenade 18<br>
-            91522 Ansbach<br>
-            <a href="https://www.lda.bayern.de/" class="text-blue-600 hover:underline">https://www.lda.bayern.de/</a>
-        </p>
+            <h4 class="font-bold text-black mb-2">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h4>
+            <p>
+                Im Falle datenschutzrechtlicher Verstöße steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde in datenschutzrechtlichen Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem mein Unternehmen seinen Sitz hat (Bayern).
+            </p>
+            <p>
+                Die Adresse der zuständigen Aufsichtsbehörde ist:<br>
+                Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br>
+                Promenade 18<br>
+                91522 Ansbach<br>
+                <a href="https://www.lda.bayern.de/" class="text-[--primary-red] hover:underline">https://www.lda.bayern.de/</a>
+            </p>
 
-        ---
+            <hr class="my-8 border-gray-300">
 
-        <h3 class="font-bold text-black mb-2">Analyse-Tools und Werbung</h3>
+            <h3 class="font-bold text-black mb-2">Analyse-Tools und Werbung</h3>
 
-        <h4 class="font-bold text-black mb-2">Statistische Auswertung des Surf-Verhaltens</h4>
-        <p class="text-black leading-relaxed">
-            Beim Besuch meiner Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit Cookies und mit sogenannten Analyseprogrammen. Die Analyse Ihres Surf-Verhaltens erfolgt in der Regel anonym; das Surf-Verhalten kann nicht zu Ihnen zurückverfolgt werden. Sie können dieser Analyse widersprechen oder sie durch die Nichtbenutzung bestimmter Tools verhindern.
-        </p>
-        <p class="text-black leading-relaxed">
-            Details zu den von mir verwendeten Analyseprogrammen finden Sie in den folgenden Abschnitten dieser Datenschutzerklärung.
-        </p>
-
+            <h4 class="font-bold text-black mb-2">Statistische Auswertung des Surf-Verhaltens</h4>
+            <p>
+                Beim Besuch meiner Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit Cookies und mit sogenannten Analyseprogrammen. Die Analyse Ihres Surf-Verhaltens erfolgt in der Regel anonym; das Surf-Verhalten kann nicht zu Ihnen zurückverfolgt werden. Sie können dieser Analyse widersprechen oder sie durch die Nichtbenutzung bestimmter Tools verhindern.
+            </p>
+            <p>
+                Details zu den von mir verwendeten Analyseprogrammen finden Sie in den folgenden Abschnitten dieser Datenschutzerklärung.
+            </p>
+        </div>
     </main>
 
     <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Lisa Eisenbach. Alle Rechte vorbehalten.</p>
             <div class="mt-3 text-sm">
-                <a href="impressum.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Impressum</a>
+                <a href="impressum.html" class="text-gray-400 hover:text-[--hover-yellow] mx-3">Impressum</a>
                 <span class="text-gray-500">|</span>
-                <a href="datenschutz.html" class="text-gray-400 hover:text-[#d1b280] mx-3">Datenschutz</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-[--hover-yellow] mx-3">Datenschutz</a>
             </div>
         </div>
     </footer>
-    <script>
-        // Mobile-Menü Funktionalität
+
+    <script defer>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+
         if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenu.classList.toggle('open');
+                mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            });
         }
     </script>
+
 </body>
 </html>
