@@ -202,51 +202,54 @@ body {
 
 ---
 
-### Geänderter Media Query Block
+### Media Query Block für mobile Ansichten
 
-Dieser Block ist die Kernlösung. Er stellt sicher, dass das Logo und der Burger-Button korrekt in der oberen linken und rechten Ecke positioniert werden, ohne dass andere Elemente verschoben werden.
+Dieser Block ist die entscheidende Korrektur. Er nutzt selektive `!important`-Regeln, um die Tailwind-Klassen präzise zu überschreiben und die Elemente an der gewünschten Position zu platzieren.
 
 ```css
 @media (max-width: 768px) {
+    /* Header-Layout für mobile Ansichten */
+    /* Der Hauptcontainer wird zum Flex-Container für eine vertikale Anordnung */
+    header .container.mx-auto {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 1rem !important;
+    }
+
     /* Versteckt den Desktop-Header */
     header .container.mx-auto > div:first-child {
         display: none !important;
     }
 
-    /* Zeigt den mobilen Header an */
+    /* Zeigt den mobilen Header-Container an, der Logo und Burger-Button enthält */
     header .container.mx-auto > div:nth-child(2) {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
-        /* Entfernt unnötige margin-bottom, da der Button-Container getrennt ist */
     }
 
-    /* Stellt sicher, dass das Logo sichtbar ist und links positioniert wird */
-    header .container.mx-auto > div:nth-child(2) a {
-        display: block !important;
-        margin-right: auto !important; /* Schiebt den Button nach rechts */
-    }
-
-    /* Der Burger-Menü-Button wird sichtbar und bleibt rechts */
+    /* Stellt sicher, dass das Logo und der Burger-Button sichtbar sind */
+    header .container.mx-auto > div:nth-child(2) a,
     header .container.mx-auto > div:nth-child(2) button {
         display: block !important;
     }
 
-    /* Positioniert den "Erstgespräch vereinbaren" Button unter dem Logo/Menü */
+    /* Positioniert den "Erstgespräch vereinbaren" Button unter Logo und Menü */
     header .container.mx-auto > nav {
-        display: block !important;
+        display: block !important; /* Zeigt die Desktop-Nav auf Mobile an */
         width: 100% !important;
         text-align: center !important;
-        margin-top: 1rem !important; /* Abstand zur oberen Zeile */
+        margin-top: 1rem !important;
     }
 
-    /* Versteckt alle anderen Navigationspunkte im Button-Container */
+    /* Blendet alle Menüpunkte der Desktop-Nav aus, außer dem "Erstgespräch"-Button */
     header .container.mx-auto > nav ul li:not(:last-child) {
         display: none !important;
     }
     
-    /* Entfernt den Button aus dem mobilen Burger-Menü, um Dopplung zu vermeiden */
+    /* Der "Erstgespräch"-Button in der mobilen Menü-Dropdown wird ausgeblendet */
     #mobile-menu li:last-child {
         display: none !important;
     }
