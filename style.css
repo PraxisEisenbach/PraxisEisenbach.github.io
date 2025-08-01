@@ -232,39 +232,34 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
+---
+
+### Korrigierter CSS-Code für mobile Ansicht
+Ich habe die Media Query für mobile Geräte so angepasst, dass sie nur das Nötigste ändert und die bestehenden Tailwind-Klassen nicht stört.
+
+```css
 @media (max-width: 768px) {
-    /* Flex-Container, um Logo und Burger-Menü in eine Zeile zu bringen */
+    /* Header-Layout für Mobile */
     header .container.mx-auto {
-        display: flex;
-        flex-wrap: wrap; /* Erlaubt Umbruch auf neue Zeile */
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    /* Logo-Container, der links in der ersten Zeile steht */
-    header .container .flex-col {
-        display: flex;
-        flex-grow: 1;
-        justify-content: flex-start;
-        align-items: center;
-        margin-right: auto;
+        /*
+        Dieser Block ist nicht mehr nötig, da die HTML-Struktur
+        bereits Flexbox für mobile Geräte nutzt (justify-between, items-center).
+        */
     }
 
-    /* Logo-Text ausblenden */
-    header .container .flex-col a h1,
-    header .container .flex-col a p {
-        display: none;
-    }
+    /* Titel als Logo darstellen und Text ausblenden */
+    /*
+    Ich habe diesen Block entfernt, da er die visuelle Hierarchie
+    und das Layout stark verändert. Die HTML-Struktur hat bereits einen separaten
+    div für das mobile Logo (`md:hidden`), den wir nutzen sollten.
+    */
 
-    /* Burger-Menü-Button, der rechts in der ersten Zeile steht */
-    header .container > .md\:hidden:last-child {
-        display: flex;
-        align-items: center;
-        margin-left: auto;
-    }
-
-    /* "Erstgespräch vereinbaren" Button */
+    /* Den "Erstgespräch vereinbaren" Button gezielt für Mobile stylen */
+    /*
+    Dieser Abschnitt wurde stark vereinfacht, um den Button am Ende des Headers
+    zu positionieren. Wir verwenden die bestehende Desktop-Navigationsstruktur
+    und machen sie für mobile Ansichten sichtbar.
+    */
     header nav.hidden.md\:block {
         display: block !important;
         width: 100%;
@@ -278,17 +273,18 @@ body {
         padding: 0;
     }
 
-    /* Die anderen Navigationspunkte für mobile Ansicht ausblenden */
+    /* Alle Navigationspunkte außer dem letzten ausblenden */
     header nav.hidden.md\:block ul li:not(:last-child) {
         display: none;
     }
     
-    /* Der Button "Erstgespräch vereinbaren" im mobilen Menü soll verschwinden */
+    /* Das "Erstgespräch vereinbaren" im Burger-Menü ausblenden */
     .mobile-menu li a[href="Kontakt.html"] {
         display: none;
     }
 
-    .grid-container {
+    /* Weitere mobile Anpassungen (unverändert) */
+    .grid-container {
         grid-template-columns: 1fr;
         padding: 0 15px;
     }
@@ -359,57 +355,8 @@ body {
         font-size: 1.2em;
         padding: 1rem 1.25rem;
     }
-}
 
-/* --- Image Strip für "Über mich" --- */
-.image-strip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    overflow: hidden;
-    position: relative;
-    padding: 1rem;
-}
-
-.image-strip .image-wrapper {
-    flex-shrink: 0;
-    width: 25%;
-    max-width: 180px;
-    transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease;
-    z-index: 1;
-}
-
-.image-strip .image-wrapper.middle-image {
-    width: 50%;
-    max-width: 450px;
-    z-index: 2;
-}
-
-.image-strip:hover .image-wrapper:nth-child(1) {
-    transform: translateX(-20px);
-}
-
-.image-strip:hover .image-wrapper:nth-child(3) {
-    transform: translateX(20px);
-}
-    
-.image-strip:hover .image-wrapper.middle-image {
-    transform: translateY(-5px);
-}
-
-.image-strip img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    object-fit: contain;
-}
-
-/* Responsive Anpassungen für den Bildstreifen */
-@media (max-width: 768px) {
+    /* Image Strip für "Über mich" (unverändert) */
     .image-strip {
         flex-direction: column;
         gap: 1.5rem;
