@@ -31,8 +31,6 @@ body {
     transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
     box-sizing: border-box;
 }
-
-/* Fade-in Animation für Check-up Listenpunkte */
 .fade-in-item {
     opacity: 0;
     transform: translateY(10px);
@@ -42,16 +40,12 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-
 .accordion-content ol {
     font-weight: bold;
 }
-
 .accordion-content ol li {
     font-weight: normal;
 }
-
-/* --- Custom CSS für Abschnitte und Überschriften --- */
 .main-section-heading {
     color: #000000;
     font-size: 2em;
@@ -59,23 +53,18 @@ body {
     margin-bottom: 40px;
     text-align: center;
 }
-
 .psychotherapy-intro-text {
     text-align: center;
     margin-bottom: 30px;
     font-size: 1.3em;
     color: var(--dark-gray-text);
 }
-
 .section-light-brown {
     background-color: var(--light-brownish-yellow);
 }
-
 .section-white {
     background-color: white;
 }
-
-/* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
 .accordion-title-button {
     display: flex;
     justify-content: space-between;
@@ -93,20 +82,15 @@ body {
     border-radius: 0.5rem;
     margin-bottom: 1rem;
 }
-
 .accordion-title-button:hover {
     background-color: #e5e5e5;
 }
-
 .accordion-title-button .icon {
     transition: transform 0.3s ease;
 }
-
 .accordion-title-button.active .icon {
     transform: rotate(90deg);
 }
-
-/* Akkordeon Content Styling */
 .accordion-content-inner {
     background-color: white;
     padding: 1rem 1.5rem;
@@ -216,50 +200,55 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
+---
+
+### Geänderter Media Query Block
+
+Dieser Block ist die Kernlösung. Er stellt sicher, dass das Logo und der Burger-Button korrekt in der oberen linken und rechten Ecke positioniert werden, ohne dass andere Elemente verschoben werden.
+
+```css
 @media (max-width: 768px) {
-    /* Header-Layout: Flex-Container für eine vertikale Anordnung */
-    header .container.mx-auto {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    /* Positioniert Logo und Burger-Menü in einer oberen Zeile */
-    header .container.mx-auto > div:nth-child(2) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    /* Blendet den Desktop-Titel aus */
+    /* Versteckt den Desktop-Header */
     header .container.mx-auto > div:first-child {
-        display: none;
+        display: none !important;
     }
 
-    /* Stellt sicher, dass das Logo korrekt angezeigt wird */
-    header .container.mx-auto > div:nth-child(2) img {
-        display: block; /* Stellt sicher, dass das Bild angezeigt wird */
+    /* Zeigt den mobilen Header an */
+    header .container.mx-auto > div:nth-child(2) {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        /* Entfernt unnötige margin-bottom, da der Button-Container getrennt ist */
     }
 
-    /* Positioniert den "Erstgespräch vereinbaren" Button unter Logo und Menü */
+    /* Stellt sicher, dass das Logo sichtbar ist und links positioniert wird */
+    header .container.mx-auto > div:nth-child(2) a {
+        display: block !important;
+        margin-right: auto !important; /* Schiebt den Button nach rechts */
+    }
+
+    /* Der Burger-Menü-Button wird sichtbar und bleibt rechts */
+    header .container.mx-auto > div:nth-child(2) button {
+        display: block !important;
+    }
+
+    /* Positioniert den "Erstgespräch vereinbaren" Button unter dem Logo/Menü */
     header .container.mx-auto > nav {
         display: block !important;
-        width: 100%;
-        text-align: center;
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 1rem !important; /* Abstand zur oberen Zeile */
     }
 
-    /* Blendet alle Navigationspunkte außer dem Button aus */
+    /* Versteckt alle anderen Navigationspunkte im Button-Container */
     header .container.mx-auto > nav ul li:not(:last-child) {
-        display: none;
+        display: none !important;
     }
-
-    /* Entfernt den Button aus dem mobilen Burger-Menü */
+    
+    /* Entfernt den Button aus dem mobilen Burger-Menü, um Dopplung zu vermeiden */
     #mobile-menu li:last-child {
-        display: none;
+        display: none !important;
     }
 
     /* Restliche mobile Anpassungen (unverändert) */
