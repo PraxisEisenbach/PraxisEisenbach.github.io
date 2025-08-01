@@ -200,42 +200,29 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
----
 
-### Media Query Block für mobile Ansichten
-
-Dieser Block ist die entscheidende Korrektur, die Ihre drei Probleme löst. Ich habe die Selektoren so präzise wie möglich gestaltet, um nur die Elemente zu beeinflussen, die in der mobilen Ansicht angepasst werden müssen.
-
-```css
+/* --- Endgültige Media Query für mobile Ansichten (Problemlöser) --- */
 @media (max-width: 768px) {
-    /* 1. Korrektur des mobilen Headers und der Bildelemente */
-    /* Erzwingt das mobile Layout, indem das Desktop-Layout versteckt wird */
-    .hidden.md\:flex,
-    .hidden.md\:block {
+    
+    /* Problem 1 & 3: Korrektur des mobilen Headers */
+    
+    /* Versteckt den Desktop-Header-Container */
+    .hidden.md\:flex {
         display: none !important;
     }
 
-    /* Zeigt die für mobile Ansicht gedachten Elemente an */
+    /* Stellt sicher, dass die mobilen Header-Elemente sichtbar sind */
     .md\:hidden {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        display: block !important;
         width: 100% !important;
-    }
-
-    /* 2. Positionierung der Header-Elemente */
-    /* Positioniert Logo und Burger-Menü in einer Zeile */
-    header .container.mx-auto > div:nth-child(2) {
-        display: flex !important;
-        justify-content: space-between !important;
-        width: 100% !important;
-        align-items: center !important;
     }
     
-    /* Stellt sicher, dass das Logo und der Burger-Button sichtbar sind */
-    header .container.mx-auto .md\:hidden img,
-    header .container.mx-auto .md\:hidden button {
-        display: block !important;
+    /* Positioniert Logo und Burger-Menü in einer Zeile */
+    .mobile-header-top {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
     }
     
     /* Blendet den mobilen "Erstgespräch vereinbaren" Button aus dem Burger-Menü aus */
@@ -243,27 +230,35 @@ Dieser Block ist die entscheidende Korrektur, die Ihre drei Probleme löst. Ich 
         display: none !important;
     }
     
-    /* Fügt den separaten Button für die mobile Ansicht hinzu */
+    /* Macht den "Erstgespräch vereinbaren" Button aus der Desktop-Nav sichtbar und positioniert ihn */
     header .container.mx-auto > nav {
         display: block !important;
         text-align: center !important;
         margin-top: 1rem !important;
     }
+    
+    /* Versteckt alle anderen Navigationspunkte in der "Erstgespräch"-Nav */
     header .container.mx-auto > nav ul li:not(:last-child) {
         display: none !important;
     }
+
+
+    /* Problem 2: Korrektur der Bildansicht (Desktop-Layouts wiederherstellen) */
     
-    /* Korrektur für die Bildstreifen: Stack-Layout nur auf mobilen Geräten */
+    /* Stellt sicher, dass die Bildstreifen korrekt auf mobilen Geräten gestapelt werden */
     .image-strip {
-        flex-direction: column;
-        gap: 1.5rem;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
     }
+
+    /* Stellt sicher, dass die Bilder auf Mobilgeräten zentriert sind */
     .image-strip .image-wrapper,
     .image-strip .image-wrapper.middle-image {
-        width: 80%;
-        max-width: 400px;
+        width: 80% !important;
+        max-width: 400px !important;
         transform: none !important;
     }
+
 
     /* Restliche mobile Anpassungen (unverändert) */
     .grid-container {
