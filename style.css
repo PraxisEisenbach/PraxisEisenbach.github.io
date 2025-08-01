@@ -31,7 +31,6 @@ body {
     transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
     box-sizing: border-box;
 }
-
 .fade-in-item {
     opacity: 0;
     transform: translateY(10px);
@@ -41,7 +40,6 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-
 .accordion-content ol {
     font-weight: bold;
 }
@@ -186,12 +184,12 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-/* --- Mobile Anpassungen inkl. 6x Logo-Größe --- */
+/* --- Mobile Ansicht inkl. 6x großes Logo, jetzt linksbündig --- */
 @media (max-width: 768px) {
     header .container.mx-auto {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         padding: 0.5rem 1rem;
         position: relative;
     }
@@ -210,11 +208,11 @@ body {
         min-height: 60px;
     }
 
-    /* >>> 6x Größeres Logo (240px hoch) <<< */
+    /* Links ausgerichtetes 6x großes Logo */
     header .container.mx-auto > div:nth-child(2)::before {
         content: "";
         display: block;
-        background-image: url('Logo.jpg'); /* ← Pfad ggf. anpassen */
+        background-image: url('Logo.jpg'); /* ggf. Pfad anpassen */
         background-size: contain;
         background-repeat: no-repeat;
         background-position: left center;
@@ -222,13 +220,14 @@ body {
         width: 360px;
         position: absolute;
         left: 0;
-        top: -140px; /* Ragt nach oben raus */
+        top: -140px;
         z-index: 10;
         pointer-events: none;
     }
 
     header .container.mx-auto > div:nth-child(2) > button {
         margin-left: auto;
+        z-index: 11;
     }
 
     header .container.mx-auto > nav {
