@@ -265,15 +265,6 @@ body {
         display: none;
     }
 
-    /* **Anpassungen für den Header-Button (neu)** */
-    /* Zielen auf den Button innerhalb der Header-Navigation ab */
-    header .container.mx-auto > nav ul li:last-child a {
-        /* Stellt sicher, dass der Text nicht umgebrochen wird */
-        white-space: nowrap; 
-        /* Passt die Breite des Buttons an den Inhalt an, um Umbrüche zu vermeiden */
-        width: max-content; 
-    }
-    
     /* Restliche mobile Anpassungen (unverändert) */
     .grid-container {
         grid-template-columns: 1fr;
