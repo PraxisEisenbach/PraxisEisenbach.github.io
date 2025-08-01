@@ -31,8 +31,6 @@ body {
     transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
     box-sizing: border-box;
 }
-
-/* Fade-in Animation für Check-up Listenpunkte */
 .fade-in-item {
     opacity: 0;
     transform: translateY(10px);
@@ -42,11 +40,9 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-
 .accordion-content ol {
     font-weight: bold;
 }
-
 .accordion-content ol li {
     font-weight: normal;
 }
@@ -59,18 +55,15 @@ body {
     margin-bottom: 40px;
     text-align: center;
 }
-
 .psychotherapy-intro-text {
     text-align: center;
     margin-bottom: 30px;
     font-size: 1.3em;
     color: var(--dark-gray-text);
 }
-
 .section-light-brown {
     background-color: var(--light-brownish-yellow);
 }
-
 .section-white {
     background-color: white;
 }
@@ -93,19 +86,15 @@ body {
     border-radius: 0.5rem;
     margin-bottom: 1rem;
 }
-
 .accordion-title-button:hover {
     background-color: #e5e5e5;
 }
-
 .accordion-title-button .icon {
     transition: transform 0.3s ease;
 }
-
 .accordion-title-button.active .icon {
     transform: rotate(90deg);
 }
-
 .accordion-content-inner {
     background-color: white;
     padding: 1rem 1.5rem;
@@ -114,7 +103,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* --- CSS für Startseite (Icons und Bild) --- */
+/* --- CSS für Grid-Layout --- */
 .bg-[#e3a88c] ul li .fas {
     vertical-align: middle;
     line-height: 1.5rem;
@@ -123,9 +112,8 @@ body {
 }
 .main-section-image-container {
     /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
+    /* min-height: 400px; */
 }
-
-/* --- Grid und Hover Effekt --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -214,49 +202,36 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
-/* --- Media Queries für kleinere Bildschirme (Mobile) --- */
+/* --- Mobile Anpassungen inkl. Logo-Integration --- */
 @media (max-width: 768px) {
     header .container.mx-auto {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         padding: 1rem;
         position: relative;
     }
 
+    /* Blendet den Desktop-Titel aus */
     header .container.mx-auto > div:first-child {
         display: none;
     }
 
+    /* Positioniert Logo-Container + Burger-Menü */
     header .container.mx-auto > div:nth-child(2) {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         margin-bottom: 1rem;
-        position: relative;
-        min-height: 100px;
     }
 
-    /* Logo oben links platzieren */
-    header .container.mx-auto > div:nth-child(2)::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 80px;
-        width: 120px;
-        background-image: url('Logo.jpg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: top left;
-        z-index: 2;
-        pointer-events: none;
+    header .container.mx-auto > div:nth-child(2) > a {
+        margin-right: auto;
     }
 
     header .container.mx-auto > div:nth-child(2) > button {
         margin-left: auto;
-        z-index: 3;
     }
 
     header .container.mx-auto > nav {
@@ -273,10 +248,6 @@ body {
         display: none;
     }
 
-    header nav ul li:last-child a {
-        white-space: nowrap;
-    }
-
     .grid-container {
         grid-template-columns: 1fr;
         padding: 0 15px;
@@ -285,15 +256,12 @@ body {
     .grid-item {
         min-height: 120px;
         padding: 20px;
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-size: cover;
     }
 
-    .grid-item:hover {
-        transform: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .grid-item:hover::before {
+    .grid-item::before {
         background-color: rgba(0, 0, 0, 0.5);
     }
 
@@ -302,6 +270,8 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
+        cursor: pointer;
     }
 
     .grid-item.active .toggle-icon {
@@ -311,7 +281,9 @@ body {
     .grid-item p {
         opacity: 0;
         max-height: 0;
-        transition: opacity 0.4s ease, max-height 0.4s ease;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
     }
 
     .grid-item.active p {
@@ -319,6 +291,13 @@ body {
         max-height: 300px;
         margin-bottom: 10px;
         padding-bottom: 10px;
+    }
+
+    .grid-item.active {
+        min-height: auto;
+        padding-bottom: 20px;
+        transform: none;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .main-section-heading {
