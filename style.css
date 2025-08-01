@@ -1,230 +1,214 @@
-/* --- Allgemeine Variablen und Basis-Styles (Format-Informationen) --- */
+/* --- Allgemeine Variablen und Basis-Styles --- */
 :root {
-    --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
-    --dark-gray-text: #333;
-    --primary-green: #628069;
-    --primary-red: #9F4636;
-    --hover-yellow: #d1b280;
-    --hover-green: #7a9d80;
-    --hover-red: #b05240;
+    --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
+    --dark-gray-text: #333;
+    --primary-green: #628069;
+    --primary-red: #9F4636;
+    --hover-yellow: #d1b280;
+    --hover-green: #7a9d80;
+    --hover-red: #b05240;
 }
 body {
-    font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* --- Mobile Navigation --- */
 .mobile-menu {
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    max-height: 0;
 }
 .mobile-menu.open {
-    max-height: 500px;
+    max-height: 500px;
 }
 
 /* --- Akkordeon für Check-up und Ihre Fragen --- */
 .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
-    box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+    box-sizing: border-box;
 }
 
 /* Fade-in Animation für Check-up Listenpunkte */
 .fade-in-item {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .fade-in-item.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .accordion-content ol {
-    font-weight: bold;
+    font-weight: bold;
 }
 
 .accordion-content ol li {
-    font-weight: normal;
+    font-weight: normal;
 }
 
 /* --- Custom CSS für Abschnitte und Überschriften --- */
 .main-section-heading {
-    color: #000000;
-    font-size: 2em;
-    font-weight: 700;
-    margin-bottom: 40px;
-    text-align: center;
+    color: #000000;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .psychotherapy-intro-text {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.3em;
-    color: var(--dark-gray-text);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.3em;
+    color: var(--dark-gray-text);
 }
 
 .section-light-brown {
-    background-color: var(--light-brownish-yellow);
+    background-color: var(--light-brownish-yellow);
 }
 
 .section-white {
-    background-color: white;
+    background-color: white;
 }
 
 /* Akkordeon Titel Styling (Check-up und Ihre Fragen) */
 .accordion-title-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.25rem 1.5rem;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 1.5em;
-    font-weight: 600;
-    color: var(--dark-gray-text);
-    cursor: pointer;
-    text-align: left;
-    transition: background-color 0.3s ease;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--dark-gray-text);
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .accordion-title-button:hover {
-    background-color: #e5e5e5;
+    background-color: #e5e5e5;
 }
 
 .accordion-title-button .icon {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .accordion-title-button.active .icon {
-    transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 /* Akkordeon Content Styling */
 .accordion-content-inner {
-    background-color: white;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
-/* Für die bündige Ausrichtung der Icons im "Mein Angebot in Kürze" Bereich */
 .bg-[#e3a88c] ul li .fas {
-    vertical-align: middle;
-    line-height: 1.5rem;
-    display: inline-block;
-    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5rem;
+    display: inline-block;
+    text-align: center;
 }
-
-/* Für die Bilddarstellung auf der Startseite */
 .main-section-image-container {
-    /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
-    /* min-height: 400px; */ 
+    /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
+    /* min-height: 400px; */
 }
 
 /* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
 .grid-item {
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: white;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
 }
-
-/* Dunkler Overlay für Lesbarkeit des Textes auf Hintergrundbild */
 .grid-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    transition: background-color 0.3s ease;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    transition: background-color 0.3s ease;
 }
-
 .grid-item h3 {
-    position: relative;
-    z-index: 2;
-    margin-top: 0;
-    font-size: 1.5em;
-    line-height: 1.2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+    font-size: 1.5em;
+    line-height: 1.2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
-
-/* Stil für das Icon in den Grid-Items */
 .grid-item .toggle-icon {
-    font-size: 0.8em;
-    transition: transform 0.3s ease;
-    margin-left: 10px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
 }
-
 .grid-item p {
-    position: relative;
-    z-index: 2;
-    font-size: 1.1em;
-    line-height: 1.5;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    font-size: 1.1em;
+    line-height: 1.5;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
 }
-
-/* Hover-Effekte für größere Bildschirme */
 .grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    background-size: 105%;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background-size: 105%;
 }
-
 .grid-item:hover::before {
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.55);
 }
-
 .grid-item:hover p {
-    opacity: 1;
-    max-height: 150px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    opacity: 1;
+    max-height: 150px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
-
-/* Spezifische Hintergrundbilder für jede Karte */
 .depression-burnout { background-image: url('Depression.jpg'); }
 .angststoerungen { background-image: url('Angststoerungen.jpg'); }
 .essstoerungen { background-image: url('Essstoerung.jpg'); }
@@ -232,139 +216,128 @@ body {
 .schmerzen { background-image: url('Schmerzen.jpg'); }
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
----
-
-### Korrigierter CSS-Code für mobile Ansicht
-Ich habe die Media Query für mobile Geräte so angepasst, dass sie nur das Nötigste ändert und die bestehenden Tailwind-Klassen nicht stört.
-
-```css
+/* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
 @media (max-width: 768px) {
-    /* Header-Layout für Mobile */
+    /* Header-Layout: Flex-Container für eine vertikale Anordnung */
     header .container.mx-auto {
-        /*
-        Dieser Block ist nicht mehr nötig, da die HTML-Struktur
-        bereits Flexbox für mobile Geräte nutzt (justify-between, items-center).
-        */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
     }
 
-    /* Titel als Logo darstellen und Text ausblenden */
-    /*
-    Ich habe diesen Block entfernt, da er die visuelle Hierarchie
-    und das Layout stark verändert. Die HTML-Struktur hat bereits einen separaten
-    div für das mobile Logo (`md:hidden`), den wir nutzen sollten.
-    */
+    /* Blendet den Desktop-Titel aus */
+    header .container.mx-auto > div:first-child {
+        display: none;
+    }
 
-    /* Den "Erstgespräch vereinbaren" Button gezielt für Mobile stylen */
-    /*
-    Dieser Abschnitt wurde stark vereinfacht, um den Button am Ende des Headers
-    zu positionieren. Wir verwenden die bestehende Desktop-Navigationsstruktur
-    und machen sie für mobile Ansichten sichtbar.
-    */
-    header nav.hidden.md\:block {
+    /* Positioniert Logo und Burger-Menü in einer oberen Zeile */
+    header .container.mx-auto > div:nth-child(2) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1rem; /* Abstand zum Button */
+    }
+
+    /* Positioniert das Logo links und den Burger-Menü-Button rechts */
+    header .container.mx-auto > div:nth-child(2) > a {
+        margin-right: auto;
+    }
+    header .container.mx-auto > div:nth-child(2) > button {
+        margin-left: auto;
+    }
+
+    /* Blendet die Desktop-Navigation aus und macht den Button-Container sichtbar */
+    header .container.mx-auto > nav {
         display: block !important;
         width: 100%;
         text-align: center;
-        margin-top: 1rem;
-    }
-    
-    header nav.hidden.md\:block ul {
-        display: flex;
-        justify-content: center;
-        padding: 0;
     }
 
-    /* Alle Navigationspunkte außer dem letzten ausblenden */
-    header nav.hidden.md\:block ul li:not(:last-child) {
-        display: none;
-    }
-    
-    /* Das "Erstgespräch vereinbaren" im Burger-Menü ausblenden */
-    .mobile-menu li a[href="Kontakt.html"] {
+    /* Blendet alle Navigationspunkte außer dem Button aus */
+    header .container.mx-auto > nav ul li:not(:last-child) {
         display: none;
     }
 
-    /* Weitere mobile Anpassungen (unverändert) */
+    /* Entfernt den Button aus dem mobilen Burger-Menü */
+    #mobile-menu li:last-child {
+        display: none;
+    }
+
+    /* Restliche mobile Anpassungen (unverändert) */
     .grid-container {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
-    }
-    .grid-item {
-        min-height: 120px;
-        padding: 20px;
-        transform: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-size: cover;
-    }
-    .grid-item::before {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    .grid-item:hover::before {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .grid-item h3 {
-        margin-bottom: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        cursor: pointer;
-    }
-
-    .grid-item.active .toggle-icon {
-        transform: rotate(90deg);
-    }
-    
-    .grid-item p {
-        opacity: 0;
-        max-height: 0;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
-    }
-
-    .grid-item.active p {
-        opacity: 1;
-        max-height: 300px;
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-    }
-
-    .grid-item:hover {
-        transform: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-size: cover;
-        cursor: pointer;
-    }
-    .grid-item:hover::before {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    
-    .grid-item.active {
-        min-height: auto;
-        padding-bottom: 20px;
-        transform: none;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-    
-    .main-section-heading {
-        font-size: 1.8em;
-        margin-bottom: 30px;
-    }
-    .accordion-title-button {
-        font-size: 1.2em;
-        padding: 1rem 1.25rem;
-    }
-
-    /* Image Strip für "Über mich" (unverändert) */
-    .image-strip {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .image-strip .image-wrapper,
-    .image-strip .image-wrapper.middle-image {
-        width: 80%;
-        max-width: 400px;
-        transform: none !important;
-    }
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    .grid-item {
+        min-height: 120px;
+        padding: 20px;
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+    }
+    .grid-item::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .grid-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .grid-item h3 {
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+    }
+    .grid-item.active .toggle-icon {
+        transform: rotate(90deg);
+    }
+    .grid-item p {
+        opacity: 0;
+        max-height: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
+    }
+    .grid-item.active p {
+        opacity: 1;
+        max-height: 300px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .grid-item:hover {
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+        cursor: pointer;
+    }
+    .grid-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .grid-item.active {
+        min-height: auto;
+        padding-bottom: 20px;
+        transform: none;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .main-section-heading {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .accordion-title-button {
+        font-size: 1.2em;
+        padding: 1rem 1.25rem;
+    }
+    .image-strip {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .image-strip .image-wrapper,
+    .image-strip .image-wrapper.middle-image {
+        width: 80%;
+        max-width: 400px;
+        transform: none !important;
+    }
 }
