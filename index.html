@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body class="bg-gray-100">
-   <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
     <div class="container mx-auto flex items-center justify-between">
         <div class="hidden md:flex flex-col">
             <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
@@ -20,12 +20,14 @@
             </a>
         </div>
         
-        
-        <div class="md:hidden">
+        <div class="md:hidden flex justify-between items-center w-full">
+            <a href="index.html">
+                <img src="Logo.jpg" alt="Logo" class="h-10">
+            </a>
             <button id="mobile-menu-button" class="text-white focus:outline-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16"></path>
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
@@ -140,7 +142,7 @@
                     fadeInItems.forEach(item => item.classList.remove('visible'));
                 } else {
                     // To ensure scrollHeight is calculated correctly, temporarily remove max-height before setting it
-                    checkupContent.style.maxHeight = 'none'; 
+                    checkupContent.style.maxHeight = 'none'; 
                     checkupContent.style.maxHeight = (checkupContent.scrollHeight + 50) + 'px'; // Add a buffer
                     checkupContent.style.paddingTop = '2rem';
                     checkupContent.style.paddingBottom = '2rem';
@@ -166,7 +168,7 @@
                     if (openContent !== content) {
                         openContent.style.maxHeight = '0';
                         openContent.style.paddingTop = '0';
-                        openContent.style.paddingBottom = '0';
+                        openContent.style.style.paddingBottom = '0';
                         // Find the button associated with this content
                         const prevButton = openContent.previousElementSibling;
                         if (prevButton && prevButton.classList.contains('accordion-title-button')) {
@@ -187,7 +189,7 @@
                 } else {
                     // Set max-height based on scrollHeight for smooth transition
                     // Add a small buffer to max-height to ensure all content fits, especially with padding
-                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; 
+                    content.style.maxHeight = (content.scrollHeight + 50) + 'px'; 
                     content.style.paddingTop = '1rem'; /* Set padding for open state */
                     content.style.paddingBottom = '1.5rem'; /* Set padding for open state */
                     button.classList.add('active');
