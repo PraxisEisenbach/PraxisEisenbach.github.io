@@ -226,29 +226,26 @@ body {
         padding: 1rem;
     }
 
-    /* Blendet den Desktop-Titel aus */
-    header .container.mx-auto > div:first-child {
-        display: none;
-    }
-
     /* Positioniert Logo und Burger-Menü in einer oberen Zeile */
     header .container.mx-auto > div:nth-child(2) {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin-bottom: 1rem; /* Abstand zum Button */
+        margin-bottom: 1rem;
     }
 
-    /* Positioniert das Logo links und den Burger-Menü-Button rechts */
-    header .container.mx-auto > div:nth-child(2) > a {
-        margin-right: auto;
-    }
-    header .container.mx-auto > div:nth-child(2) > button {
-        margin-left: auto;
+    /* Blendet den Desktop-Titel aus */
+    header .container.mx-auto > div:first-child {
+        display: none;
     }
 
-    /* Blendet die Desktop-Navigation aus und macht den Button-Container sichtbar */
+    /* Stellt sicher, dass das Logo korrekt angezeigt wird */
+    header .container.mx-auto > div:nth-child(2) img {
+        display: block; /* Stellt sicher, dass das Bild angezeigt wird */
+    }
+
+    /* Positioniert den "Erstgespräch vereinbaren" Button unter Logo und Menü */
     header .container.mx-auto > nav {
         display: block !important;
         width: 100%;
