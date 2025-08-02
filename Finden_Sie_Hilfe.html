@@ -8,8 +8,95 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-green: #336655;
+            --primary-red: #A94442;
+            --hover-yellow: #F0DB4F;
+            --hover-green: #2f594a;
+            --hover-red: #922d2a;
+        }
+
+        .accordion-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+        }
+
+        .fade-in-item {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-light-brown {
+            background-color: #f5f1ee;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-item {
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            background-color: #fefefe;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .grid-item h3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .grid-item p {
+            margin-top: 1rem;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .grid-item.active p {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item.active .toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        .main-section-heading {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .psychotherapy-intro-text {
+            font-size: 1.125rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <header class="bg-[--primary-green] text-white p-4 shadow-md rounded-b-lg">
@@ -79,6 +166,7 @@
         </div>
     </section>
 
+
     <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
         <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
         <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
@@ -111,7 +199,7 @@
 
             <div class="grid-item persoenlichkeitsstoerungen">
                 <h3>Persönlichkeits&shy;störungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen</p>
+                <p>z.B. Tiefgreifende Denk-, Wahrnehmungs- und  Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen</p>
             </div>
         </div>
 
@@ -139,24 +227,10 @@
     </footer>
 
     <script>
-        // Caching DOM elements for performance
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
         const checkupButton = document.getElementById('checkup-button');
         const checkupContent = document.getElementById('checkup-content');
         const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
-        const accordionButtons = document.querySelectorAll('.accordion-title-button');
-        const gridItems = document.querySelectorAll('.grid-item');
 
-        // --- Mobile Navigation Toggle ---
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                const isExpanded = mobileMenu.classList.toggle('open');
-                mobileMenuButton.setAttribute('aria-expanded', isExpanded);
-            });
-        }
-
-        // Initial state for checkupContent (hidden)
         if (checkupContent) {
             checkupContent.style.maxHeight = '0';
             checkupContent.style.paddingTop = '0';
@@ -170,7 +244,6 @@
                 event.preventDefault();
                 const isOpen = checkupContent.classList.contains('open');
 
-                // Close animation
                 if (isOpen) {
                     checkupContent.style.maxHeight = '0';
                     checkupContent.style.paddingTop = '0';
@@ -180,10 +253,9 @@
                     checkupContent.classList.remove('open');
                     checkupButton.setAttribute('aria-expanded', false);
                     fadeInItems.forEach(item => item.classList.remove('visible'));
-                } else { // Open animation
-                    // Read scrollHeight in the next animation frame to prevent layout thrashing
+                } else {
                     requestAnimationFrame(() => {
-                        checkupContent.style.maxHeight = checkupContent.scrollHeight + 50 + 'px'; // Add a buffer
+                        checkupContent.style.maxHeight = checkupContent.scrollHeight + 50 + 'px';
                         checkupContent.style.paddingTop = '2rem';
                         checkupContent.style.paddingBottom = '2rem';
                         checkupContent.style.marginTop = '2.5rem';
@@ -191,86 +263,15 @@
                         checkupContent.classList.add('open');
                         checkupButton.setAttribute('aria-expanded', true);
                         fadeInItems.forEach((item, index) => {
-                            setTimeout(() => item.classList.add('visible'), 200 * index);
+                            setTimeout(() => item.classList.add('visible'), 150 * index);
                         });
                     });
                 }
             });
         }
-
-        // Accordion functionality for general accordions
-        accordionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const contentId = button.getAttribute('aria-controls');
-                const content = document.getElementById(contentId);
-                const icon = button.querySelector('.icon');
-
-                if (!content || !icon) return; // Exit if elements are not found
-
-                const isOpen = content.classList.contains('open');
-
-                // Close all other open accordions
-                accordionButtons.forEach(otherButton => {
-                    const otherContentId = otherButton.getAttribute('aria-controls');
-                    const otherContent = document.getElementById(otherContentId);
-                    const otherIcon = otherButton.querySelector('.icon');
-
-                    if (otherContent && otherContent !== content && otherContent.classList.contains('open')) {
-                        otherContent.style.maxHeight = '0';
-                        otherContent.style.paddingTop = '0';
-                        otherContent.style.paddingBottom = '0';
-                        otherContent.classList.remove('open');
-                        otherButton.classList.remove('active');
-                        otherButton.setAttribute('aria-expanded', false);
-                        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-                    }
-                });
-
-                // Toggle current accordion
-                if (isOpen) {
-                    content.style.maxHeight = '0';
-                    content.style.paddingTop = '0';
-                    content.style.paddingBottom = '0';
-                    button.classList.remove('active');
-                    button.setAttribute('aria-expanded', false);
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    requestAnimationFrame(() => {
-                        content.style.maxHeight = content.scrollHeight + 50 + 'px'; // Add a buffer
-                        content.style.paddingTop = '1rem';
-                        content.style.paddingBottom = '1rem';
-                        button.classList.add('active');
-                        button.setAttribute('aria-expanded', true);
-                        icon.style.transform = 'rotate(90deg)';
-                    });
-                }
-                content.classList.toggle('open');
-            });
-        });
-
-        // Optimization for resize event: Recalculate max-height for open elements
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                document.querySelectorAll('.accordion-content.open').forEach(content => {
-                    requestAnimationFrame(() => {
-                        content.style.maxHeight = 'none'; // Temporarily unset
-                        content.style.maxHeight = content.scrollHeight + 50 + 'px';
-                    });
-                });
-                // For grid items on resize, ensure consistent state if they were open on mobile
-                gridItems.forEach(gridItem => {
-                    if (window.innerWidth > 768 && gridItem.classList.contains('active')) {
-                        gridItem.classList.remove('active');
-                        gridItem.querySelector('p').style.maxHeight = '0';
-                        gridItem.querySelector('p').style.opacity = '0';
-                        gridItem.querySelector('.toggle-icon').style.transform = 'rotate(0deg)';
-                    }
-                });
-            }, 100); // Debounce resize events
-        });
-
+    </script>
+</body>
+</html>
         // JS for collapsible grid elements on mobile
         gridItems.forEach(gridItem => {
             gridItem.addEventListener('click', () => {

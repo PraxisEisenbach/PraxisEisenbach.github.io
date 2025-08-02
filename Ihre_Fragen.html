@@ -8,6 +8,66 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .section-light-brown {
+            background-color: #f5f1ee;
+        }
+        .main-section-heading {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem; /* Increased margin-bottom for spacing like "Über mich" */
+            color: #333;
+        }
+        .image-strip {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .image-strip {
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+        .image-wrapper {
+            width: 80%;
+        }
+        @media (min-width: 768px) {
+            .image-wrapper {
+                width: 33.333333%;
+            }
+            .middle-image {
+                transform: scale(1.1);
+            }
+        }
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .accordion-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .accordion-title-button .icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-title-button.active .icon {
+            transform: rotate(90deg);
+        }
+        .accordion-content.open {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
@@ -46,21 +106,26 @@
     </header>
 
     <main>
-        <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-white">
+        <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
             <h2 class="main-section-heading">Ihre Fragen</h2>
-
-            <div class="flex justify-center items-center my-8 space-x-4">
-                <img src="Klemmbrett.jpeg" alt="Ein Klemmbrett mit Stift, das Diagnostik symbolisiert." class="w-32 md:w-48 h-auto">
-                <img src="Gluehbirne.jpeg" alt="Eine Glühbirne, die eine Idee symbolisiert." class="w-48 md:w-64 h-auto">
-                <img src="Aufmerksam.jpeg" alt="Ein Ohr symbolisiert Aufmerksamkeit und Zuhören." class="w-32 md:w-48 h-auto">
+            <div class="image-strip flex flex-col md:flex-row gap-6 justify-center items-center md:items-stretch">
+                <div class="image-wrapper w-4/5 md:w-1/3">
+                    <img src="Klemmbrett.jpeg" alt="Ein Klemmbrett mit Stift, das Diagnostik symbolisiert." class="w-full h-full object-cover rounded-lg shadow-md">
+                </div>
+                <div class="image-wrapper middle-image w-4/5 md:w-1/3 md:scale-110">
+                    <img src="Gluehbirne.jpeg" alt="Eine Glühbirne, die eine Idee symbolisiert." class="w-full h-full object-cover rounded-lg shadow-md">
+                </div>
+                <div class="image-wrapper w-4/5 md:w-1/3">
+                    <img src="Aufmerksam.jpeg" alt="Ein Ohr symbolisiert Aufmerksamkeit und Zuhören." class="w-full h-full object-cover rounded-lg shadow-md">
+                </div>
             </div>
 
-            <div class="accordion-item mb-4">
-                <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-dauer-sitzung">
+            <div class="accordion-item mb-4 mt-8">
+                <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-dauer">
                     Wie lange dauert eine Sitzung?
                     <i class="fas fa-chevron-right icon"></i>
                 </button>
-                <div id="content-dauer-sitzung" class="accordion-content">
+                <div id="content-dauer" class="accordion-content">
                     <div class="accordion-content-inner text-gray-700 leading-relaxed">
                         <p>Eine Therapiesitzung dauert 50 Minuten. Sie erhalten von mir einen festen Termin, den ich Ihnen für Ihre Therapiedauer wöchentlich verbindlich reserviere.</p>
                     </div>
@@ -221,17 +286,24 @@
     </footer>
 
     <script defer>
+        // Mobile-Menü Funktionalität
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+
         if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenu.classList.toggle('open');
+                mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            });
         }
 
+        // Akkordeon-Funktionalität wie in Ueber_Mich.html
         document.querySelectorAll('.accordion-title-button').forEach(button => {
             button.addEventListener('click', () => {
                 const content = document.getElementById(button.getAttribute('aria-controls'));
                 const icon = button.querySelector('.icon');
 
+                // Alle anderen offenen Akkordeons schließen
                 document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                     if (openContent !== content) {
                         openContent.style.maxHeight = '0';
@@ -246,6 +318,7 @@
                     }
                 });
 
+                // Aktuelles Akkordeon umschalten
                 if (content.classList.contains('open')) {
                     content.style.maxHeight = '0';
                     content.style.paddingTop = '0';
@@ -253,7 +326,6 @@
                     button.classList.remove('active');
                     icon.style.transform = 'rotate(0deg)';
                 } else {
-                    content.style.maxHeight = 'none';
                     content.style.maxHeight = (content.scrollHeight + 50) + 'px';
                     content.style.paddingTop = '1rem';
                     content.style.paddingBottom = '1rem';
@@ -264,13 +336,13 @@
             });
         });
 
+        // Fenstergröße-Änderung: max-height neu berechnen
         window.addEventListener('resize', () => {
             document.querySelectorAll('.accordion-content.open').forEach(content => {
                 content.style.maxHeight = 'none';
                 content.style.maxHeight = (content.scrollHeight + 50) + 'px';
             });
         });
-    <script src="script.js"></script>
-    <script src="mobile-logo.js"></script>
+    </script>
 </body>
 </html>
