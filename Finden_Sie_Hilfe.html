@@ -18,16 +18,19 @@
                     <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
                 </a>
             </div>
+
             <div class="md:hidden flex justify-between items-center w-full">
                 <a href="index.html">
                     <img src="Logo.jpg" alt="Logo" class="h-10">
                 </a>
                 <button id="mobile-menu-button" class="text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
+
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
                     <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Finden Sie Hilfe</a></li>
@@ -37,6 +40,7 @@
                 </ul>
             </nav>
         </div>
+
         <div id="mobile-menu" class="mobile-menu md:hidden bg-[--primary-green] pb-4">
             <ul class="flex flex-col items-center space-y-4 pt-4">
                 <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow]">Finden Sie Hilfe</a></li>
@@ -47,7 +51,7 @@
         </div>
     </header>
 
-    <main>
+       <main>
         <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
             <h2 class="main-section-heading">Finden Sie Hilfe</h2>
             <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
@@ -81,7 +85,54 @@
                 </div>
             </div>
         </section>
-        <!-- ... weiterer Inhalt bleibt gleich ... -->
+
+        <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
+            <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
+            <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
+
+            <div class="grid-container">
+                <div class="grid-item depression-burnout">
+                    <h3 class="grid-title">Depression & Burnout <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken, Rastlosigkeit</p>
+                </div>
+
+                <div class="grid-item angststoerungen">
+                    <h3 class="grid-title">Angststörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, ständige Sorgen</p>
+                </div>
+
+                <div class="grid-item essstoerungen">
+                    <h3 class="grid-title">Essstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln</p>
+                </div>
+
+                <div class="grid-item schlafstoerungen">
+                    <h3 class="grid-title">Schlafstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen</p>
+                </div>
+
+                <div class="grid-item schmerzen">
+                    <h3 class="grid-title">Schmerzen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss</p>
+                </div>
+
+                <div class="grid-item persoenlichkeitsstoerungen">
+                    <h3 class="grid-title">Persönlichkeits&shy;störungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen</p>
+                </div>
+            </div>
+
+            <p class="text-gray-800 text-lg leading-relaxed mb-8 text-center mt-10">
+                Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann Psychotherapie?</h3>
+            <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
+            <div class="flex justify-center">
+                <a href="Kontakt.html" class="inline-block bg-[--primary-red] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[--hover-red] transition-colors">
+                    Termin vereinbaren
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
@@ -95,6 +146,129 @@
         </div>
     </footer>
 
-    <!-- JavaScript bleibt gleich wie im Original -->
+    <script defer>
+        // Caching DOM elements for performance
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const checkupButton = document.getElementById('checkup-button');
+        const checkupContent = document.getElementById('checkup-content');
+        const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
+        const gridItems = document.querySelectorAll('.grid-item');
+
+        // --- Mobile Navigation Toggle ---
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenu.classList.toggle('open');
+                mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+
+        // Initial state for checkupContent (hidden)
+        if (checkupContent) {
+            checkupContent.style.maxHeight = '0';
+            checkupContent.style.paddingTop = '0';
+            checkupContent.style.paddingBottom = '0';
+            checkupContent.style.marginTop = '0';
+            checkupContent.style.marginBottom = '0';
+        }
+
+        if (checkupButton && checkupContent) {
+            checkupButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                const isOpen = checkupContent.classList.contains('open');
+
+                if (isOpen) {
+                    checkupContent.style.maxHeight = '0';
+                    checkupContent.style.paddingTop = '0';
+                    checkupContent.style.paddingBottom = '0';
+                    checkupContent.style.marginTop = '0';
+                    checkupContent.style.marginBottom = '0';
+                    checkupContent.classList.remove('open');
+                    checkupButton.setAttribute('aria-expanded', false);
+                    fadeInItems.forEach(item => item.classList.remove('visible'));
+                } else {
+                    requestAnimationFrame(() => {
+                        checkupContent.style.maxHeight = checkupContent.scrollHeight + 50 + 'px';
+                        checkupContent.style.paddingTop = '2rem';
+                        checkupContent.style.paddingBottom = '2rem';
+                        checkupContent.style.marginTop = '2.5rem';
+                        checkupContent.style.marginBottom = '2.5rem';
+                        checkupContent.classList.add('open');
+                        checkupButton.setAttribute('aria-expanded', true);
+                        fadeInItems.forEach((item, index) => {
+                            setTimeout(() => item.classList.add('visible'), 200 * index);
+                        });
+                    });
+                }
+            });
+        }
+
+        // JS for collapsible grid elements on mobile
+        gridItems.forEach(gridItem => {
+            gridItem.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    const paragraph = gridItem.querySelector('.grid-content');
+                    const toggleIcon = gridItem.querySelector('.toggle-icon');
+
+                    if (!paragraph || !toggleIcon) return;
+
+                    const isOpen = gridItem.classList.contains('active');
+
+                    gridItems.forEach(otherGridItem => {
+                        if (otherGridItem !== gridItem && otherGridItem.classList.contains('active')) {
+                            const otherParagraph = otherGridItem.querySelector('.grid-content');
+                            const otherToggleIcon = otherGridItem.querySelector('.toggle-icon');
+                            if (otherParagraph && otherToggleIcon) {
+                                otherParagraph.style.maxHeight = '0';
+                                otherParagraph.style.opacity = '0';
+                                otherToggleIcon.style.transform = 'rotate(0deg)';
+                            }
+                            otherGridItem.classList.remove('active');
+                        }
+                    });
+
+                    if (isOpen) {
+                        paragraph.style.maxHeight = '0';
+                        paragraph.style.opacity = '0';
+                        toggleIcon.style.transform = 'rotate(0deg)';
+                    } else {
+                        requestAnimationFrame(() => {
+                            paragraph.style.maxHeight = paragraph.scrollHeight + 'px';
+                            paragraph.style.opacity = '1';
+                            toggleIcon.style.transform = 'rotate(90deg)';
+                        });
+                    }
+                    gridItem.classList.toggle('active');
+                }
+            });
+        });
+
+        // Optimization for resize event: Recalculate max-height for open elements
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // For Check-up section
+                const checkupContent = document.getElementById('checkup-content');
+                if (checkupContent && checkupContent.classList.contains('open')) {
+                    requestAnimationFrame(() => {
+                        checkupContent.style.maxHeight = 'none';
+                        checkupContent.style.maxHeight = checkupContent.scrollHeight + 50 + 'px';
+                    });
+                }
+                
+                // For grid items on resize
+                gridItems.forEach(gridItem => {
+                    const paragraph = gridItem.querySelector('.grid-content');
+                    if (window.innerWidth > 768) {
+                        paragraph.style.maxHeight = 'none';
+                        paragraph.style.opacity = '1';
+                    } else if (gridItem.classList.contains('active')) {
+                        paragraph.style.maxHeight = paragraph.scrollHeight + 'px';
+                    }
+                });
+            }, 100);
+        });
+    </script>
 </body>
 </html>
