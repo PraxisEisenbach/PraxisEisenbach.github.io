@@ -49,11 +49,18 @@
         <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-white">
             <h2 class="main-section-heading">Ihre Fragen</h2>
 
-            <div class="flex justify-center items-center my-8 space-x-4">
-                <img src="Klemmbrett.jpeg" alt="Ein Klemmbrett mit Stift, das Diagnostik symbolisiert." class="w-32 md:w-48 h-auto">
-                <img src="Gluehbirne.jpeg" alt="Eine Glühbirne, die eine Idee symbolisiert." class="w-48 md:w-64 h-auto">
-                <img src="Aufmerksam.jpeg" alt="Ein Ohr symbolisiert Aufmerksamkeit und Zuhören." class="w-32 md:w-48 h-auto">
-            </div>
+<style>
+  .hover-shadow:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+</style>
+
+<div class="flex justify-center items-center my-8 space-x-4">
+  <img src="Klemmbrett.jpeg" alt="Ein Klemmbrett mit Stift, das Diagnostik symbolisiert." class="w-32 md:w-48 h-auto hover-shadow">
+  <img src="Gluehbirne.jpeg" alt="Eine Glühbirne, die eine Idee symbolisiert." class="w-48 md:w-64 h-auto hover-shadow">
+  <img src="Aufmerksam.jpeg" alt="Ein Ohr symbolisiert Aufmerksamkeit und Zuhören." class="w-32 md:w-48 h-auto hover-shadow">
+</div>
 
             <div class="accordion-item mb-4">
                 <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-dauer-sitzung">
@@ -273,3 +280,4 @@
     </script>
 </body>
 </html>
+
