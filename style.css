@@ -1,4 +1,4 @@
-/* --- Allgemeine Variablen und Basis-Styles (Format-Informationen) --- */
+/* --- Allgemeine Variablen und Basis-Styles --- */
 :root {
     --light-brownish-yellow: color-mix(in srgb, #E2C499 80%, white);
     --dark-gray-text: #333;
@@ -116,18 +116,15 @@ body {
 }
 
 /* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
-/* Für die bündige Ausrichtung der Icons im "Mein Angebot in Kürze" Bereich */
 .bg-[#e3a88c] ul li .fas {
     vertical-align: middle;
     line-height: 1.5rem;
     display: inline-block;
     text-align: center;
 }
-
-/* Für die Bilddarstellung auf der Startseite */
 .main-section-image-container {
     /* Optional: Eine feste Höhe für den Bildcontainer auf größeren Bildschirmen */
-    /* min-height: 400px; */ 
+    /* min-height: 400px; */
 }
 
 /* --- Grid und Hover Effekt CSS (für größere Bildschirme) --- */
@@ -139,7 +136,6 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-
 .grid-item {
     padding: 25px;
     border-radius: 8px;
@@ -157,8 +153,6 @@ body {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.5s ease;
 }
-
-/* Dunkler Overlay für Lesbarkeit des Textes auf Hintergrundbild */
 .grid-item::before {
     content: '';
     position: absolute;
@@ -170,7 +164,6 @@ body {
     z-index: 1;
     transition: background-color 0.3s ease;
 }
-
 .grid-item h3 {
     position: relative;
     z-index: 2;
@@ -182,14 +175,11 @@ body {
     align-items: center;
     width: 100%;
 }
-
-/* Stil für das Icon in den Grid-Items */
 .grid-item .toggle-icon {
     font-size: 0.8em;
     transition: transform 0.3s ease;
     margin-left: 10px;
 }
-
 .grid-item p {
     position: relative;
     z-index: 2;
@@ -204,27 +194,21 @@ body {
     padding-bottom: 0;
     box-sizing: border-box;
 }
-
-/* Hover-Effekte für größere Bildschirme */
 .grid-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     background-size: 105%;
 }
-
 .grid-item:hover::before {
     background-color: rgba(0, 0, 0, 0.55);
 }
-
 .grid-item:hover p {
     opacity: 1;
     max-height: 150px;
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
-
-/* Spezifische Hintergrundbilder für jede Karte */
 .depression-burnout { background-image: url('Depression.jpg'); }
 .angststoerungen { background-image: url('Angststoerungen.jpg'); }
 .essstoerungen { background-image: url('Essstoerung.jpg'); }
@@ -234,17 +218,63 @@ body {
 
 /* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
 @media (max-width: 768px) {
-    .mobile-header-top-row {
+    header .container.mx-auto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    header .container.mx-auto > div:first-child {
+        display: none;
+    }
+
+    header .container.mx-auto > div:nth-child(2) {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         margin-bottom: 1rem;
+        position: relative; /* ⬅️ notwendig für ::before */
     }
-    .mobile-header-logo-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+
+    /* ⬅️ Logo über CSS einfügen */
+    header .container.mx-auto > div:nth-child(2)::before {
+        content: "";
+        display: block;
+        background-image: url('Logo.jpg'); /* ⬅️ Bildpfad anpassen */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        height: 40px;
+        width: 120px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    header .container.mx-auto > div:nth-child(2) > button {
+        margin-left: auto;
+    }
+
+    header .container.mx-auto > nav {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    header .container.mx-auto > nav ul li:not(:last-child) {
+        display: none;
+    }
+
+    #mobile-menu li:last-child {
+        display: none;
+    }
+
+    /* ⬅️ Kein Umbruch bei Buttontext */
+    header nav ul li:last-child a {
+        white-space: nowrap;
     }
 
     .grid-container {
@@ -264,7 +294,6 @@ body {
     .grid-item:hover::before {
         background-color: rgba(0, 0, 0, 0.5);
     }
-
     .grid-item h3 {
         margin-bottom: 0;
         display: flex;
@@ -273,11 +302,9 @@ body {
         width: 100%;
         cursor: pointer;
     }
-
     .grid-item.active .toggle-icon {
         transform: rotate(90deg);
     }
-    
     .grid-item p {
         opacity: 0;
         max-height: 0;
@@ -285,14 +312,12 @@ body {
         padding-bottom: 0;
         transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease;
     }
-
     .grid-item.active p {
         opacity: 1;
         max-height: 300px;
         margin-bottom: 10px;
         padding-bottom: 10px;
     }
-
     .grid-item:hover {
         transform: none;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -302,14 +327,12 @@ body {
     .grid-item:hover::before {
         background-color: rgba(0, 0, 0, 0.5);
     }
-    
     .grid-item.active {
         min-height: auto;
         padding-bottom: 20px;
         transform: none;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
-    
     .main-section-heading {
         font-size: 1.8em;
         margin-bottom: 30px;
@@ -318,57 +341,6 @@ body {
         font-size: 1.2em;
         padding: 1rem 1.25rem;
     }
-}
-
-/* --- Image Strip für "Über mich" --- */
-.image-strip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    overflow: hidden;
-    position: relative;
-    padding: 1rem;
-}
-
-.image-strip .image-wrapper {
-    flex-shrink: 0;
-    width: 25%;
-    max-width: 180px;
-    transition: transform 0.3s ease, width 0.3s ease, max-width 0.3s ease;
-    z-index: 1;
-}
-
-.image-strip .image-wrapper.middle-image {
-    width: 50%;
-    max-width: 450px;
-    z-index: 2;
-}
-
-.image-strip:hover .image-wrapper:nth-child(1) {
-    transform: translateX(-20px);
-}
-
-.image-strip:hover .image-wrapper:nth-child(3) {
-    transform: translateX(20px);
-}
-    
-.image-strip:hover .image-wrapper.middle-image {
-    transform: translateY(-5px);
-}
-
-.image-strip img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    object-fit: contain;
-}
-
-/* Responsive Anpassungen für den Bildstreifen */
-@media (max-width: 768px) {
     .image-strip {
         flex-direction: column;
         gap: 1.5rem;
@@ -378,83 +350,5 @@ body {
         width: 80%;
         max-width: 400px;
         transform: none !important;
-    }
-}
-
-/* --- Mobile Header Logo und Layout Optimierung (aktualisiert) --- */
-@media (max-width: 767px) {
-    /* Header auf schmale Höhe anpassen und den Inhalt neu anordnen */
-    header {
-        padding: 1rem; /* Schmalerer vertikaler Abstand */
-    }
-
-    /* Den Haupt-Header-Container als Flexbox mit vertikaler Anordnung */
-    header .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    /* Den Logo-Container neu anordnen */
-    header .container .flex-col {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        order: 1; /* Positioniert das Logo oben */
-    }
-
-    /* Den Text ausblenden und stattdessen das Logo als Hintergrundbild anzeigen */
-    header .container .flex-col a {
-        height: 128px;
-        width: 300px;
-        background-image: url('Logo.jpg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: left center;
-        text-indent: -9999px;
-        overflow: hidden;
-    }
-
-    /* h1 und p Elemente im Header ausblenden */
-    header .container .flex-col a h1,
-    header .container .flex-col a p {
-        display: none;
-    }
-
-    /* Mobile Menü Button anpassen */
-    header .container > .md\:hidden:last-child {
-        position: absolute; /* Button aus dem normalen Fluss nehmen */
-        top: 1rem;
-        right: 1rem;
-        order: 2; /* Positioniert den Button rechts oben */
-    }
-
-    /* Mobile Navigation (Burger-Menü) anpassen */
-    #mobile-menu {
-        text-align: center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        order: 3; /* Positioniert das Menü unter dem Button */
-    }
-
-    /* Button "Erstgespräch vereinbaren" für mobile Ansicht stylen */
-    header .container > nav {
-        display: block !important; /* Den Button anzeigen */
-        order: 4; /* Positioniert den Button am Ende */
-        width: 100%;
-        text-align: center;
-        margin-top: 1rem; /* Abstand zum Menü */
-    }
-
-    /* Den Button aus der Desktop-Navigation gezielt ansprechen */
-    header .container > nav ul {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-    }
-
-    header .container > nav ul li:not(:last-child) {
-        display: none; /* Alle anderen Navigationspunkte ausblenden */
     }
 }
