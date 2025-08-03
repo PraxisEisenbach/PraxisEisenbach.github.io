@@ -15,46 +15,49 @@
 <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
   <div class="container mx-auto">
 
-    <!-- Obere Leiste: Logo links, Burger rechts -->
-    <div class="flex justify-between items-center md:justify-start">
-      <!-- Logo (immer sichtbar) -->
+    <!-- Mobiles Header-Layout -->
+    <div class="flex items-center justify-between md:hidden">
+      <!-- Logo links -->
       <a href="index.html" class="flex items-center">
         <img src="Logo.jpg" alt="Logo" class="h-10 w-auto">
       </a>
 
-      <!-- Burger-Menü (nur mobil sichtbar) -->
-      <div class="md:hidden">
-        <input type="checkbox" id="menu-toggle" class="hidden peer" />
-        <label for="menu-toggle" class="cursor-pointer">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </label>
-      </div>
+      <!-- Burger Menu rechts -->
+      <input type="checkbox" id="menu-toggle" class="hidden peer" />
+      <label for="menu-toggle" class="cursor-pointer">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
     </div>
 
-    <!-- Navigation -->
-    <nav class="peer-checked:max-h-96 max-h-0 overflow-hidden transition-all duration-500 md:max-h-none md:mt-4 md:flex md:justify-between md:items-center">
-      <ul class="flex flex-col items-center mt-4 space-y-4 md:mt-0 md:flex-row md:space-y-0 md:space-x-6">
+    <!-- Button zentriert unter mobiler obere Leiste -->
+    <div class="md:hidden mt-4 flex justify-center">
+      <a href="Kontakt.html"
+         class="bg-[#9F4636] px-6 py-2 rounded-md text-white font-semibold shadow-md hover:bg-[#b05240]">
+        Erstgespräch vereinbaren
+      </a>
+    </div>
+
+    <!-- Navigation (mobil ausklappbar) -->
+    <nav class="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96 md:max-h-none md:block mt-4 md:mt-0">
+      <ul class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-6 md:items-center md:justify-end">
         <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
         <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
         <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
       </ul>
-
-      <!-- CTA-Button (immer sichtbar) -->
-      <div class="mt-4 md:mt-0">
-        <a href="Kontakt.html"
-           class="bg-[#9F4636] px-4 py-2 text-sm font-semibold text-white rounded-md shadow-md hover:bg-[#b05240] block text-center">
-          Erstgespräch vereinbaren
-        </a>
-      </div>
     </nav>
 
+    <!-- Desktop Header-Überschrift (nur auf md und größer) -->
+    <div class="hidden md:flex flex-col mt-4">
+      <a href="index.html" class="flex flex-col mb-4">
+        <h1 class="text-3xl font-bold text-white">Lisa Eisenbach</h1>
+        <p class="text-lg md:text-xl mt-1 text-white">Psychologische Psychotherapeutin</p>
+      </a>
+    </div>
   </div>
 </header>
-
-
 
 
 
@@ -218,6 +221,7 @@
     <script src="mobile-logo.js"></script>
 </body>
 </html>
+
 
 
 
