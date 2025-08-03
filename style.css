@@ -233,19 +233,92 @@ body {
 .persoenlichkeitsstoerungen { background-image: url('Persoenlichkeitsstoerung.jpg'); }
 
 /* --- Media Queries für kleinere Bildschirme (Mobile Anpassungen) --- */
-@media (max-width: 768px) {
-    .mobile-header-top-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-    .mobile-header-logo-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  /* --- Mobile Header Layout Optimierung --- */
+@media (max-width: 767px) {
+  header {
+    padding: 1rem;
+    position: relative;
+  }
+
+  header .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  /* Top-Zeile: Logo links, Burger rechts */
+  .mobile-header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo-link {
+    display: block;
+    width: 150px;
+    height: 60px;
+    background-image: url('Logo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    text-indent: -9999px;
+  }
+
+  .burger-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  /* Mobile-Menü: zentriert unter dem Header */
+  #mobile-menu {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  #mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #mobile-menu li {
+    margin: 0.5rem 0;
+  }
+
+  #mobile-menu a {
+    text-decoration: none;
+    color: var(--dark-gray-text);
+    font-size: 1.2rem;
+  }
+
+  /* Separater Button am unteren Rand */
+  .mobile-header-button {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .erstgespraech-button {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+
+  .erstgespraech-button:hover {
+    background-color: var(--hover-green);
+  }
+}
+
+
 
     .grid-container {
         grid-template-columns: 1fr;
@@ -381,54 +454,3 @@ body {
     }
 }
 
-/* --- Mobile Header Logo und Layout Optimierung (aktualisiert) --- */
-@media (max-width: 767px) {
-    /* Header auf schmale Höhe anpassen und den Inhalt neu anordnen */
-    header {
-        padding: 1rem; /* Schmalerer vertikaler Abstand */
-    }
-
-    /* Den Haupt-Header-Container als Flexbox mit vertikaler Anordnung */
-    header .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    /* Den Logo-Container neu anordnen */
-    header .container .flex-col {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        order: 1; /* Positioniert das Logo oben */
-    }
-
-
-    /* h1 und p Elemente im Header ausblenden */
-    header .container .flex-col a h1,
-    header .container .flex-col a p {
-        display: none;
-    }
-
-
-    /* Button "Erstgespräch vereinbaren" für mobile Ansicht stylen */
-    header .container > nav {
-        display: block !important; /* Den Button anzeigen */
-        order: 4; /* Positioniert den Button am Ende */
-        width: 100%;
-        text-align: center;
-        margin-top: 1rem; /* Abstand zum Menü */
-    }
-
-    /* Den Button aus der Desktop-Navigation gezielt ansprechen */
-    header .container > nav ul {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-    }
-
-    header .container > nav ul li:not(:last-child) {
-        display: none; /* Alle anderen Navigationspunkte ausblenden */
-    }
-}
