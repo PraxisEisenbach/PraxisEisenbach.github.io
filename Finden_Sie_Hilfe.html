@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisa Eisenbach - Psychologische Psychotherapeutin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100">
     <header class="bg-[--primary-green] text-white p-4 shadow-md rounded-b-lg">
         <div class="container mx-auto flex items-center justify-between">
-            <div class="flex flex-col">
+            <div class="hidden md:flex flex-col">
                 <a href="index.html" class="text-white hover:text-[--hover-yellow] transition-colors flex flex-col">
                     <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
                     <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
                 </a>
             </div>
-            <div class="md:hidden">
+
+            <div class="md:hidden flex justify-between items-center w-full">
+                <a href="index.html">
+                    <img src="Logo.jpg" alt="Logo" class="h-10">
+                </a>
                 <button id="mobile-menu-button" class="text-white focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,6 +30,7 @@
                     </svg>
                 </button>
             </div>
+
             <nav class="hidden md:block">
                 <ul class="flex space-x-6 items-center">
                     <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow] transition-colors">Finden Sie Hilfe</a></li>
@@ -37,6 +40,7 @@
                 </ul>
             </nav>
         </div>
+
         <div id="mobile-menu" class="mobile-menu md:hidden bg-[--primary-green] pb-4">
             <ul class="flex flex-col items-center space-y-4 pt-4">
                 <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[--hover-yellow]">Finden Sie Hilfe</a></li>
@@ -47,85 +51,87 @@
         </div>
     </header>
 
-    <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
-        <h2 class="main-section-heading">Finden Sie Hilfe</h2>
-        <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
-            Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
-        </p>
-        <div class="flex justify-center mb-10">
-            <a href="#" id="checkup-button" class="inline-block bg-[--primary-green] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[--hover-green] transition-colors" aria-expanded="false" aria-controls="checkup-content">
-                Machen Sie den Check-up!
-            </a>
-        </div>
-        <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Alles fühlt sich so schwer an.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich erkenne mich nicht wieder.</span></li>
-                </ul>
-                <ul class="space-y-2">
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich komme einfach nicht mehr zur Ruhe.</span></li>
-                    <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>So kann es doch nicht weitergehen.</span></li>
-                </ul>
+    <main>
+        <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
+            <h2 class="main-section-heading">Finden Sie Hilfe</h2>
+            <p class="text-gray-800 text-lg leading-relaxed mb-6 text-center">
+                Sie fragen sich wahrscheinlich: Ist Psychotherapie wirklich was für mich?
+            </p>
+            <div class="flex justify-center mb-10">
+                <a href="#" id="checkup-button" class="inline-block bg-[--primary-green] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[--hover-green] transition-colors" aria-expanded="false" aria-controls="checkup-content">
+                    Machen Sie den Check-up!
+                </a>
             </div>
-            <p class="text-gray-800 text-lg leading-relaxed">Sie können diesen Aussagen größtenteils zustimmen?</p>
-            <p class="text-gray-800 text-lg leading-relaxed mb-6">Sie sehnen sich nach <strong>Unbeschwertheit, Orientierung und Perspektive</strong>?</p>
-            <p class="text-gray-800 text-lg leading-relaxed">Dann lohnt sich ein genauerer Blick. Ich unterstütze Sie gerne dabei.</p>
-            <div class="flex justify-center mt-6 mb-10">
+            <div id="checkup-content" class="bg-white p-8 rounded-lg shadow-md accordion-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-gray-800 text-lg leading-relaxed mb-6">
+                    <ul class="space-y-2">
+                        <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Alles fühlt sich so schwer an.</span></li>
+                        <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich erkenne mich nicht wieder.</span></li>
+                    </ul>
+                    <ul class="space-y-2">
+                        <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>Ich komme einfach nicht mehr zur Ruhe.</span></li>
+                        <li class="flex items-center fade-in-item"><i class="far fa-check-square mr-3 text-xl"></i><span>So kann es doch nicht weitergehen.</span></li>
+                    </ul>
+                </div>
+                <p class="text-gray-800 text-lg leading-relaxed">Sie können diesen Aussagen größtenteils zustimmen?</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-6">Sie sehnen sich nach <strong>Unbeschwertheit, Orientierung und Perspektive</strong>?</p>
+                <p class="text-gray-800 text-lg leading-relaxed">Dann lohnt sich ein genauerer Blick. Ich unterstütze Sie gerne dabei.</p>
+                <div class="flex justify-center mt-6 mb-10">
+                    <a href="Kontakt.html" class="inline-block bg-[--primary-red] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[--hover-red] transition-colors">
+                        Termin vereinbaren
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
+            <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
+            <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
+
+            <div class="grid-container">
+                <div class="grid-item depression-burnout">
+                    <h3 class="grid-title">Depression & Burnout <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken, Rastlosigkeit</p>
+                </div>
+
+                <div class="grid-item angststoerungen">
+                    <h3 class="grid-title">Angststörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, ständige Sorgen</p>
+                </div>
+
+                <div class="grid-item essstoerungen">
+                    <h3 class="grid-title">Essstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln</p>
+                </div>
+
+                <div class="grid-item schlafstoerungen">
+                    <h3 class="grid-title">Schlafstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen</p>
+                </div>
+
+                <div class="grid-item schmerzen">
+                    <h3 class="grid-title">Schmerzen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss</p>
+                </div>
+
+                <div class="grid-item persoenlichkeitsstoerungen">
+                    <h3 class="grid-title">Persönlichkeits&shy;störungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
+                    <p class="grid-content">z.B. Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen</p>
+                </div>
+            </div>
+
+            <p class="text-gray-800 text-lg leading-relaxed mb-8 text-center mt-10">
+                Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann Psychotherapie?</h3>
+            <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
+            <div class="flex justify-center">
                 <a href="Kontakt.html" class="inline-block bg-[--primary-red] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[--hover-red] transition-colors">
                     Termin vereinbaren
                 </a>
             </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
-        <p class="psychotherapy-intro-text">Psychotherapie hilft, wenn aus schweren Momenten heraus psychische Symptome entstehen.</p>
-        <h2 class="main-section-heading">Häufige psychische Erkrankungen sind z.B.</h2>
-
-        <div class="grid-container">
-            <div class="grid-item depression-burnout">
-                <h3>Depression & Burnout <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Niedergeschlagenheit, Freud-/Interessenverlust, Antriebslosigkeit, Selbstwertprobleme, Schuldgefühle, Suizidgedanken, Rastlosigkeit</p>
-            </div>
-
-            <div class="grid-item angststoerungen">
-                <h3>Angststörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Panikattacken oder Angst vor Panikattacken, Vermeidung bedrohlicher Situationen, ständige Sorgen</p>
-            </div>
-
-            <div class="grid-item essstoerungen">
-                <h3>Essstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Angst vor Gewichtszunahme, Mangel an Genussfähigkeit, Bewegungsdrang, Essanfälle, Kompensation mit z.B. Erbrechen oder Abführmitteln</p>
-            </div>
-
-            <div class="grid-item schlafstoerungen">
-                <h3>Schlafstörungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Unerholsamer Schlaf, Einschlafprobleme, Durchschlafschwierigkeiten, frühmorgendliches Erwachen, Schwierigkeiten, aufzustehen</p>
-            </div>
-
-            <div class="grid-item schmerzen">
-                <h3>Schmerzen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Chronische Rückenschmerzen, Kopfschmerzen, Migräne, Tinnitus mit psychischem Einfluss</p>
-            </div>
-
-            <div class="grid-item persoenlichkeitsstoerungen">
-                <h3>Persönlichkeits&shy;störungen <span class="toggle-icon"><i class="fas fa-chevron-right"></i></span></h3>
-                <p>z.B. Tiefgreifende Denk-, Wahrnehmungs- und Verhaltensmuster, die meist zu Schwierigkeiten in Beziehungen führen</p>
-            </div>
-        </div>
-
-        <p class="text-gray-800 text-lg leading-relaxed mb-8 text-center mt-10">
-            Sie erkennen sich in einem oder mehreren Erkrankungsbildern wieder? Oder leiden unter einer anderen psychischen Belastung? Dann könnte Psychotherapie Sie unterstützen.
-        </p>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Also dann Psychotherapie?</h3>
-        <p class="text-gray-800 text-lg leading-relaxed mb-10 text-center">Ja, probieren wir es doch aus! Bei einem unverbindlichen Kennenlerntermin können wir gemeinsam überlegen, ob eine Therapie der richtige Weg für Sie ist.</p>
-        <div class="flex justify-center">
-            <a href="Kontakt.html" class="inline-block bg-[--primary-red] text-white px-8 py-4 rounded-lg text-xl font-bold shadow-md hover:bg-[--hover-red] transition-colors">
-                Termin vereinbaren
-            </a>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-lg">
         <div class="container mx-auto text-center">
@@ -138,14 +144,13 @@
         </div>
     </footer>
 
-    <script>
+    <script defer>
         // Caching DOM elements for performance
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const checkupButton = document.getElementById('checkup-button');
         const checkupContent = document.getElementById('checkup-content');
         const fadeInItems = document.querySelectorAll('#checkup-content .fade-in-item');
-        const accordionButtons = document.querySelectorAll('.accordion-title-button');
         const gridItems = document.querySelectorAll('.grid-item');
 
         // --- Mobile Navigation Toggle ---
@@ -170,7 +175,6 @@
                 event.preventDefault();
                 const isOpen = checkupContent.classList.contains('open');
 
-                // Close animation
                 if (isOpen) {
                     checkupContent.style.maxHeight = '0';
                     checkupContent.style.paddingTop = '0';
@@ -180,10 +184,9 @@
                     checkupContent.classList.remove('open');
                     checkupButton.setAttribute('aria-expanded', false);
                     fadeInItems.forEach(item => item.classList.remove('visible'));
-                } else { // Open animation
-                    // Read scrollHeight in the next animation frame to prevent layout thrashing
+                } else {
                     requestAnimationFrame(() => {
-                        checkupContent.style.maxHeight = checkupContent.scrollHeight + 50 + 'px'; // Add a buffer
+                        checkupContent.style.maxHeight = checkupContent.scrollHeight + 50 + 'px';
                         checkupContent.style.paddingTop = '2rem';
                         checkupContent.style.paddingBottom = '2rem';
                         checkupContent.style.marginTop = '2.5rem';
@@ -198,94 +201,20 @@
             });
         }
 
-        // Accordion functionality for general accordions
-        accordionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const contentId = button.getAttribute('aria-controls');
-                const content = document.getElementById(contentId);
-                const icon = button.querySelector('.icon');
-
-                if (!content || !icon) return; // Exit if elements are not found
-
-                const isOpen = content.classList.contains('open');
-
-                // Close all other open accordions
-                accordionButtons.forEach(otherButton => {
-                    const otherContentId = otherButton.getAttribute('aria-controls');
-                    const otherContent = document.getElementById(otherContentId);
-                    const otherIcon = otherButton.querySelector('.icon');
-
-                    if (otherContent && otherContent !== content && otherContent.classList.contains('open')) {
-                        otherContent.style.maxHeight = '0';
-                        otherContent.style.paddingTop = '0';
-                        otherContent.style.paddingBottom = '0';
-                        otherContent.classList.remove('open');
-                        otherButton.classList.remove('active');
-                        otherButton.setAttribute('aria-expanded', false);
-                        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-                    }
-                });
-
-                // Toggle current accordion
-                if (isOpen) {
-                    content.style.maxHeight = '0';
-                    content.style.paddingTop = '0';
-                    content.style.paddingBottom = '0';
-                    button.classList.remove('active');
-                    button.setAttribute('aria-expanded', false);
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    requestAnimationFrame(() => {
-                        content.style.maxHeight = content.scrollHeight + 50 + 'px'; // Add a buffer
-                        content.style.paddingTop = '1rem';
-                        content.style.paddingBottom = '1rem';
-                        button.classList.add('active');
-                        button.setAttribute('aria-expanded', true);
-                        icon.style.transform = 'rotate(90deg)';
-                    });
-                }
-                content.classList.toggle('open');
-            });
-        });
-
-        // Optimization for resize event: Recalculate max-height for open elements
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                document.querySelectorAll('.accordion-content.open').forEach(content => {
-                    requestAnimationFrame(() => {
-                        content.style.maxHeight = 'none'; // Temporarily unset
-                        content.style.maxHeight = content.scrollHeight + 50 + 'px';
-                    });
-                });
-                // For grid items on resize, ensure consistent state if they were open on mobile
-                gridItems.forEach(gridItem => {
-                    if (window.innerWidth > 768 && gridItem.classList.contains('active')) {
-                        gridItem.classList.remove('active');
-                        gridItem.querySelector('p').style.maxHeight = '0';
-                        gridItem.querySelector('p').style.opacity = '0';
-                        gridItem.querySelector('.toggle-icon').style.transform = 'rotate(0deg)';
-                    }
-                });
-            }, 100); // Debounce resize events
-        });
-
         // JS for collapsible grid elements on mobile
         gridItems.forEach(gridItem => {
             gridItem.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    const paragraph = gridItem.querySelector('p');
+                    const paragraph = gridItem.querySelector('.grid-content');
                     const toggleIcon = gridItem.querySelector('.toggle-icon');
 
-                    if (!paragraph || !toggleIcon) return; // Exit if elements are not found
+                    if (!paragraph || !toggleIcon) return;
 
                     const isOpen = gridItem.classList.contains('active');
 
-                    // Close other open grid items
                     gridItems.forEach(otherGridItem => {
                         if (otherGridItem !== gridItem && otherGridItem.classList.contains('active')) {
-                            const otherParagraph = otherGridItem.querySelector('p');
+                            const otherParagraph = otherGridItem.querySelector('.grid-content');
                             const otherToggleIcon = otherGridItem.querySelector('.toggle-icon');
                             if (otherParagraph && otherToggleIcon) {
                                 otherParagraph.style.maxHeight = '0';
@@ -296,7 +225,6 @@
                         }
                     });
 
-                    // Toggle current grid item
                     if (isOpen) {
                         paragraph.style.maxHeight = '0';
                         paragraph.style.opacity = '0';
@@ -312,7 +240,33 @@
                 }
             });
         });
-    <script src="script.js"></script>
-    <script src="mobile-logo.js"></script>
+
+        // Optimization for resize event: Recalculate max-height for open elements
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // For Check-up section
+                const checkupContent = document.getElementById('checkup-content');
+                if (checkupContent && checkupContent.classList.contains('open')) {
+                    requestAnimationFrame(() => {
+                        checkupContent.style.maxHeight = 'none';
+                        checkupContent.style.maxHeight = checkupContent.scrollHeight + 50 + 'px';
+                    });
+                }
+                
+                // For grid items on resize
+                gridItems.forEach(gridItem => {
+                    const paragraph = gridItem.querySelector('.grid-content');
+                    if (window.innerWidth > 768) {
+                        paragraph.style.maxHeight = 'none';
+                        paragraph.style.opacity = '1';
+                    } else if (gridItem.classList.contains('active')) {
+                        paragraph.style.maxHeight = paragraph.scrollHeight + 'px';
+                    }
+                });
+            }, 100);
+        });
+    </script>
 </body>
 </html>
