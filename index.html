@@ -11,42 +11,42 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body class="bg-gray-100">
-   <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
-    <div class="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
-        
-        <!-- Logo und Titel (mobil & desktop sichtbar) -->
-        <a href="index.html" class="flex flex-col mb-4 md:mb-0">
-            <h1 class="text-3xl font-bold">Lisa Eisenbach</h1>
-            <p class="text-lg md:text-xl mt-1">Psychologische Psychotherapeutin</p>
-        </a>
+    
+<header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+  <div class="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex flex-col mb-4 md:mb-0">
+      <h1 class="text-3xl font-bold">Lisa Eisenbach</h1>
+      <p class="text-lg md:text-xl mt-1">Psychologische Psychotherapeutin</p>
+    </a>
 
-        <!-- Burger-Menü Button (nur mobil) -->
-        <div class="md:hidden flex justify-end w-full">
-            <input type="checkbox" id="menu-toggle" class="hidden peer" />
-            <label for="menu-toggle" class="cursor-pointer">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </label>
-        </div>
+    <!-- Checkbox + Label direkt vor der Navigation -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
+    <label for="menu-toggle" class="cursor-pointer md:hidden block ml-auto">
+      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </label>
 
-        <!-- Navigation (mobil & desktop) -->
-        <nav class="mobile-menu max-h-0 peer-checked:max-h-96 overflow-hidden transition-all duration-500 md:max-h-none md:block w-full md:w-auto">
-            <ul class="flex flex-col items-center space-y-4 pt-4 md:pt-0 md:flex-row md:space-y-0 md:space-x-6 md:items-center md:justify-end">
-                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
-                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
-                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
-                <li>
-                    <a href="Kontakt.html"
-                       class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">
-                        Erstgespräch vereinbaren
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <!-- Navigation -->
+    <nav class="mobile-menu max-h-0 peer-checked:max-h-96 overflow-hidden transition-all duration-500 md:max-h-none md:block w-full md:w-auto">
+      <ul class="flex flex-col items-center space-y-4 pt-4 md:pt-0 md:flex-row md:space-y-0 md:space-x-6 md:items-center md:justify-end">
+        <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
+        <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
+        <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
+        <li>
+          <a href="Kontakt.html"
+             class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">
+            Erstgespräch vereinbaren
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
 
 
     <main class="container mx-auto p-8 mt-10 bg-white rounded-lg shadow-lg">
@@ -208,4 +208,5 @@
     <script src="mobile-logo.js"></script>
 </body>
 </html>
+
 
