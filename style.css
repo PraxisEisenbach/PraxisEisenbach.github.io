@@ -17,8 +17,8 @@ body {
 /* Logo */
 .logo-link {
     display: block;
-    height: 200px; /* 4x größer */
-    width: 400px;
+    height: 100px; /* 2x größer */
+    width: 200px;
     background-image: url('Logo.jpg');
     background-size: contain;
     background-repeat: no-repeat;
