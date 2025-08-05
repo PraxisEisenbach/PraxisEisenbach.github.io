@@ -14,15 +14,103 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Mobile Navigation --- */
-.mobile-menu {
-    transition: max-height 0.3s ease-out;
+/* Logo */
+.logo-link {
+    display: block;
+    height: 200px; /* 4x größer */
+    width: 400px;
+    background-image: url('Logo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    text-indent: -9999px;
     overflow: hidden;
+}
+
+/* Bildschirmleser-Text ausblenden */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Versteckte Checkbox für Toggle */
+.menu-toggle {
+    display: none;
+}
+
+/* Menü standardmäßig verstecken */
+.mobile-menu {
     max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
 }
-.mobile-menu.open {
-    max-height: 500px;
+
+/* Menü sichtbar, wenn Checkbox gecheckt */
+.menu-toggle:checked ~ .mobile-menu {
+    max-height: 500px; /* Menü wird sichtbar */
 }
+
+/* Menüpunkte */
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    gap: 1rem;
+}
+.mobile-menu ul li a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: white;
+    transition: color 0.3s;
+}
+.mobile-menu ul li a:hover {
+    color: #d1b280;
+}
+
+/* Button unterhalb vom Menü */
+.mobile-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.mobile-button a {
+    background-color: #9F4636;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.25rem;
+    color: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+.mobile-button a:hover {
+    background-color: #b05240;
+}
+
+/* Burger-Menü-Icon positionieren */
+.burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile Layout – nur unterhalb 768px */
+@media (min-width: 768px) {
+    .mobile-menu,
+    .mobile-button,
+    .burger {
+        display: none !important;
+    }
+}
+
 
 /* --- Akkordeon für Check-up und Ihre Fragen --- */
 .accordion-content {
@@ -378,83 +466,5 @@ body {
         width: 80%;
         max-width: 400px;
         transform: none !important;
-    }
-}
-
-/* --- Mobile Header Logo und Layout Optimierung (aktualisiert) --- */
-@media (max-width: 767px) {
-    /* Header auf schmale Höhe anpassen und den Inhalt neu anordnen */
-    header {
-        padding: 1rem; /* Schmalerer vertikaler Abstand */
-    }
-
-    /* Den Haupt-Header-Container als Flexbox mit vertikaler Anordnung */
-    header .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    /* Den Logo-Container neu anordnen */
-    header .container .flex-col {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        order: 1; /* Positioniert das Logo oben */
-    }
-
-    /* Den Text ausblenden und stattdessen das Logo als Hintergrundbild anzeigen */
-    header .container .flex-col a {
-        height: 128px;
-        width: 300px;
-        background-image: url('Logo.jpg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: left center;
-        text-indent: -9999px;
-        overflow: hidden;
-    }
-
-    /* h1 und p Elemente im Header ausblenden */
-    header .container .flex-col a h1,
-    header .container .flex-col a p {
-        display: none;
-    }
-
-    /* Mobile Menü Button anpassen */
-    header .container > .md\:hidden:last-child {
-        position: absolute; /* Button aus dem normalen Fluss nehmen */
-        top: 1rem;
-        right: 1rem;
-        order: 2; /* Positioniert den Button rechts oben */
-    }
-
-    /* Mobile Navigation (Burger-Menü) anpassen */
-    #mobile-menu {
-        text-align: center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        order: 3; /* Positioniert das Menü unter dem Button */
-    }
-
-    /* Button "Erstgespräch vereinbaren" für mobile Ansicht stylen */
-    header .container > nav {
-        display: block !important; /* Den Button anzeigen */
-        order: 4; /* Positioniert den Button am Ende */
-        width: 100%;
-        text-align: center;
-        margin-top: 1rem; /* Abstand zum Menü */
-    }
-
-    /* Den Button aus der Desktop-Navigation gezielt ansprechen */
-    header .container > nav ul {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-    }
-
-    header .container > nav ul li:not(:last-child) {
-        display: none; /* Alle anderen Navigationspunkte ausblenden */
     }
 }
