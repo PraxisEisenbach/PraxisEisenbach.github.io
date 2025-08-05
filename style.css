@@ -27,6 +27,14 @@ body {
     overflow: hidden;
 }
 
+.burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
 /* Bildschirmleser-Text ausblenden */
 .sr-only {
     position: absolute;
