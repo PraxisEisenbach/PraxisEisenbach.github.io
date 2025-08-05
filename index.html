@@ -11,18 +11,27 @@
 </head>
 <body class="bg-gray-100">
 
-  <!-- ✅ Neuer responsiver Header ohne JS --->
+<!-- ✅ Überarbeiteter responsiver Header -->
 <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
   <div class="container mx-auto flex items-center justify-between relative">
 
-    <!-- 🖼️ Logo (nur mobil sichtbar) -->
-    <div class="flex md:hidden items-center">
+    <!-- 📱 Mobile: Logo + Burger -->
+    <div class="flex md:hidden items-center justify-between w-full">
       <a href="index.html">
-        <img src="Logo.jpg" alt="Logo" class="h-17 w-auto">
+        <img src="Logo.jpg" alt="Logo" class="h-16 w-auto">
       </a>
+
+      <!-- Burger Toggle -->
+      <input type="checkbox" id="menu-toggle" class="hidden peer">
+      <label for="menu-toggle" class="cursor-pointer">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
     </div>
 
-    <!-- 🖋️ Titel (nur Desktop sichtbar) -->
+    <!-- 🖋️ Desktop Titel -->
     <div class="hidden md:flex flex-col">
       <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
         <h1 class="text-4xl font-bold">Lisa Eisenbach</h1>
@@ -30,16 +39,7 @@
       </a>
     </div>
 
-    <!-- Burger Toggle (Mobil) -->
-    <input type="checkbox" id="menu-toggle" class="hidden peer">
-    <label for="menu-toggle" class="md:hidden cursor-pointer">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </label>
-
-    <!-- Desktop Navigation -->
+    <!-- 🖥️ Desktop Navigation -->
     <nav class="hidden md:block">
       <ul class="flex space-x-6 items-center">
         <li><a href="Finden_Sie_Hilfe.html" class="text-xl hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
@@ -55,19 +55,20 @@
   </div>
 
   <!-- 📱 Mobile Navigation -->
-  <div class="peer-checked:flex hidden flex-col md:hidden mt-4 space-y-3 items-start px-4">
+  <div class="peer-checked:flex hidden flex-col md:hidden mt-4 space-y-3 bg-[#628069] p-4 rounded-md shadow-md transition-all duration-300 ease-in-out">
     <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280]">Finden Sie Hilfe</a>
     <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280]">Über mich</a>
     <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280]">Ihre Fragen</a>
   </div>
 
-  <!-- 📱 Button: Erstgespräch vereinbaren (nur mobil sichtbar) -->
+  <!-- 📱 Mobile Button -->
   <div class="flex md:hidden justify-center mt-4">
     <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
       Erstgespräch vereinbaren
     </a>
   </div>
 </header>
+
 
 
   <!-- Rest deiner Seite bleibt unverändert -->
@@ -173,6 +174,7 @@
   </script>
 </body>
 </html>
+
 
 
 
