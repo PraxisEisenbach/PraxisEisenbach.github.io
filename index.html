@@ -11,18 +11,19 @@
 </head>
 <body class="bg-gray-100">
 
-<!-- ✅ Überarbeiteter responsiver Header -->
 <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
-  <div class="container mx-auto flex items-center justify-between relative">
 
-    <!-- 📱 Mobile: Logo + Burger -->
-    <div class="flex md:hidden items-center justify-between w-full">
+  <!-- 📱 Mobile Header -->
+  <div class="md:hidden relative">
+
+    <!-- 🔘 Peer: Checkbox als Toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer">
+
+    <!-- 🔝 Top row: Logo links, Burger rechts -->
+    <div class="flex justify-between items-center">
       <a href="index.html">
-        <img src="Logo.jpg" alt="Logo" class="h-17 w-auto">
+        <img src="Logo.jpg" alt="Logo" class="h-16 w-auto">
       </a>
-
-      <!-- Burger Toggle -->
-      <input type="checkbox" id="menu-toggle" class="hidden peer">
       <label for="menu-toggle" class="cursor-pointer">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -31,31 +32,33 @@
       </label>
     </div>
 
+    <!-- 📂 Dropdown-Menü -->
+    <div class="hidden peer-checked:flex flex-col mt-4 space-y-3 bg-[#628069] p-4 rounded-md shadow-md transition-all duration-300 ease-in-out">
+      <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280]">Finden Sie Hilfe</a>
+      <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280]">Über mich</a>
+      <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280]">Ihre Fragen</a>
 
-  <!-- 📱 Mobile Navigation -->
-  <div class="peer-checked:flex hidden flex-col md:hidden mt-4 space-y-3 bg-[#628069] p-4 rounded-md shadow-md transition-all duration-300 ease-in-out">
-    <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280]">Finden Sie Hilfe</a>
-    <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280]">Über mich</a>
-    <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280]">Ihre Fragen</a>
+      <!-- 🎯 Button zentriert unten -->
+      <div class="flex justify-center mt-4">
+        <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
+          Erstgespräch vereinbaren
+        </a>
+      </div>
+    </div>
   </div>
 
-  <!-- 📱 Mobile Button -->
-  <div class="flex md:hidden justify-center mt-4">
-    <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
-      Erstgespräch vereinbaren
-    </a>
-  </div>
-
-    <!-- 🖋️ Desktop Titel -->
-    <div class="hidden md:flex flex-col">
+  <!-- 🖥️ Desktop Header -->
+  <div class="hidden md:flex container mx-auto items-center justify-between relative">
+    <!-- 🖋️ Titel links -->
+    <div class="flex flex-col">
       <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
         <h1 class="text-4xl font-bold">Lisa Eisenbach</h1>
         <p class="text-xl mt-1 leading-tight">Psychologische Psychotherapeutin</p>
       </a>
     </div>
 
-    <!-- 🖥️ Desktop Navigation -->
-    <nav class="hidden md:block">
+    <!-- 🧭 Navigation -->
+    <nav>
       <ul class="flex space-x-6 items-center">
         <li><a href="Finden_Sie_Hilfe.html" class="text-xl hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
         <li><a href="Ueber_Mich.html" class="text-xl hover:text-[#d1b280] transition-colors">Über mich</a></li>
@@ -69,6 +72,7 @@
     </nav>
   </div>
 </header>
+
 
 
 
@@ -175,6 +179,7 @@
   </script>
 </body>
 </html>
+
 
 
 
