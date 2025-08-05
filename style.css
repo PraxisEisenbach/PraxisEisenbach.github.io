@@ -27,12 +27,6 @@ body {
     overflow: hidden;
 }
 
-.burger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
 
 
 /* Bildschirmleser-Text ausblenden */
@@ -48,22 +42,8 @@ body {
     border: 0;
 }
 
-/* Versteckte Checkbox für Toggle */
-.menu-toggle {
-    display: none;
-}
 
-/* Menü standardmäßig verstecken */
-.mobile-menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
 
-/* Menü sichtbar, wenn Checkbox gecheckt */
-.menu-toggle:checked ~ .mobile-menu {
-    max-height: 500px; /* Menü wird sichtbar */
-}
 
 /* Menüpunkte */
 .mobile-menu ul {
@@ -72,51 +52,6 @@ body {
     align-items: center;
     padding-top: 1rem;
     gap: 1rem;
-}
-.mobile-menu ul li a {
-    text-decoration: none;
-    font-size: 1.25rem;
-    color: white;
-    transition: color 0.3s;
-}
-.mobile-menu ul li a:hover {
-    color: #d1b280;
-}
-
-/* Button unterhalb vom Menü */
-.mobile-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}
-.mobile-button a {
-    background-color: #9F4636;
-    padding: 0.5rem 1.5rem;
-    font-size: 1.25rem;
-    color: white;
-    border-radius: 0.375rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: background-color 0.3s;
-    text-decoration: none;
-}
-.mobile-button a:hover {
-    background-color: #b05240;
-}
-
-/* Burger-Menü-Icon positionieren */
-.burger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Mobile Layout – nur unterhalb 768px */
-@media (min-width: 768px) {
-    .mobile-menu,
-    .mobile-button,
-    .burger {
-        display: none !important;
-    }
 }
 
 
