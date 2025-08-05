@@ -13,40 +13,70 @@
 </head>
 <body class="bg-gray-100">
 
-    <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
-        <div class="container mx-auto flex items-center justify-between">
-            <div class="flex flex-col">
-                <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
-                    <h1 class="text-4xl font-bold rounded-md">Lisa Eisenbach</h1>
-                    <p class="text-xl md:text-xl mt-1 rounded-md text-xl sm:text-lg leading-tight">Psychologische Psychotherapeutin</p>
-                </a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-6 items-center">
-                    <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
-                    <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Über mich</a></li>
-                    <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
-                    <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">Erstgespräch vereinbaren</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-[#628069] pb-4">
-            <ul class="flex flex-col items-center space-y-4 pt-4">
-                <li><a href="Finden_Sie_Hilfe.html" class="text-xl text-white hover:text-[#d1b280]">Finden Sie Hilfe</a></li>
-                <li><a href="Ueber_Mich.html" class="text-xl text-white hover:text-[#d1b280]">Über mich</a></li>
-                <li><a href="Ihre_Fragen.html" class="text-xl text-white hover:text-[#d1b280]">Ihre Fragen</a></li>
-                <li><a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240]">Erstgespräch vereinbaren</a></li>
-            </ul>
-        </div>
-    </header>
+ <header class="bg-[#628069] text-white p-4 shadow-md rounded-b-lg">
+
+  <!-- 📱 Mobile Header -->
+  <div class="md:hidden relative">
+
+    <!-- 🔘 Peer: Checkbox als Toggle -->
+    <input type="checkbox" id="menu-toggle" class="hidden peer">
+
+    <!-- 🔝 Top row: Logo links, Burger rechts -->
+    <div class="flex justify-between items-center">
+      <a href="index.html">
+        <img src="Logo.jpg" alt="Logo" class="h-18 w-auto ml-[-1.5rem]">
+      </a>
+
+      <label for="menu-toggle" class="cursor-pointer">
+        <!-- 📏 Größeres Burger Icon -->
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+    </div>
+
+    <!-- 🎯 Button: Immer sichtbar, außerhalb des Menüs -->
+    <div class="flex justify-center mt-4">
+      <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
+        Erstgespräch vereinbaren
+      </a>
+    </div>
+
+    <!-- 📂 Burger-Dropdown-Menü -->
+    <div class="hidden peer-checked:flex flex-col mt-4 space-y-3 bg-[#628069] p-4 rounded-md shadow-md transition-all duration-300 ease-in-out">
+      <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280] pl-20">> Finden Sie Hilfe</a>
+      <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280] pl-20">> Über mich</a>
+      <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280] pl-20">> Ihre Fragen</a>
+    </div>
+  </div>
+
+  <!-- 🖥️ Desktop Header -->
+  <div class="hidden md:flex container mx-auto items-center justify-between relative">
+    <!-- 🖋️ Titel -->
+    <div class="flex flex-col">
+      <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
+        <h1 class="text-4xl font-bold">Lisa Eisenbach</h1>
+        <p class="text-xl mt-1 leading-tight">Psychologische Psychotherapeutin</p>
+      </a>
+    </div>
+
+    <!-- 🧭 Navigation -->
+    <nav>
+      <ul class="flex space-x-6 items-center">
+        <li><a href="Finden_Sie_Hilfe.html" class="text-xl hover:text-[#d1b280] transition-colors">Finden Sie Hilfe</a></li>
+        <li><a href="Ueber_Mich.html" class="text-xl hover:text-[#d1b280] transition-colors">Über mich</a></li>
+        <li><a href="Ihre_Fragen.html" class="text-xl hover:text-[#d1b280] transition-colors">Ihre Fragen</a></li>
+        <li>
+          <a href="Kontakt.html" class="bg-[#9F4636] px-4 py-2 text-xl text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors">
+            Erstgespräch vereinbaren
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
     <main class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown min-h-[50vh]">
         <h2 class="main-section-heading">Impressum</h2>
         
