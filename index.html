@@ -30,14 +30,29 @@
       </a>
     </div>
 
-    <!-- Burger Toggle (Mobil) -->
-    <input type="checkbox" id="menu-toggle" class="hidden peer">
-    <label for="menu-toggle" class="md:hidden cursor-pointer">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </label>
+<!-- Burger Toggle (nur mobil sichtbar) -->
+<input type="checkbox" id="menu-toggle" class="hidden peer md:hidden">
+<label for="menu-toggle" class="md:hidden cursor-pointer">
+  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</label>
+
+<!-- 📱 Mobile Navigation (nur sichtbar wenn Burger gecheckt) -->
+<nav class="peer-checked:flex hidden flex-col mt-4 space-y-3 items-start px-4 md:hidden">
+  <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280]">Finden Sie Hilfe</a>
+  <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280]">Über mich</a>
+  <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280]">Ihre Fragen</a>
+</nav>
+
+<!-- 📱 Mobile Button (ebenfalls nur sichtbar bei Menü offen) -->
+<div class="peer-checked:flex hidden justify-center mt-4 md:hidden">
+  <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
+    Erstgespräch vereinbaren
+  </a>
+</div>
+
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:block">
@@ -52,20 +67,6 @@
         </li>
       </ul>
     </nav>
-  </div>
-
-  <!-- 📱 Mobile Navigation -->
-  <div class="peer-checked:flex hidden flex-col md:hidden mt-4 space-y-3 items-start px-4">
-    <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280]">Finden Sie Hilfe</a>
-    <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280]">Über mich</a>
-    <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280]">Ihre Fragen</a>
-  </div>
-
-  <!-- 📱 Button: Erstgespräch vereinbaren (nur mobil sichtbar) -->
-  <div class="flex md:hidden justify-center mt-4">
-    <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
-      Erstgespräch vereinbaren
-    </a>
   </div>
 </header>
 
@@ -173,6 +174,7 @@
   </script>
 </body>
 </html>
+
 
 
 
