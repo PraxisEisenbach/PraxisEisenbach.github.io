@@ -22,34 +22,36 @@
     <!-- 🔝 Top row: Logo links, Burger rechts -->
     <div class="flex justify-between items-center">
       <a href="index.html">
-        <img src="Logo.jpg" alt="Logo" class="h-17 w-auto">
+        <img src="Logo.jpg" alt="Logo" class="h-16 w-auto">
       </a>
+
       <label for="menu-toggle" class="cursor-pointer">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- 📏 Größeres Burger Icon -->
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </label>
     </div>
 
-    <!-- 📂 Dropdown-Menü -->
-    <div class="hidden peer-checked:flex flex-col mt-4 space-y-3 bg-[#628069] p-4 rounded-md shadow-md transition-all duration-300 ease-in-out">
-      <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280]">Finden Sie Hilfe</a>
-      <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280]">Über mich</a>
-      <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280]">Ihre Fragen</a>
+    <!-- 🎯 Button: Immer sichtbar, außerhalb des Menüs -->
+    <div class="flex justify-center mt-4">
+      <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
+        Erstgespräch vereinbaren
+      </a>
+    </div>
 
-      <!-- 🎯 Button zentriert unten -->
-      <div class="flex justify-center mt-4">
-        <a href="Kontakt.html" class="bg-[#9F4636] px-6 py-3 text-white rounded-md shadow-md hover:bg-[#b05240] transition-colors text-lg">
-          Erstgespräch vereinbaren
-        </a>
-      </div>
+    <!-- 📂 Burger-Dropdown-Menü -->
+    <div class="hidden peer-checked:flex flex-col mt-4 space-y-3 bg-[#628069] p-4 rounded-md shadow-md transition-all duration-300 ease-in-out">
+      <a href="Finden_Sie_Hilfe.html" class="text-lg hover:text-[#d1b280] pl-6">Finden Sie Hilfe</a>
+      <a href="Ueber_Mich.html" class="text-lg hover:text-[#d1b280] pl-6">Über mich</a>
+      <a href="Ihre_Fragen.html" class="text-lg hover:text-[#d1b280] pl-6">Ihre Fragen</a>
     </div>
   </div>
 
   <!-- 🖥️ Desktop Header -->
   <div class="hidden md:flex container mx-auto items-center justify-between relative">
-    <!-- 🖋️ Titel links -->
+    <!-- 🖋️ Titel -->
     <div class="flex flex-col">
       <a href="index.html" class="text-white hover:text-[#d1b280] transition-colors flex flex-col">
         <h1 class="text-4xl font-bold">Lisa Eisenbach</h1>
@@ -72,6 +74,7 @@
     </nav>
   </div>
 </header>
+
 
 
 
@@ -179,6 +182,7 @@
   </script>
 </body>
 </html>
+
 
 
 
