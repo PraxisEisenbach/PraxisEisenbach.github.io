@@ -81,10 +81,96 @@
             <h2 class="main-section-heading">Ihre Fragen</h2>
 
 <style>
+    * ===== Desktop-Ansicht (Standard) ===== */
     .hover-shadow:hover {
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         transition: box-shadow 0.3s ease;
     }
+
+ 
+/* Mobile-Karussell standardmäßig ausblenden */
+.carousel-wrapper {
+  display: none;
+}
+
+    /* ===== Mobile-Ansicht ===== */
+@media (max-width: 768px) {
+  .desktop-gallery {
+    display: none;
+  }
+  .carousel-wrapper {
+    display: block;
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .slides {
+    display: flex;
+    width: 300%;
+    transition: transform 0.5s ease;
+  }
+
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  #s1:checked ~ .slides { transform: translateX(0%); }
+  #s2:checked ~ .slides { transform: translateX(-100%); }
+  #s3:checked ~ .slides { transform: translateX(-200%); }
+
+  .nav {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .nav label {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  input:checked + label {
+    background: #333;
+  }
+}
+</style>
+
+            
+<!-- ===== Mobile-Karussell ===== -->
+<div class="carousel-wrapper">
+  <input type="radio" name="carousel" id="s1" checked>
+  <input type="radio" name="carousel" id="s2">
+  <input type="radio" name="carousel" id="s3">
+
+  <div class="carousel">
+    <div class="slides">
+      <div class="slide"><img src="Klemmbrett.jpeg" alt="Klemmbrett" width="100%"></div>
+      <div class="slide"><img src="Gluehbirne.jpeg" alt="Lampe" width="100%"></div>
+      <div class="slide"><img src="Aufmerksam.jpeg" alt="Ich" width="100%"></div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <label for="s1"></label>
+    <label for="s2"></label>
+    <label for="s3"></label>
+  </div>
+</div>
+    
 </style>
 
 <div class="flex justify-center items-center my-8 space-x-4">
@@ -311,5 +397,6 @@
     </script>
 </body>
 </html>
+
 
 
