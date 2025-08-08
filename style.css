@@ -481,6 +481,7 @@ body {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
 }
 
 /* Desktop-Version: zweispaltig mit Linie in der Mitte */
@@ -489,6 +490,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
+    row-gap: 4rem; /* vertikaler Abstand zwischen Reihen */
   }
 
   .timeline::before {
@@ -500,7 +502,7 @@ body {
 
   .timeline li {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 0; /* margin hier entfernen, row-gap übernimmt Abstand */
     display: block;
   }
 
@@ -516,7 +518,7 @@ body {
   .timeline li:nth-child(odd) .timeline-marker {
     position: absolute;
     top: 1rem;
-    right: -8px; /* 16px Marker halb über Linie */
+    right: -8px;
   }
 
   /* Gerade Schritte rechts */
@@ -528,8 +530,9 @@ body {
   .timeline li:nth-child(even) .timeline-marker {
     position: absolute;
     top: 1rem;
-    left: -8px; /* Marker halb über Linie */
+    left: -8px;
   }
 }
+
 
 
