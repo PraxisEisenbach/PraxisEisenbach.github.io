@@ -81,17 +81,38 @@
             <h2 class="main-section-heading">Ihre Fragen</h2>
 
 <style>
+    /* Dein Hover-Effekt bleibt unverändert */
     .hover-shadow:hover {
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         transition: box-shadow 0.3s ease;
     }
+
+    /* Mobile Karussell-Einstellungen */
+    @media (max-width: 768px) {
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* sanfteres Scrollen auf iOS */
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .carousel img {
+            flex: 0 0 80%; /* Bild nimmt 80% der Bildschirmbreite ein */
+            scroll-snap-align: center;
+            border-radius: 8px;
+        }
+    }
 </style>
 
-<div class="flex justify-center items-center my-8 space-x-4">
+<!-- Desktop: normale Ansicht, Mobil: Karussell -->
+<div class="flex justify-center items-center my-8 space-x-4 carousel">
     <img src="Klemmbrett.jpeg" alt="Ein Klemmbrett mit Stift, das Diagnostik symbolisiert." class="w-32 md:w-48 h-auto hover-shadow">
     <img src="Gluehbirne.jpeg" alt="Eine Glühbirne, die eine Idee symbolisiert." class="w-48 md:w-64 h-auto hover-shadow">
     <img src="Aufmerksam.jpeg" alt="Ein Ohr symbolisiert Aufmerksamkeit und Zuhören." class="w-32 md:w-48 h-auto hover-shadow">
 </div>
+
 
             <div class="accordion-item mb-4">
                 <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-dauer-sitzung">
@@ -311,4 +332,5 @@
     </script>
 </body>
 </html>
+
 
