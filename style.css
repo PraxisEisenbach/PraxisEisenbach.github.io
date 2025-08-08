@@ -605,3 +605,22 @@ body {
     list-style-position: outside !important;
   }
 }
+
+
+@media (max-width: 768px) {
+    body.Ihre_Fragen.accordion-content-inner,
+    body.Ihre_Fragen .accordion-content-inner > div {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    body.Ihre_Fragen.accordion-content-inner {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    body.Ihre_Fragen.accordion-content-inner img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
