@@ -352,6 +352,7 @@ body {
 }
 
 /* --- Image Strip für "Über mich" --- */
+/* Desktop-Ansicht: bleibt wie gehabt */
 .image-strip {
     display: flex;
     justify-content: center;
@@ -384,7 +385,7 @@ body {
 .image-strip:hover .image-wrapper:nth-child(3) {
     transform: translateX(20px);
 }
-    
+
 .image-strip:hover .image-wrapper.middle-image {
     transform: translateY(-5px);
 }
@@ -402,32 +403,51 @@ body {
 @media (max-width: 768px) {
     .image-strip {
         display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
+        overflow-x: auto;             /* horizontales Scrollen */
+        scroll-snap-type: x mandatory; /* Snap-Effekt */
+        scroll-behavior: smooth;       /* sanftes Scrollen */
         -webkit-overflow-scrolling: touch;
         width: 100%;
         gap: 0; /* keine Lücken zwischen Bildern */
-    }
-
-    /* Start mit mittlerem Bild */
-    .image-strip {
-        scroll-padding-left: 100%; /* verschiebt Startposition zum zweiten Bild */
+        scroll-padding-left: 100%; /* Start mit mittlerem Bild */
     }
 
     .image-strip .image-wrapper {
-        flex: 0 0 100%;
-        max-width: none !important;
+        flex: 0 0 100%; /* jedes Bild volle Breite */
+        max-width: none !important; /* Desktop-Werte überschreiben */
         width: 100% !important;
-        scroll-snap-align: center;
+        scroll-snap-align: center; /* Bild wird mittig eingerastet */
     }
 
     .image-strip img {
         width: 100%;
-        height: 100vh; /* oder eine andere feste Höhe */
-        object-fit: contain; /* Bild wird nie abgeschnitten */
+        height: 100vh; /* volle Höhe des Viewports, anpassbar */
+        object-fit: contain; /* Bild nicht zuschneiden */
         display: block;
     }
+}
+
+/* --- Mobile-Anpassungen für location-images-wrapper (bereinigt) --- */
+@media (max-width: 768px) {
+    .location-images-wrapper {
+        justify-content: center;
+    }
+
+    .location-images-wrapper .location-image-container:first-child {
+        width: 25% !important;
+        padding-right: 0.5rem;
+    }
+
+    .location-images-wrapper .location-image-container:last-child {
+        width: 75% !important;
+    }
+
+    /* Bilder selbst sollen volle Containerbreite nutzen */
+    .location-image {
+        width: 100% !important;
+        height: auto;       
+    }
+}
 
 
     /* Grundlayout Timeline */
