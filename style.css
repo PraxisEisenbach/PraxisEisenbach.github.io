@@ -431,27 +431,42 @@ body {
     }
 }
 
-
 @media (max-width: 768px) {
-    .location-images-wrapper {
-        justify-content: center;
+    .image-strip {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        animation: slide 9s infinite;
     }
 
-    .location-images-wrapper .location-image-container:first-child {
-        width: 25% !important;
-        padding-right: 0.5rem;
-    }
-
-    .location-images-wrapper .location-image-container:last-child {
-        width: 75% !important;
-
-  /* Bilder selbst sollen volle Containerbreite nutzen */
-    .location-image {
+    /* Desktop-Breiten überschreiben */
+    .image-strip .image-wrapper {
+        flex: 0 0 100%;
         width: 100% !important;
-        height: auto;       
+        max-width: none !important;
+    }
+
+    .image-strip .image-wrapper.middle-image {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .image-strip img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @keyframes slide {
+        0%   { transform: translateX(0%); }
+        33%  { transform: translateX(0%); }
+        44%  { transform: translateX(-100%); }
+        77%  { transform: translateX(-100%); }
+        88%  { transform: translateX(-200%); }
+        100% { transform: translateX(-200%); }
     }
 }
-    }
+
 
 
     /* Grundlayout Timeline */
