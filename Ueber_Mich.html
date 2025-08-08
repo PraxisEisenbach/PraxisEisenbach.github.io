@@ -91,70 +91,6 @@
             </div>
         </div>
 
-  /* Mobile-Karussell (nur < 768px) */
-  @media (max-width: 768px) {
-      .carousel {
-          display: flex;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
-          scroll-snap-type: x mandatory;
-          gap: 1rem;
-          /* padding so that first/last slide beim Snap zentriert sind */
-          padding-left: calc((100% - 80%) / 2);
-          padding-right: calc((100% - 80%) / 2);
-          box-sizing: border-box;
-          justify-content: flex-start; /* überschreibt Tailwind justify-center */
-      }
-
-      /* überschreibt Tailwind space-x-* auf Mobil */
-      .carousel > * {
-          margin-left: 0 !important;
-          margin-right: 0 !important;
-      }
-
-      .carousel img {
-          flex: 0 0 80%;           /* Slide nimmt 80% der Viewport-Breite ein */
-          width: 100% !important;  /* zwingt das Bild, die Slide-Fläche zu füllen */
-          height: auto;
-          display: block;
-          scroll-snap-align: center;
-          object-fit: cover;
-          border-radius: 8px;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      /* Dynamischer Effekt: Scale + starker Schatten bei Hover/Active */
-      .carousel img:hover,
-      .carousel img:active {
-          transform: scale(1.05);
-          box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-      }
-
-      /* Optional: Scrollbar anpassen */
-      .carousel {
-          scrollbar-width: thin; /* Firefox */
-      }
-      .carousel::-webkit-scrollbar {
-          height: 8px;
-      }
-      .carousel::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-          background: rgba(0,0,0,0.18);
-      }
-  }
-</style>
-
-<!-- Desktop: normale Ansicht, Mobil: horizontal scroll / Karussell -->
-      
-<div class="flex justify-center items-center my-8 space-x-4 carousel" role="region" aria-label="Bilder Karussell">
-    <img src=""Haende2.jpeg" alt="Haende2" class="w-32 md:w-48 h-auto hover-shadow">
-    <img src=""Haende.jpeg" alt="Haende." class="w-48 md:w-64 h-auto hover-shadow">
-    <img src="Fuesse.jpeg" alt="Fuesse." class="w-32 md:w-48 h-auto hover-shadow">
-</div>
-
-
-        
         <div class="accordion-item mb-4">
             <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-mein-stil">
                 Mein Stil
@@ -393,5 +329,3 @@
     </script>
 </body>
 </html>
-
-
