@@ -440,7 +440,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-  row-gap: 3rem; /* vertikaler Abstand zwischen den Reihen */
+  row-gap: 1,5rem; /* vertikaler Abstand zwischen den Reihen */
   column-gap: 2rem; /* Abstand zwischen links und rechts */
   max-width: 800px;
   margin: 2rem auto;
@@ -465,6 +465,12 @@ body {
   display: flex;
   align-items: flex-start;
   z-index: 1;
+    margin-top: -0.7rem; /* negative margin für Überlappung */
+}
+
+/* Erster Listeneintrag soll normalen Abstand haben */
+.timeline li:nth-child(1) {
+  margin-top: 0;
 }
 
 /* Marker */
@@ -501,7 +507,15 @@ body {
   margin-left: 1rem;
 }
 
-/* Positioniere die geraden Elemente (2,4,6...) rechts */
+/* Listenpunkte in links-Seiten Text rechts ausrichten */
+.timeline li:nth-child(odd) .timeline-content ul,
+.timeline li:nth-child(odd) .timeline-content ol {
+  text-align: right;
+  padding-right: 1.2em; /* Platz für die Marker rechts */
+  list-style-position: inside;
+}
+
+/* Gerade rechts, Text linksbündig, Marker links neben Content */
 .timeline li:nth-child(even) {
   grid-column: 2;
   justify-content: flex-start;
@@ -509,10 +523,11 @@ body {
   padding-left: 2rem;
 }
 
-/* Marker bei geraden rechts, links von Content */
+/* Marker bei rechts */
 .timeline li:nth-child(even) .timeline-marker {
   margin-right: 1rem;
 }
+
 
 /* Vertikale Reihenfolge: Grid-Row jedem Element geben */
 .timeline li:nth-child(1) { grid-row: 1; }
