@@ -444,7 +444,7 @@ body {
   max-width: 800px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 0,8rem; /* Weniger Abstand für leichtes Überlappen */
+  row-gap: 0,1rem; /* Weniger Abstand für leichtes Überlappen */
   column-gap: 2rem;
   position: relative;
 }
