@@ -401,72 +401,33 @@ body {
 /* ====== Mobile Karussell-Version ====== */
 @media (max-width: 768px) {
     .image-strip {
-        overflow: hidden;
-        width: 100%;
-    }
-
-    /* Damit die Bilder nebeneinander liegen */
-    .image-strip {
         display: flex;
-        animation: slide 9s infinite;
-    }
-
-    .image-wrapper {
-        flex: 0 0 100%; /* jedes Bild nimmt 100% Breite ein */
-    }
-
-    .image-wrapper img {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
         width: 100%;
-        height: auto;
-        display: block;
+        gap: 0; /* keine Lücken zwischen Bildern */
     }
 
-    @keyframes slide {
-        0%   { transform: translateX(0%); }
-        33%  { transform: translateX(0%); }
-        44%  { transform: translateX(-100%); }
-        77%  { transform: translateX(-100%); }
-        88%  { transform: translateX(-200%); }
-        100% { transform: translateX(-200%); }
-    }
-}
-
-@media (max-width: 768px) {
+    /* Start mit mittlerem Bild */
     .image-strip {
-        display: flex;
-        overflow: hidden;
-        width: 100%;
-        animation: slide 9s infinite;
+        scroll-padding-left: 100%; /* verschiebt Startposition zum zweiten Bild */
     }
 
-    /* Desktop-Breiten überschreiben */
     .image-strip .image-wrapper {
         flex: 0 0 100%;
-        width: 100% !important;
         max-width: none !important;
-    }
-
-    .image-strip .image-wrapper.middle-image {
         width: 100% !important;
-        max-width: none !important;
+        scroll-snap-align: center;
     }
 
     .image-strip img {
         width: 100%;
-        height: auto;
+        height: 100vh; /* oder eine andere feste Höhe */
+        object-fit: contain; /* Bild wird nie abgeschnitten */
         display: block;
     }
-
-    @keyframes slide {
-        0%   { transform: translateX(0%); }
-        33%  { transform: translateX(0%); }
-        44%  { transform: translateX(-100%); }
-        77%  { transform: translateX(-100%); }
-        88%  { transform: translateX(-200%); }
-        100% { transform: translateX(-200%); }
-    }
-}
-
 
 
     /* Grundlayout Timeline */
