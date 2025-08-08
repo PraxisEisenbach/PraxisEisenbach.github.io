@@ -600,6 +600,107 @@ body {
   /* Listen innerhalb des Contents links ausrichten */
   .timeline-content ul,
   .timeline-content ol {
+
+
+/* Standard: hide mobile carousel, show image-strip (desktop default) */
+.css-carousel { display: none; }
+
+/* --- Mobile-only: ersetze image-strip durch css-carousel --- */
+@media (max-width: 768px) {
+  /* hide desktop strip, show css carousel */
+  .image-strip { display: none !important; }
+  .css-carousel { display: block; width: 100%; box-sizing: border-box; padding: 0; }
+
+  /* Radios ausblenden (wir brauchen sie nur für :checked states) */
+  .css-slide-radio { display: none; }
+
+  /* Slides-Container: drei Slides nebeneinander, wir verschieben per transform */
+  .css-carousel .slides {
+    display: flex;
+    width: 300%;               /* 3 Slides -> 300% */
+    transition: transform 450ms cubic-bezier(.22,.9,.33,1);
+    will-change: transform;
+  }
+
+  /* Jede Slide nimmt 100% des Viewports (mobil) */
+  .css-carousel .slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 0 10%;           /* optionaler seitlicher Abstand */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .css-carousel .slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+
+  /* Transform abhängig vom checked radio -> Default: #r2 checked => translateX(-100%) */
+  #r1:checked ~ .slides { transform: translateX(0%); }
+  #r2:checked ~ .slides { transform: translateX(-100%); } /* mittleres Bild zentriert */
+  #r3:checked ~ .slides { transform: translateX(-200%); }
+
+  /* Navigation (dots) */
+  .css-carousel .nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.85rem;
+  }
+  .css-carousel .nav .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.18);
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+  }
+
+  /* Active dot coloring via :checked rules */
+  #r1:checked ~ .nav label[for="r1"],
+  #r2:checked ~ .nav label[for="r2"],
+  #r3:checked ~ .nav label[for="r3"] {
+    background: #9F4636; /* Farbe des Zeitstrahls / Hauptfarbe */
+  }
+
+  /* Optional: große tap targets auf den Dots */
+  .css-carousel .nav .dot { box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+
+  /* Erlaube vertikales Panning (Verhindere horizontales Browser-Gesten-Konflikt) */
+  .css-carousel .slides,
+  .css-carousel { touch-action: pan-y; }
+
+  /* Accessibility: fokussierter Dot */
+  .css-carousel .nav .dot:focus { outline: 2px solid #9F4636; outline-offset: 3px; }
+
+  /* Optional: Prev/Next Labels (über die Slides) - einfaches Tippen an linken/rechten Bildschirmrand */
+  .css-carousel .slide::before,
+  .css-carousel .slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 18%;
+    z-index: 2;
+  }
+  .css-carousel .slide::before { left: 0; }   /* linker Tap-Bereich (kann per Label umgesetzt werden, optional) */
+  .css-carousel .slide::after  { right: 0; }  /* rechter Tap-Bereich */
+}
+
+/* --- Desktop: stelle sicher image-strip sichtbar bleibt (wenn du eigene Desktop-Regeln hast, bleiben diese unangetastet) --- */
+@media (min-width: 769px) {
+  .css-carousel { display: none; }   /* mobile-only carousel verstecken */
+  .image-strip { display: flex; }    /* dein bestehendes Desktop-Layout bleibt aktiv */
+}
+
+      
     text-align: left !important;
     padding-right: 0 !important;
     list-style-position: outside !important;
