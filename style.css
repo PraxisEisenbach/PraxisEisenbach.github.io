@@ -555,11 +555,14 @@ body {
   .timeline {
     display: block;
   }
-  .timeline li {
-    display: block !important;
-    padding: 0 0 2.5rem 0 !important; /* Mehr vertikaler Abstand unten */
+
+    .timeline li {
+    display: flex !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    align-items: flex-start;
+    padding: 0 0 2rem 0 !important;
     margin-top: 0 !important;
-    position: relative;
   }
   
   /* Marker komplett ausblenden */
@@ -567,12 +570,10 @@ body {
     display: none !important;
   }
 
-  /* Content nimmt volle Breite */
-  .timeline-content {
-    max-width: 100%;
-    order: 0 !important;
-    padding-left: 2rem; /* Platz für Nummer */
-    position: relative;
+.timeline-content {
+    max-width: 100% !important;
+    width: 100% !important; /* nutzt die gesamte verfügbare Breite */
+    text-align: left !important;
   }
 
   /* Nummerierung vor Überschrift einfügen */
