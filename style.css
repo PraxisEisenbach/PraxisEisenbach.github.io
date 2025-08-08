@@ -436,14 +436,17 @@ body {
 
 
     /* Grundlayout Timeline */
+/* Grundlayout Timeline */
 .timeline {
+  list-style: none;
+  padding-left: 0;
+  margin: 2rem auto;
+  max-width: 800px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  row-gap: 1.2rem; /* Weniger Abstand für leichtes Überlappen */
+  column-gap: 2rem;
   position: relative;
-  row-gap: 1,5rem; /* vertikaler Abstand zwischen den Reihen */
-  column-gap: 2rem; /* Abstand zwischen links und rechts */
-  max-width: 800px;
-  margin: 2rem auto;
 }
 
 /* Vertikale Linie in der Mitte */
@@ -459,30 +462,19 @@ body {
   z-index: 0;
 }
 
+/* Jedes Listenelement als flex Container für Marker + Content */
 .timeline li {
   position: relative;
   list-style: none;
   display: flex;
   align-items: flex-start;
   z-index: 1;
-    margin-top: -0.7rem; /* negative margin für Überlappung */
+  margin-top: -0.7rem; /* negative margin für leichtes Überlappen */
 }
 
 /* Erster Listeneintrag soll normalen Abstand haben */
 .timeline li:nth-child(1) {
   margin-top: 0;
-}
-
-/* Marker */
-.timeline-marker {
-  width: 16px;
-  height: 16px;
-  background: #9F4636;
-  border-radius: 50%;
-  flex-shrink: 0;
-  position: relative;
-  top: 0.5rem;
-  z-index: 2;
 }
 
 /* Inhalt */
@@ -494,87 +486,7 @@ body {
   max-width: 300px;
 }
 
-/* Positioniere die ungeraden Elemente (1,3,5...) links */
-.timeline li:nth-child(odd) {
-  grid-column: 1;
-  justify-content: flex-end;
-  text-align: right;
-  padding-right: 2rem;
-}
-
-/* Marker bei ungeraden links, rechts von Content */
-.timeline li:nth-child(odd) .timeline-marker {
-  margin-left: 1rem;
-}
-
-/* Listenpunkte in links-Seiten Text rechts ausrichten */
-.timeline li:nth-child(odd) .timeline-content ul,
-.timeline li:nth-child(odd) .timeline-content ol {
-  text-align: right;
-  padding-right: 1.2em; /* Platz für die Marker rechts */
-  list-style-position: inside;
-}
-
-/* Gerade rechts, Text linksbündig, Marker links neben Content */
-.timeline li:nth-child(even) {
-  grid-column: 2;
-  justify-content: flex-start;
-  text-align: left;
-  padding-left: 2rem;
-}
-
-/* Marker bei rechts */
-.timeline li:nth-child(even) .timeline-marker {
-  margin-right: 1rem;
-}
-
-
-/* Vertikale Reihenfolge: Grid-Row jedem Element geben */
-.timeline li:nth-child(1) { grid-row: 1; }
-.timeline li:nth-child(2) { grid-row: 2; }
-.timeline li:nth-child(3) { grid-row: 3; }
-.timeline li:nth-child(4) { grid-row: 4; }
-.timeline li:nth-child(5) { grid-row: 5; }
-.timeline li:nth-child(6) { grid-row: 6; }
-  }
-}
-
-.timeline {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  row-gap: 1.5rem; /* weniger Abstand zwischen Reihen */
-  column-gap: 2rem;
-  max-width: 800px;
-  margin: 2rem auto;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  background: #9F4636;
-  transform: translateX(-50%);
-  z-index: 0;
-}
-
-.timeline li {
-  position: relative;
-  list-style: none;
-  display: flex;
-  align-items: flex-start;
-  z-index: 1;
-  margin-top: -0.7rem; /* negative margin für Überlappung */
-}
-
-/* Erster Listeneintrag soll normalen Abstand haben */
-.timeline li:nth-child(1) {
-  margin-top: 0;
-}
-
+/* Marker (Punkte) */
 .timeline-marker {
   width: 16px;
   height: 16px;
@@ -586,15 +498,7 @@ body {
   z-index: 2;
 }
 
-.timeline-content {
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  max-width: 300px;
-}
-
-/* Ungerade links, Text rechtsbündig, Marker rechts neben Content */
+/* Ungerade Elemente (links): Content links, Marker rechts */
 .timeline li:nth-child(odd) {
   grid-column: 1;
   justify-content: flex-end;
@@ -602,20 +506,25 @@ body {
   padding-right: 2rem;
 }
 
-/* Marker bei links */
-.timeline li:nth-child(odd) .timeline-marker {
-  margin-left: 1rem;
+.timeline li:nth-child(odd) .timeline-content {
+  order: 1;
 }
 
-/* Listenpunkte in links-Seiten Text rechts ausrichten */
+.timeline li:nth-child(odd) .timeline-marker {
+  order: 2;
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+/* Listenpunkte im linken Content rechts ausrichten */
 .timeline li:nth-child(odd) .timeline-content ul,
 .timeline li:nth-child(odd) .timeline-content ol {
   text-align: right;
-  padding-right: 1.2em; /* Platz für die Marker rechts */
+  padding-right: 1.2em; /* Platz für Marker rechts */
   list-style-position: inside;
 }
 
-/* Gerade rechts, Text linksbündig, Marker links neben Content */
+/* Gerade Elemente (rechts): Marker links, Content rechts */
 .timeline li:nth-child(even) {
   grid-column: 2;
   justify-content: flex-start;
@@ -623,17 +532,23 @@ body {
   padding-left: 2rem;
 }
 
-/* Marker bei rechts */
 .timeline li:nth-child(even) .timeline-marker {
+  order: 1;
   margin-right: 1rem;
+  margin-left: 0;
 }
 
-/* Vertikale Reihenfolge */
+.timeline li:nth-child(even) .timeline-content {
+  order: 2;
+}
+
+/* Vertikale Reihenfolge für Grid-Row */
 .timeline li:nth-child(1) { grid-row: 1; }
 .timeline li:nth-child(2) { grid-row: 2; }
 .timeline li:nth-child(3) { grid-row: 3; }
 .timeline li:nth-child(4) { grid-row: 4; }
 .timeline li:nth-child(5) { grid-row: 5; }
+.timeline li:nth-child(6) { grid-row: 6; }
 
 /* Mobile Ansicht */
 @media (max-width: 767px) {
@@ -649,9 +564,11 @@ body {
   }
   .timeline-marker {
     margin: 0 1rem 0 0 !important;
+    order: 1 !important;
   }
   .timeline-content {
     max-width: 100%;
+    order: 2 !important;
   }
   .timeline-content ul,
   .timeline-content ol {
@@ -660,6 +577,3 @@ body {
     list-style-position: outside !important;
   }
 }
-
-
-
