@@ -484,44 +484,51 @@ body {
 
 /* Desktop-Version: zweispaltig mit Linie in der Mitte */
 @media (min-width: 768px) {
-    .timeline {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
 
-    .timeline::before {
-        left: 50%;
-        margin-left: -1.5px; /* Linie mittig */
-    }
+  .timeline::before {
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    margin-left: -1.5px; /* Mitte der Linie */
+  }
 
-    .timeline li {
-        margin-bottom: 3rem;
-        display: block;
-    }
+  .timeline li {
+    position: relative;
+    margin-bottom: 3rem;
+    display: block;
+  }
 
-    /* Links / rechts alternieren */
-    .timeline li:nth-child(odd) {
-        grid-column: 1;
-        text-align: right;
-        padding-right: 2rem;
-    }
+  /* Ungerade Schritte links */
+  .timeline li:nth-child(odd) {
+    grid-column: 1;
+    text-align: right;
+    padding-right: 2rem;
+  }
+  .timeline li:nth-child(odd) .timeline-content {
+    display: inline-block;
+  }
+  .timeline li:nth-child(odd) .timeline-marker {
+    position: absolute;
+    top: 1rem;
+    right: -8px; /* 16px Marker halb über Linie */
+  }
 
-    .timeline li:nth-child(odd) .timeline-marker {
-        left: calc(100% + 1rem);
-    }
-
-    .timeline li:nth-child(even) {
-        grid-column: 2;
-        padding-left: 2rem;
-    }
-
-    .timeline li:nth-child(even) .timeline-marker {
-        left: -2rem;
-    }
-
-    .timeline-marker {
-        position: absolute;
-        top: 0.75rem;
-    }
+  /* Gerade Schritte rechts */
+  .timeline li:nth-child(even) {
+    grid-column: 2;
+    text-align: left;
+    padding-left: 2rem;
+  }
+  .timeline li:nth-child(even) .timeline-marker {
+    position: absolute;
+    top: 1rem;
+    left: -8px; /* Marker halb über Linie */
+  }
 }
+
 
