@@ -551,75 +551,33 @@ body {
 .timeline li:nth-child(6) { grid-row: 6; }
 
 /* Mobile Ansicht */
-/* Mobile Ansicht */
 @media (max-width: 767px) {
   .timeline {
-    /* behält das Grid-Layout bei, aber mit nur einer Spalte */
-    grid-template-columns: 1fr;
-    max-width: 100%; /* nutzt die volle mögliche Breite */
-    row-gap: 1rem;
-    column-gap: 0;
-    margin: 1rem auto;
+    display: block;
   }
-  
-  .timeline::before {
-    /* Vertikale Linie in der mobilen Ansicht ausblenden */
-    display: none;
-  }
-  
-  .timeline li {
-    /* Listenelemente sollen die volle Spaltenbreite einnehmen */
-    display: flex;
-    justify-content: flex-start;
-    text-align: left;
+
+    .timeline li {
+    display: flex !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
     align-items: flex-start;
-    padding: 0 1rem 1rem 1rem; /* leichter Abstand links und rechts */
-    margin-top: 0;
+    padding: 0 0 1rem 0 !important;
+    margin-top: 0 !important;
   }
   
-  .timeline li:nth-child(odd),
-  .timeline li:nth-child(even) {
-    /* Ungerade und gerade Elemente sollen gleich behandelt werden */
-    grid-column: 1 / -1; /* nimmt die gesamte Breite der einzelnen Spalte ein */
-    justify-content: flex-start;
-    padding: 0;
-  }
-  
-  /* Marker wieder anzeigen und links positionieren */
+  /* Marker komplett ausblenden */
   .timeline-marker {
-    display: block; /* wieder sichtbar */
-    order: 1; /* platziert den Marker an erster Stelle */
-    margin-right: 1rem;
-    margin-left: 0;
-    top: 0.25rem; /* Leichte Anpassung der Position */
+    display: none !important;
   }
-  
-  .timeline-content {
-    order: 2; /* platziert den Inhalt an zweiter Stelle */
-    max-width: 100%;
-    width: auto; /* passt sich dem verfügbaren Platz an */
-    text-align: left;
+
+.timeline-content {
+    max-width: 100% !important;
+    width: 100% !important; /* nutzt die gesamte verfügbare Breite */
+    text-align: left !important;
   }
-  
-  /* Spezifische Platzierung des Markers in der neuen Flexbox-Struktur */
-  .timeline li:nth-child(odd) .timeline-marker,
-  .timeline li:nth-child(even) .timeline-marker {
-    order: 1;
-    margin-right: 1rem;
-    margin-left: 0;
-  }
-  
-  .timeline li:nth-child(odd) .timeline-content,
-  .timeline li:nth-child(even) .timeline-content {
-    order: 2;
-  }
-  
-  /* Counter initialisieren */
-  .timeline {
-    counter-reset: timeline-counter;
-  }
-  
+
   /* Nummerierung vor Überschrift einfügen */
+  /* Wir nehmen an, dass die Überschrift die erste direkte Kind ist, z.B. h3 oder h4 */
   .timeline-content > h3::before,
   .timeline-content > h4::before,
   .timeline-content > h2::before {
@@ -629,20 +587,15 @@ body {
     left: 0;
     top: 0;
     font-weight: 700;
-    color: #9F4636;
+    color: #9F4636; /* Farbe des Zeitstrahls */
     font-size: 1.2em;
     line-height: 1;
   }
-  
-  /* Listen innerhalb des Contents links ausrichten */
-  .timeline-content ul,
-  .timeline-content ol {
-    text-align: left;
-    padding-right: 0;
-    list-style-position: outside;
-  }
-}
 
+  /* Counter initialisieren */
+  .timeline {
+    counter-reset: timeline-counter;
+  }
 
   /* Listen innerhalb des Contents links ausrichten */
   .timeline-content ul,
