@@ -441,7 +441,7 @@ body {
   list-style: none;
   padding-left: 0;
   margin: 2rem auto;
-  max-width: 800px;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 0,1rem; /* Weniger Abstand für leichtes Überlappen */
@@ -561,7 +561,7 @@ body {
     justify-content: flex-start !important;
     text-align: left !important;
     align-items: flex-start;
-    padding: 0 0 2rem 0 !important;
+    padding: 0 0 1rem 0 !important;
     margin-top: 0 !important;
   }
   
