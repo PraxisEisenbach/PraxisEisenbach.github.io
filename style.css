@@ -600,84 +600,8 @@ body {
   /* Listen innerhalb des Contents links ausrichten */
   .timeline-content ul,
   .timeline-content ol {
-
-
-/* Standard: Desktop zeigt image-strip, Mobile zeigt css-carousel nicht */
-.image-strip {
-  display: flex;
-  gap: 1rem;
-}
-.css-carousel {
-  display: none;
-}
-
-/* --- Mobile-Ansicht: ersetze image-strip durch css-carousel --- */
-@media (max-width: 768px) {
-  .image-strip { display: none !important; }
-  .css-carousel {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0;
-  }
-
-  /* Radios ausblenden */
-  .css-slide-radio { display: none; }
-
-  /* Slides Container */
-  .css-carousel .slides {
-    display: flex;
-    width: 300%;
-    transition: transform 450ms cubic-bezier(.22,.9,.33,1);
-    will-change: transform;
-  }
-
-  /* Jede Slide = volle Breite */
-  .css-carousel .slide {
-    flex: 0 0 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .css-carousel .slide img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  }
-
-  /* Position abhängig von checked Radio */
-  #r1:checked ~ .slides { transform: translateX(0%); }
-  #r2:checked ~ .slides { transform: translateX(-100%); } /* mittleres Bild */
-  #r3:checked ~ .slides { transform: translateX(-200%); }
-
-  /* Navigation Dots */
-  .css-carousel .nav {
-    display: flex;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-top: 0.85rem;
-  }
-  .css-carousel .nav .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.18);
-    cursor: pointer;
-  }
-  #r1:checked ~ .nav label[for="r1"],
-  #r2:checked ~ .nav label[for="r2"],
-  #r3:checked ~ .nav label[for="r3"] {
-    background: #9F4636;
+    text-align: left !important;
+    padding-right: 0 !important;
+    list-style-position: outside !important;
   }
 }
-
-/* --- Desktop-Ansicht --- */
-@media (min-width: 769px) {
-  .image-strip { display: flex; }
-  .css-carousel { display: none; }
-}
-
