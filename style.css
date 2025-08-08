@@ -411,3 +411,19 @@ body {
         transform: none !important;
     }
 }
+
+
+@media (max-width: 768px) {
+    .location-images-wrapper {
+        justify-content: center;
+    }
+
+    .location-images-wrapper .location-image-container:first-child {
+        width: 40% !important;
+        padding-right: 0.5rem;
+    }
+
+    .location-images-wrapper .location-image-container:last-child {
+        width: 60% !important;
+    }
+}
