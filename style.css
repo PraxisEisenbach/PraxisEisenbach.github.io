@@ -561,31 +561,19 @@ body {
     text-align: left !important;
     padding: 0 0 2rem 0 !important;
     margin-top: 0 !important;
-    padding-left: 3rem !important; /* Abstand vom linken Zeitstrahl */
   }
-
-  /* Marker immer links vom Content */
   .timeline-marker {
-    order: 0 !important; /* Marker zuerst */
-    margin: 0 1rem 0 0 !important; /* rechts vom Marker Abstand zum Content */
+    margin: 0 1rem 0 0 !important;
+    order: 1 !important;
   }
-
   .timeline-content {
-    order: 1 !important; /* Content danach */
     max-width: 100%;
+    order: 2 !important;
   }
-
   .timeline-content ul,
   .timeline-content ol {
     text-align: left !important;
     padding-right: 0 !important;
     list-style-position: outside !important;
   }
-
-  /* Zeitstrahl links statt Mitte */
-  .timeline::before {
-    left: 1rem;
-    transform: none;
-  }
 }
-
