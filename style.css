@@ -539,5 +539,127 @@ body {
   }
 }
 
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  row-gap: 1.5rem; /* weniger Abstand zwischen Reihen */
+  column-gap: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: #9F4636;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline li {
+  position: relative;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  z-index: 1;
+  margin-top: -0.7rem; /* negative margin für Überlappung */
+}
+
+/* Erster Listeneintrag soll normalen Abstand haben */
+.timeline li:nth-child(1) {
+  margin-top: 0;
+}
+
+.timeline-marker {
+  width: 16px;
+  height: 16px;
+  background: #9F4636;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  top: 0.5rem;
+  z-index: 2;
+}
+
+.timeline-content {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  max-width: 300px;
+}
+
+/* Ungerade links, Text rechtsbündig, Marker rechts neben Content */
+.timeline li:nth-child(odd) {
+  grid-column: 1;
+  justify-content: flex-end;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+/* Marker bei links */
+.timeline li:nth-child(odd) .timeline-marker {
+  margin-left: 1rem;
+}
+
+/* Listenpunkte in links-Seiten Text rechts ausrichten */
+.timeline li:nth-child(odd) .timeline-content ul,
+.timeline li:nth-child(odd) .timeline-content ol {
+  text-align: right;
+  padding-right: 1.2em; /* Platz für die Marker rechts */
+  list-style-position: inside;
+}
+
+/* Gerade rechts, Text linksbündig, Marker links neben Content */
+.timeline li:nth-child(even) {
+  grid-column: 2;
+  justify-content: flex-start;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+/* Marker bei rechts */
+.timeline li:nth-child(even) .timeline-marker {
+  margin-right: 1rem;
+}
+
+/* Vertikale Reihenfolge */
+.timeline li:nth-child(1) { grid-row: 1; }
+.timeline li:nth-child(2) { grid-row: 2; }
+.timeline li:nth-child(3) { grid-row: 3; }
+.timeline li:nth-child(4) { grid-row: 4; }
+.timeline li:nth-child(5) { grid-row: 5; }
+
+/* Mobile Ansicht */
+@media (max-width: 767px) {
+  .timeline {
+    display: block;
+  }
+  .timeline li {
+    display: flex !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 0 0 2rem 0 !important;
+    margin-top: 0 !important;
+  }
+  .timeline-marker {
+    margin: 0 1rem 0 0 !important;
+  }
+  .timeline-content {
+    max-width: 100%;
+  }
+  .timeline-content ul,
+  .timeline-content ol {
+    text-align: left !important;
+    padding-right: 0 !important;
+    list-style-position: outside !important;
+  }
+}
+
 
 
