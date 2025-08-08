@@ -109,15 +109,23 @@
           margin-left: 0 !important;
           margin-right: 0 !important;
       }
-.carousel img {
+      .carousel img {
           flex: 0 0 80%;           /* Slide nimmt 80% der Viewport-Breite ein */
           width: 100% !important;  /* zwingt das Bild, die Slide-Fläche zu füllen */
           height: auto;
           display: block;
           scroll-snap-align: center;
-          -ms-scroll-snap-align: center;
-          object-fit: cover;       /* schneidet bei Bedarf sauber */
+          object-fit: cover;
           border-radius: 8px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* Dynamischer Effekt: Scale + starker Schatten bei Hover/Active */
+      .carousel img:hover,
+      .carousel img:active {
+          transform: scale(1.05);
+          box-shadow: 0 8px 25px rgba(0,0,0,0.35);
       }
         
 /* Desktop (ab 769px) bleibt visuell so wie vorher */
@@ -355,6 +363,7 @@
     </script>
 </body>
 </html>
+
 
 
 
