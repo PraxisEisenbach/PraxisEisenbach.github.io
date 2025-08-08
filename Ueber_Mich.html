@@ -78,18 +78,81 @@
     
     <section class="container mx-auto p-8 mt-10 rounded-lg shadow-lg section-light-brown">
         <h2 class="main-section-heading">Über mich</h2>
+<style>
+/* Mobile-Karussell (nur unter 768px) */
+@media (max-width: 768px) {
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 0 10%; /* Platz links/rechts */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
 
-        <div class="image-strip">
-            <div class="image-wrapper">
-                <img src="Haende2.jpeg" alt="Hände">
-            </div>
-            <div class="image-wrapper middle-image">
-                <img src="Haende.jpeg" alt="Zwei haltende Hände">
-            </div>
-            <div class="image-wrapper">
-                <img src="Fuesse.jpeg" alt="Füße">
-            </div>
-        </div>
+  .carousel > * {
+    flex: 0 0 80%;           /* Jedes Bild nimmt 80% Breite ein */
+    scroll-snap-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  .carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Scrollbar */
+  .carousel {
+    scrollbar-width: thin;
+  }
+  .carousel::-webkit-scrollbar {
+    height: 8px;
+  }
+  .carousel::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.18);
+  }
+
+  /* Reihenfolge umsortieren, damit beim Laden das mittlere Bild in der Mitte steht */
+  .carousel .middle {
+    order: 2; /* Mittleres Bild */
+  }
+  .carousel .left {
+    order: 1; /* Linkes Bild */
+  }
+  .carousel .right {
+    order: 3; /* Rechtes Bild */
+  }
+}
+
+/* Desktop: normaler image-strip */
+@media (min-width: 769px) {
+  .carousel {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .carousel > * {
+    flex: none;
+    width: auto;
+    box-shadow: none;
+  }
+}
+</style>
+
+<!-- HTML-Struktur: Mittleres Bild zuerst, Reihenfolge wird mobil umsortiert -->
+<div class="carousel">
+  <div class="middle"><img src="Haende.jpeg" alt="Zwei haltende Hände"></div>
+  <div class="left"><img src="Haende2.jpeg" alt="Hände"></div>
+  <div class="right"><img src="Fuesse.jpeg" alt="Füße"></div>
+</div>
+
 
         <div class="accordion-item mb-4">
             <button class="accordion-title-button flex items-center justify-between" aria-expanded="false" aria-controls="content-mein-stil">
@@ -329,3 +392,4 @@
     </script>
 </body>
 </html>
+
