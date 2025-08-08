@@ -398,17 +398,36 @@ body {
     object-fit: contain;
 }
 
-/* Responsive Anpassungen für den Bildstreifen */
+/* ====== Mobile Karussell-Version ====== */
 @media (max-width: 768px) {
     .image-strip {
-        flex-direction: column;
-        gap: 1.5rem;
+        overflow: hidden;
+        width: 100%;
     }
-    .image-strip .image-wrapper,
-    .image-strip .image-wrapper.middle-image {
-        width: 80%;
-        max-width: 400px;
-        transform: none !important;
+
+    /* Damit die Bilder nebeneinander liegen */
+    .image-strip {
+        display: flex;
+        animation: slide 9s infinite;
+    }
+
+    .image-wrapper {
+        flex: 0 0 100%; /* jedes Bild nimmt 100% Breite ein */
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @keyframes slide {
+        0%   { transform: translateX(0%); }
+        33%  { transform: translateX(0%); }
+        44%  { transform: translateX(-100%); }
+        77%  { transform: translateX(-100%); }
+        88%  { transform: translateX(-200%); }
+        100% { transform: translateX(-200%); }
     }
 }
 
