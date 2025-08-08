@@ -419,11 +419,16 @@ body {
     }
 
     .location-images-wrapper .location-image-container:first-child {
-        width: 40% !important;
+        width: 25% !important;
         padding-right: 0.5rem;
     }
 
     .location-images-wrapper .location-image-container:last-child {
-        width: 60% !important;
+        width: 75% !important;
+
+  /* Bilder selbst sollen volle Containerbreite nutzen */
+    .location-image {
+        width: 100% !important;
+        height: auto;       
     }
 }
