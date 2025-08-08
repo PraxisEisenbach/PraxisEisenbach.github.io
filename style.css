@@ -432,3 +432,96 @@ body {
         height: auto;       
     }
 }
+
+
+    /* Grundlayout Timeline */
+.timeline {
+    position: relative;
+    list-style: none;
+    padding-left: 0;
+    margin: 2rem 0;
+}
+
+/* Vertikale Linie */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #9F4636; /* deine Hauptfarbe */
+    left: 20px; /* Position für Marker */
+}
+
+/* Jedes Listenelement */
+.timeline li {
+    position: relative;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Marker (Kreis) */
+.timeline-marker {
+    width: 16px;
+    height: 16px;
+    background: #9F4636;
+    border-radius: 50%;
+    position: relative;
+    top: 4px;
+    margin-right: 1rem;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+/* Inhalt */
+.timeline-content {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Desktop-Version: zweispaltig mit Linie in der Mitte */
+@media (min-width: 768px) {
+    .timeline {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .timeline::before {
+        left: 50%;
+        margin-left: -1.5px; /* Linie mittig */
+    }
+
+    .timeline li {
+        margin-bottom: 3rem;
+        display: block;
+    }
+
+    /* Links / rechts alternieren */
+    .timeline li:nth-child(odd) {
+        grid-column: 1;
+        text-align: right;
+        padding-right: 2rem;
+    }
+
+    .timeline li:nth-child(odd) .timeline-marker {
+        left: calc(100% + 1rem);
+    }
+
+    .timeline li:nth-child(even) {
+        grid-column: 2;
+        padding-left: 2rem;
+    }
+
+    .timeline li:nth-child(even) .timeline-marker {
+        left: -2rem;
+    }
+
+    .timeline-marker {
+        position: absolute;
+        top: 0.75rem;
+    }
+}
+
