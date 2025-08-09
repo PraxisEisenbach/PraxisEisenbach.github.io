@@ -569,17 +569,8 @@ body {
 /* Mobile Ansicht */
 @media (max-width: 767px) {
   .timeline {
-    display: grid;
-    grid-template-columns: 1fr; /* Eine Spalte, volle Breite */
-    width: 100%;
+    display: block;
   }
-
-.timeline-content {
-    max-width: 100% !important;
-    width: 100% !important; /* nutzt die gesamte verfügbare Breite */
-    text-align: left !important;
-  }
-
 
     .timeline li {
     display: flex !important;
@@ -595,6 +586,11 @@ body {
     display: none !important;
   }
 
+.timeline-content {
+    max-width: 100% !important;
+    width: 100% !important; /* nutzt die gesamte verfügbare Breite */
+    text-align: left !important;
+  }
 
   /* Nummerierung vor Überschrift einfügen */
   /* Wir nehmen an, dass die Überschrift die erste direkte Kind ist, z.B. h3 oder h4 */
@@ -624,8 +620,4 @@ body {
     padding-right: 0 !important;
     list-style-position: outside !important;
   }
-.timeline li.after-end {
-  display: none !important;
-}
-
 }
