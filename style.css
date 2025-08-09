@@ -417,16 +417,26 @@ body {
     scrollbar-width: none;
   }
 
+    /* Damit mittleres Bild beim Laden in der Mitte steht */
+    scroll-padding-left: 25vw; /* entspricht der Breite des linken Bildes */
+  }
+    
   .image-strip::-webkit-scrollbar { display: none; }
 
-  /* Jede Slide nimmt die volle Breite ein.
-     Verwende `100%` wenn dein .image-strip KEIN padding hat,
-     ansonsten `100vw` (mit Vorsicht wegen vertikaler Scrollbar). */
-  .image-wrapper {
-    flex: 0 0 100%;
-    min-width: 100%;
-    scroll-snap-align: start;   /* start macht swipen zu beiden Seiten zuverlässig */
+ .image-wrapper {
+    flex-shrink: 0;
+    scroll-snap-align: start;
     box-sizing: border-box;
+  }
+
+  /* Linkes & rechtes Bild schmal */
+  .image-wrapper:not(.middle-image) {
+    width: 25vw; /* entspricht 25% der Viewportbreite */
+  }
+
+  /* Mittleres Bild breit */
+  .image-wrapper.middle-image {
+    width: 50vw;
   }
 
   .image-wrapper img {
