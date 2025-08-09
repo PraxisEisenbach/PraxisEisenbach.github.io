@@ -401,11 +401,19 @@ body {
 
 
 /* --- Mobile: reines CSS Karussell (kein JS) --- */
+/* --- Mobile: verbessertes CSS-Karussell (kein JS) --- */
 @media (max-width: 768px) {
   .image-strip {
+    /* anpassen: --mid-w = Breite des mittleren Bildes; --side-w = Breite der Seitenbilder; --slide-gap = Abstand */
+    --mid-w: 86vw;
+    --side-w: 64vw;
+    --slide-gap: 4vw;
+
     display: flex;
-    gap: 0;
-    padding: 0;
+    gap: var(--slide-gap);
+    /* Padding links/rechts so, dass das erste (visuell: mittlere) Slide beim Laden zentriert ist */
+    padding-left: calc((100vw - var(--mid-w)) / 2);
+    padding-right: calc((100vw - var(--mid-w)) / 2);
     margin: 0;
     overflow-x: auto;
     overflow-y: hidden;
@@ -414,40 +422,47 @@ body {
     scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
-
-    /* Startposition – fügt unsichtbaren Platz vor dem ersten Bild hinzu */
-    position: relative;
-  }
-
-  .image-strip::before {
-    content: "";
-    flex: 0 0 25vw; /* Platz für das linke Bild, damit mittleres Bild mittig startet */
+    align-items: center;
+    /* Überschreibt evtl. vorheriges justify-content */
+    justify-content: flex-start;
   }
 
   .image-strip::-webkit-scrollbar { display: none; }
 
-  .image-wrapper {
-    flex-shrink: 0;
-    scroll-snap-align: center;
+  /* Basis für alle Slides (überschreibt Desktop-Regeln, da hier später und mit .image-strip-Spezifizität) */
+  .image-strip .image-wrapper {
+    flex: 0 0 auto;
     box-sizing: border-box;
+    scroll-snap-align: center; /* jedes Slide zentriert einrasten */
+    width: var(--side-w) !important;
+    max-width: none !important;
   }
 
-  /* Linkes & rechtes Bild schmaler */
-  .image-wrapper:not(.middle-image) {
-    width: 25vw;
+  /* Mittleres Bild: groß & beim Laden zuerst sichtbar (wir ordnen für Mobile neu) */
+  .image-strip .image-wrapper.middle-image {
+    order: 0; /* wird in der visuellen Reihenfolge vorgezogen */
+    width: var(--mid-w) !important;
+    max-width: none !important;
   }
 
-  /* Mittleres Bild groß */
-  .image-wrapper.middle-image {
-    width: 80vw; /* groß genug, dass man nur dieses zuerst sieht */
+  /* Die anderen beiden Slides: bewahren DOM-Position (nth-child) aber bekommen Reihenfolge für Mobile */
+  .image-strip .image-wrapper:nth-child(1):not(.middle-image) {
+    order: 1;
+  }
+  .image-strip .image-wrapper:nth-child(3):not(.middle-image) {
+    order: 2;
   }
 
-  .image-wrapper img {
+  /* Bilder füllen ihren Container */
+  .image-strip .image-wrapper img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
+    object-fit: cover;
+    border-radius: 0.5rem;
   }
 }
+
 
 
     /* Grundlayout Timeline */
