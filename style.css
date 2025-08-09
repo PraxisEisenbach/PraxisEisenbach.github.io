@@ -458,7 +458,7 @@ body {
   margin: 2rem auto;
   max-width: 1200px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(510px, 1fr) minmax(510px, 1fr);
   row-gap: -0,6rem; /* Weniger Abstand für leichtes Überlappen */
   column-gap: 1rem;
   position: relative;
@@ -484,8 +484,9 @@ body {
   display: flex;
   align-items: flex-start;
   z-index: 1;
-  margin-top: -0.7rem; /* negative margin für leichtes Überlappen */
+  margin-top: -2rem; /* vorher -0.7rem */ für Überlappen
 }
+
 
 /* Erster Listeneintrag soll normalen Abstand haben */
 .timeline li:nth-child(1) {
@@ -498,7 +499,7 @@ body {
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  max-width: 300px;
+  max-width: 510px;
 }
 
 /* Marker (Punkte) */
