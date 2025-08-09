@@ -399,26 +399,42 @@ body {
     object-fit: contain;
 }
 
-/* Mobile – Karussell */
+
+/* --- Mobile: reines CSS Karussell (kein JS) --- */
 @media (max-width: 768px) {
-    .image-strip {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-    }
+  .image-strip {
+    display: flex;
+    gap: 0;                        /* WICHTIG: kein gap auf Mobile */
+    padding: 0;                    /* sicherstellen, dass kein Padding stört */
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    /* optional: Scroll-Indikator ausblenden */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-    .image-wrapper {
-        flex: 0 0 100%; /* jedes Bild volle Breite */
-        scroll-snap-align: center;
-    }
+  .image-strip::-webkit-scrollbar { display: none; }
 
-    .image-wrapper img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
- }
+  /* Jede Slide nimmt die volle Breite ein.
+     Verwende `100%` wenn dein .image-strip KEIN padding hat,
+     ansonsten `100vw` (mit Vorsicht wegen vertikaler Scrollbar). */
+  .image-wrapper {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: start;   /* start macht swipen zu beiden Seiten zuverlässig */
+    box-sizing: border-box;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
 
     /* Grundlayout Timeline */
 /* Grundlayout Timeline */
