@@ -401,17 +401,16 @@ body {
 
 
 /* --- Mobile: reines CSS Karussell (kein JS) --- */
-/* --- Mobile: verbessertes CSS-Karussell (kein JS) --- */
+/* --- Mobile: CSS-Karussell mit zentriertem Startbild & Dots --- */
 @media (max-width: 768px) {
   .image-strip {
-    /* anpassen: --mid-w = Breite des mittleren Bildes; --side-w = Breite der Seitenbilder; --slide-gap = Abstand */
+    /* Variablen für Größen & Abstände */
     --mid-w: 86vw;
     --side-w: 64vw;
     --slide-gap: 4vw;
 
     display: flex;
     gap: var(--slide-gap);
-    /* Padding links/rechts so, dass das erste (visuell: mittlere) Slide beim Laden zentriert ist */
     padding-left: calc((100vw - var(--mid-w)) / 2);
     padding-right: calc((100vw - var(--mid-w)) / 2);
     margin: 0;
@@ -423,37 +422,31 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     align-items: center;
-    /* Überschreibt evtl. vorheriges justify-content */
     justify-content: flex-start;
   }
 
-  .image-strip::-webkit-scrollbar { display: none; }
+  .image-strip::-webkit-scrollbar {
+    display: none;
+  }
 
-  /* Basis für alle Slides (überschreibt Desktop-Regeln, da hier später und mit .image-strip-Spezifizität) */
+  /* Alle Slides */
   .image-strip .image-wrapper {
     flex: 0 0 auto;
     box-sizing: border-box;
-    scroll-snap-align: center; /* jedes Slide zentriert einrasten */
+    scroll-snap-align: center;
+    max-width: none !important;
+  }
+
+  /* Größen beibehalten */
+  .image-strip .image-wrapper:not(.middle-image) {
     width: var(--side-w) !important;
-    max-width: none !important;
   }
 
-  /* Mittleres Bild: groß & beim Laden zuerst sichtbar (wir ordnen für Mobile neu) */
   .image-strip .image-wrapper.middle-image {
-    order: 0; /* wird in der visuellen Reihenfolge vorgezogen */
     width: var(--mid-w) !important;
-    max-width: none !important;
   }
 
-  /* Die anderen beiden Slides: bewahren DOM-Position (nth-child) aber bekommen Reihenfolge für Mobile */
-  .image-strip .image-wrapper:nth-child(1):not(.middle-image) {
-    order: 1;
-  }
-  .image-strip .image-wrapper:nth-child(3):not(.middle-image) {
-    order: 2;
-  }
-
-  /* Bilder füllen ihren Container */
+  /* Bilder */
   .image-strip .image-wrapper img {
     display: block;
     width: 100%;
@@ -461,7 +454,29 @@ body {
     object-fit: cover;
     border-radius: 0.5rem;
   }
+
+  /* --- Dots unter dem Karussell --- */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .carousel-dots span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+
+  /* Optional: ersten Dot hervorheben als Hinweis auf Startposition */
+  .carousel-dots span:first-child {
+    background-color: #333;
+  }
 }
+
 
 
 
