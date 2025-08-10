@@ -154,9 +154,13 @@ body {
         margin-left: 0;
         margin-right: 0;
         border-radius: 0.5rem; /* oder 0, wenn ganz kantig */
+        }
+
+.accordion-content {
         max-height: none; /* Kein festes Limit auf Mobil */
         overflow: visible; /* Inhalt darf über den Container hinausragen */
     }
+    
 }
 
 
