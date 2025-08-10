@@ -146,6 +146,18 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+@media (max-width: 768px) {
+    .accordion-content-inner {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem; /* ggf. schmaleres Padding für Mobilgeräte */
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0.5rem; /* oder 0, wenn ganz kantig */
+    }
+}
+
+
 /* --- Zusätzliche CSS-Anpassungen für die Startseite (Icons und Bild) --- */
 /* Für die bündige Ausrichtung der Icons im "Mein Angebot in Kürze" Bereich */
 .bg-[#e3a88c] ul li .fas {
