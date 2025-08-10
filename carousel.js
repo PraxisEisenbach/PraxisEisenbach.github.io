@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth > 768) return; // Wenn Desktop, Skript nicht ausführen
+
   const strip = document.querySelector(".image-strip");
   const slides = strip.querySelectorAll(".image-wrapper");
   const dots = document.querySelectorAll(".carousel-dots span");
