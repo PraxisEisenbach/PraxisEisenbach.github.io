@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.psychotherapie-eisenbach.de/index.html</loc>
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.psychotherapie-eisenbach.de/Finden_Sie_Hilfe.html</loc>
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.psychotherapie-eisenbach.de/Ueber_Mich.html</loc>
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.psychotherapie-eisenbach.de/Ihre_Fragen.html</loc>
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.psychotherapie-eisenbach.de/Kontakt.html</loc>
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -34,12 +34,12 @@
     <loc>https://www.psychotherapie-eisenbach.de/datenschutz.html</loc>
     <lastmod>2025-08-13</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://www.psychotherapie-eisenbach.de/impressum.html</loc>
     <lastmod>2025-08-13</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.2</priority>
   </url>
 </urlset>
